@@ -53,8 +53,54 @@
    - 難易度は「教科書の基本問題レベル」を基準
    - つまずきやすい箇所には補足解説を加える
 ## 生成例  
-＊＊＊＊＊＊＊＊＊＊＊＊
-＊＊＊＊＊＊＊＊＊＊＊＊
+【問題】  
+次の図で、三角形 $ABC$ を直線 $\ell$ を対称の軸として対称移動した三角形 $A'B'C'$ を、方眼上に書き入れなさい。
+
+\begin{tikzpicture}[scale=0.55]
+\draw[step=1, color=blue!35, line width=0.3pt] (-6,-5) grid (8,5);
+\draw[line width=1.2pt] (1,-5) -- (1,5) node[above] {$\ell$};
+\coordinate (A) at (-1,2);
+\coordinate (B) at (-5,-1);
+\coordinate (C) at (-2,-4);
+\draw[line width=1.2pt] (A) -- (B) -- (C) -- cycle;
+\filldraw (A) circle (2pt) node[above right] {$A$};
+\filldraw (B) circle (2pt) node[left] {$B$};
+\filldraw (C) circle (2pt) node[below] {$C$};
+\end{tikzpicture}
+
+【解答】  
+三角形 $ABC$ を直線 $\ell$ に対して対称移動すると、次のようになる。
+
+\begin{tikzpicture}[scale=0.55]
+\draw[step=1, color=blue!35, line width=0.3pt] (-6,-5) grid (8,5);
+\draw[line width=1.2pt] (1,-5) -- (1,5) node[above] {$\ell$};
+\coordinate (A) at (-1,2);
+\coordinate (B) at (-5,-1);
+\coordinate (C) at (-2,-4);
+\coordinate (Ap) at (3,2);
+\coordinate (Bp) at (7,-1);
+\coordinate (Cp) at (4,-4);
+\draw[line width=1.2pt] (A) -- (B) -- (C) -- cycle;
+\draw[line width=1.2pt, red] (Ap) -- (Bp) -- (Cp) -- cycle;
+\filldraw (A) circle (2pt) node[above right] {$A$};
+\filldraw (B) circle (2pt) node[left] {$B$};
+\filldraw (C) circle (2pt) node[below] {$C$};
+\filldraw[red] (Ap) circle (2pt) node[above right] {$A'$};
+\filldraw[red] (Bp) circle (2pt) node[right] {$B'$};
+\filldraw[red] (Cp) circle (2pt) node[below] {$C'$};
+\end{tikzpicture}
+
+【解説】  
+ステップ1：対称の軸を確認する。  
+対称移動では、対応する点どうしを結んだ線分が、対称の軸と垂直に交わり、対称の軸によって二等分される。
+
+ステップ2：点 $A,B,C$ から直線 $\ell$ までの距離を数える。  
+方眼を使って、それぞれの点が直線 $\ell$ から横に何マス離れているかを数える。
+
+ステップ3：反対側に同じ距離だけ離れた点を取る。  
+点 $A$ に対応する点を $A'$、点 $B$ に対応する点を $B'$、点 $C$ に対応する点を $C'$ とする。
+
+ステップ4：点 $A',B',C'$ を結ぶ。  
+3つの点を結ぶと、三角形 $ABC$ を直線 $\ell$ に対して対称移動した三角形 $A'B'C'$ ができる。
 
 以上、生成例
-
