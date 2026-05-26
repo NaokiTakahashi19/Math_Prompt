@@ -55,6 +55,15 @@
 ## 生成例  
 $y=-2x$を座標平面に書き入れなさい。
 
+\begin{tikzpicture}[scale=0.45]
+\draw[step=1, color=blue!35, line width=0.3pt] (-6,-6) grid (6,6);
+\draw[->, color=blue!80!black, line width=1pt] (-6.3,0) -- (6.5,0) node[right] {$x$};
+\draw[->, color=blue!80!black, line width=1pt] (0,-6.3) -- (0,6.5) node[above] {$y$};
+\node[below left] at (0,0) {$O$};
+\node[below] at (5,0) {$5$};
+\node[below] at (-5,0) {$-5$};
+\node[left] at (0,5) {$5$};
+\node[left] at (0,-5) {$-5$};
+\end{tikzpicture}
 
 以上、生成例
-
