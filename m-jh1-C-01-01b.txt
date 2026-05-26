@@ -53,8 +53,31 @@
    - 難易度は「教科書の基本問題レベル」を基準
    - つまずきやすい箇所には補足解説を加える
 ## 生成例  
-＊＊＊＊＊＊＊＊＊＊＊＊
-＊＊＊＊＊＊＊＊＊＊＊＊
+■問題1
+次の図形は、直線・線分・半直線のうちどれですか？
+
+\begin{tikzpicture}[scale=1]
+\draw[<->, line width=1pt] (-2.5,0) -- (2.5,0);
+\filldraw (-1.2,0) circle (1.5pt) node[below] {$A$};
+\filldraw (1.2,0) circle (1.5pt) node[below] {$B$};
+\end{tikzpicture}
+
+■問題2
+次の図形は、直線・線分・半直線のうちどれですか？
+
+\begin{tikzpicture}[scale=1]
+\draw[line width=1pt] (-2,0) -- (2,0);
+\filldraw (-2,0) circle (2pt) node[below] {$A$};
+\filldraw (2,0) circle (2pt) node[below] {$B$};
+\end{tikzpicture}
+
+■問題3
+次の図形は、直線・線分・半直線のうちどれですか？
+
+\begin{tikzpicture}[scale=1]
+\draw[->, line width=1pt] (-2,0) -- (2.5,0);
+\filldraw (-2,0) circle (2pt) node[below] {$A$};
+\filldraw (0.5,0) circle (1.5pt) node[below] {$B$};
+\end{tikzpicture}
 
 以上、生成例
-
