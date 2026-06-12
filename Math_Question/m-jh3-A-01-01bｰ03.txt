@@ -1,0 +1,39 @@
+■問題3  
+次の計算をしなさい。
+\[
+-3xy(2x - 5y + 4)
+\]
+
+【解答】  
+\[
+-6x^2y + 15xy^2 - 12xy
+\]
+
+【解説】  
+ステップ1　分配法則を使って，$-3xy$をかっこの中の各項にかけます。
+\[
+\begin{aligned}
+-3xy(2x - 5y + 4)
+&= (-3xy) \times 2x + (-3xy) \times (-5y) + (-3xy) \times 4
+\end{aligned}
+\]
+
+ステップ2　それぞれの項を計算します。
+\[
+\begin{aligned}
+(-3xy) \times 2x &= -6x^2y\\
+(-3xy) \times (-5y) &= 15xy^2\\
+(-3xy) \times 4 &= -12xy
+\end{aligned}
+\]
+
+ステップ3　計算結果をまとめます。
+\[
+\begin{aligned}
+-3xy(2x - 5y + 4)
+&= -6x^2y + 15xy^2 - 12xy
+\end{aligned}
+\]
+
+間違えやすいポイント  
+$-3xy \times (-5y)$は，負の数どうしの積なので正になります。符号に注意しましょう。
