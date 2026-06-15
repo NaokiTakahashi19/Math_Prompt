@@ -30,7 +30,7 @@
 4. **出力形式**
    - プレーンテキスト形式（テキストファイルとしてダウンロード可能にする）
    - ファイル名：因数分解―共通因数のくくりだし―基礎問題.txt
-##問題レベルの定義
+## 問題レベルの定義
 1. 基礎レベル
    - 教科書例題や章の導入問題（計算・定義確認）
    - 正答率：70〜90％
@@ -62,18 +62,18 @@ ab + bc
 
 【解答】  
 \[
-b(a + c)
+\hlpink{b}(a + c)
 \]
 
 【解説】  
-ステップ1	因数にわける
+**ステップ1：** 因数にわける
 \[
-= a \times b + b \times c
+= a \times \hlpink{b} + \hlpink{b} \times c
 \]
 
-ステップ2	全ての項に共通を因数をさがしてくくりだす。
+**ステップ2：** 全ての項に共通する因数をさがしてくくりだす。
 \[
-= b(a + c)
+= \hlpink{b}(a + c)
 \]
 
 ■問題2
@@ -88,15 +88,14 @@ b(a + c)
 \]
 
 【解説】  
-ステップ1	因数にわける
+**ステップ1：** 因数にわける
 \[
-= 2 \times x \times x \times y + 4 \times x \times y \times y - 2 \times x \times y
+= \hlpink{2} \times \hlpink{x} \times x \times \hlpink{y} + \hlpink{2} \times 2 \times \hlpink{x} \times \hlpink{y} \times y - \hlpink{2} \times \hlpink{x} \times \hlpink{y}
 \]
 
-ステップ2	全ての項に共通を因数をさがしてくくりだす。
+**ステップ2：** 全ての項に共通する因数をさがしてくくりだす。
 \[
-2xy(x + 2y - 2)
+= 2xy(x + 2y - 2)
 \]
 
 以上、生成例
-
