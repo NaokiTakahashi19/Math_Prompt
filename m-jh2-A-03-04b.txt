@@ -72,56 +72,48 @@
 x = -3,\quad y = -4
 \]
 
-【解説】
-この場合、どちらの文字を消すかは「係数の公倍数」の小さい方を使うと計算が楽になります。
-
-* $x$ の係数は $3,4$ で公倍数は $12$
-* $y$ の係数は $5,7$ で公倍数は $35$
-  よって、$x$ を消す方が簡単なので $x$ を消すように両辺を何倍かします。
-
-■ステップ1：それぞれの式を適切な数倍して $x$ の係数をそろえる
-
+【解説】  
+**ステップ1：** 2つの式に番号をつける。
 \[
-\begin{aligned}
-\text{第1式}:\quad &3x -5y = 11 
-\quad\Longrightarrow\quad 4\times(3x -5y) = 4\times 11 
-\quad\Longrightarrow\quad 12x -20y = 44\quad\text{･･･①'}\\
-\text{第2式}:\quad &4x -7y = 16 
-\quad\Longrightarrow\quad (-3)\times(4x -7y) = (-3)\times16 
-\quad\Longrightarrow\quad -12x +21y = -48\quad\text{･･･②'}
-\end{aligned}
+\begin{alignedat}{2}
+3x-5y &= 11 &\quad&\text{･･･①}\\
+4x-7y &= 16 &\quad&\text{･･･②}
+\end{alignedat}
 \]
 
-■ステップ2：①'＋②' で $x$ を消す
-
+**ステップ2：** $x$ の係数をそろえるために、①を $4$ 倍、②を $3$ 倍する。
 \[
-\begin{array}{r@{\;}r@{\;}r@{\;}r@{\;}r}
-  & 12x & -20y & = & 44\\
-+)& -12x & +21y & = & -48\\\hline
-  & 0x & +y & = & -4
+\begin{array}{r@{\quad}r@{\;}r@{\;}r@{\;}r}
+\text{①}\times4 & 12x & -\,20y & = & 44\\
+\text{②}\times3 & 12x & -\,21y & = & 48
 \end{array}
 \]
 
+**ステップ3：** 2つの式を引いて、$x$ を消す。
 \[
-(12x -12x) + (-20y +21y) = 44 + (-48)
-\quad\Longrightarrow\quad
-y = -4
+\begin{array}{r@{\;}r@{\;}r@{\;}r}
+   12x & -\,20y & = & 44\\
+-)\;12x & -\,21y & = & 48\\\hline
+        & y & = & -4
+\end{array}
 \]
 
-■ステップ3：求めた $y=-4$ を元の式のどちらかに代入して $x$ を求める
-今回は第2式に代入する：
-
+したがって、
 \[
-4x -7(-4) = 16
-\quad\Longrightarrow\quad
-4x +28 = 16
-\quad\Longrightarrow\quad
-4x = -12
-\quad\Longrightarrow\quad
-x = -3
+y=-4
 \]
 
-よって、よって、この連立方程式の解は
+**ステップ4：** $y=-4$ を②に代入して、$x$ を求める。
+\[
+\begin{aligned}
+4x-7(-4)&=16\\
+4x+28&=16\\
+4x&=-12\\
+x&=-3
+\end{aligned}
+\]
+
+よって、この連立方程式の解は
 
 \[
 x = -3,\quad y = -4
@@ -144,63 +136,48 @@ x = -3,\quad y = -4
 x = \frac{7}{17},\quad y = \frac{4}{17}
 \]
 
-【解説】
-この連立方程式は、x,yどちらかの文字を消すためにそれぞれの式を何倍かしてから加減する方法を使います。
-消す文字は、係数の公倍数を比べて「小さい方」を選ぶと計算が楽です。
-
-■ステップ1：消す文字を決める
-
-* $x$ の係数は $8,5$ で公倍数は $40$
-* $y$ の係数は $3,4$ で公倍数は $12$
-
-$\Rightarrow$ 公倍数が小さい $y$ を消す。
-
-■ステップ2：それぞれの式を適当な数倍して $y$ の係数をそろえる
-
+【解説】  
+**ステップ1：** 2つの式に番号をつける。
 \[
-\begin{aligned}
-4\times(8x + 3y) &= 4\times 4 
-\quad\Longrightarrow\quad
-32x + 12y = 16\quad\text{･･･①'}\\
--3\times(5x + 4y) &= -3\times 3 
-\quad\Longrightarrow\quad
--15x -12y = -9\quad\text{･･･②'}
-\end{aligned}
+\begin{alignedat}{2}
+8x+3y &= 4 &\quad&\text{･･･①}\\
+5x+4y &= 3 &\quad&\text{･･･②}
+\end{alignedat}
 \]
 
-■ステップ3：①'＋②' をして $y$ を消す
-
+**ステップ2：** $y$ の係数をそろえるために、①を $4$ 倍、②を $3$ 倍する。
 \[
-\begin{array}{r@{\;}r@{\;}r@{\;}r@{\;}r}
-  & 32x & +\,12y & = & 16\\
-+) & -15x & -\,12y & = & -9\\\hline
-  & 17x & +\,0y & = & 7
+\begin{array}{r@{\quad}r@{\;}r@{\;}r@{\;}r}
+\text{①}\times4 & 32x & +\,12y & = & 16\\
+\text{②}\times3 & 15x & +\,12y & = & 9
 \end{array}
 \]
 
+**ステップ3：** 2つの式を引いて、$y$ を消す。
 \[
-(32x -15x) + (12y -12y) = 16 + (-9)
-\quad\Longrightarrow\quad
-17x = 7
-\quad\Longrightarrow\quad
-x = \frac{7}{17}
+\begin{array}{r@{\;}r@{\;}r@{\;}r}
+   32x & +\,12y & = & 16\\
+-)\;15x & +\,12y & = & 9\\\hline
+   17x &        & = & 7
+\end{array}
 \]
 
-■ステップ4：求めた $x=\dfrac{7}{17}$ を元の式のどちらかに代入して $y$ を求める
-ここでは第1式に代入する：
-
+したがって、
 \[
-8\times\frac{7}{17} + 3y = 4
+17x=7
 \quad\Longrightarrow\quad
-\frac{56}{17} + 3y = 4
-\quad\Longrightarrow\quad
-3y = 4 - \frac{56}{17}
-= \frac{68}{17} - \frac{56}{17}
-= \frac{12}{17}
-\quad\Longrightarrow\quad
-y = \frac{12}{17} \div 3
-= \frac{12}{17} \cdot \frac{1}{3}
-= \frac{4}{17}
+x=\frac{7}{17}
+\]
+
+**ステップ4：** $x=\frac{7}{17}$ を①に代入して、$y$ を求める。
+\[
+\begin{aligned}
+8\times\frac{7}{17}+3y&=4\\
+\frac{56}{17}+3y&=4\\
+3y&=4-\frac{56}{17}\\
+3y&=\frac{12}{17}\\
+y&=\frac{4}{17}
+\end{aligned}
 \]
 
 よって、この連立方程式の解は
@@ -208,8 +185,6 @@ y = \frac{12}{17} \div 3
 \[
 x = \frac{7}{17},\quad y = \frac{4}{17}
 \]
-
-（確認：元の式に代入すると両方とも成立する。）
 
 問題サンプルと出力形式、ここまで
 
