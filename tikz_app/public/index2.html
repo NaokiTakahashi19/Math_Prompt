@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TikZ Renderer</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    header {
+      padding: 10px 20px;
+      background-color: #f5f5f5;
+      border-bottom: 1px solid #ddd;
+    }
+    .container {
+      flex: 1;
+      display: flex;
+      overflow: hidden;
+    }
+    textarea {
+      width: 50%;
+      height: 100%;
+      border: none;
+      padding: 15px;
+      box-sizing: border-box;
+      resize: none;
+      font-family: "Courier New", monospace;
+      font-size: 14px;
+      border-right: 1px solid #ddd;
+    }
+    #output {
+      width: 50%;
+      padding: 15px;
+      overflow: auto;
+      /* Markdown の出力は HTML タグとして挿入されるため、改行や空白の処理は標準のままにします。*/
+      white-space: normal;
+    }
+    .actions {
+      padding: 10px;
+      border-top: 1px solid #ddd;
+      background-color: #fafafa;
+    }
+    button {
+      padding: 6px 12px;
+      font-size: 14px;
+    }
+
+    /* Each rendered segment (TikZ SVG, graph SVG or Markdown) is placed
+       in its own block with a bit of spacing below to prevent overlapping. */
+    .segment {
+      margin-bottom: 20px;
+    }
+/* TikZ/graf の “直下の” SVG だけ中央寄せ（MathJaxのSVGは除外） */
+#output .segment > svg {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* MathJax (SVG) の表示モードを明示して念のための保険 */
+mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+mjx-container[jax="SVG"]:not([display="true"]) {
+  display: inline-block;
+  vertical-align: -0.2em;
+  margin: 0 .1em;
+}
+  </style>
+
+  <!-- MathJax configuration and loader.  This enables in-browser rendering
+       of LaTeX mathematics.  Inline math is delimited by $...$ and \(...\).
+       Display math may be delimited by $$...$$ or \[...\].  We use the
+       SVG output so that formulas appear crisp and scalable.  See
+       https://docs.mathjax.org for details. -->
+	   <script>
+  window.MathJax = {
+    tex: {
+      // インラインは $...$ のみ
+      inlineMath: [['$', '$']],
+      // ディスプレイは \[...\] のみ（$$ は無効化）
+      displayMath: [['\\[','\\]']],
+      processEscapes: true,
+      processEnvironments: true
+    },
+    svg: { fontCache: 'global' },
+    options: {
+      skipHtmlTags: { '[-]': ['script', 'noscript', 'style', 'textarea', 'pre'] }
+    }
+  };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" async></script>
+  <!-- Markdown parser (marked) and sanitizer (DOMPurify) -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/dompurify/dist/purify.min.js" defer></script>
+</head>
+<body>
+  <header>
+    <h1>TikZ 図形レンダラー</h1>
+    <p>左側にTikZコードを入力し、「レンダリング」ボタンを押すと、右側に結果が表示されます。</p>
+  </header>
+  <div class="container">
+    <textarea id="tikz-input" spellcheck="false">% サンプル: TikZ, グラフ, 平文, LaTeX 数式, Markdown の例です
+\begin{tikzpicture}[>=latex]
+  % 原点共通の図形サンプル
+  \draw (0,0) circle (1); % 半径1の円
+  \draw (0,0) -- (60:2) arc (60:0:2) -- cycle; % 半径2・中心角60°のおうぎ形
+  % 30°-60°-90°の直角三角形（高さ1）
+  \draw (3,0) -- (3+1.732,0) -- (3,1) -- cycle;
+  % 高さ1の長方形
+  \draw (0,-1) rectangle (2,-2);
+  % 台形
+  \draw (3,-1) -- (4,-2) -- (6,-2) -- (5,-1) -- cycle;
+  % 長さ2の直線と45°で交わる長さ1.5の直線
+  \draw (0,2) -- (2,2);
+  \draw (1,2) -- ++(45:1.5);
+\end{tikzpicture}
+
+\begin{graf}
+% グラフ環境の書式:
+%   X=a,b       : x 軸の範囲を指定
+%   Y=c,d       : y 軸の範囲を指定
+%   H=n , W=m   : 縦横の目盛り数 (hUnits, wUnits)
+%   Axis=p,q    : 軸の位置 (下から p 目盛り, 左から q 目盛り)
+%   scales=n    : 主要目盛り線の間隔を指定
+%   Scale_grid_color=color : 方眼 1 刻み線の色を指定
+%   y = expr,color,label   : 関数 expr を色とラベル付きで描画
+%   (x,y),color,label      : 座標 (x,y) に点を描画
+X=-3,4
+Y=-2,5
+y = \frac{1}{2}x^2,red,$y=\tfrac{1}{2}x^2$
+y = 3x + \frac{1}{2},blue,$y=3x+\tfrac{1}{2}$
+(3, 4),magenta,A
+Scale_grid_color = cyan
+scales = 2
+\end{graf}
+
+こんにちは、**Markdown** の *例* です！
+
+$x$ はインライン数式の例です。
+
+$$
+\frac{1}{3}
+$$
+
+\[
+\frac{1}{3}
+\]
+</textarea>
+    <div id="output">レンダリング結果がこちらに表示されます。</div>
+  </div>
+  <div class="actions">
+    <button id="render-btn">レンダリング</button>
+    <span id="status" style="margin-left: 10px; color: #888;"></span>
+  </div>
+  <script>
+    /**
+     * エスケープ処理を行い、入力文字列を安全な HTML として返します。
+     * 数式内の LaTeX コードはそのまま出力したいので、記号のうち数式に
+     * 影響しないもの (&,<,>) だけをエスケープします。改行は<br>に変換します。
+     */
+    function escapeForHtml(str) {
+      // Escape special HTML characters.  Do NOT replace newlines with
+      // <br> because MathJax formulas often span multiple lines (e.g.
+      // $$\n...\n$$).  Newlines will be preserved via CSS (white-space: pre-wrap).
+      return str
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;');
+    }
+
+    /**
+     * 与えられた文字列を TikZ セグメント、グラフセグメント、その他のテキストセグメントに分割する。
+     * TikZ セグメントは \begin{tikzpicture} ... \end{tikzpicture} にマッチ。
+     * グラフセグメントは \begin{graf} ... \end{graf} にマッチ。
+     * テキストセグメントにはこれら以外の部分が入る。
+     * 戻り値は入力順序を保持したオブジェクトの配列です。
+     */
+    function splitIntoSegments(text) {
+      const segments = [];
+      let pos = 0;
+      while (pos < text.length) {
+        const tikzStart = text.indexOf('\\begin{tikzpicture}', pos);
+        const grafStart = text.indexOf('\\begin{graf}', pos);
+        let nextStart = -1;
+        let envType = null;
+        // 汎用的に tikz と graf のうち近い方を選択
+        if (tikzStart !== -1 && (grafStart === -1 || tikzStart < grafStart)) {
+          nextStart = tikzStart;
+          envType = 'tikz';
+        } else if (grafStart !== -1) {
+          nextStart = grafStart;
+          envType = 'graf';
+        }
+        if (nextStart === -1) {
+          break;
+        }
+        // 環境の前にテキストがあれば格納
+        if (nextStart > pos) {
+          segments.push({ type: 'text', content: text.slice(pos, nextStart) });
+        }
+        // 環境の終了タグを探す
+        let endTag;
+        if (envType === 'tikz') {
+          endTag = '\\end{tikzpicture}';
+        } else {
+          endTag = '\\end{graf}';
+        }
+        const endIndex = text.indexOf(endTag, nextStart);
+        if (endIndex === -1) {
+          // 終端が見つからない場合は残り全部をテキストとして追加して終了
+          segments.push({ type: 'text', content: text.slice(nextStart) });
+          pos = text.length;
+          break;
+        }
+        const envContent = text.slice(nextStart, endIndex + endTag.length);
+        if (envType === 'tikz') {
+          segments.push({ type: 'tikz', code: envContent });
+        } else {
+          segments.push({ type: 'graf', code: envContent });
+        }
+        pos = endIndex + endTag.length;
+      }
+      if (pos < text.length) {
+        segments.push({ type: 'text', content: text.slice(pos) });
+      }
+      return segments;
+    }
+
+    /**
+     * グラフ環境の内容を解析してSVGを生成する関数。
+     *
+     * 使用例:
+     * \begin{graf}
+     * X=-3,4
+     * Y=-2,5
+     * y = \frac{1}{2}x^2,red
+     * y = 3x + \frac{1}{2},blue
+     * \end{graf}
+     *
+     * 指定しない場合はデフォルト範囲 [-5,5]×[-5,5] とします。色の指定がない場合は青になります。
+     */
+    function renderGraf(grafCode) {
+      // ヘッダとフッタを取り除く
+      let body = grafCode.replace(/\\begin\{graf\}/, '').replace(/\\end\{graf\}/, '').trim();
+      const lines = body.split(/\r?\n/).map(l => l.trim()).filter(l => l.length > 0);
+      let xRange = [-5, 5];
+      let yRange = [-5, 5];
+      const functions = [];
+      const points = [];
+      let gridScale = 0;
+      // 1点目: 方眼グリッドの色指定 (Scale_grid_color). デフォルトは薄いグレー
+      let gridColor = '#eee';
+      // 新しい指定: 座標平面の縦横単位 (hUnits, wUnits) と軸位置 (axisXUnits, axisYUnits)
+      // hUnits は縦方向の目盛り数、wUnits は横方向の目盛り数。
+      // axisXUnits は下からの目盛り数 (x 軸の位置)、axisYUnits は左からの目盛り数 (y 軸の位置)。
+      let hUnits;
+      let wUnits;
+      let axisXUnits;
+      let axisYUnits;
+      for (const line of lines) {
+        // X=... 行
+        if (/^X\s*=/.test(line)) {
+          const parts = line.split('=');
+          if (parts.length >= 2) {
+            const range = parts[1].split(',').map(v => parseFloat(v.trim()));
+            if (range.length === 2 && !range.some(isNaN)) {
+              xRange = [range[0], range[1]];
+            }
+          }
+        } else if (/^Y\s*=/.test(line)) {
+          const parts = line.split('=');
+          if (parts.length >= 2) {
+            const range = parts[1].split(',').map(v => parseFloat(v.trim()));
+            if (range.length === 2 && !range.some(isNaN)) {
+              yRange = [range[0], range[1]];
+            }
+          }
+        } else {
+          // scale 行: scale=2 または scales=2
+          if (/^scales?\s*=/.test(line)) {
+            const parts = line.split('=');
+            if (parts.length >= 2) {
+              const val = parseInt(parts[1].trim(), 10);
+              if (!isNaN(val) && val > 0) {
+                gridScale = val;
+              }
+            }
+            continue;
+          }
+          // グリッド線の色指定 (Scale_grid_color=...)
+          if (/^scale_grid_color\s*=|^Scale_grid_color\s*=/i.test(line)) {
+            const partsC = line.split('=');
+            if (partsC.length >= 2) {
+              const col = partsC[1].trim();
+              if (col) {
+                gridColor = col;
+              }
+            }
+            continue;
+          }
+          // 新しい指定: H=... または h=... で縦の目盛り数を指定
+          if (/^[Hh]\s*=/.test(line)) {
+            const partsH = line.split('=');
+            if (partsH.length >= 2) {
+              const val = parseFloat(partsH[1].trim());
+              if (!isNaN(val) && val > 0) {
+                hUnits = val;
+              }
+            }
+            continue;
+          }
+          // 新しい指定: W=... または w=... で横の目盛り数を指定
+          if (/^[Ww]\s*=/.test(line)) {
+            const partsW = line.split('=');
+            if (partsW.length >= 2) {
+              const val = parseFloat(partsW[1].trim());
+              if (!isNaN(val) && val > 0) {
+                wUnits = val;
+              }
+            }
+            continue;
+          }
+          // 新しい指定: axis=... または Axis=... で軸位置を指定 (x 軸の位置, y 軸の位置)
+          if (/^[Aa]xis\s*=/.test(line)) {
+            const partsA = line.split('=');
+            if (partsA.length >= 2) {
+              const coords = partsA[1].split(',').map(v => parseFloat(v.trim()));
+              if (coords.length === 2 && !coords.some(isNaN)) {
+                axisXUnits = coords[0];
+                axisYUnits = coords[1];
+              }
+            }
+            continue;
+          }
+          // 行が点指定か関数指定かを判定
+          // 点指定形式: (x,y),color,label
+          if (/^\(.*\)/.test(line)) {
+            const partsPt = line.split(',');
+            const coordMatch = partsPt[0].match(/\(([^,]+)\s*,\s*([^\)]+)\)/);
+            if (coordMatch) {
+              const pxVal = parseFloat(coordMatch[1]);
+              const pyVal = parseFloat(coordMatch[2]);
+              let pColor = 'red';
+              let pLabel = '';
+              if (partsPt.length >= 2) {
+                pColor = partsPt[1].trim() || 'red';
+              }
+              if (partsPt.length >= 3) {
+                pLabel = partsPt.slice(2).join(',').trim();
+              }
+              if (!isNaN(pxVal) && !isNaN(pyVal)) {
+                points.push({ x: pxVal, y: pyVal, color: pColor, label: pLabel });
+              }
+            }
+          } else {
+            // 関数の行: y = ... , color , label
+            const pieces = line.split(',');
+            const exprPart = pieces[0].trim();
+            const col = pieces[1] ? pieces[1].trim() : 'blue';
+            let label = '';
+            if (pieces.length >= 3) {
+              label = pieces.slice(2).join(',').trim();
+            }
+            // 「y = 」を取り除く
+            let expr = exprPart.replace(/^y\s*=\s*/i, '').trim();
+            if (expr.length > 0) {
+              functions.push({ expr, color: col, label });
+            }
+          }
+        }
+      }
+      // 入力された範囲が異常な場合はデフォルト [-5,5]
+      let [xMin, xMax] = xRange;
+      let [yMin, yMax] = yRange;
+      if (!isFinite(xMin) || !isFinite(xMax) || xMin === xMax) {
+        xMin = -5; xMax = 5;
+      }
+      if (!isFinite(yMin) || !isFinite(yMax) || yMin === yMax) {
+        yMin = -5; yMax = 5;
+      }
+      // 全範囲の幅と高さを計算 (後で上書きされる可能性があるので let で定義)
+      let totalX = xMax - xMin;
+      let totalY = yMax - yMin;
+      // 新しい指定 (hUnits, wUnits) が与えられている場合は、
+      // 目盛り数に基づいて数値範囲と軸位置を計算し直す。
+      if (hUnits !== undefined && wUnits !== undefined) {
+        // 軸位置が未指定の場合、現在の数値範囲における原点 (0) の位置から計算する。
+        if (axisXUnits === undefined || isNaN(axisXUnits)) {
+          // yMin〜yMax の範囲における 0 の割合 × hUnits
+          axisXUnits = (0 - yMin) / (yMax - yMin) * hUnits;
+        }
+        if (axisYUnits === undefined || isNaN(axisYUnits)) {
+          axisYUnits = (0 - xMin) / (xMax - xMin) * wUnits;
+        }
+        // 数値範囲を目盛り数ベースで再定義。
+        xMin = -axisYUnits;
+        xMax = wUnits - axisYUnits;
+        yMin = -axisXUnits;
+        yMax = hUnits - axisXUnits;
+        totalX = xMax - xMin; // = wUnits
+        totalY = yMax - yMin; // = hUnits
+      }
+      // 描画領域のサイズを出力コンテナに合わせて決める。
+      // 出力コンテナの幅を取得し、ある程度の余白を除いた領域をグラフに割り当てる。
+      const outputContainer = document.getElementById('output');
+      // 安全のため、出力領域のクライアント幅が取得できなければ 400 とする
+      let outerWidth = 400;
+      if (outputContainer && outputContainer.clientWidth) {
+        // 画面幅の 80% を座標平面用に確保
+        outerWidth = Math.max(300, outputContainer.clientWidth * 0.8);
+      }
+      // グラフ領域の余白 (軸やラベル分)。この余白を引いた幅が座標平面の実際の横幅になります。
+      const marginLeft = 40;
+      const marginRight = 20;
+      const marginTop = 20;
+      const marginBottom = 40;
+      const availableWidth = outerWidth - marginLeft - marginRight;
+      // 縦横比に応じた高さを計算
+      const ratio = (hUnits !== undefined && wUnits !== undefined) ? (hUnits / wUnits) : (totalY / totalX);
+      const availableHeight = availableWidth * ratio;
+      // 外側全体の高さ。座標平面の高さに上下余白を加えます。
+      const outerHeight = availableHeight + marginTop + marginBottom;
+      // x 軸と y 軸の 1 単位あたりのピクセル長さを個別に計算。
+      // ratio が totalY/totalX と一致しない場合 (hUnits/wUnits 指定) には unitX と unitY が異なります。
+      const unitX = availableWidth / totalX;
+      const unitY = availableHeight / totalY;
+      // 軸の数値位置とピクセル位置を計算。
+      // useUnits を判定するために hUnits, wUnits を利用。
+      let axisXVal; // 数値空間での x 軸の y 座標
+      let axisYVal; // 数値空間での y 軸の x 座標
+      if (hUnits !== undefined && wUnits !== undefined) {
+        // 軸位置は hUnits, wUnits 上の比率から計算
+        // 0 行目が底辺、hUnits 行目が上端なので axisXUnits は底辺からの距離
+        axisXVal = yMin + (axisXUnits / hUnits) * totalY;
+        axisYVal = xMin + (axisYUnits / wUnits) * totalX;
+      } else {
+        // 従来通り 0 を軸とする
+        axisXVal = 0;
+        axisYVal = 0;
+      }
+      // 軸のピクセル位置
+      const pyAxis = marginTop + ((yMax - axisXVal) / totalY) * availableHeight;
+      const pxAxis = marginLeft + ((axisYVal - xMin) / totalX) * availableWidth;
+      const parts = [];
+      // ラベル配置のために包み込むコンテナを作成
+      let svgParts = [];
+      svgParts.push(`<svg width="${outerWidth}" height="${outerHeight}" viewBox="0 0 ${outerWidth} ${outerHeight}" xmlns="http://www.w3.org/2000/svg">`);
+      // ラベル用の DIV を蓄積する文字列と位置情報
+      let labelDivs = '';
+      const labelBoxes = [];
+      // ラベル配置関数。既存のラベルと重ならないように縦方向に調整する。
+      function placeLabel(xpx, ypx, text) {
+        if (!text) return;
+        // サニタイズ: DOMPurify が利用可能であれば使用
+        let safeText;
+        if (window.DOMPurify && typeof DOMPurify.sanitize === 'function') {
+          safeText = DOMPurify.sanitize(text);
+        } else {
+          safeText = text;
+        }
+        // 推定サイズ (幅は文字数×8px, 高さは 16px)
+        const width = safeText.length * 8 + 4;
+        const height = 16;
+        let lx = xpx + 5;
+        let ly = ypx - 5 - height;
+        // 上端近い場合は下側に配置
+        if (ly < marginTop) {
+          ly = ypx + 5;
+        }
+        // 右端からはみ出す場合は左側に配置
+        if (lx + width > marginLeft + availableWidth) {
+          lx = xpx - width - 5;
+        }
+        // 左端からはみ出す場合は調整
+        if (lx < marginLeft) {
+          lx = marginLeft;
+        }
+        // 重なりを避ける: 他のラベルボックスと重なる場合は下にずらす
+        function overlaps(box) {
+          return !(lx + width < box.x || lx > box.x + box.w || ly + height < box.y || ly > box.y + box.h);
+        }
+        let collided = true;
+        let attempts = 0;
+        while (collided && attempts < 10) {
+          collided = false;
+          for (const box of labelBoxes) {
+            if (overlaps(box)) {
+              collided = true;
+              break;
+            }
+          }
+          if (collided) {
+            ly += height + 4;
+            // はみ出したら上に戻す
+            if (ly + height > marginTop + availableHeight) {
+              ly = ypx - (height + 4);
+            }
+          }
+          attempts++;
+        }
+        // 最終的なボックスを保存
+        labelBoxes.push({ x: lx, y: ly, w: width, h: height });
+        // ラベルを DIV で配置
+        labelDivs += `<div style="position:absolute; left:${lx}px; top:${ly}px; font-size:12px; white-space:nowrap;">${safeText}</div>`;
+      }
+      // 背景グリッド。Scale_grid_color が指定されている場合は 1 単位ごとにその色で線を描画。
+      // scales (gridScale) が指定されている場合はその間隔で追加の線を描画します。
+      if (gridColor) {
+        // 垂直グリッド線 (1 刻み)
+        const startGX = Math.ceil(xMin);
+        for (let xi = startGX; xi <= xMax; xi++) {
+          const px = marginLeft + ((xi - xMin) / totalX) * availableWidth;
+          svgParts.push(`<line x1="${px}" y1="${marginTop}" x2="${px}" y2="${marginTop + availableHeight}" stroke="${gridColor}" stroke-width="0.5" />`);
+        }
+        // 水平グリッド線 (1 刻み)
+        const startGY = Math.ceil(yMin);
+        for (let yi = startGY; yi <= yMax; yi++) {
+          const py = marginTop + ((yMax - yi) / totalY) * availableHeight;
+          svgParts.push(`<line x1="${marginLeft}" y1="${py}" x2="${marginLeft + availableWidth}" y2="${py}" stroke="${gridColor}" stroke-width="0.5" />`);
+        }
+      }
+      // scales (gridScale) を指定している場合は、その倍数にやや濃い線を重ねる。
+      if (gridScale && gridScale > 0) {
+        const startXVal = Math.ceil(xMin / gridScale) * gridScale;
+        for (let xVal = startXVal; xVal <= xMax; xVal += gridScale) {
+          const px = marginLeft + ((xVal - xMin) / totalX) * availableWidth;
+          svgParts.push(`<line x1="${px}" y1="${marginTop}" x2="${px}" y2="${marginTop + availableHeight}" stroke="${gridColor}" stroke-width="1" />`);
+        }
+        const startYVal = Math.ceil(yMin / gridScale) * gridScale;
+        for (let yVal = startYVal; yVal <= yMax; yVal += gridScale) {
+          const py = marginTop + ((yMax - yVal) / totalY) * availableHeight;
+          svgParts.push(`<line x1="${marginLeft}" y1="${py}" x2="${marginLeft + availableWidth}" y2="${py}" stroke="${gridColor}" stroke-width="1" />`);
+        }
+      }
+      // 軸線: x 軸と y 軸 (範囲内にある場合のみ)
+      if (axisXVal >= yMin && axisXVal <= yMax) {
+        svgParts.push(`<line x1="${marginLeft}" y1="${pyAxis}" x2="${marginLeft + availableWidth}" y2="${pyAxis}" stroke="black" stroke-width="1" />`);
+      }
+      if (axisYVal >= xMin && axisYVal <= xMax) {
+        svgParts.push(`<line x1="${pxAxis}" y1="${marginTop}" x2="${pxAxis}" y2="${marginTop + availableHeight}" stroke="black" stroke-width="1" />`);
+      }
+      // 軸ラベルを配置する。y は y 軸の一番上の左側、x は x 軸の一番右の下側に配置。
+      // x 軸が表示される場合はその線の下側、表示されない場合はグラフの底辺に配置。
+      let xLabelX = marginLeft + availableWidth + 5;
+      let xLabelY;
+      if (axisXVal >= yMin && axisXVal <= yMax) {
+        // x 軸が可視範囲内にある: その y 位置のやや下に配置
+        xLabelY = pyAxis + 15;
+      } else {
+        // x 軸が描画されない場合: グラフの底辺下に配置
+        xLabelY = marginTop + availableHeight + 15;
+      }
+      // y ラベル。y 軸が表示される場合は軸の上端の少し左に、表示されない場合は左端の上に配置
+      let yLabelX;
+      let yLabelY;
+      if (axisYVal >= xMin && axisYVal <= xMax) {
+        // y 軸が可視範囲内にある: その上端の少し左に配置
+        yLabelX = pxAxis - 15;
+        yLabelY = marginTop - 5;
+      } else {
+        // y 軸が描画されない場合: グラフの左端より左に配置
+        yLabelX = marginLeft - 20;
+        yLabelY = marginTop - 5;
+      }
+      svgParts.push(`<text x="${xLabelX}" y="${xLabelY}" font-size="12" fill="black">x</text>`);
+      svgParts.push(`<text x="${yLabelX}" y="${yLabelY}" font-size="12" fill="black">y</text>`);
+      // ティックマーク（整数位置を描画）
+      const tickLength = 4;
+      // X 軸ティック
+      for (let xi = Math.ceil(xMin); xi <= Math.floor(xMax); xi++) {
+        const px = marginLeft + ((xi - xMin) / totalX) * availableWidth;
+        if (axisXVal >= yMin && axisXVal <= yMax) {
+          svgParts.push(`<line x1="${px}" y1="${pyAxis - tickLength}" x2="${px}" y2="${pyAxis + tickLength}" stroke="black" stroke-width="0.5" />`);
+        }
+      }
+      // Y 軸ティック
+      for (let yi = Math.ceil(yMin); yi <= Math.floor(yMax); yi++) {
+        const py = marginTop + ((yMax - yi) / totalY) * availableHeight;
+        if (axisYVal >= xMin && axisYVal <= xMax) {
+          svgParts.push(`<line x1="${pxAxis - tickLength}" y1="${py}" x2="${pxAxis + tickLength}" y2="${py}" stroke="black" stroke-width="0.5" />`);
+        }
+      }
+      // グラフを描画。連続区間ごとに polyline を分割し、不連続点や変化の大きい点では線をつなげない。
+      const steps = 200;
+      for (const fn of functions) {
+        const jsExpr = latexToJs(fn.expr);
+        const f = compileFunction(jsExpr);
+        if (!f) continue;
+        let segmentPoints = [];
+        let prevValid = false;
+        let prevY = null;
+        // ラベル位置決定用。原点から最も遠い点を記録
+        let maxDistSq = -Infinity;
+        let labelPx = undefined;
+        let labelPy = undefined;
+        const evalMin = xMin;
+        const evalMax = xMax;
+        for (let i = 0; i <= steps; i++) {
+          const x = evalMin + (evalMax - evalMin) * (i / steps);
+          let y;
+          try {
+            y = f(x);
+          } catch (e) {
+            y = NaN;
+          }
+          // 判定: 値が有限で範囲内かどうか
+          const valid = isFinite(y) && y >= yMin && y <= yMax;
+          // もし有効点が連続しているが、前回の y との差が大きすぎる場合は不連続とみなす
+          let largeJump = false;
+          if (valid && prevValid) {
+            const diff = Math.abs(y - prevY);
+            const threshold = (yMax - yMin) * 2; // 大きすぎる変化
+            if (diff > threshold) {
+              largeJump = true;
+            }
+          }
+          if (!valid || largeJump) {
+            if (segmentPoints.length > 1) {
+              const color = fn.color || 'blue';
+              svgParts.push(`<polyline fill="none" stroke="${color}" stroke-width="1.5" points="${segmentPoints.join(' ')}" />`);
+            }
+            segmentPoints = [];
+            prevValid = false;
+            prevY = null;
+            continue;
+          }
+          const px = marginLeft + ((x - xMin) / totalX) * availableWidth;
+          const py = marginTop + ((yMax - y) / totalY) * availableHeight;
+          segmentPoints.push(`${px.toFixed(3)},${py.toFixed(3)}`);
+          // 距離計算: 原点 (0,0) からの距離。
+          const distSq = x * x + y * y;
+          if (distSq > maxDistSq) {
+            maxDistSq = distSq;
+            labelPx = px;
+            labelPy = py;
+          }
+          prevValid = true;
+          prevY = y;
+        }
+        if (segmentPoints.length > 1) {
+          const color = fn.color || 'blue';
+          svgParts.push(`<polyline fill="none" stroke="${color}" stroke-width="1.5" points="${segmentPoints.join(' ')}" />`);
+        }
+        // ラベルの候補座標を関数オブジェクトに保存
+        if (fn.label) {
+          fn._labelPx = labelPx;
+          fn._labelPy = labelPy;
+        }
+      }
+      // 閉じ SVG タグ
+      svgParts.push('</svg>');
+      // 描画した関数に対するラベルを配置
+      // 先に関数のラベルを配置する (各関数のラベルは最も原点から遠い点付近に置く)
+      for (const fn of functions) {
+        if (fn.label) {
+          // すでに計算された最遠点が保存されるプロパティが関数に設定されていない場合はスキップ
+          if (fn._labelPx !== undefined && fn._labelPy !== undefined) {
+            placeLabel(fn._labelPx, fn._labelPy, fn.label);
+          }
+        }
+      }
+      // ポイントの描画とラベル
+      for (const pt of points) {
+        // 座標が描画範囲内かチェック
+        if (pt.x >= xMin && pt.x <= xMax && pt.y >= yMin && pt.y <= yMax) {
+          const px = marginLeft + ((pt.x - xMin) / totalX) * availableWidth;
+          const py = marginTop + ((yMax - pt.y) / totalY) * availableHeight;
+          svgParts.push(`<circle cx="${px}" cy="${py}" r="3" fill="${pt.color || 'red'}" />`);
+          if (pt.label) {
+            placeLabel(px, py, pt.label);
+          }
+        }
+      }
+      const svgString = svgParts.join('');
+      // 返却する HTML は relative コンテナ内に SVG とラベル DIV を含む
+      return `<div style="position:relative; width:${outerWidth}px; height:${outerHeight}px">${svgString}${labelDivs}</div>`;
+    }
+
+    /**
+     * LaTeX 風の式を JavaScript の式に変換する。
+     * \frac{a}{b} -> (a)/(b)
+     * x^2 -> x**2
+     * 3x -> 3*x, x(1+x) -> x*(1+x)
+     */
+    function latexToJs(expr) {
+      let js = expr;
+      // \frac{a}{b} を (a)/(b) に変換（ネストも許容）
+      js = js.replace(/\\frac\s*{([^}]*)}\s*{([^}]*)}/g, '($1)/($2)');
+      // 累乗記号 ^ を ** に変換
+      js = js.replace(/\^/g, '**');
+      // 中括弧を括弧に変換
+      js = js.replace(/{/g, '(').replace(/}/g, ')');
+      // 乗算の省略を明示的に * へ変換
+      // 数字と変数の連結: 3x -> 3*x
+      js = js.replace(/(\d)([a-zA-Z])/g, '$1*$2');
+      // 変数と数字の連結: x2 -> x*2
+      js = js.replace(/([a-zA-Z])(\d)/g, '$1*$2');
+      // 変数と括弧の連結: x( -> x*(
+      js = js.replace(/([a-zA-Z])\(/g, '$1*(');
+      // 括弧と変数の連結: )x -> )*x
+      js = js.replace(/\)([a-zA-Z])/g, ')*$1');
+      return js;
+    }
+
+    /**
+     * 生成した JavaScript 式を関数としてコンパイルする。安全のため許可されない文字が含まれている場合は null を返す。
+     */
+    function compileFunction(jsExpr) {
+      // 許可する文字列: 数字・小数点・x・演算子・括弧・スペース
+      if (!/^[-+*/().\d\sxa-zA-Z*]+$/.test(jsExpr)) {
+        return null;
+      }
+      try {
+        // eslint-disable-next-line no-new-func
+        const fn = new Function('x', `return ${jsExpr};`);
+        return fn;
+      } catch (e) {
+        console.error('関数のコンパイルに失敗:', jsExpr, e);
+        return null;
+      }
+    }
+
+    async function renderContent() {
+      const input = document.getElementById('tikz-input').value;
+      const statusEl = document.getElementById('status');
+      const outputEl = document.getElementById('output');
+      statusEl.textContent = 'レンダリング中...';
+      try {
+        // 入力をセグメントに分割
+        const segments = splitIntoSegments(input);
+        // TikZ セグメントをまとめてレンダリング
+        const tikzSvgs = [];
+        const grafSvgs = [];
+        for (const seg of segments) {
+          if (seg.type === 'tikz') {
+            const response = await fetch('/render', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ tikz: seg.code })
+            });
+            if (!response.ok) {
+              throw new Error('サーバーエラー');
+            }
+            const data = await response.json();
+            tikzSvgs.push(data.svg || '<p style="color:red">TikZ レンダリング失敗</p>');
+          } else if (seg.type === 'graf') {
+            try {
+              grafSvgs.push(renderGraf(seg.code));
+            } catch (e) {
+              console.error('Graf render error', e);
+              grafSvgs.push('<p style="color:red">グラフの描画に失敗しました</p>');
+            }
+          }
+        }
+        // セグメントから最終的な HTML を組み立て
+        let tikzIndex = 0;
+        let grafIndex = 0;
+        let html = '';
+        for (const seg of segments) {
+          if (seg.type === 'tikz') {
+            // Wrap each TikZ SVG in a segment container to avoid overlap and center it
+            const svg = tikzSvgs[tikzIndex++] || '';
+            html += `<div class="segment">${svg}</div>`;
+          } else if (seg.type === 'graf') {
+            // Wrap each graph SVG similarly
+            const svg = grafSvgs[grafIndex++] || '';
+            html += `<div class="segment">${svg}</div>`;
+          } else {
+            // テキストセグメントは Markdown として解析し、セグメントに包む。
+            // ただし display 数式 \[ ... \] は Markdown のパースから除外し、
+            // そのまま MathJax に渡すように処理する。
+            let htmlSegment = '';
+            try {
+              const raw = seg.content || '';
+              if (window.marked && typeof marked.parse === 'function') {
+                // Split out display math blocks of the form \[ ... \]
+                const partsForMath = [];
+                let lastIndex = 0;
+                const regex = /\\\[[\s\S]*?\\\]/g;
+                let m;
+                while ((m = regex.exec(raw)) !== null) {
+                  const pre = raw.slice(lastIndex, m.index);
+                  if (pre) {
+                    let parsed = marked.parse(pre);
+                    // Sanitize the parsed HTML
+                    if (window.DOMPurify && typeof DOMPurify.sanitize === 'function') {
+                      parsed = DOMPurify.sanitize(parsed);
+                    }
+                    htmlSegment += parsed;
+                  }
+                  // Append the math block as-is, wrapped in a div to ensure block-level spacing.
+                  const math = m[0];
+                  // Escape the block for HTML to avoid DOMPurify stripping backslashes
+                  const escapedMath = escapeForHtml(math);
+                  htmlSegment += `<div>${escapedMath}</div>`;
+                  lastIndex = regex.lastIndex;
+                }
+                // Remainder after last match
+                const rest = raw.slice(lastIndex);
+                if (rest) {
+                  let parsed = marked.parse(rest);
+                  if (window.DOMPurify && typeof DOMPurify.sanitize === 'function') {
+                    parsed = DOMPurify.sanitize(parsed);
+                  }
+                  htmlSegment += parsed;
+                }
+              } else {
+                // If marked isn't available, just escape the whole segment
+                htmlSegment = escapeForHtml(raw);
+              }
+            } catch (e) {
+              console.error('Markdown parse error', e);
+              htmlSegment = escapeForHtml(seg.content);
+            }
+            html += `<div class="segment">${htmlSegment}</div>`;
+          }
+        }
+        outputEl.innerHTML = html;
+        // MathJax による数式のレンダリング
+        if (window.MathJax && typeof MathJax.typesetPromise === 'function') {
+          await MathJax.typesetPromise([outputEl]);
+        }
+      } catch (err) {
+        console.error(err);
+        outputEl.innerHTML = '<p style="color:red">エラーが発生しました: ' + err.message + '</p>';
+      } finally {
+        statusEl.textContent = '';
+      }
+    }
+
+    document.getElementById('render-btn').addEventListener('click', renderContent);
+  </script>
+</body>
+</html>

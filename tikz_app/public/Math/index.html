@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <title>Live LaTeX Preview (Local)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root { --bg:#0b1020; --panel:#121833; --ink:#e9ecf5; --muted:#9aa3bf; --accent:#7aa2ff; }
+    html,body{height:100%;margin:0;background:var(--bg);color:var(--ink);font:14px/1.5 system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;}
+    header{display:flex;align-items:center;gap:.75rem;padding:.8rem 1rem;border-bottom:1px solid #1e264a;background:linear-gradient(180deg,#0e1530,#0b1020);}
+    header h1{font-size:16px;margin:0;font-weight:600;letter-spacing:.2px}
+    .bar{margin-left:auto;display:flex;gap:.5rem}
+    button,select{background:#1a2142;color:var(--ink);border:1px solid #283063;border-radius:10px;padding:.45rem .7rem;cursor:pointer}
+    button:hover{border-color:#3a4690}
+    .wrap{display:flex;height:calc(100% - 56px);min-height:420px}
+    textarea{width:50%;height:100%;border:0;outline:none;resize:none;padding:16px;box-sizing:border-box;background:var(--panel);color:var(--ink);font-family:"JetBrains Mono","Menlo","Consolas",monospace;font-size:14px;border-right:1px solid #1e264a}
+    #out{width:50%;height:100%;overflow:auto;padding:18px 20px 60px;box-sizing:border-box}
+    .hint{color:var(--muted);font-size:12px;margin-left:.25rem}
+    .footer{position:fixed;right:16px;bottom:14px;color:var(--muted);font-size:12px}
+    .ok{color:var(--accent)}
+    @media (max-width:900px){ .wrap{flex-direction:column} textarea,#out{width:100%;height:50%} }
+  </style>
+
+  <!-- MathJax v3 設定（$...$, \(...\), \[...\], $$...$$ をサポート） -->
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['\\[', '\\]'], ['$$','$$']],
+        processEscapes: true,
+        packages: {'[+]': ['noerrors', 'noundefined']}
+      },
+      options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] },
+      loader: { load: ['[tex]/noerrors','[tex]/noundefined'] }
+    };
+  </script>
+  <!-- 1) まずはCDN（オンライン） -->
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+  <!-- 2) CDNが使えない場合のローカルフォールバック（後述の配置が必要） -->
+  <script>
+    // フォールバック：3秒待ってもMathJaxが読めない場合、ローカル mathjax/es5/tex-chtml.js を試す
+    (function(){
+      const fallback = () => {
+        if (!window.MathJax || !window.MathJax.startup) {
+          const s = document.createElement('script');
+          s.src = './mathjax/es5/tex-chtml.js';
+          s.defer = true;
+          document.head.appendChild(s);
+        }
+      };
+      window.addEventListener('load', () => setTimeout(fallback, 3000));
+    })();
+  </script>
+</head>
+<body>
+  <header>
+    <h1>Live LaTeX Preview</h1>
+    <span class="hint">左に LaTeX を入力すると右にプレビュー（\(\), \[ \], $, $$ 対応）</span>
+    <div class="bar">
+      <button id="btnClear" title="テキストを全消去">Clear</button>
+      <button id="btnCopy" title="入力テキストをコピー">Copy</button>
+      <select id="selSize" title="表示倍率">
+        <option value="1">100%</option>
+        <option value="1.15">115%</option>
+        <option value="1.3">130%</option>
+        <option value="1.5">150%</option>
+      </select>
+    </div>
+  </header>
+
+  <div class="wrap">
+    <textarea id="src" placeholder="例：
+\[
+  \int_0^{\pi} \sin x \, dx = 2
+\]
+
+$E=mc^2$ や \(\frac{a}{b}\) などを試してみてください。"></textarea>
+    <div id="out" aria-live="polite"></div>
+  </div>
+  <div class="footer">MathJax <span id="mjStat">loading...</span></div>
+
+  <script>
+    // ------------- ユーティリティ -------------
+    const $ = (q) => document.querySelector(q);
+    const src = $('#src');
+    const out = $('#out');
+    const mjStat = $('#mjStat');
+
+    const debounce = (fn, ms=160) => {
+      let t; return (...args) => { clearTimeout(t); t=setTimeout(()=>fn(...args), ms); };
+    };
+
+    // ------------- レンダリング -------------
+    async function renderNow() {
+      // 入力をそのままHTMLとして流し、改行だけ <br> 変換（ローカル利用想定）
+      // ※ 任意のHTMLを埋め込めてしまう点は自己責任で（必要ならDOMPurify等でサニタイズしてください）
+      const txt = src.value;
+      out.innerHTML = txt.replace(/\n/g, '<br>');
+
+      // MathJax 準備待ち → 領域限定で typeset
+      if (window.MathJax && MathJax.typesetPromise) {
+        try {
+          await MathJax.typesetPromise([out]);
+          mjStat.textContent = 'ready';
+          mjStat.className = 'ok';
+        } catch(e) {
+          mjStat.textContent = 'error';
+          console.error(e);
+        }
+      } else {
+        mjStat.textContent = 'loading...';
+      }
+    }
+    const renderDebounced = debounce(renderNow, 140);
+
+    // 入力イベント
+    src.addEventListener('input', () => {
+      localStorage.setItem('latex_src', src.value);
+      renderDebounced();
+    });
+
+    // ボタン類
+    $('#btnClear').addEventListener('click', () => {
+      src.value = '';
+      localStorage.removeItem('latex_src');
+      renderNow();
+      src.focus();
+    });
+    $('#btnCopy').addEventListener('click', async () => {
+      try { await navigator.clipboard.writeText(src.value); } catch {}
+    });
+    $('#selSize').addEventListener('change', (e) => {
+      out.style.zoom = e.target.value; // 簡易ズーム
+    });
+
+    // 初期化（ローカル保存の復元）
+    (function init(){
+      const saved = localStorage.getItem('latex_src');
+      if (saved) src.value = saved;
+      renderNow();
+    })();
+
+    // MathJaxロード完了を監視して1回再描画
+    const readyTimer = setInterval(() => {
+      if (window.MathJax && MathJax.startup && MathJax.startup.document) {
+        clearInterval(readyTimer);
+        renderNow();
+      }
+    }, 200);
+  </script>
+</body>
+</html>

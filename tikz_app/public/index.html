@@ -1,0 +1,1418 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>中学数学作問ツール</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    header {
+      padding: 10px 20px;
+      background-color: #f5f5f5;
+      border-bottom: 1px solid #ddd;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 16px;
+    }
+    header h1 {
+      margin: 0 0 4px;
+      font-size: 22px;
+      line-height: 1.2;
+    }
+    header p {
+      margin: 0;
+    }
+    .header-actions {
+      flex: 0 0 auto;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .container {
+      flex: 1;
+      display: flex;
+      overflow: hidden;
+    }
+    textarea {
+      width: 50%;
+      height: 100%;
+      border: none;
+      padding: 15px;
+      box-sizing: border-box;
+      resize: none;
+      font-family: "Courier New", monospace;
+      font-size: 14px;
+      border-right: 1px solid #ddd;
+    }
+    #output {
+      width: 50%;
+      padding: 15px;
+      overflow: auto;
+      white-space: normal;
+    }
+    .actions {
+      padding: 10px;
+      border-top: 1px solid #ddd;
+      background-color: #fafafa;
+    }
+    button {
+      padding: 6px 12px;
+      font-size: 14px;
+      cursor: pointer;
+    }
+    select {
+      max-width: min(420px, 45vw);
+      padding: 6px 8px;
+      font-size: 14px;
+    }
+    input[type="search"] {
+      width: min(240px, 35vw);
+      padding: 6px 8px;
+      font-size: 14px;
+    }
+    input[type="password"] {
+      width: min(260px, 32vw);
+      padding: 6px 8px;
+      font-size: 14px;
+    }
+    .generate-controls {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-right: 16px;
+    }
+    .question-controls {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-right: 16px;
+    }
+    .generate-controls label {
+      color: #555;
+      font-size: 14px;
+    }
+    .question-controls label {
+      color: #555;
+      font-size: 14px;
+    }
+    .generated-question {
+      border-bottom: 1px solid #ddd;
+      margin-bottom: 18px;
+      padding-bottom: 18px;
+    }
+    .generated-question h2 {
+      font-size: 15px;
+      margin: 0 0 10px;
+    }
+    .generated-question pre {
+      white-space: pre-wrap;
+      word-break: break-word;
+      background: #fafafa;
+      border: 1px solid #ddd;
+      padding: 12px;
+      margin: 0;
+    }
+    .generation-progress {
+      display: none;
+      margin-top: 8px;
+      font-size: 13px;
+      color: #555;
+    }
+    .generation-progress.active {
+      display: block;
+    }
+    .generation-progress progress {
+      width: min(420px, 100%);
+      height: 12px;
+      vertical-align: middle;
+      margin-right: 8px;
+    }
+    .file-controls {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-right: 16px;
+    }
+    .file-controls label {
+      color: #555;
+      font-size: 14px;
+    }
+    .segment { margin-bottom: 20px; }
+
+    #output table {
+      border-collapse: collapse;
+      margin: 0.75em 0 1em;
+      max-width: 100%;
+      overflow-x: auto;
+      display: block;
+      width: fit-content;
+      font-size: 0.95em;
+    }
+    #output th,
+    #output td {
+      border: 1px solid #999;
+      padding: 4px 10px;
+      text-align: right;
+      white-space: nowrap;
+      min-width: 2.2em;
+    }
+    #output th:first-child,
+    #output td:first-child {
+      text-align: center;
+      font-weight: 700;
+      background: #f7f7f7;
+    }
+    #output thead th {
+      background: #f7f7f7;
+    }
+
+    /* TikZ/graf の“直下の”SVGだけ中央寄せ（MathJaxのSVGは除外） */
+    #output .segment > svg {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* MathJax(SVG) の表示モードを明示してインライン崩れ防止 */
+    mjx-container[jax="SVG"][display="true"] {
+      display: block;
+      text-align: center;
+      margin: 1em 0;
+    }
+    mjx-container[jax="SVG"]:not([display="true"]) {
+      display: inline-block;
+      vertical-align: -0.2em;
+      margin: 0 .1em;
+    }
+  </style>
+
+  <!-- MathJax -->
+  <script>
+    window.MathJax = {
+      loader: { load: ['[tex]/bbox'] },
+      tex: {
+        packages: {'[+]': ['bbox']},
+        inlineMath: [['$', '$']],                 // 必要なら ['\\(', '\\)'] を追加
+        displayMath: [['\\[','\\]'], ['$$','$$']], // $$ も許可
+        processEscapes: true,
+        processEnvironments: true,
+        macros: {
+          hlblue: ['\\bbox[2px,lightskyblue]{#1}', 1],
+          hlpink: ['\\bbox[2px,lightpink]{#1}', 1]
+        }
+      },
+      svg: { fontCache: 'global' },
+	  options: { skipHtmlTags: ['script','noscript','style','textarea','pre'] }
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" async></script>
+
+  <!-- Markdown & Sanitize -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/dompurify/dist/purify.min.js" defer></script>
+
+  <!-- TikZJax: /render 失敗時のフォールバック -->
+  <link rel="stylesheet" href="https://tikzjax.com/v1/fonts.css">
+  <script src="https://tikzjax.com/v1/tikzjax.js" defer></script>
+</head>
+
+<body>
+  <header>
+    <div>
+      <h1>中学数学作問ツール</h1>
+      <p>左側に入力し「レンダリング」を押すと右側に表示します（Markdown / TeX / TikZ / graf）。</p>
+    </div>
+    <div class="header-actions">
+      <input id="api-key-input" type="password" placeholder="OpenAI APIキー" autocomplete="off" />
+      <button id="api-key-btn" type="button">APIキー保存</button>
+    </div>
+  </header>
+
+  <div class="container">
+    <textarea id="tikz-input" spellcheck="false">% サンプル: TikZ, グラフ, 平文, LaTeX 数式, Markdown の例です
+\begin{tikzpicture}[>=latex]
+  \draw (0,0) circle (1);
+  \draw (0,0) -- (60:2) arc (60:0:2) -- cycle;
+  \draw (3,0) -- (3+1.732,0) -- (3,1) -- cycle;
+  \draw (0,-1) rectangle (2,-2);
+  \draw (3,-1) -- (4,-2) -- (6,-2) -- (5,-1) -- cycle;
+  \draw (0,2) -- (2,2);
+  \draw (1,2) -- ++(45:1.5);
+\end{tikzpicture}
+
+\begin{graf}
+X=-3,4
+Y=-2,5
+y = \frac{1}{2}x^2,red,$y=\tfrac{1}{2}x^2$
+y = 3x + \frac{1}{2},blue,$y=3x+\tfrac{1}{2}$
+(3, 4),magenta,A
+Scale_grid_color = cyan
+scales = 2
+\end{graf}
+
+こんにちは、**Markdown** の *例* です！
+
+$x$ はインライン数式の例です。
+
+$$
+\frac{1}{3}
+$$
+
+\[
+\frac{1}{3}
+\]
+</textarea>
+
+    <div id="output">レンダリング結果がこちらに表示されます。</div>
+  </div>
+
+  <div class="actions">
+    <span class="file-controls">
+      <label for="prompt-file-select">Math_Prompt</label>
+      <input id="prompt-file-filter" type="search" placeholder="項目名で検索" />
+      <select id="prompt-file-select">
+        <option value="">ファイル一覧を読み込み中...</option>
+      </select>
+      <button id="load-file-btn" type="button">読み込み</button>
+      <button id="render-btn">レンダリング</button>
+      <button id="save-file-btn" type="button" disabled>保存</button>
+    </span>
+    <span class="generate-controls">
+      <label for="question-count-select">作問数</label>
+      <select id="question-count-select">
+        <option value="1">1問</option>
+        <option value="2">2問</option>
+        <option value="4">4問</option>
+        <option value="6">6問</option>
+        <option value="8">8問</option>
+        <option value="10">10問</option>
+      </select>
+      <button id="generate-btn" type="button">作問</button>
+    </span>
+    <span class="question-controls">
+      <label for="question-file-select">作問結果</label>
+      <select id="question-file-select">
+        <option value="">未読込</option>
+      </select>
+      <button id="refresh-questions-btn" type="button">更新</button>
+      <button id="load-question-btn" type="button">確認</button>
+    </span>
+    <span id="status" style="margin-left: 10px; color: #888;"></span>
+    <div id="generation-progress" class="generation-progress">
+      <progress id="generation-progress-bar" value="0" max="1"></progress>
+      <span id="generation-progress-text">待機中</span>
+    </div>
+  </div>
+
+  <script>
+    // --- 小道具 ---
+    function escapeForHtml(str) {
+      return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+    }
+
+// 入力を tikz / graf / graf_stat / それ以外 に分割
+function splitIntoSegments(text) {
+  const segments = [];
+  let pos = 0;
+  while (pos < text.length) {
+    const pTikz = text.indexOf('\\begin{tikzpicture}', pos);
+    const pGraf = text.indexOf('\\begin{graf}', pos);
+    const pStat = text.indexOf('\\begin{graf_stat}', pos);
+
+    const cands = [
+      {i:pTikz, t:'tikz', end:'\\end{tikzpicture}'},
+      {i:pGraf, t:'graf', end:'\\end{graf}'},
+      {i:pStat, t:'stat', end:'\\end{graf_stat}'},
+    ].filter(c => c.i !== -1).sort((a,b)=>a.i-b.i);
+
+    if (!cands.length) break;
+
+    const nxt = cands[0];
+    if (nxt.i > pos) segments.push({ type:'text', content: text.slice(pos, nxt.i) });
+
+    const e = text.indexOf(nxt.end, nxt.i);
+    if (e === -1) { segments.push({ type:'text', content: text.slice(nxt.i) }); break; }
+
+    const env = text.slice(nxt.i, e + nxt.end.length);
+    segments.push({ type: nxt.t, code: env });
+
+    pos = e + nxt.end.length;
+  }
+  if (pos < text.length) segments.push({ type:'text', content: text.slice(pos) });
+  return segments;
+}
+
+    // --- \usetikzlibrary{quotes} 相当のシム（quotes風 → node[...] 変換） ---
+    function tikzQuoteShim(code) {
+      code = code.replace(/\\usetikzlibrary\{([^}]*)\}/g, (m, inner) => {
+        if (!/\bquotes\b/.test(inner)) return m;
+        const rest = inner.split(',').map(s => s.trim()).filter(s => s && s !== 'quotes');
+        return rest.length ? `\\usetikzlibrary{${rest.join(',')}}` : '% quotes removed';
+      });
+
+      const re = /(--|to)\s*\[\s*(?:"([^"]+)"|'([^']+)')\s*((?:\s*,\s*[^,\]\r\n]+)*)\s*\]/g;
+      code = code.replace(re, (m, connector, dquoted, squoted, optRaw) => {
+        const label = (dquoted ?? squoted ?? '').replace(/\\/g, '\\\\');
+        let opts = (optRaw || '').trim().replace(/^\s*,/, '');
+        const hasPos = /(?:^|,)\s*(pos\s*=|near\s*(?:start|end)|midway)\b/.test(opts);
+        if (!hasPos) opts = opts ? `midway, ${opts}` : 'midway';
+        const hasSide = /\b(above|below|left|right)\b/.test(opts);
+        const hasAutoOrSwap = /\b(auto|swap)\b/.test(opts);
+        if (!hasSide && !hasAutoOrSwap) opts = `${opts}, auto`;
+        return `${connector} node[${opts}] {${label}}`;
+      });
+
+      return code;
+    }
+
+    // --- graf の簡易レンダラ（SVG生成） ---
+    function renderGraf(grafCode) {
+      let body = grafCode.replace(/\\begin\{graf\}/,'').replace(/\\end\{graf\}/,'').trim();
+      const lines = body.split(/\r?\n/).map(l => l.trim()).filter(Boolean);
+      let xRange = [-5,5], yRange = [-5,5], gridScale = 0, gridColor = '#eee';
+      const functions = [], points = [];
+      let hUnits, wUnits, axisXUnits, axisYUnits;
+
+      for (const line of lines) {
+        if (/^X\s*=/.test(line)) {
+          const [a,b] = line.split('=')[1].split(',').map(s=>parseFloat(s.trim()));
+          if (isFinite(a) && isFinite(b)) xRange = [a,b];
+        } else if (/^Y\s*=/.test(line)) {
+          const [c,d] = line.split('=')[1].split(',').map(s=>parseFloat(s.trim()));
+          if (isFinite(c) && isFinite(d)) yRange = [c,d];
+        } else if (/^scales?\s*=/.test(line)) {
+          const v = parseInt(line.split('=')[1].trim(),10); if (!isNaN(v)&&v>0) gridScale = v;
+        } else if (/^scale_grid_color\s*=|^Scale_grid_color\s*=/i.test(line)) {
+          const col = line.split('=')[1]?.trim(); if (col) gridColor = col;
+        } else if (/^[Hh]\s*=/.test(line)) {
+          const v = parseFloat(line.split('=')[1]); if (!isNaN(v)&&v>0) hUnits = v;
+        } else if (/^[Ww]\s*=/.test(line)) {
+          const v = parseFloat(line.split('=')[1]); if (!isNaN(v)&&v>0) wUnits = v;
+        } else if (/^[Aa]xis\s*=/.test(line)) {
+          const [p,q] = line.split('=')[1].split(',').map(s=>parseFloat(s.trim()));
+          if (isFinite(p) && isFinite(q)) { axisXUnits = p; axisYUnits = q; }
+        } else if (/^\(.*\)/.test(line)) {
+          const m = line.split(','); const c = m[0].match(/\(([^,]+)\s*,\s*([^)]+)\)/);
+          if (c) {
+            const px = parseFloat(c[1]), py = parseFloat(c[2]);
+            if (isFinite(px) && isFinite(py)) points.push({ x:px, y:py, color:m[1]?.trim()||'red', label: m.slice(2).join(',').trim() });
+          }
+        } else {
+          const pieces = line.split(',');
+          const expr = pieces[0].trim().replace(/^y\s*=\s*/i,'');
+          if (expr) functions.push({ expr, color: pieces[1]?.trim()||'blue', label: pieces.slice(2).join(',').trim() });
+        }
+      }
+
+      let [xMin,xMax] = xRange, [yMin,yMax] = yRange;
+      if (!isFinite(xMin)||!isFinite(xMax)||xMin===xMax) { xMin=-5; xMax=5; }
+      if (!isFinite(yMin)||!isFinite(yMax)||yMin===yMax) { yMin=-5; yMax=5; }
+      let totalX = xMax-xMin, totalY = yMax-yMin;
+
+      if (hUnits !== undefined && wUnits !== undefined) {
+        if (axisXUnits === undefined || isNaN(axisXUnits)) axisXUnits = (0-yMin)/(yMax-yMin)*hUnits;
+        if (axisYUnits === undefined || isNaN(axisYUnits)) axisYUnits = (0-xMin)/(xMax-xMin)*wUnits;
+        xMin = -axisYUnits; xMax = wUnits - axisYUnits;
+        yMin = -axisXUnits; yMax = hUnits - axisXUnits;
+        totalX = xMax-xMin; totalY = yMax-yMin;
+      }
+
+      const outputContainer = document.getElementById('output');
+      let outerWidth = Math.max(300, (outputContainer?.clientWidth || 400) * 0.8);
+      const marginLeft=40, marginRight=20, marginTop=20, marginBottom=40;
+      const availableWidth = outerWidth - marginLeft - marginRight;
+      const ratio = (hUnits!==undefined && wUnits!==undefined) ? (hUnits/wUnits) : (totalY/totalX);
+      const availableHeight = availableWidth * ratio;
+      const outerHeight = availableHeight + marginTop + marginBottom;
+
+      const unitX = availableWidth / totalX;
+      const unitY = availableHeight / totalY;
+
+      let axisXVal, axisYVal;
+      if (hUnits!==undefined && wUnits!==undefined) {
+        axisXVal = yMin + (axisXUnits / (hUnits||1)) * totalY;
+        axisYVal = xMin + (axisYUnits / (wUnits||1)) * totalX;
+      } else { axisXVal = 0; axisYVal = 0; }
+
+      const pyAxis = marginTop + ((yMax - axisXVal) / totalY) * availableHeight;
+      const pxAxis = marginLeft + ((axisYVal - xMin) / totalX) * availableWidth;
+
+      const svg = [];
+      svg.push(`<svg width="${outerWidth}" height="${outerHeight}" viewBox="0 0 ${outerWidth} ${outerHeight}" xmlns="http://www.w3.org/2000/svg">`);
+
+      // grid (1刻み)
+      if (gridColor) {
+        for (let xi=Math.ceil(xMin); xi<=xMax; xi++) {
+          const px = marginLeft + ((xi-xMin)/totalX)*availableWidth;
+          svg.push(`<line x1="${px}" y1="${marginTop}" x2="${px}" y2="${marginTop+availableHeight}" stroke="${gridColor}" stroke-width="0.5"/>`);
+        }
+        for (let yi=Math.ceil(yMin); yi<=yMax; yi++) {
+          const py = marginTop + ((yMax-yi)/totalY)*availableHeight;
+          svg.push(`<line x1="${marginLeft}" y1="${py}" x2="${marginLeft+availableWidth}" y2="${py}" stroke="${gridColor}" stroke-width="0.5"/>`);
+        }
+      }
+      // grid (scales)
+      if (gridScale && gridScale>0) {
+        for (let xv=Math.ceil(xMin/gridScale)*gridScale; xv<=xMax; xv+=gridScale) {
+          const px = marginLeft + ((xv-xMin)/totalX)*availableWidth;
+          svg.push(`<line x1="${px}" y1="${marginTop}" x2="${px}" y2="${marginTop+availableHeight}" stroke="${gridColor}" stroke-width="1"/>`);
+        }
+        for (let yv=Math.ceil(yMin/gridScale)*gridScale; yv<=yMax; yv+=gridScale) {
+          const py = marginTop + ((yMax-yv)/totalY)*availableHeight;
+          svg.push(`<line x1="${marginLeft}" y1="${py}" x2="${marginLeft+availableWidth}" y2="${py}" stroke="${gridColor}" stroke-width="1"/>`);
+        }
+      }
+      // axes
+      if (axisXVal>=yMin && axisXVal<=yMax) svg.push(`<line x1="${marginLeft}" y1="${pyAxis}" x2="${marginLeft+availableWidth}" y2="${pyAxis}" stroke="black" stroke-width="1"/>`);
+      if (axisYVal>=xMin && axisYVal<=xMax) svg.push(`<line x1="${pxAxis}" y1="${marginTop}" x2="${pxAxis}" y2="${marginTop+availableHeight}" stroke="black" stroke-width="1"/>`);
+
+      // axis labels
+      const xLabelX = marginLeft + availableWidth + 5;
+      const xLabelY = (axisXVal>=yMin && axisXVal<=yMax) ? (pyAxis+15) : (marginTop+availableHeight+15);
+      const yLabelX = (axisYVal>=xMin && axisYVal<=xMax) ? (pxAxis-15) : (marginLeft-20);
+      const yLabelY = marginTop - 5;
+      svg.push(`<text x="${xLabelX}" y="${xLabelY}" font-size="12" fill="black">x</text>`);
+      svg.push(`<text x="${yLabelX}" y="${yLabelY}" font-size="12" fill="black">y</text>`);
+
+      // ticks（整数）
+      const tick = 4;
+      if (axisXVal>=yMin && axisXVal<=yMax) {
+        for (let xi=Math.ceil(xMin); xi<=Math.floor(xMax); xi++) {
+          const px = marginLeft + ((xi-xMin)/totalX)*availableWidth;
+          svg.push(`<line x1="${px}" y1="${pyAxis-tick}" x2="${px}" y2="${pyAxis+tick}" stroke="black" stroke-width="0.5"/>`);
+        }
+      }
+      if (axisYVal>=xMin && axisYVal<=xMax) {
+        for (let yi=Math.ceil(yMin); yi<=Math.floor(yMax); yi++) {
+          const py = marginTop + ((yMax-yi)/totalY)*availableHeight;
+          svg.push(`<line x1="${pxAxis-tick}" y1="${py}" x2="${pxAxis+tick}" y2="${py}" stroke="black" stroke-width="0.5"/>`);
+        }
+      }
+
+      // helpers
+      function latexToJs(expr) {
+        let js = expr;
+        js = js.replace(/\\frac\s*{([^}]*)}\s*{([^}]*)}/g, '($1)/($2)');
+        js = js.replace(/\^/g, '**');
+        js = js.replace(/{/g,'(').replace(/}/g,')');
+        js = js.replace(/(\d)([a-zA-Z])/g,'$1*$2')
+               .replace(/([a-zA-Z])(\d)/g,'$1*$2')
+               .replace(/([a-zA-Z])\(/g,'$1*(')
+               .replace(/\)([a-zA-Z])/g,')*$1');
+        return js;
+      }
+      function compileFunction(jsExpr) {
+        if (!/^[-+*/().\d\sxa-zA-Z*]+$/.test(jsExpr)) return null;
+        try { return new Function('x', `return ${jsExpr};`); }
+        catch { return null; }
+      }
+
+      // function plots
+      const steps = 200;
+      for (const fn of functions) {
+        const f = compileFunction(latexToJs(fn.expr)); if (!f) continue;
+        let seg = [], prevValid=false, prevY=null, maxD=-Infinity, labelPx, labelPy;
+        for (let i=0;i<=steps;i++){
+          const x = xMin + (xMax-xMin)*i/steps;
+          let y = Number.NaN;
+          try { y = f(x); } catch {}
+          const valid = isFinite(y) && y>=yMin && y<=yMax;
+          let jump=false;
+          if (valid && prevValid) {
+            const diff = Math.abs(y - prevY);
+            if (diff > (yMax-yMin)*2) jump=true;
+          }
+          if (!valid || jump) {
+            if (seg.length>1) svg.push(`<polyline fill="none" stroke="${fn.color||'blue'}" stroke-width="1.5" points="${seg.join(' ')}"/>`);
+            seg=[]; prevValid=false; prevY=null; continue;
+          }
+          const px = marginLeft + ((x-xMin)/totalX)*availableWidth;
+          const py = marginTop + ((yMax-y)/totalY)*availableHeight;
+          seg.push(`${px.toFixed(3)},${py.toFixed(3)}`);
+          const d2 = x*x + y*y;
+          if (d2>maxD){ maxD=d2; labelPx=px; labelPy=py; }
+          prevValid=true; prevY=y;
+        }
+        if (seg.length>1) svg.push(`<polyline fill="none" stroke="${fn.color||'blue'}" stroke-width="1.5" points="${seg.join(' ')}"/>`);
+        fn._labelPx = labelPx; fn._labelPy = labelPy;
+      }
+
+      // points
+      for (const pt of points) {
+        if (pt.x<xMin||pt.x>xMax||pt.y<yMin||pt.y>yMax) continue;
+        const px = marginLeft + ((pt.x-xMin)/totalX)*availableWidth;
+        const py = marginTop + ((yMax-pt.y)/totalY)*availableHeight;
+        svg.push(`<circle cx="${px}" cy="${py}" r="3" fill="${pt.color||'red'}"/>`);
+      }
+
+      svg.push(`</svg>`);
+
+      // label overlay
+      let labelDivs = '';
+      const labelBoxes = [];
+      function placeLabel(xpx, ypx, text) {
+        if (!text) return;
+        const safe = window.DOMPurify?.sanitize ? DOMPurify.sanitize(text) : text;
+        const w = safe.length*8+4, h=16;
+        let lx = xpx+5, ly= ypx-5-h;
+        if (ly < marginTop) ly = ypx + 5;
+        if (lx + w > marginLeft+availableWidth) lx = xpx - w - 5;
+        if (lx < marginLeft) lx = marginLeft;
+        function overlaps(b){ return !(lx+w<b.x || lx>b.x+b.w || ly+h<b.y || ly>b.y+b.h); }
+        let tries=0;
+        while (labelBoxes.some(overlaps) && tries<10) { ly += h+4; if (ly+h>marginTop+availableHeight) ly = ypx-(h+4); tries++; }
+        labelBoxes.push({x:lx,y:ly,w,h});
+        labelDivs += `<div style="position:absolute;left:${lx}px;top:${ly}px;font-size:12px;white-space:nowrap;">${safe}</div>`;
+      }
+      for (const fn of functions) if (fn.label && fn._labelPx!==undefined) placeLabel(fn._labelPx, fn._labelPy, fn.label);
+
+      for (const pt of points) {
+        if (pt.x<xMin||pt.x>xMax||pt.y<yMin||pt.y>yMax) continue;
+        const px = marginLeft + ((pt.x-xMin)/totalX)*availableWidth;
+        const py = marginTop + ((yMax-pt.y)/totalY)*availableHeight;
+        if (pt.label) placeLabel(px, py, pt.label);
+      }
+
+      return `<div style="position:relative;width:${outerWidth}px;height:${outerHeight}px">${svg.join('')}${labelDivs}</div>`;
+    }
+	
+// ============ graf_stat: ヒストグラム / 度数折れ線 / 横型箱ひげ図 ============
+function renderGrafStat(statCode) {
+  // --- JSON-ish をゆるく解釈するヘルパ ---
+  const toJson = (s) => s
+    .replace(/\/\/.*$/mg,'')
+    .replace(/[‘’]/g,"'").replace(/[“”]/g,'"')
+    .replace(/'/g,'"')
+    .replace(/([{,]\s*)([A-Za-z_]\w*)(\s*:)/g,'$1"$2"$3')
+    .replace(/(["']?color["']?\s*:\s*)([A-Za-z]+)/g,'$1"$2"')
+    .replace(/,(\s*[}\]])/g,'$1');
+  const looseParse = (txt) => {
+    if (!txt) return null;
+    try { return JSON.parse(toJson(txt)); } catch {}
+    try { return (new Function(`return (${txt});`))(); } catch {}
+    return null;
+  };
+
+  // --- 本文整形 & ブロック抽出 ---
+  let body = statCode.replace(/\\begin\{graf_stat\}/,'')
+                     .replace(/\\end\{graf_stat\}/,'')
+                     .trim();
+  const grabBlock = (key) => {
+    const m = body.match(new RegExp(String.raw`(^|\n)\s*${key}\s*=\s*`, 'i'));
+    if (!m) return null;
+    let i = m.index + m[0].length;
+    while (/\s/.test(body[i])) i++;
+    const pairs = { '[':']', '{':'}', '(':')' };
+    const open = body[i], close = pairs[open];
+    if (!close) return null;
+    let j = i, lvl = 0, q = null;
+    while (j < body.length) {
+      const ch = body[j];
+      if (q) { if (ch === q && body[j-1] !== '\\') q = null; j++; continue; }
+      if (ch === '"' || ch === "'") { q = ch; j++; continue; }
+      if (ch === open) lvl++;
+      if (ch === close) { lvl--; if (lvl === 0) { j++; break; } }
+      j++;
+    }
+    return body.slice(i, j);
+  };
+  const grabLine = (key) => {
+    const m = body.match(new RegExp(String.raw`(^|\n)\s*${key}\s*=\s*([^\n]+)`, 'i'));
+    return m ? m[2].trim() : '';
+  };
+
+  // --- type / label ---
+  const typeStr = (grabLine('type') || '').toLowerCase();
+  let label = { title:'', x:'', y:'' };
+  let labelRaw = grabBlock('label');
+  if (labelRaw) {
+    let s = labelRaw.trim();
+    while (s.startsWith('(') && s.endsWith(')')) s = s.slice(1,-1);
+    if (!s.trim().startsWith('{')) s = '{' + s + '}';
+    const obj = looseParse(s);
+    if (obj && typeof obj === 'object') label = obj;
+  }
+
+  // --- table（集計済み度数） or series（通常）を読み分け ---
+  const tableMode = /_table/.test(typeStr);
+  const palette   = ['#ef4444','#3b82f6','#10b981','#f59e0b','#8b5cf6','#14b8a6'];
+  let series = [], bins = [];
+
+  if (tableMode) {
+    const tableRaw = grabBlock('table');
+    const T = looseParse(tableRaw);
+    if (!Array.isArray(T) || T.length < 2) {
+      return `<p style="color:red">graf_stat: table=[...] の形式が不正です。</p>`;
+    }
+    // "0〜20" / "0-20" / "［0,20］" → [a,b]
+    const parseBin = (s) => {
+      const txt = String(s).trim()
+        .replace(/[［］]/g, m => ({'［':'[','］':']'}[m]))
+        .replace(/[，]/g, ',');
+      const m = txt.match(/^\s*\[?\s*(-?\d+(?:\.\d+)?)\s*[,~〜\-–—]\s*(-?\d+(?:\.\d+)?)\s*\]?\s*$/);
+      return m ? [Number(m[1]), Number(m[2])] : null;
+    };
+
+    const header = T[0].map(v => String(v).trim());
+    const K = header.length - 1;
+    bins = [];
+    series = [];
+    for (let j = 1; j < header.length; j++) {
+      const name = header[j].replace(/:.*/,'') || `series${j}`;
+      const col  = (header[j].match(/:(.+)$/)?.[1] || '').trim();
+      series.push({ name, color: col || palette[(j-1)%palette.length], values: [] });
+    }
+    for (let i = 1; i < T.length; i++) {
+      const row = T[i];
+      const brk = parseBin(row[0]);
+      if (!brk) continue;
+      bins.push(brk);
+      for (let j = 1; j < Math.min(row.length, K+1); j++) {
+        const v = Number(row[j]);
+        series[j-1].values.push(isFinite(v) ? v : 0);
+      }
+    }
+  } else {
+    // 通常（生データ or 既に度数）
+    const seriesRaw = grabBlock('series');
+    if (!seriesRaw) return `<p style="color:red">graf_stat: series=[...] が見つかりません。</p>`;
+    const seriesArr = looseParse(seriesRaw);
+    if (!Array.isArray(seriesArr)) return `<p style="color:red">graf_stat: series の解析に失敗しました。</p>`;
+    series = seriesArr.map((o,i)=>({
+      name:  o?.name || `series${i+1}`,
+      color: o?.color || palette[i%palette.length],
+      values:(o?.values||[]).map(Number),
+      summary: o?.summary,
+      outliers: (o?.outliers||[]).map(Number)
+    }));
+    bins = looseParse(grabBlock('bin') || grabBlock('bins')) || [];
+    bins = (Array.isArray(bins)?bins:[]).map(p=>[Number(p[0]),Number(p[1])])
+         .filter(p=>isFinite(p[0])&&isFinite(p[1]));
+    if (!bins.length) bins = [[0,1],[1,2],[2,3],[3,4],[4,5]];
+  }
+
+  // ===== 箱ひげ図（横） =====
+  const wantsBox = /boxplot/.test(typeStr);
+  if (wantsBox) {
+    const alpha = (()=>{ const v=parseFloat(grabLine('box_alpha')||grabLine('bar_alpha')); return (isFinite(v)&&v>=0&&v<=1)?v:0.45; })();
+    const median = (a)=>{ const n=a.length,m=Math.floor(n/2); return n%2?a[m]:(a[m-1]+a[m])/2; };
+    const tukey  = (sorted)=>{ const n=sorted.length, med=median(sorted);
+      const lower=sorted.slice(0,Math.floor(n/2)), upper=sorted.slice(Math.ceil(n/2));
+      return {q1:median(lower), med, q3:median(upper)};
+    };
+    const rows = series.map(s=>{
+      const color=s.color, name=s.name;
+      if (Array.isArray(s.summary) && s.summary.length>=5) {
+        const [mn,q1,med,q3,mx]=s.summary.map(Number);
+        const out=(s.outliers||[]).map(Number).filter(isFinite);
+        return {name,color,q1,med,q3,wL:mn,wR:mx,out};
+      }
+      const vals=(s.values||[]).filter(v=>isFinite(v)).sort((a,b)=>a-b);
+      if(!vals.length) return {name,color,q1:0,med:0,q3:0,wL:0,wR:0,out:[]};
+      const {q1,med,q3}=tukey(vals), IQR=q3-q1, lo=q1-1.5*IQR, hi=q3+1.5*IQR;
+      const inR=vals.filter(v=>v>=lo&&v<=hi);
+      return {name,color,q1,med,q3,wL:(inR.length?Math.min(...inR):q1),wR:(inR.length?Math.max(...inR):q3),out:vals.filter(v=>v<lo||v>hi)};
+    });
+
+    const nice=(max,ticks=8)=>{ max=Math.max(1e-6,max);
+      const p=Math.pow(10,Math.floor(Math.log10(max)));
+      for(const k of [1,2,5,10]){ const step=k*p, M=Math.ceil(max/step)*step; if (Math.round(M/step)+1<=ticks+2) return {min:0,max:M,step}; }
+      const step=10*p; return {min:0,max:Math.ceil(max/step)*step,step};
+    };
+    const xHi=Math.max(...rows.map(r=>Math.max(r.wR,...(r.out.length?r.out:[0]))));
+    const xs=nice(xHi,8);
+
+    const outEl=document.getElementById('output');
+    const W=Math.max(360,Math.min(900,(outEl?.clientWidth||700)*0.9));
+    const H=Math.max(280,100+rows.length*44);
+    const m={l:110,r:24,t:48,b:56};
+    const gw=W-m.l-m.r, gh=H-m.t-m.b;
+    const xTo=v=>m.l+(v-xs.min)/(xs.max-xs.min)*gw;
+    const rowH=gh/Math.max(1,rows.length), boxH=Math.min(22,rowH*0.6);
+
+    const svg=[];
+    svg.push(`<svg width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" xmlns="http://www.w3.org/2000/svg">`);
+    if (label.title) svg.push(`<text x="${W/2}" y="${m.t-16}" font-size="16" text-anchor="middle">${escapeForHtml(label.title)}</text>`);
+    for(let x=xs.min;x<=xs.max+1e-9;x+=xs.step){
+      const px=xTo(x);
+      svg.push(`<line x1="${px}" y1="${m.t}" x2="${px}" y2="${H-m.b}" stroke="#e5e7eb"/>`);
+      svg.push(`<text x="${px}" y="${H-m.b+16}" font-size="11" text-anchor="middle">${Number.isInteger(x)?x:x.toFixed(1)}</text>`);
+    }
+    svg.push(`<line x1="${m.l}" y1="${H-m.b}" x2="${W-m.r}" y2="${H-m.b}" stroke="#111" stroke-width="1.2"/>`);
+    if (label.x) svg.push(`<text x="${W-m.r}" y="${H-m.b+32}" font-size="12" text-anchor="end">${escapeForHtml(label.x)}</text>`);
+    rows.forEach((r,i)=>{
+      const yc=m.t+rowH*(i+0.5);
+      const xq1=xTo(r.q1), xq3=xTo(r.q3), xmed=xTo(r.med), xwL=xTo(r.wL), xwR=xTo(r.wR);
+      svg.push(`<text x="${m.l-8}" y="${yc+4}" font-size="12" text-anchor="end">${escapeForHtml(r.name)}</text>`);
+      svg.push(`<rect x="${Math.min(xq1,xq3)}" y="${yc-boxH/2}" width="${Math.abs(xq3-xq1)}" height="${boxH}" fill="${r.color}" fill-opacity="${alpha}" stroke="${r.color}"/>`);
+      svg.push(`<line x1="${xmed}" y1="${yc-boxH/2}" x2="${xmed}" y2="${yc+boxH/2}" stroke="${r.color}" stroke-width="2"/>`);
+      svg.push(`<line x1="${xwL}" y1="${yc}" x2="${xq1}" y2="${yc}" stroke="${r.color}"/>`);
+      svg.push(`<line x1="${xq3}" y1="${yc}" x2="${xwR}" y2="${yc}" stroke="${r.color}"/>`);
+      const cap=boxH*0.5;
+      svg.push(`<line x1="${xwL}" y1="${yc-cap/2}" x2="${xwL}" y2="${yc+cap/2}" stroke="${r.color}"/>`);
+      svg.push(`<line x1="${xwR}" y1="${yc-cap/2}" x2="${xwR}" y2="${yc+cap/2}" stroke="${r.color}"/>`);
+      r.out.forEach(v=>svg.push(`<circle cx="${xTo(v)}" cy="${yc}" r="3" fill="${r.color}"/>`));
+    });
+    svg.push(`</svg>`);
+    return `<div class="segment">${svg.join('')}</div>`;
+  }
+
+  // ===== ヒストグラム＋度数折れ線 =====
+  const wantsHist = /histgram_/.test(typeStr);
+  const wantsLine = /linegraph_/.test(typeStr);
+  const fromRaw   = /_raw/.test(typeStr) && !tableMode;
+
+  // 棒の透明度
+  let barAlpha = 0.35;
+  const ba = parseFloat(grabLine('bar_alpha'));
+  if (isFinite(ba) && ba>=0 && ba<=1) barAlpha = ba;
+
+  // 生データ→度数
+  const toCounts = (vals) => {
+    const c = bins.map(()=>0);
+    for (const v of vals||[]) {
+      for (let i=0;i<bins.length;i++){
+        const [a,b] = bins[i], last = i===bins.length-1;
+        if ((v>=a && v<b) || (last && v<=b)) { c[i]++; break; }
+      }
+    }
+    return c;
+  };
+  const counts = tableMode
+    ? series.map(s => s.values.slice())                 // table は既に度数
+    : (fromRaw ? series.map(s => toCounts(s.values))    // raw は生データ→度数化
+               : series.map(s => s.values.slice()));    // 既に度数が入っている
+
+  const relative = (label.y||'').includes('相対度数');
+  const totals = counts.map(a => a.reduce((x,y)=>x+y,0)||1);
+  const Y = relative ? counts.map((a,i)=>a.map(v=>v/totals[i])) : counts;
+
+  const outEl = document.getElementById('output');
+  const W = Math.max(360, Math.min(900, (outEl?.clientWidth||700)*0.9));
+  const H = 360;
+  const m = {l:64, r:24, t:40, b:56};
+  const gw = W - m.l - m.r, gh = H - m.t - m.b;
+  const n  = bins.length, bw = gw / n;
+
+  const flat = [].concat.apply([], Y);
+  const dataMax = Math.max(1e-6, ...flat);
+  const nice = (max, ticks=8, force01=false) => {
+    if (force01) return {min:0, max:1, step:1/Math.max(1,ticks)};
+    const p = Math.pow(10, Math.floor(Math.log10(max)));
+    for (const k of [1,2,5,10]){ const step=k*p, M=Math.ceil(max/step)*step;
+      if (Math.round(M/step)+1 <= ticks+2) return {min:0,max:M,step}; }
+    const step=10*p; return {min:0,max:Math.ceil(max/step)*step,step};
+  };
+  const ys  = nice(dataMax, 8, relative);
+  const yTo = v => m.t + gh - (v/ys.max)*gh;
+
+  const S = series.length, groupPad = 6, barPad = 2;
+  const barW = Math.max(2, (bw - groupPad*2 - barPad*(S-1)) / S);
+  const xLeft = (i,s) => m.l + i*bw + groupPad + s*(barW+barPad);
+  const xMid  = (i)   => m.l + (i+0.5)*bw;
+
+  const svg = [];
+  svg.push(`<svg width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" xmlns="http://www.w3.org/2000/svg">`);
+  if (label.title) svg.push(`<text x="${W/2}" y="${m.t-12}" font-size="16" text-anchor="middle">${escapeForHtml(label.title)}</text>`);
+
+  for (let y=0; y<=ys.max+1e-9; y+=ys.step){
+    const py = yTo(y);
+    svg.push(`<line x1="${m.l}" y1="${py}" x2="${W-m.r}" y2="${py}" stroke="#e5e7eb"/>`);
+    const txt = relative ? (Math.round(y*100)/100).toFixed(2) : String(Math.round(y));
+    svg.push(`<text x="${m.l-8}" y="${py+4}" font-size="11" text-anchor="end">${txt}</text>`);
+  }
+  svg.push(`<line x1="${m.l}" y1="${m.t+gh}" x2="${W-m.r}" y2="${m.t+gh}" stroke="#111" stroke-width="1.2"/>`);
+  svg.push(`<line x1="${m.l}" y1="${m.t}"    x2="${m.l}"     y2="${m.t+gh}" stroke="#111" stroke-width="1.2"/>`);
+
+  const edges = [bins[0][0], ...bins.map(b=>b[1])];
+  const fmt = v => Number.isInteger(v) ? v : (''+v).replace(/\.0$/,'');
+  edges.forEach((v,i)=>{
+    const x = m.l + i*bw;
+    svg.push(`<line x1="${x}" y1="${m.t+gh}" x2="${x}" y2="${m.t+gh+6}" stroke="#111" stroke-width="1"/>`);
+    svg.push(`<text x="${x}" y="${m.t+gh+16}" font-size="11" text-anchor="middle">${fmt(v)}</text>`);
+  });
+  if (label.x) svg.push(`<text x="${W-m.r}" y="${m.t+gh+32}" font-size="12" text-anchor="end">${escapeForHtml(label.x)}</text>`);
+  if (label.y) svg.push(`<text x="${m.l-36}" y="${m.t-10}" font-size="12" text-anchor="start">${escapeForHtml(label.y)}</text>`);
+
+  if (wantsHist) {
+    Y.forEach((arr, si) => {
+      const c = series[si]?.color || '#3b82f6';
+      for (let i=0;i<n;i++){
+        const v = arr[i]||0, x0 = xLeft(i,si), py = yTo(v);
+        svg.push(`<rect x="${x0}" y="${py}" width="${barW}" height="${m.t+gh-py}" fill="${c}" fill-opacity="${barAlpha}" stroke="${c}"/>`);
+      }
+    });
+  }
+  if (wantsLine) {
+    Y.forEach((arr, si) => {
+      const c = series[si]?.color || '#ef4444';
+      const pts = arr.map((v,i)=>`${xMid(i)},${yTo(v)}`).join(' ');
+      svg.push(`<polyline points="${pts}" fill="none" stroke="${c}" stroke-width="2"/>`);
+      arr.forEach((v,i)=> svg.push(`<circle cx="${xMid(i)}" cy="${yTo(v)}" r="3" fill="${c}"/>`));
+    });
+  }
+
+  if (series.length) {
+    let lx = m.l + 6, ly = m.t + 6;
+    series.forEach((s,i)=>{
+      const c = s.color || '#3b82f6';
+      svg.push(`<rect x="${lx}" y="${ly-10}" width="14" height="6" fill="${c}" fill-opacity="${barAlpha}" stroke="${c}"/>`);
+      svg.push(`<line x1="${lx}" y1="${ly+2}" x2="${lx+14}" y2="${ly+2}" stroke="${c}" stroke-width="2"/>`);
+      svg.push(`<text x="${lx+20}" y="${ly+4}" font-size="12">${escapeForHtml(s.name||('series'+(i+1)))}</text>`);
+      ly += 18;
+    });
+  }
+
+  svg.push(`</svg>`);
+  return `<div class="segment">${svg.join('')}</div>`;
+}
+
+//TikZによる図形レンダリング
+    function runTikz(container){
+      try{
+        if (window.tikzjax && typeof window.tikzjax.render === 'function'){
+          window.tikzjax.render(container || document);
+        } else {
+          const s = document.createElement('script');
+          s.src = `https://tikzjax.com/v1/tikzjax.js?cb=${Date.now()}`;
+          document.head.appendChild(s);
+        }
+      }catch(e){ console.warn('TikZJax fallback error', e); }
+    }
+
+    async function renderTextToOutput(input, { prefixHtml = '' } = {}) {
+      const outputEl = document.getElementById('output');
+      if (window.marked?.setOptions) {
+        marked.setOptions({ gfm: true, breaks: true });
+      }
+
+      try {
+        const segments = splitIntoSegments(input);
+
+        // 1) TikZ と graf を先に解決（TikZはサーバ→失敗時フォールバック）
+        const tikzPieces = []; // { html?:string, fallback?:boolean, code?:string }
+        const grafSvgs = [];
+
+        for (const seg of segments) {
+          if (seg.type === 'tikz') {
+            const tikzPatched = tikzQuoteShim(seg.code);
+            try {
+              const response = await fetch('/render', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ tikz: tikzPatched })
+              });
+              if (!response.ok) throw new Error('server');
+              const data = await response.json();
+              tikzPieces.push({ html: data.svg || '<p style="color:red">TikZ レンダリング失敗</p>', fallback: false });
+            } catch {
+              tikzPieces.push({ fallback: true, code: tikzPatched });
+            }
+          } else if (seg.type === 'graf') {
+            try { grafSvgs.push(renderGraf(seg.code)); }
+            catch (e) { console.error('Graf render error', e); grafSvgs.push('<p style="color:red">グラフの描画に失敗しました</p>'); }
+          }
+        }
+
+        // 2) 出力HTMLを組み立て（TikZフォールバックはプレースホルダ）
+let tikzIndex = 0, grafIndex = 0;
+let html = '';
+for (const seg of segments) {
+  if (seg.type === 'tikz') {
+    const piece = tikzPieces[tikzIndex++] || {};
+    if (piece.fallback) {
+      // 後で TikZJax を流し込むプレースホルダ
+      html += `<div class="segment tikz-fallback" data-idx="${tikzIndex-1}"></div>`;
+    } else {
+      html += `<div class="segment">${piece.html || ''}</div>`;
+    }
+  } else if (seg.type === 'graf') {
+    const svg = grafSvgs[grafIndex++] || '';
+    html += `<div class="segment">${svg}</div>`;
+  } else if (seg.type === 'stat') {
+    try {
+      html += renderGrafStat(seg.code);
+    } catch (e) {
+      console.error('graf_stat error', e);
+      html += `<p style="color:red">統計グラフの描画に失敗しました</p>`;
+    }
+  } else {
+    // Markdown + \[...\]（display 数式）を共存させる
+    let htmlSegment = '';
+    try {
+      const raw = seg.content || '';
+      if (window.marked && typeof marked.parse === 'function') {
+        const regex = /\\\[[\s\S]*?\\\]/g; // \[ ... \] をそのまま渡す
+        let lastIndex = 0, m;
+        while ((m = regex.exec(raw)) !== null) {
+          const pre = raw.slice(lastIndex, m.index);
+          if (pre) {
+            let parsed = marked.parse(pre);
+            if (window.DOMPurify?.sanitize) parsed = DOMPurify.sanitize(parsed);
+            htmlSegment += parsed;
+          }
+          const escapedMath = escapeForHtml(m[0]);
+          htmlSegment += `<div>${escapedMath}</div>`;
+          lastIndex = regex.lastIndex;
+        }
+        const rest = raw.slice(lastIndex);
+        if (rest) {
+          let parsed = marked.parse(rest);
+          if (window.DOMPurify?.sanitize) parsed = DOMPurify.sanitize(parsed);
+          htmlSegment += parsed;
+        }
+      } else {
+        htmlSegment = escapeForHtml(raw);
+      }
+    } catch (e) {
+      console.error('Markdown parse error', e);
+      htmlSegment = escapeForHtml(seg.content);
+    }
+    html += `<div class="segment">${htmlSegment}</div>`;
+  }
+}
+	outputEl.innerHTML = `${prefixHtml}${html}`;
+
+        // 3) フォールバック TikZ を安全に挿入（script 要素を生成）
+        const phs = outputEl.querySelectorAll('.tikz-fallback');
+        phs.forEach(ph => {
+          const idx = Number(ph.getAttribute('data-idx'));
+          const piece = (tikzPieces[idx] || {});
+          if (!piece.fallback) return;
+          const sc = document.createElement('script');
+          sc.type = 'text/tikz';
+          sc.textContent = piece.code || '';
+          ph.appendChild(sc);
+        });
+
+        // 4) 数式レンダリング
+        if (window.MathJax && typeof MathJax.typesetPromise === 'function') {
+          await MathJax.typesetPromise([outputEl]);
+        }
+
+        // 5) TikZJax フォールバックがあれば実行
+        if (phs.length) runTikz(outputEl);
+
+      } catch (err) {
+        console.error('Render text error', err);
+        throw err;
+      }
+    }
+
+    // --- メイン ---
+    async function renderContent() {
+      const input = document.getElementById('tikz-input').value;
+      const statusEl = document.getElementById('status');
+      const outputEl = document.getElementById('output');
+      statusEl.textContent = 'レンダリング中...';
+
+      try {
+        await renderTextToOutput(input);
+      } catch (err) {
+        console.error(err);
+        outputEl.innerHTML = '<p style="color:red">エラーが発生しました: ' + err.message + '</p>';
+      } finally {
+        statusEl.textContent = '';
+      }
+    }
+
+    let promptFileItems = [];
+    let questionFileItems = [];
+    let loadedPromptFileName = '';
+    let promptHasUnsavedChanges = false;
+    const apiKeyStorageKey = 'tikzAppOpenAIApiKey';
+
+    function setPromptSaveState({ fileName = loadedPromptFileName, dirty = promptHasUnsavedChanges } = {}) {
+      loadedPromptFileName = fileName;
+      promptHasUnsavedChanges = dirty;
+
+      const saveBtn = document.getElementById('save-file-btn');
+      if (!saveBtn) return;
+      saveBtn.disabled = !loadedPromptFileName;
+      saveBtn.textContent = promptHasUnsavedChanges ? '保存 *' : '保存';
+    }
+
+    function getApiKey() {
+      const input = document.getElementById('api-key-input');
+      return (input?.value || localStorage.getItem(apiKeyStorageKey) || '').trim();
+    }
+
+    function updateApiKeyButtonState() {
+      const btn = document.getElementById('api-key-btn');
+      if (!btn) return;
+      btn.textContent = getApiKey() ? 'APIキー保存済み' : 'APIキー保存';
+    }
+
+    function configureApiKey() {
+      const statusEl = document.getElementById('status');
+      const apiKey = getApiKey();
+
+      if (apiKey) {
+        localStorage.setItem(apiKeyStorageKey, apiKey);
+        statusEl.textContent = 'APIキーをブラウザに保存しました';
+      } else {
+        localStorage.removeItem(apiKeyStorageKey);
+        statusEl.textContent = 'APIキーを削除しました';
+      }
+      updateApiKeyButtonState();
+    }
+
+    function normalizePromptFileItem(item) {
+      if (typeof item === 'string') {
+        return { name: item, label: item, code: '', title: '', level: '' };
+      }
+      return {
+        name: item.name || '',
+        label: item.label || item.name || '',
+        code: item.code || '',
+        title: item.title || '',
+        level: item.level || ''
+      };
+    }
+
+    function renderPromptFileOptions(items, selectedName = '') {
+      const selectEl = document.getElementById('prompt-file-select');
+      selectEl.innerHTML = '';
+
+      if (!items.length) {
+        const option = document.createElement('option');
+        option.value = '';
+        option.textContent = '該当する項目がありません';
+        selectEl.appendChild(option);
+        return;
+      }
+
+      items.forEach(item => {
+        const option = document.createElement('option');
+        option.value = item.name;
+        option.textContent = item.label;
+        option.title = item.name;
+        selectEl.appendChild(option);
+      });
+
+      if (selectedName && items.some(item => item.name === selectedName)) {
+        selectEl.value = selectedName;
+      }
+    }
+
+    function filterPromptFileOptions() {
+      const filterEl = document.getElementById('prompt-file-filter');
+      const q = filterEl.value.trim().toLowerCase();
+      const selectedName = document.getElementById('prompt-file-select').value;
+
+      if (!q) {
+        renderPromptFileOptions(promptFileItems, selectedName);
+        return;
+      }
+
+      const filtered = promptFileItems.filter(item => {
+        const haystack = [item.label, item.name, item.code, item.title, item.level]
+          .join(' ')
+          .toLowerCase();
+        return haystack.includes(q);
+      });
+      renderPromptFileOptions(filtered, selectedName);
+    }
+
+    function currentPromptFileName() {
+      return loadedPromptFileName || document.getElementById('prompt-file-select')?.value || '';
+    }
+
+    async function loadPromptFileList(selectedName = '') {
+      const selectEl = document.getElementById('prompt-file-select');
+      const statusEl = document.getElementById('status');
+      statusEl.textContent = 'ファイル一覧を読み込み中...';
+
+      try {
+        const response = await fetch('/prompt-files');
+        if (!response.ok) throw new Error('ファイル一覧の取得に失敗しました');
+        const data = await response.json();
+        promptFileItems = (Array.isArray(data.files) ? data.files : []).map(normalizePromptFileItem);
+        renderPromptFileOptions(promptFileItems, selectedName);
+      } catch (err) {
+        console.error(err);
+        selectEl.innerHTML = '<option value="">一覧取得エラー</option>';
+      } finally {
+        statusEl.textContent = '';
+      }
+    }
+
+    async function loadSelectedPromptFile() {
+      const selectEl = document.getElementById('prompt-file-select');
+      const inputEl = document.getElementById('tikz-input');
+      const statusEl = document.getElementById('status');
+      const fileName = selectEl.value;
+      const selectedItem = promptFileItems.find(item => item.name === fileName);
+
+      if (!fileName) return;
+      statusEl.textContent = `${selectedItem?.label || fileName} を読み込み中...`;
+
+      try {
+        const response = await fetch(`/prompt-files/${encodeURIComponent(fileName)}`);
+        if (!response.ok) throw new Error('ファイルの読み込みに失敗しました');
+        const data = await response.json();
+        inputEl.value = data.content || '';
+        setPromptSaveState({ fileName, dirty: false });
+        await loadQuestionFileList('', fileName);
+        statusEl.textContent = `${selectedItem?.label || fileName} を読み込みました`;
+      } catch (err) {
+        console.error(err);
+        statusEl.textContent = err.message;
+      }
+    }
+
+    async function saveLoadedPromptFile() {
+      const inputEl = document.getElementById('tikz-input');
+      const statusEl = document.getElementById('status');
+      const fileName = loadedPromptFileName;
+      const selectedItem = promptFileItems.find(item => item.name === fileName);
+
+      if (!fileName) {
+        statusEl.textContent = '先にファイルを読み込んでください';
+        return;
+      }
+
+      statusEl.textContent = `${selectedItem?.label || fileName} を保存中...`;
+
+      try {
+        const response = await fetch(`/prompt-files/${encodeURIComponent(fileName)}`, {
+          method: 'PUT',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ content: inputEl.value })
+        });
+        if (!response.ok) throw new Error('保存に失敗しました');
+        const savedItem = normalizePromptFileItem(await response.json());
+        promptFileItems = promptFileItems.map(item => item.name === savedItem.name ? savedItem : item);
+        setPromptSaveState({ fileName, dirty: false });
+        await loadPromptFileList(fileName);
+        filterPromptFileOptions();
+        statusEl.textContent = `${savedItem.label || fileName} を保存しました`;
+      } catch (err) {
+        console.error(err);
+        statusEl.textContent = err.message;
+      }
+    }
+
+    async function showGeneratedQuestions(files, directory) {
+      const combined = files.map(file => [
+        `# ${file.name}`,
+        '',
+        file.content || ''
+      ].join('\n')).join('\n\n---\n\n');
+      const prefixHtml = `
+        <p>${files.length}件の作問結果を保存しました。</p>
+        <p>保存先: <code>${escapeForHtml(directory || '')}</code></p>
+      `;
+
+      await renderTextToOutput(combined, { prefixHtml });
+    }
+
+    function formatElapsed(ms) {
+      const seconds = Math.max(0, Math.floor(ms / 1000));
+      const m = String(Math.floor(seconds / 60)).padStart(2, '0');
+      const s = String(seconds % 60).padStart(2, '0');
+      return `${m}:${s}`;
+    }
+
+    function setGenerationProgress(job, startedAtMs) {
+      const box = document.getElementById('generation-progress');
+      const bar = document.getElementById('generation-progress-bar');
+      const text = document.getElementById('generation-progress-text');
+      const total = Math.max(1, Number(job.total || 1));
+      const completed = Math.max(0, Number(job.completed || 0));
+      const current = Math.max(completed, Number(job.current || 0));
+      const elapsed = startedAtMs ? formatElapsed(Date.now() - startedAtMs) : '00:00';
+      const updated = job.updatedAt ? new Date(job.updatedAt).toLocaleTimeString('ja-JP') : '-';
+
+      box.classList.add('active');
+      bar.max = total;
+      bar.value = completed;
+      text.textContent = `${job.message || '作問中'} / 進捗 ${completed}/${total}問 / 現在 ${Math.min(current || 1, total)}問目 / 経過 ${elapsed} / 最終更新 ${updated}`;
+    }
+
+    function clearGenerationProgress() {
+      const box = document.getElementById('generation-progress');
+      const bar = document.getElementById('generation-progress-bar');
+      const text = document.getElementById('generation-progress-text');
+
+      box.classList.remove('active');
+      bar.value = 0;
+      text.textContent = '待機中';
+    }
+
+    async function waitForGenerationJob(jobId, startedAtMs) {
+      while (true) {
+        await new Promise(resolve => setTimeout(resolve, 1000));
+        const response = await fetch(`/generate-jobs/${encodeURIComponent(jobId)}`);
+        const job = await response.json().catch(() => ({}));
+
+        if (!response.ok) throw new Error(job.error || '作問ジョブの状態確認に失敗しました');
+        setGenerationProgress(job, startedAtMs);
+
+        if (job.status === 'completed') return job;
+        if (job.status === 'failed') throw new Error(job.error || '作問に失敗しました');
+      }
+    }
+
+    async function generateQuestions() {
+      const inputEl = document.getElementById('tikz-input');
+      const statusEl = document.getElementById('status');
+      const countEl = document.getElementById('question-count-select');
+      const generateBtn = document.getElementById('generate-btn');
+      const apiKey = getApiKey();
+      const count = Number(countEl.value || 1);
+
+      if (!loadedPromptFileName) {
+        statusEl.textContent = '先に Math_Prompt のファイルを読み込んでください';
+        return;
+      }
+
+      if (!apiKey) {
+        statusEl.textContent = '右上にOpenAI APIキーを入力して保存してください';
+        document.getElementById('api-key-input')?.focus();
+        return;
+      }
+
+      generateBtn.disabled = true;
+      const startedAtMs = Date.now();
+      clearGenerationProgress();
+      statusEl.textContent = `${count}問の作問ジョブを開始しています...`;
+
+      try {
+        const response = await fetch('/generate-questions', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            apiKey: getApiKey(),
+            prompt: inputEl.value,
+            sourceFile: loadedPromptFileName,
+            count
+          })
+        });
+        const data = await response.json().catch(() => ({}));
+        if (!response.ok) throw new Error(data.error || '作問に失敗しました');
+
+        setGenerationProgress(data, startedAtMs);
+        statusEl.textContent = '作問中です。進捗を確認しています...';
+
+        const completedJob = await waitForGenerationJob(data.id, startedAtMs);
+        await showGeneratedQuestions(completedJob.files || [], completedJob.directory || '');
+        await loadQuestionFileList((completedJob.files || []).at(-1)?.name || '');
+        statusEl.textContent = `${(completedJob.files || []).length}問を作成して保存しました`;
+        setGenerationProgress(completedJob, startedAtMs);
+      } catch (err) {
+        console.error(err);
+        statusEl.textContent = err.message;
+        document.getElementById('output').innerHTML = `<p style="color:red">${escapeForHtml(err.message)}</p>`;
+      } finally {
+        generateBtn.disabled = false;
+      }
+    }
+
+    function renderQuestionFileOptions(items, selectedName = '') {
+      const selectEl = document.getElementById('question-file-select');
+      selectEl.innerHTML = '';
+
+      if (!items.length) {
+        const option = document.createElement('option');
+        option.value = '';
+        option.textContent = currentPromptFileName() ? 'この単元の作問結果なし' : '単元を選択してください';
+        selectEl.appendChild(option);
+        return;
+      }
+
+      items.forEach(item => {
+        const option = document.createElement('option');
+        option.value = item.name;
+        option.textContent = item.label || item.name;
+        option.title = item.name;
+        selectEl.appendChild(option);
+      });
+
+      if (selectedName && items.some(item => item.name === selectedName)) {
+        selectEl.value = selectedName;
+      }
+    }
+
+    async function loadQuestionFileList(selectedName = '', sourceFile = currentPromptFileName()) {
+      const statusEl = document.getElementById('status');
+
+      try {
+        const params = sourceFile ? `?sourceFile=${encodeURIComponent(sourceFile)}` : '';
+        const response = await fetch(`/question-files${params}`);
+        if (!response.ok) throw new Error('作問結果一覧の取得に失敗しました');
+        const data = await response.json();
+        questionFileItems = Array.isArray(data.files) ? data.files : [];
+        renderQuestionFileOptions(questionFileItems, selectedName);
+      } catch (err) {
+        console.error(err);
+        statusEl.textContent = err.message;
+      }
+    }
+
+    async function loadSelectedQuestionFile() {
+      const selectEl = document.getElementById('question-file-select');
+      const statusEl = document.getElementById('status');
+      const fileName = selectEl.value;
+
+      if (!fileName) return;
+      statusEl.textContent = `${fileName} を読み込み中...`;
+
+      try {
+        const response = await fetch(`/question-files/${encodeURIComponent(fileName)}`);
+        if (!response.ok) throw new Error('作問結果の読み込みに失敗しました');
+        const data = await response.json();
+        await renderTextToOutput(data.content || '', {
+          prefixHtml: `<h2>${escapeForHtml(data.name || fileName)}</h2>`
+        });
+        statusEl.textContent = `${data.name || fileName} をレンダリング表示しました`;
+      } catch (err) {
+        console.error(err);
+        statusEl.textContent = err.message;
+      }
+    }
+
+    document.getElementById('load-file-btn').addEventListener('click', loadSelectedPromptFile);
+    document.getElementById('save-file-btn').addEventListener('click', saveLoadedPromptFile);
+    document.getElementById('api-key-btn').addEventListener('click', configureApiKey);
+    document.getElementById('api-key-input').addEventListener('input', updateApiKeyButtonState);
+    document.getElementById('api-key-input').addEventListener('keydown', event => {
+      if (event.key === 'Enter') configureApiKey();
+    });
+    document.getElementById('generate-btn').addEventListener('click', generateQuestions);
+    document.getElementById('refresh-questions-btn').addEventListener('click', () => loadQuestionFileList());
+    document.getElementById('load-question-btn').addEventListener('click', loadSelectedQuestionFile);
+    document.getElementById('prompt-file-select').addEventListener('change', event => {
+      loadedPromptFileName = '';
+      setPromptSaveState({ fileName: '', dirty: false });
+      loadQuestionFileList('', event.target.value);
+    });
+    document.getElementById('tikz-input').addEventListener('input', () => {
+      if (loadedPromptFileName) setPromptSaveState({ dirty: true });
+    });
+    document.getElementById('prompt-file-filter').addEventListener('input', filterPromptFileOptions);
+    document.getElementById('prompt-file-filter').addEventListener('keydown', event => {
+      if (event.key === 'Enter') loadSelectedPromptFile();
+    });
+    document.getElementById('render-btn').addEventListener('click', renderContent);
+    window.addEventListener('DOMContentLoaded', () => {
+      const apiKeyInput = document.getElementById('api-key-input');
+      if (apiKeyInput) apiKeyInput.value = localStorage.getItem(apiKeyStorageKey) || '';
+      updateApiKeyButtonState();
+      loadPromptFileList();
+      loadQuestionFileList();
+    });
+  </script>
+</body>
+</html>
