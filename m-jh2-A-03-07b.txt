@@ -58,57 +58,76 @@
 次の連立方程式を解きなさい。
 \[
 \begin{cases}
-\frac{x}{2} + \frac{y}{3} = 2 \\
-x - y = -1
+\frac{x}{3} - \frac{y}{4} = 1 \\
+x - 2y = -2
 \end{cases}
 \]
 
 【解答】  
 \[
-x = 2,\quad y = 3
+x = 6,\quad y = 4
 \]
 
 【解説】  
-**ステップ1：** 1つ目の式の分母をはらうために、両辺を6倍する。  
+**ステップ1：** 2つの式に番号をつける。
 \[
-3x + 2y = 12
+\begin{alignedat}{2}
+\frac{x}{3}-\frac{y}{4} &= 1 &\quad&\text{･･･①}\\
+x-2y &= -2 &\quad&\text{･･･②}
+\end{alignedat}
 \]
 
-**ステップ2：** 2つ目の式から
+**ステップ2：** ①の分母をはらうために、両辺に $12$ をかける。
+$3$ と $4$ の最小公倍数は $12$ なので、①の両辺に $12$ をかける。
 \[
-x = y - 1
-\]
-と表す。
-
-**ステップ3：** これを
-\[
-3x + 2y = 12
-\]
-に代入する。  
-\[
-3(y - 1) + 2y = 12
-\quad\Longrightarrow\quad
-5y - 3 = 12
-\quad\Longrightarrow\quad
-5y = 15
-\quad\Longrightarrow\quad
-y = 3
+\begin{aligned}
+12\left(\frac{x}{3}-\frac{y}{4}\right)&=12\times1\\
+4x-3y&=12
+\end{aligned}
 \]
 
-**ステップ4：** $y=3$ を
+これを③とする。
 \[
-x - y = -1
+4x-3y=12 \quad\text{･･･③}
 \]
-に代入する。  
+
+**ステップ3：** ③と、②を $4$ 倍した式を縦に並べる。
 \[
-x - 3 = -1
-\quad\Longrightarrow\quad
-x = 2
+\begin{array}{r@{\quad}r@{\;}r@{\;}r@{\;}r}
+\text{③} & 4x & -\,3y & = & 12\\
+\text{②}\times4 & 4x & -\,8y & = & -8
+\end{array}
+\]
+
+**ステップ4：** 2つの式を引いて、$x$ を消す。
+\[
+\begin{array}{r@{\;}r@{\;}r@{\;}r}
+   4x & -\,3y & = & 12\\
+-)\;4x & -\,8y & = & -8\\\hline
+       & 5y & = & 20
+\end{array}
+\]
+
+したがって、
+\[
+\begin{aligned}
+5y&=20\\
+y&=4
+\end{aligned}
+\]
+
+**ステップ5：** $y=4$ を②に代入して、$x$ を求める。
+\[
+\begin{aligned}
+x-2\times4&=-2\\
+x-8&=-2\\
+x&=6
+\end{aligned}
 \]
 
 したがって、この連立方程式の解は
 \[
-x = 2,\quad y = 3
+x = 6,\quad y = 4
 \]
 である。
 
