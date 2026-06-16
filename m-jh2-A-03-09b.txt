@@ -76,18 +76,21 @@ x + 2 = 2x - 1
 
 **ステップ2：** 2本目の式を解いて $x$ を求める。  
 \[
-x + 2 = 2x - 1
-\quad\Longrightarrow\quad
-x = 3
+\begin{aligned}
+x+2&=2x-1\\
+x-2x&=-1-2\\
+-x&=-3\\
+x&=3
+\end{aligned}
 \]
 
 **ステップ3：** $x=3$ を1本目の式に代入する。  
 \[
-3 + 2 = y - 1
-\quad\Longrightarrow\quad
-5 = y - 1
-\quad\Longrightarrow\quad
-y = 6
+\begin{aligned}
+3+2&=y-1\\
+5&=y-1\\
+y&=6
+\end{aligned}
 \]
 
 したがって、この連立方程式の解は
