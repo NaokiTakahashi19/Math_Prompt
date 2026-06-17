@@ -71,10 +71,10 @@ x = 6,\quad y = 4
 【解説】  
 **ステップ1：** 2つの式に番号をつける。
 \[
-\begin{alignedat}{2}
-\frac{x}{3}-\frac{y}{4} &= 1 &\quad&\text{･･･①}\\
-x-2y &= -2 &\quad&\text{･･･②}
-\end{alignedat}
+\begin{cases}
+\frac{x}{3}-\frac{y}{4}=1 \quad\text{･･･①}\\
+x-2y=-2 \quad\text{･･･②}
+\end{cases}
 \]
 
 **ステップ2：** ①の分母をはらうために、両辺に $12$ をかける。

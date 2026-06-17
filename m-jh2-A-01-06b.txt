@@ -72,7 +72,7 @@
 \[
 \hlblue{2}(\hlpink{3x}+\hlpink{4y})
 \]
-かっこの中のそれぞれの項に、$\hlblue{2}$ をかける。
+かっこの中のそれぞれの項に、かける数 $\hlblue{2}$ をかける。
 \[
 = \hlblue{2}\times\hlpink{3x}+\hlblue{2}\times\hlpink{4y}
 \]

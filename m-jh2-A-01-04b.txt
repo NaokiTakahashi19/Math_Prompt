@@ -73,7 +73,7 @@ a + 6b
 ax+bx=(a+b)x
 \]
 
-**ステップ1：** 同類項どうしを同じ色で確認する
+**ステップ1：** 同類項どうしを確認する
 \[
 \hlblue{3a}+\hlpink{5b}-\hlblue{2a}+\hlpink{b}
 \]
@@ -110,7 +110,7 @@ ax+bx=(a+b)x
 ax+bx=(a+b)x
 \]
 
-**ステップ1：** 同類項どうしを同じ色で確認する
+**ステップ1：** 同類項どうしを確認する
 \[
 = \hlblue{4x^2}-\hlpink{x}-\bbox[2px,lightyellow]{3}+\hlpink{6x}
 \]
