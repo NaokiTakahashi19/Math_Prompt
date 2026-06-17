@@ -59,9 +59,9 @@
 \[
 \begin{array}{|c|c|c|c|c|c|c|c|c|}
 \hline
-x & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\
+x & \makebox[1.1cm][c]{0} & \makebox[1.1cm][c]{1} & \makebox[1.1cm][c]{2} & \makebox[1.1cm][c]{3} & \makebox[1.1cm][c]{4} & \makebox[1.1cm][c]{5} & \makebox[1.1cm][c]{6} & \makebox[1.1cm][c]{7} \\
 \hline
-y &   &   &   &㋐   &   &   &   &  \\
+y & \makebox[1.1cm][c]{} & \makebox[1.1cm][c]{} & \makebox[1.1cm][c]{} & \makebox[1.1cm][c]{㋐} & \makebox[1.1cm][c]{} & \makebox[1.1cm][c]{} & \makebox[1.1cm][c]{} & \makebox[1.1cm][c]{} \\
 \hline
 \end{array}
 \]
@@ -96,9 +96,9 @@ x=7&:\quad y=\frac{21-3\times7}{2}=\frac{0}{2}=0
 \[
 \begin{array}{|c|c|c|c|c|c|c|c|c|}
 \hline
-x & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\
+x & \makebox[1.1cm][c]{0} & \makebox[1.1cm][c]{1} & \makebox[1.1cm][c]{2} & \makebox[1.1cm][c]{$\hlblue{3}$} & \makebox[1.1cm][c]{4} & \makebox[1.1cm][c]{5} & \makebox[1.1cm][c]{6} & \makebox[1.1cm][c]{7} \\
 \hline
-y & \frac{21}{2} & 9 & \frac{15}{2} & 6 & \frac{9}{2} & 3 & \frac{3}{2} & 0 \\
+y & \makebox[1.1cm][c]{$\frac{21}{2}$} & \makebox[1.1cm][c]{9} & \makebox[1.1cm][c]{$\frac{15}{2}$} & \makebox[1.1cm][c]{$\hlblue{6}$} & \makebox[1.1cm][c]{$\frac{9}{2}$} & \makebox[1.1cm][c]{3} & \makebox[1.1cm][c]{$\frac{3}{2}$} & \makebox[1.1cm][c]{0} \\
 \hline
 \end{array}
 \]
@@ -110,38 +110,62 @@ y & \frac{21}{2} & 9 & \frac{15}{2} & 6 & \frac{9}{2} & 3 & \frac{3}{2} & 0 \\
 である。
 
 ■問題2  
-2元1次方程式 $x + y =7$ を成り立たせるような $x, y$ の値の組を求め表を作成し、次に2元1次方程式 $2x + y =13$ を成り立たせるような $x, y$ の値の組を求め表を作成し、2つの表から共通な $x, y$ の値の組を求め、そのときの $x$ の値を答えなさい。  
+2元1次方程式 $x-y=2$ を成り立たせるような $x, y$ の値の組を求め次の表に書き入れ、$a$ の値を答えなさい。
+\[
+\begin{array}{|c|c|c|c|c|c|c|c|c|c|c|c|}
+\hline
+x & \makebox[0.75cm][c]{-5} & \makebox[0.75cm][c]{-4} & \makebox[0.75cm][c]{-3} & \makebox[0.75cm][c]{-2} & \makebox[0.75cm][c]{-1} & \makebox[0.75cm][c]{0} & \makebox[0.75cm][c]{1} & \makebox[0.75cm][c]{2} & \makebox[0.75cm][c]{3} & \makebox[0.75cm][c]{4} & \makebox[0.75cm][c]{5} \\
+\hline
+y & \makebox[0.75cm][c]{} & \makebox[0.75cm][c]{} & \makebox[0.75cm][c]{} & \makebox[0.75cm][c]{$a$} & \makebox[0.75cm][c]{} & \makebox[0.75cm][c]{} & \makebox[0.75cm][c]{} & \makebox[0.75cm][c]{} & \makebox[0.75cm][c]{} & \makebox[0.75cm][c]{} & \makebox[0.75cm][c]{} \\
+\hline
+\end{array}
+\]
 
 【解答】  
 \[
-6
+-4
 \]
 
 【解説】  
-**ステップ1：**  $x + y =7$ を成り立たせるような $x, y$ の値の組を求め表を作成
+**ステップ1：** 2元1次方程式 $x-y=2$ を $y$ について解く
+\[
+y=x-2
+\]
+
+**ステップ2：** $x$ を代入し $y$ の値を求める
+表を完成させるために、$x=-5$ から $x=5$ までをすべて代入して計算する。
+\[
+\begin{aligned}
+x=-5&:\quad y=-5-2=-7\\
+x=-4&:\quad y=-4-2=-6\\
+x=-3&:\quad y=-3-2=-5\\
+x=-2&:\quad y=-2-2=-4\\
+x=-1&:\quad y=-1-2=-3\\
+x=0&:\quad y=0-2=-2\\
+x=1&:\quad y=1-2=-1\\
+x=2&:\quad y=2-2=0\\
+x=3&:\quad y=3-2=1\\
+x=4&:\quad y=4-2=2\\
+x=5&:\quad y=5-2=3
+\end{aligned}
+\]
+
+**ステップ3：** 表を完成させる
 \[
 \begin{array}{|c|c|c|c|c|c|c|c|c|c|c|c|}
 \hline
-x & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 \\
+x & \makebox[0.75cm][c]{-5} & \makebox[0.75cm][c]{-4} & \makebox[0.75cm][c]{-3} & \makebox[0.75cm][c]{$\hlblue{-2}$} & \makebox[0.75cm][c]{-1} & \makebox[0.75cm][c]{0} & \makebox[0.75cm][c]{1} & \makebox[0.75cm][c]{2} & \makebox[0.75cm][c]{3} & \makebox[0.75cm][c]{4} & \makebox[0.75cm][c]{5} \\
 \hline
-y & 7 & 6 & 5 & 4 & 3 & 2 & 1 & 0 & -1 & -2 & -3 \\
+y & \makebox[0.75cm][c]{-7} & \makebox[0.75cm][c]{-6} & \makebox[0.75cm][c]{-5} & \makebox[0.75cm][c]{$\hlblue{-4}$} & \makebox[0.75cm][c]{-3} & \makebox[0.75cm][c]{-2} & \makebox[0.75cm][c]{-1} & \makebox[0.75cm][c]{0} & \makebox[0.75cm][c]{1} & \makebox[0.75cm][c]{2} & \makebox[0.75cm][c]{3} \\
 \hline
 \end{array}
 \]
 
-**ステップ2：** $2x + y =13$ を成り立たせるような $x, y$ の値の組を求め表を作成
+$a$ は $x=-2$ のときの $y$ の値なので、
 \[
-\begin{array}{|c|c|c|c|c|c|c|c|c|c|c|c|}
-\hline
-x & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 \\
-\hline
-y & 13 & 11 & 9 & 7 & 5 & 3 & 1 & -1 & -3 & -5 & -7 \\
-\hline
-\end{array}
+a=-4
 \]
-
-**ステップ3：** 両方の式でなりたつ$x, y$の組合せを探す。  
-2つの表で、$x$と$y$の組合せが同一になるのは、$(x, y)= (6, 1)$のとき。その時の$x$の値は，$6$である。
+である。
 
 ■問題3  
 連立方程式　$2x+ y= 6, x + y = 5$ の解を次のⓐ〜ⓓより選びなさい。  

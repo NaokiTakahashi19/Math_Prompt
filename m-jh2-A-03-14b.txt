@@ -95,8 +95,10 @@ x+3y=600 \quad\text{･･･②}
 **ステップ3：** ①、②を連立方程式の形にする。
 \[
 \begin{cases}
-x+y=300 \quad\text{･･･①}\\
-x+3y=600 \quad\text{･･･②}
+\begin{array}{r@{\;}c@{\;}r@{\;}c@{\;}r@{\quad}r}
+x & + & y & = & 300 & \text{･･･①}\\
+x & + & 3y & = & 600 & \text{･･･②}
+\end{array}
 \end{cases}
 \]
 

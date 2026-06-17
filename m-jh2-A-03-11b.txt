@@ -100,8 +100,8 @@ x-y=2 \quad\text{･･･②}
 **ステップ4：** ①＋②をして、$y$ を消す。
 \[
 \begin{array}{r@{\;}r@{\;}r@{\;}r}
-   x & +\,y & = & 8\\
-+)\;x & -\,y & = & 2\\\hline
+   x & \hlblue{+y} & = & 8\\
++)\;x & \hlblue{-y} & = & 2\\\hline
    2x &      & = & 10
 \end{array}
 \]
