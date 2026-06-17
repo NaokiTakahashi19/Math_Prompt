@@ -75,14 +75,14 @@
 = 2x + 4y + 3x - 7y
 \]
 
-**ステップ2：** 同類項どうしを同じ色で確認する
+**ステップ2：** ひき算をたし算の形にして、同類項どうしを同じ色で確認する
 \[
-= \hlblue{2x}+\hlpink{4y}+\hlblue{3x}-\hlpink{7y}
+= \hlblue{2x}+\hlpink{4y}+\hlblue{3x}+\hlpink{(-7y)}
 \]
 
 **ステップ3：** 項を同類項ごとに並びかえる
 \[
-= \hlblue{2x}+\hlblue{3x}+\hlpink{4y}-\hlpink{7y}
+= \hlblue{2x}+\hlblue{3x}+\hlpink{4y}+\hlpink{(-7y)}
 \]
 
 **ステップ4：** 同類項をまとめる
