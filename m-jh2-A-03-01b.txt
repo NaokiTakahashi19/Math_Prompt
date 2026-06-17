@@ -59,9 +59,9 @@
 \[
 \begin{array}{|c|c|c|c|c|c|c|c|c|}
 \hline
-x & \makebox[1.1cm][c]{0} & \makebox[1.1cm][c]{1} & \makebox[1.1cm][c]{2} & \makebox[1.1cm][c]{3} & \makebox[1.1cm][c]{4} & \makebox[1.1cm][c]{5} & \makebox[1.1cm][c]{6} & \makebox[1.1cm][c]{7} \\
+x & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\
 \hline
-y & \makebox[1.1cm][c]{} & \makebox[1.1cm][c]{} & \makebox[1.1cm][c]{} & \makebox[1.1cm][c]{㋐} & \makebox[1.1cm][c]{} & \makebox[1.1cm][c]{} & \makebox[1.1cm][c]{} & \makebox[1.1cm][c]{} \\
+y &  &  &  & \text{㋐} &  &  &  &  \\
 \hline
 \end{array}
 \]
@@ -96,9 +96,9 @@ x=7&:\quad y=\frac{21-3\times7}{2}=\frac{0}{2}=0
 \[
 \begin{array}{|c|c|c|c|c|c|c|c|c|}
 \hline
-x & \makebox[1.1cm][c]{0} & \makebox[1.1cm][c]{1} & \makebox[1.1cm][c]{2} & \makebox[1.1cm][c]{$\hlblue{3}$} & \makebox[1.1cm][c]{4} & \makebox[1.1cm][c]{5} & \makebox[1.1cm][c]{6} & \makebox[1.1cm][c]{7} \\
+x & 0 & 1 & 2 & \hlblue{3} & 4 & 5 & 6 & 7 \\
 \hline
-y & \makebox[1.1cm][c]{$\frac{21}{2}$} & \makebox[1.1cm][c]{9} & \makebox[1.1cm][c]{$\frac{15}{2}$} & \makebox[1.1cm][c]{$\hlblue{6}$} & \makebox[1.1cm][c]{$\frac{9}{2}$} & \makebox[1.1cm][c]{3} & \makebox[1.1cm][c]{$\frac{3}{2}$} & \makebox[1.1cm][c]{0} \\
+y & \frac{21}{2} & 9 & \frac{15}{2} & \hlblue{6} & \frac{9}{2} & 3 & \frac{3}{2} & 0 \\
 \hline
 \end{array}
 \]
@@ -114,9 +114,9 @@ y & \makebox[1.1cm][c]{$\frac{21}{2}$} & \makebox[1.1cm][c]{9} & \makebox[1.1cm]
 \[
 \begin{array}{|c|c|c|c|c|c|c|c|c|c|c|c|}
 \hline
-x & \makebox[0.75cm][c]{-5} & \makebox[0.75cm][c]{-4} & \makebox[0.75cm][c]{-3} & \makebox[0.75cm][c]{-2} & \makebox[0.75cm][c]{-1} & \makebox[0.75cm][c]{0} & \makebox[0.75cm][c]{1} & \makebox[0.75cm][c]{2} & \makebox[0.75cm][c]{3} & \makebox[0.75cm][c]{4} & \makebox[0.75cm][c]{5} \\
+x & -5 & -4 & -3 & -2 & -1 & 0 & 1 & 2 & 3 & 4 & 5 \\
 \hline
-y & \makebox[0.75cm][c]{} & \makebox[0.75cm][c]{} & \makebox[0.75cm][c]{} & \makebox[0.75cm][c]{$a$} & \makebox[0.75cm][c]{} & \makebox[0.75cm][c]{} & \makebox[0.75cm][c]{} & \makebox[0.75cm][c]{} & \makebox[0.75cm][c]{} & \makebox[0.75cm][c]{} & \makebox[0.75cm][c]{} \\
+y &  &  &  & a &  &  &  &  &  &  &  \\
 \hline
 \end{array}
 \]
@@ -154,9 +154,9 @@ x=5&:\quad y=5-2=3
 \[
 \begin{array}{|c|c|c|c|c|c|c|c|c|c|c|c|}
 \hline
-x & \makebox[0.75cm][c]{-5} & \makebox[0.75cm][c]{-4} & \makebox[0.75cm][c]{-3} & \makebox[0.75cm][c]{$\hlblue{-2}$} & \makebox[0.75cm][c]{-1} & \makebox[0.75cm][c]{0} & \makebox[0.75cm][c]{1} & \makebox[0.75cm][c]{2} & \makebox[0.75cm][c]{3} & \makebox[0.75cm][c]{4} & \makebox[0.75cm][c]{5} \\
+x & -5 & -4 & -3 & \hlblue{-2} & -1 & 0 & 1 & 2 & 3 & 4 & 5 \\
 \hline
-y & \makebox[0.75cm][c]{-7} & \makebox[0.75cm][c]{-6} & \makebox[0.75cm][c]{-5} & \makebox[0.75cm][c]{$\hlblue{-4}$} & \makebox[0.75cm][c]{-3} & \makebox[0.75cm][c]{-2} & \makebox[0.75cm][c]{-1} & \makebox[0.75cm][c]{0} & \makebox[0.75cm][c]{1} & \makebox[0.75cm][c]{2} & \makebox[0.75cm][c]{3} \\
+y & -7 & -6 & -5 & \hlblue{-4} & -3 & -2 & -1 & 0 & 1 & 2 & 3 \\
 \hline
 \end{array}
 \]

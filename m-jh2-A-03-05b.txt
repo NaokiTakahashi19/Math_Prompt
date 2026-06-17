@@ -57,10 +57,12 @@
 ■問題1  
  次の連立方程式を代入法で解きなさい。
 \[
-\begin{cases}
-x = y - 3\\
-5x -3y = -5
-\end{cases}
+\left\{
+\begin{array}{r@{\;}c@{\;}l}
+x & = & y - 3\\
+5x - 3y & = & -5
+\end{array}
+\right.
 \]
 
 【解答】
@@ -73,20 +75,20 @@ x = 2,\quad y = 5
 
 ■ステップ1：問題の連立方程式をそのまま書き、式に番号をつける
 \[
-\begin{cases}
-\begin{alignedat}{2}
-x &= y - 3 &\quad&\text{･･･①}\\
-5x - 3y &= -5 &\quad&\text{･･･②}
-\end{alignedat}
-\end{cases}
+\left\{
+\begin{array}{r@{\;}c@{\;}l@{\quad}r}
+\hlblue{x} & = & \hlblue{y - 3} & \text{･･･①}\\
+5x - 3y & = & -5 & \text{･･･②}
+\end{array}
+\right.
 \]
 
-①はすでに $x$ が $y$ で表されているので、①を②に代入する。
+①はすでに $\hlblue{x}$ が $\hlblue{y-3}$ で表されているので、①を②に代入する。
 
 \[
 \begin{aligned}
-5x-3y&=-5\\
-5(y-3)-3y&=-5
+5\hlblue{x}-3y&=-5\\
+5\hlblue{(y-3)}-3y&=-5
 \end{aligned}
 \]
 
@@ -144,10 +146,12 @@ x = 2,\quad y = 5
  次の連立方程式を代入法で解きなさい。
 
 \[
-\begin{cases}
-2x - y = 5\\
-y = x - 4
-\end{cases}
+\left\{
+\begin{array}{r@{\;}c@{\;}l}
+2x - y & = & 5\\
+y & = & x - 4
+\end{array}
+\right.
 \]
 
 【解答】
@@ -161,20 +165,20 @@ x = 1,\quad y = -3
 
 ■ステップ1：問題の連立方程式をそのまま書き、式に番号をつける
 \[
-\begin{cases}
-\begin{alignedat}{2}
-2x - y &= 5 &\quad&\text{･･･①}\\
-y &= x - 4 &\quad&\text{･･･②}
-\end{alignedat}
-\end{cases}
+\left\{
+\begin{array}{r@{\;}c@{\;}l@{\quad}r}
+2x - y & = & 5 & \text{･･･①}\\
+\hlblue{y} & = & \hlblue{x - 4} & \text{･･･②}
+\end{array}
+\right.
 \]
 
-②はすでに $y$ が $x$ で表されているので、②を①に代入する。
+②はすでに $\hlblue{y}$ が $\hlblue{x-4}$ で表されているので、②を①に代入する。
 
 \[
 \begin{aligned}
-2x-y&=5\\
-2x-(x-4)&=5
+2x-\hlblue{y}&=5\\
+2x-\hlblue{(x-4)}&=5
 \end{aligned}
 \]
 

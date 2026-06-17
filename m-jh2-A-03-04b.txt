@@ -60,10 +60,12 @@
  次の連立方程式を加減法で解きなさい。
 
 \[
-\begin{cases}
-3x - 5y = 11\\
-4x - 7y = 16
-\end{cases}
+\left\{
+\begin{array}{r@{\;}c@{\;}r@{\;}c@{\;}r}
+3x & - & 5y & = & 11\\
+4x & - & 7y & = & 16
+\end{array}
+\right.
 \]
 
 【解答】
@@ -78,19 +80,19 @@ x = -3,\quad y = -4
 
 **ステップ1：** 2つの式に番号をつける。
 \[
-\begin{cases}
-\begin{alignedat}{2}
-3x-5y &= 11 &\quad&\text{･･･①}\\
-4x-7y &= 16 &\quad&\text{･･･②}
-\end{alignedat}
-\end{cases}
+\left\{
+\begin{array}{r@{\;}c@{\;}r@{\;}c@{\;}r@{\quad}r}
+3x & - & 5y & = & 11 & \text{･･･①}\\
+4x & - & 7y & = & 16 & \text{･･･②}
+\end{array}
+\right.
 \]
 
 **ステップ2：** $x$ の係数をそろえるために、①を $4$ 倍、②を $3$ 倍する。
 \[
 \begin{array}{r@{\quad}r@{\;}r@{\;}r@{\;}r}
-\text{①}\times4 & 12x & -\,20y & = & 44\\
-\text{②}\times3 & 12x & -\,21y & = & 48
+\text{①}\times4 & \hlblue{12x} & -\,20y & = & 44\\
+\text{②}\times3 & \hlblue{12x} & -\,21y & = & 48
 \end{array}
 \]
 
@@ -129,10 +131,12 @@ x = -3,\quad y = -4
  次の連立方程式を加減法で解きなさい。
 
 \[
-\begin{cases}
-8x + 3y = 4\\
-5x + 4y = 3
-\end{cases}
+\left\{
+\begin{array}{r@{\;}c@{\;}r@{\;}c@{\;}r}
+8x & + & 3y & = & 4\\
+5x & + & 4y & = & 3
+\end{array}
+\right.
 \]
 
 【解答】
@@ -147,19 +151,19 @@ x = \frac{7}{17},\quad y = \frac{4}{17}
 
 **ステップ1：** 2つの式に番号をつける。
 \[
-\begin{cases}
-\begin{alignedat}{2}
-8x+3y &= 4 &\quad&\text{･･･①}\\
-5x+4y &= 3 &\quad&\text{･･･②}
-\end{alignedat}
-\end{cases}
+\left\{
+\begin{array}{r@{\;}c@{\;}r@{\;}c@{\;}r@{\quad}r}
+8x & + & 3y & = & 4 & \text{･･･①}\\
+5x & + & 4y & = & 3 & \text{･･･②}
+\end{array}
+\right.
 \]
 
 **ステップ2：** $y$ の係数をそろえるために、①を $4$ 倍、②を $3$ 倍する。
 \[
 \begin{array}{r@{\quad}r@{\;}r@{\;}r@{\;}r}
-\text{①}\times4 & 32x & +\,12y & = & 16\\
-\text{②}\times3 & 15x & +\,12y & = & 9
+\text{①}\times4 & 32x & +\,\hlblue{12y} & = & 16\\
+\text{②}\times3 & 15x & +\,\hlblue{12y} & = & 9
 \end{array}
 \]
 

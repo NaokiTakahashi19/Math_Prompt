@@ -57,10 +57,12 @@
 ■問題1  
 次の連立方程式を解きなさい。
 \[
-\begin{cases}
-x + 2(x + y) = 12 \\
-x - y = 2
-\end{cases}
+\left\{
+\begin{array}{r@{\;}c@{\;}l@{\;}c@{\;}r}
+x & + & 2(x + y) & = & 12\\
+x & - & y & = & 2
+\end{array}
+\right.
 \]
 
 【解答】  
@@ -71,10 +73,12 @@ x = \frac{16}{5},\quad y = \frac{6}{5}
 【解説】  
 **ステップ1：** 2つの式に番号をつける。
 \[
-\begin{cases}
-x+2(x+y)=12 \quad\text{･･･①}\\
-x-y=2 \quad\text{･･･②}
-\end{cases}
+\left\{
+\begin{array}{r@{\;}c@{\;}l@{\;}c@{\;}r@{\quad}r}
+x & + & 2(x+y) & = & 12 & \text{･･･①}\\
+x & - & y & = & 2 & \text{･･･②}
+\end{array}
+\right.
 \]
 
 ①のかっこをはずして整理する。
@@ -88,10 +92,12 @@ x+2x+2y&=12\\
 
 これを①' とすると、新しい連立方程式は
 \[
-\begin{cases}
-3x+2y=12 \quad\text{･･･①'}\\
-x-y=2 \quad\text{･･･②}
-\end{cases}
+\left\{
+\begin{array}{r@{\;}c@{\;}r@{\;}c@{\;}r@{\quad}r}
+3x & + & 2y & = & 12 & \text{･･･①'}\\
+x & - & y & = & 2 & \text{･･･②}
+\end{array}
+\right.
 \]
 
 **ステップ2：** 代入法か加減法かを判断する。
@@ -113,8 +119,8 @@ x-y=2 \quad\text{･･･②}
 **ステップ4：** ①'＋③をして、$y$ を消す。
 \[
 \begin{array}{r@{\;}r@{\;}r@{\;}r}
-   3x &+\,2y & = & 12\\
-+)\;2x &-\,2y & = & 4\\\hline
+   3x &\hlblue{+\,2y} & = & 12\\
++)\;2x &\hlblue{-\,2y} & = & 4\\\hline
    5x &      & = & 16
 \end{array}
 \]

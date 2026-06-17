@@ -79,7 +79,7 @@
 
 **ステップ2：** 係数と文字をかけ算の形に分ける
 \[
-= \frac{6\times a\times a\times b\times2\times b}{3\times a}
+= \frac{6\times \hlblue{a}\times a\times b\times2\times b}{3\times \hlblue{a}}
 \]
 
 **ステップ3：** 分子と分母で同じものを約分する

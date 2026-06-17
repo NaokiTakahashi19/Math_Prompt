@@ -84,12 +84,12 @@ x & + & y & = & 12 & \text{･･･①}
 
 この2つの式を連立させると、
 \[
-\begin{cases}
+\left\{
 \begin{array}{r@{\;}c@{\;}r@{\;}c@{\;}r@{\quad}r}
 x & + & y & = & 12 & \text{･･･①}\\
 100x & + & 80y & = & 1120 & \text{･･･②}
 \end{array}
-\end{cases}
+\right.
 \]
 となる。この連立方程式を解いていく。
 
@@ -98,19 +98,19 @@ x & + & y & = & 12 & \text{･･･①}\\
 \[
 \begin{aligned}
 x+y&=12\\
-y&=12-x
+\hlblue{y}&=\hlblue{12-x}
 \end{aligned}
 \]
 これを③とする。
 \[
-y=12-x \quad\text{･･･③}
+\hlblue{y}=\hlblue{12-x} \quad\text{･･･③}
 \]
 
 **ステップ3：** ③を②に代入して、$x$ を求める。
 \[
 \begin{aligned}
-100x+80y&=1120\\
-100x+80(12-x)&=1120\\
+100x+80\hlblue{y}&=1120\\
+100x+80\hlblue{(12-x)}&=1120\\
 100x+960-80x&=1120\\
 20x&=160\\
 x&=8
