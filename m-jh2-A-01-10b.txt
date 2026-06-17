@@ -132,7 +132,10 @@
 **ステップ1：** 単項式を、係数と文字の積として見る
 「$2x$」は「$2 \times x$」、「$3x$」は「$3 \times x$」と考える。
 \[
-= 2 \times x \times 3 \times x
+\hlblue{2x}\times\hlpink{3x}
+\]
+\[
+= \hlblue{2\times x}\times\hlpink{3\times x}
 \]
 
 **ステップ2：** 係数どうし、文字どうしが並ぶように順番を変える
