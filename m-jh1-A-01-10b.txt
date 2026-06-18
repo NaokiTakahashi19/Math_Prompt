@@ -57,7 +57,7 @@
  次の計算をしなさい。
 
 \[
-4 \times (-3) \times 8
+\hlblue{4} \times \hlpink{(-3)} \times \hlblue{8}
 \]
 
 【解答】  
@@ -68,17 +68,17 @@
 
 【解説】  
 **ステップ1：** 符号の数を数える
-− のついた数は１つなので，全体の積の符号は「−」になる。
+$\hlpink{(-3)}$ のように − のついた数は１つなので，全体の積の符号は「−」になる。
 
 **ステップ2：** 交換法則で順序を入れ替え，計算しやすい組み合わせを作る
 
 \[
-4 \times 8 \times (-3)
+\hlblue{4 \times 8} \times \hlpink{(-3)}
 \]
 
 **ステップ3：** 結合法則でかけ算のまとまりを決めて計算
-まず $4\times8=32$
-次に $32\times(-3)=-96$
+まず $\hlblue{4\times8}=32$
+次に $32\times\hlpink{(-3)}=\bbox[2px,lightyellow]{-96}$
 
 **ステップ4：** 符号を確認し，答えを書く
 
@@ -90,7 +90,7 @@
  次の計算をしなさい。
 
 \[
-(-2)\times7\times(-9)
+\hlpink{(-2)}\times\hlblue{7}\times\hlpink{(-9)}
 \]
 
 【解答】  
@@ -101,22 +101,24 @@
 
 【解説】  
 **ステップ1：** 符号の数を数える
-負の数は２つあるので，符号は「＋」になる。
+負の数は $\hlpink{(-2)}$ と $\hlpink{(-9)}$ の２つあるので，符号は「＋」になる。
 
-**ステップ2：** 交換法則で正の数同士，負の数同士をまとめる
+**ステップ2：** 交換法則で負の数どうしをまとめる
 
 \[
-7\times(-2)\times(-9)\;\longrightarrow\;(7\times9)\times((-2)\times(-1))
+\hlblue{7}\times\hlpink{(-2)}\times\hlpink{(-9)}
+\;\longrightarrow\;
+\hlblue{7}\times\{\hlpink{(-2)\times(-9)}\}
 \]
 
-※ここでは説明を簡単にするため，まず $7\times9$ を計算し，次に残りを計算する方法もある。
+※負の数どうしを先にまとめると，符号が「＋」になることも確認しやすい。
 
 **ステップ3：** 計算する
 
-* 正の数同士：$7\times9=63$
-* 残りの $(-2)\times(-1)=2$
-* さらに $63\times2=126$
-  ステップ4：符号は「＋」なのでそのまま答え
+* 負の数どうし：$\hlpink{(-2)\times(-9)}=+18$
+* さらに $\hlblue{7}\times18=\bbox[2px,lightyellow]{126}$
+
+**ステップ4：** 符号は「＋」なのでそのまま答える
 
 \[
 126
@@ -126,43 +128,43 @@
  次の計算をしなさい。
 
 \[
-2\times(-6)\times5\times(-4)\times(-2)
+\hlblue{2}\times\hlpink{(-6)}\times\hlblue{5}\times\hlpink{(-4)}\times\hlpink{(-2)}
 \]
 
 【解答】  
 
 \[
--240
+-480
 \]
 
 【解説】  
 **ステップ1：** 負の数の個数を数える
-負の数は３つなので，符号は「−」になる。
+負の数は $\hlpink{(-6)},\hlpink{(-4)},\hlpink{(-2)}$ の３つなので，符号は「−」になる。
 
 **ステップ2：** 交換法則で正の数を先にまとめる
 
 \[
-(2\times5)\times((-6)\times(-4)\times(-2))
+\hlblue{(2\times5)}\times\{\hlpink{(-6)\times(-4)\times(-2)}\}
 \]
 
 **ステップ3：** 結合法則でかたまりごとに計算
 
-* $2\times5=10$
+* $\hlblue{2\times5}=10$
 * 残りの負の数３つの積：
-  まず $(-6)\times(-4)=24$
-  次に $24\times(-2)=-48$
+  まず $\hlpink{(-6)\times(-4)}=24$
+  次に $24\times\hlpink{(-2)}=-48$
 
 **ステップ4：** 全体をかける
 
 \[
-10\times(-48)=-480
+10\times\hlpink{(-48)}=\bbox[2px,lightyellow]{-480}
 \]
 
 → ここで計算ミスに注意！ 本来は
 負の数３個＝「−」，正の数２個＝そのままなので
 
 \[
-2\times5=10,\quad (-6)\times(-4)\times(-2)=(-48)\quad\Longrightarrow\quad10\times(-48)=-480
+\hlblue{2\times5}=10,\quad \hlpink{(-6)\times(-4)\times(-2)}=(-48)\quad\Longrightarrow\quad10\times\hlpink{(-48)}=\bbox[2px,lightyellow]{-480}
 \]
 
 したがって，正しい答えは
@@ -175,7 +177,7 @@
  次の計算をしなさい。
 
 \[
-(-1.3)\times(-1.25)\times8
+\hlpink{(-1.3)}\times\hlpink{(-1.25)}\times\hlblue{8}
 \]
 
 【解答】  
@@ -186,15 +188,15 @@
 
 【解説】  
 **ステップ1：** 符号の数を数える
-負の数は２つなので、符号は「＋」になる。
+負の数は $\hlpink{(-1.3)}$ と $\hlpink{(-1.25)}$ の２つなので、符号は「＋」になる。
 
 **ステップ2：** 結合法則でかける順序を決める
 \[
-\bigl((-1.3)\times8\bigr)\times(-1.25)
+\bigl(\hlpink{(-1.3)}\times\hlblue{8}\bigr)\times\hlpink{(-1.25)}
 \]
 
-**ステップ3：** まず $(-1.3)\times8=-10.4$
-次に $-10.4\times(-1.25)=10.4\times1.25$
+**ステップ3：** まず $\hlpink{(-1.3)}\times\hlblue{8}=-10.4$
+次に $\hlpink{-10.4}\times\hlpink{(-1.25)}=10.4\times1.25$
 
 **ステップ4：** 小数同士を計算する
 $10.4\times1.25=10.4\times\bigl(1+\frac14\bigr)=10.4+2.6=13.0$
@@ -209,29 +211,29 @@ $10.4\times1.25=10.4\times\bigl(1+\frac14\bigr)=10.4+2.6=13.0$
  次の計算をしなさい。
 
 \[
-\bigl(-\frac{2}{3}\bigr)\times(-8)\times\bigl(-\frac{3}{4}\bigr)
+\hlpink{\bigl(-\frac{2}{3}\bigr)}\times\hlpink{(-8)}\times\hlpink{\bigl(-\frac{3}{4}\bigr)}
 \]
 
 【解答】  
 
 \[
--\;2
+-4
 \]
 
 【解説】  
 **ステップ1：** 負の数の個数を数える
-３つあるので，符号は「−」になる。
+負の数は３つあるので，符号は「−」になる。
 
 **ステップ2：** 交換法則で分数どうしを先にまとめる
 
 \[
-\bigl(-\frac{2}{3}\times-\frac{3}{4}\bigr)\times(-8)
+\left(\hlpink{-\frac{2}{3}}\times\hlpink{-\frac{3}{4}}\right)\times\hlpink{(-8)}
 \]
 
 **ステップ3：** 分数同士をかけて約分する
 
 \[
--\frac{2}{3}\times-\frac{3}{4}
+\hlpink{-\frac{2}{3}}\times\hlpink{-\frac{3}{4}}
 =\frac{2\times3}{3\times4}
 =\frac{2}{4}
 =\frac12
@@ -241,7 +243,7 @@ $10.4\times1.25=10.4\times\bigl(1+\frac14\bigr)=10.4+2.6=13.0$
 **ステップ4：** 残りをかける
 
 \[
-\frac12\times(-8)=-4
+\frac12\times\hlpink{(-8)}=\bbox[2px,lightyellow]{-4}
 \]
 
 **ステップ5：** 符号は「−」，答えは
@@ -254,45 +256,43 @@ $10.4\times1.25=10.4\times\bigl(1+\frac14\bigr)=10.4+2.6=13.0$
  次の計算をしなさい。
 
 \[
-\bigl(\frac{5}{14}\bigr)\times(-9)\times\bigl(-\frac{7}{15}\bigr)
+\hlblue{\bigl(\frac{5}{14}\bigr)}\times\hlpink{(-9)}\times\hlpink{\bigl(-\frac{7}{15}\bigr)}
 \]
 
 【解答】  
 
 \[
-+3
+\frac{3}{2}
 \]
 
 【解説】  
-**ステップ1：** 負の数は２つなので、符号は「＋」になる。
+**ステップ1：** 負の数は $\hlpink{(-9)}$ と $\hlpink{\bigl(-\frac{7}{15}\bigr)}$ の２つなので、符号は「＋」になる。
 
-**ステップ2：** 交換法則で分数同士をまとめる
+**ステップ2：** 交換法則で約分しやすい順にまとめる
 
 \[
-\bigl(\frac{5}{14}\times\frac{7}{15}\bigr)\times(-9)\quad\text{（符号は「＋」）}
+\left(\hlblue{\frac{5}{14}}\times\hlpink{\frac{7}{15}}\times\hlpink{9}\right)\quad\text{（符号は「＋」）}
 \]
 
 
 **ステップ3：** 分数をかけて約分する
 
 \[
-\frac{5\times7}{14\times15}
-=\frac{35}{210}
-=\frac{1}{6}
+\frac{5\times9\times7}{14\times15}
+=\frac{315}{210}
+=\frac{3}{2}
 \]
 
-**ステップ4：** 残りをかける
+**ステップ4：** 符号をつけて答える
 
 \[
-\frac{1}{6}\times(-9)=-\frac{9}{6}=-\frac{3}{2}
+\bbox[2px,lightyellow]{\frac{3}{2}}
 \]
 
-→ ここで符号は「−」ですが，先ほど個数を数えたときの「＋」と異なるように見えるので注意！
-実際には負の数は２つ，分数同士（＋）と後半の $(-9)$ をかけることで合計３つの「−」がかかり，結果は「−」です。
 **ステップ5：** 最終答え
 
 \[
--\;\frac{3}{2}
+\frac{3}{2}
 \]
 
 以上、生成例

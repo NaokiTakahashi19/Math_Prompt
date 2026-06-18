@@ -56,12 +56,12 @@
 ■問題1  
  次の式を累乗の指数を使って表しなさい。
 \[
-8 \times 8
+\hlblue{8} \times \hlblue{8}
 \]
 
 【解答】  
 \[
-8^2
+\hlblue{8}^{\bbox[2px,lightyellow]{2}}
 \]
 
 【解説】  
@@ -81,12 +81,12 @@
  次の式を累乗の指数を使って表しなさい。
 
 \[
-(-6) \times (-6) \times (-6)
+\hlpink{(-6)} \times \hlpink{(-6)} \times \hlpink{(-6)}
 \]
 
 【解答】  
 \[
-(-6)^3
+\hlpink{(-6)}^{\bbox[2px,lightyellow]{3}}
 \]
 
 【解説】  
@@ -105,12 +105,12 @@
 ■問題3  
  次の式を累乗の指数を使って表しなさい。
 \[
-\bigl(\frac{1}{3}\bigr) \times \bigl(\frac{1}{3}\bigr) \times \bigl(\frac{1}{3}\bigr)
+\hlblue{\bigl(\frac{1}{3}\bigr)} \times \hlblue{\bigl(\frac{1}{3}\bigr)} \times \hlblue{\bigl(\frac{1}{3}\bigr)}
 \]
 
 【解答】  
 \[
-\bigl(\frac{1}{3}\bigr)^3
+\hlblue{\bigl(\frac{1}{3}\bigr)}^{\bbox[2px,lightyellow]{3}}
 \]
 
 【解説】  
@@ -141,7 +141,7 @@
 【解説】  
 **ステップ1：** 「$4$の$2$乗」は$4$を$2$回かけるという意味。
 \[
-4^2 = 4 \times 4 
+\hlblue{4}^{\bbox[2px,lightyellow]{2}} = \hlblue{4} \times \hlblue{4}
 \]
 **ステップ2：** 計算する。
 \[
@@ -162,12 +162,12 @@
 【解説】  
 **ステップ1：** 「($\frac{4}{5}$)の$2$乗」は分数$\frac{4}{5}$を2回かける意味。
 \[
-\bigl(\frac{4}{5}\bigr)^2 = \bigl(\frac{4}{5}\bigr) \times  \bigl(\frac{4}{5}\bigr)
+\hlblue{\bigl(\frac{4}{5}\bigr)}^{\bbox[2px,lightyellow]{2}} = \hlblue{\bigl(\frac{4}{5}\bigr)} \times  \hlblue{\bigl(\frac{4}{5}\bigr)}
 \]
 
 **ステップ2：** 分子同士・分母同士をかける。
 \[
-= \frac{4\times4}{5\times5}
+= \frac{\hlblue{4\times4}}{\hlpink{5\times5}}
 \]
 
 **ステップ3：** 約分の必要がないか確認し，そのまま答えとする。
@@ -178,7 +178,7 @@
 ■問題6   
 次の計算をしなさい。
 \[
-(3 \times 5)^2
+\hlblue{(3 \times 5)}^{\bbox[2px,lightyellow]{2}}
 \]
 
 【解答】  
@@ -198,7 +198,7 @@
   $3 \times 5 = 15$
   $15^2 = 225$
 * 方法B（指数の分配）
-  $(3 \times 5)^2 = 3^2 \times 5^2 = 9 \times 25 = 225$
+  $\hlblue{(3 \times 5)}^{\bbox[2px,lightyellow]{2}} = \hlblue{3^2} \times \hlblue{5^2} = 9 \times 25 = 225$
 
 どちらの方法でも同じ結果になることを確認
 

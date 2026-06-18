@@ -56,12 +56,12 @@
 ■問題1   
 次の数の逆数を求めなさい。
 \[
-\frac{4}{5}
+\frac{\hlblue{4}}{\hlpink{5}}
 \]
 
 【解答】  
 \[
-\frac{5}{4}
+\frac{\hlpink{5}}{\hlblue{4}}
 \]
 
 【解説】  
@@ -71,22 +71,22 @@ $1$は正の数、$\frac{4}{5}$も正の数なので逆数（かけて1になる
 
 **ステップ2：** かけて$1$になる数を考える
 \[
-\frac{4}{5} \times \frac{5}{4} = 1
+\frac{\hlblue{4}}{\hlpink{5}} \times \frac{\hlpink{5}}{\hlblue{4}} = \bbox[2px,lightyellow]{1}
 \]
 なので、
 \[
-\frac{4}{5}の逆数は、\frac{5}{4}
+\frac{\hlblue{4}}{\hlpink{5}}の逆数は、\frac{\hlpink{5}}{\hlblue{4}}
 \]
 
 ■問題2   
 次の数の逆数を求めなさい。
 \[
-- \bigl(\frac{7}{8}\bigr)
+- \bigl(\frac{\hlblue{7}}{\hlpink{8}}\bigr)
 \]
 
 【解答】  
 \[
-- \bigl(\frac{8}{7}\bigr)
+- \bigl(\frac{\hlpink{8}}{\hlblue{7}}\bigr)
 \]
 
 【解説】  
@@ -96,11 +96,11 @@ $1$は正の数、$- \bigl(\frac{7}{8}\bigr)$は
 
 **ステップ2：** かけて1になる数を考える
 \[
-- \bigl(\frac{7}{8}\bigr) \times - \bigl(\frac{8}{7}\bigr) = 1
+- \bigl(\frac{\hlblue{7}}{\hlpink{8}}\bigr) \times - \bigl(\frac{\hlpink{8}}{\hlblue{7}}\bigr) = \bbox[2px,lightyellow]{1}
 \]
 なので
 \[
--\bigl(\frac{7}{8}\bigr)の逆数は、-\bigl(\frac{8}{7}\bigr)
+-\bigl(\frac{\hlblue{7}}{\hlpink{8}}\bigr)の逆数は、-\bigl(\frac{\hlpink{8}}{\hlblue{7}}\bigr)
 \]
 
 ■問題3   
@@ -117,7 +117,7 @@ $1$は正の数、$- \bigl(\frac{7}{8}\bigr)$は
 【解説】  
 **ステップ1：** 小数は分数に直すと良い
 \[
-0.4 = \frac{4}{10} =  \frac{2}{5}
+0.4 = \frac{4}{10} =  \frac{\hlblue{2}}{\hlpink{5}}
 \]
 
 **ステップ2：** かけて1になる数の符号を考える。
@@ -125,17 +125,17 @@ $1$は正の数、$- \bigl(\frac{7}{8}\bigr)$は
 
 **ステップ3：** かけて$1$になる数を考える。
 \[
-\frac{2}{5} \times \frac{5}{2} = 1
+\frac{\hlblue{2}}{\hlpink{5}} \times \frac{\hlpink{5}}{\hlblue{2}} = \bbox[2px,lightyellow]{1}
 \]
 なので
 \[
-\frac{2}{5} の逆数は、\frac{5}{2}
+\frac{\hlblue{2}}{\hlpink{5}} の逆数は、\frac{\hlpink{5}}{\hlblue{2}}
 \]
  
 ■問題4   
 除法を乗法に直して次の計算をしなさい。
 \[
-\bigl(-\frac{5}{6}\bigr) \div \frac{10}{3}
+\hlpink{\bigl(-\frac{5}{6}\bigr)} \div \hlblue{\frac{10}{3}}
 \]
 
 【解答】  
@@ -146,44 +146,45 @@ $1$は正の数、$- \bigl(\frac{7}{8}\bigr)$は
 【解説】  
 **ステップ1：** 除法を逆数を使って乗法にする
 \[
-\bigl(-\frac{5}{6}\bigr) \div \frac{10}{3} = \bigl(-\frac{5}{6}\bigr) \times \frac{3}{10}
+\hlpink{\bigl(-\frac{5}{6}\bigr)} \div \hlblue{\frac{10}{3}} = \hlpink{\bigl(-\frac{5}{6}\bigr)} \times \hlblue{\frac{3}{10}}
 \]
 
 **ステップ2：** 括弧でくくって符号を外に出す
 \[
-= − \bigl(\frac{5}{6} \times\frac{3}{10}\bigr)
+= - \bigl(\hlpink{\frac{5}{6}} \times\hlblue{\frac{3}{10}}\bigr)
 \]
 
 **ステップ3：** 計算する
 \[
-= -\frac{1}{4}
+= \bbox[2px,lightyellow]{-\frac{1}{4}}
 \]
 
 ■問題5   
 除法を乗法に直して次の計算をしなさい。
 \[
-\bigl(-\frac{2}{3}\bigr) \div \bigl(-\frac{2}{9}\bigr) \times \frac{3}{2}  
+\hlpink{\bigl(-\frac{2}{3}\bigr)} \div \hlpink{\bigl(-\frac{2}{9}\bigr)} \times \hlblue{\frac{3}{2}}
 \]
 
 【解答】  
 \[
-2
+\frac{9}{2}
 \]
 
 【解説】  
 **ステップ1：** 除法を逆数を使って乗法にする
 \[
-\bigl(-\frac{2}{3}\bigr) \div \bigl(-\frac{2}{9}\bigr) \times \frac{3}{2}   = \bigl(-\frac{2}{3}\bigr) \times \bigl(-\frac{9}{2}\bigr) \times \frac{3}{2}  
+\hlpink{\bigl(-\frac{2}{3}\bigr)} \div \hlpink{\bigl(-\frac{2}{9}\bigr)} \times \hlblue{\frac{3}{2}}
+= \hlpink{\bigl(-\frac{2}{3}\bigr)} \times \hlpink{\bigl(-\frac{9}{2}\bigr)} \times \hlblue{\frac{3}{2}}
 \]
 
 **ステップ2：** 括弧内をまとめ，符号を外に出す
 \[
-=+\bigl(\frac{2}{3}\times\frac{9}{2}\times\frac{3}{2}\bigr)
+=+\bigl(\hlpink{\frac{2}{3}}\times\hlpink{\frac{9}{2}}\times\hlblue{\frac{3}{2}}\bigr)
 \]
 
 **ステップ3：** 計算する
 \[
-= 2
+= \bbox[2px,lightyellow]{\frac{9}{2}}
 \]
 
 

@@ -56,7 +56,7 @@
 ■問題1  
  次の計算をしなさい。
 \[
-(+16) \div (+8)
+\hlblue{(+16)} \div \hlpink{(+8)}
 \]
 
 【解答】  
@@ -70,18 +70,18 @@
 
 **ステップ2：** 絶対値で割り算を行う
 \[
-16 \div 8 = 2
+\hlblue{16} \div \hlpink{8} = \bbox[2px,lightyellow]{2}
 \]
 
 **ステップ3：** 符号をつけて答える
 \[
-+2
+\bbox[2px,lightyellow]{+2}
 \]
 
 ■問題2  
  次の計算をしなさい。
 \[
-(-15) \div (-3)
+\hlpink{(-15)} \div \hlpink{(-3)}
 \]
 
 【解答】  
@@ -95,19 +95,19 @@
 
 **ステップ2：** 絶対値で割り算を行う
 \[
-15 \div 3 = 5
+\hlblue{15} \div \hlpink{3} = \bbox[2px,lightyellow]{5}
 \]
 
 **ステップ3：** 符号をつけて答える
 \[
-+5
+\bbox[2px,lightyellow]{+5}
 \]
 
 ■問題3  
  次の計算をしなさい。
 
 \[
-(-1) \div (+6)
+\hlpink{(-1)} \div \hlblue{(+6)}
 \]
 
 【解答】  
@@ -121,18 +121,18 @@
 – 「−」と「＋」で符号が異なるので、全体の符号は「−」になる。
 **ステップ2：** 絶対値で割り算を行う
 \[
-1 \div 6 = \frac{1}{6}
+\hlpink{1} \div \hlblue{6} = \bbox[2px,lightyellow]{\frac{1}{6}}
 \]
 
 **ステップ3：** 符号をつけて答える
 \[
--\frac{1}{6}
+\bbox[2px,lightyellow]{-\frac{1}{6}}
 \]
 
 ■問題4 
 次の計算をしなさい。
 \[
-24 \div (-4)
+\hlblue{24} \div \hlpink{(-4)}
 \]
 
 【解答】  
@@ -146,12 +146,12 @@
 
 **ステップ2：** 絶対値で割り算を行う
 \[
-24 \div 4 = 6
+\hlblue{24} \div \hlpink{4} = \bbox[2px,lightyellow]{6}
 \]
 
 **ステップ3：** 符号をつけて答える
 \[
--6
+\bbox[2px,lightyellow]{-6}
 \]
 
 以上、生成例
