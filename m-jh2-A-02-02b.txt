@@ -64,23 +64,23 @@
 
 【解説】  
 **ステップ1：** もとの立方体の体積を文字式で表す。
-1辺が $a\ \mathrm{cm}$ の立方体の体積は、
+1辺が $\hlblue{a\ \mathrm{cm}}$ の立方体の体積は、
 \[
-a \times a \times a = a^3
+\hlblue{a} \times \hlblue{a} \times \hlblue{a} = \bbox[2px,lightyellow]{a^3}
 \]
 である。
 
 **ステップ2：** すべての辺を2倍にしたときの体積を文字式を使って表す。
-各辺を2倍にすると、1辺の長さは $2a\ \mathrm{cm}$ になる。したがって、その体積は
+各辺を2倍にすると、1辺の長さは $\hlpink{2a\ \mathrm{cm}}$ になる。したがって、その体積は
 \[
-2a \times 2a \times 2a = 8a^3
+\hlpink{2a} \times \hlpink{2a} \times \hlpink{2a} = \bbox[2px,lightyellow]{8a^3}
 \]
 である。
 
 **ステップ3：** すべての辺を2倍にしたときの体積が、もとの立方体の体積の何倍かを計算する。
 もとの立方体の体積は $a^3$、すべての辺を2倍にした立方体の体積は $8a^3$ であるから、
 \[
-8a^3 \div a^3 = 8
+\bbox[2px,lightyellow]{8a^3} \div \hlblue{a^3} = \bbox[2px,lightyellow]{8}
 \]
 よって、体積は $8$ 倍になる。
 
@@ -94,23 +94,23 @@ a \times a \times a = a^3
 
 【解説】  
 **ステップ1：** 半径 $a\ \mathrm{cm}$ の円の円周を文字式で表す
-半径 $a\ \mathrm{cm}$ の円の円周は
+半径 $\hlblue{a\ \mathrm{cm}}$ の円の円周は
 \[
-2a\pi
+\bbox[2px,lightyellow]{2a\pi}
 \]
 である。
 
 **ステップ2：** 半径 $2a\ \mathrm{cm}$ の円の円周を文字式で表す
-半径 $2a\ \mathrm{cm}$ の円の円周は
+半径 $\hlpink{2a\ \mathrm{cm}}$ の円の円周は
 \[
-2\pi\times2a=4a\pi
+2\pi\times\hlpink{2a}=\bbox[2px,lightyellow]{4a\pi}
 \]
 である。
 
 **ステップ3：** 半径 $a\ \mathrm{cm}$ の円の円周が半径 $2a\ \mathrm{cm}$ の円の円周の何倍かを計算する。
 半径 $a\ \mathrm{cm}$ の円の円周を、半径 $2a\ \mathrm{cm}$ の円の円周でわると、
 \[
-2a\pi \div 4a\pi = \frac{1}{2}
+\bbox[2px,lightyellow]{2a\pi} \div \bbox[2px,lightyellow]{4a\pi} = \bbox[2px,lightyellow]{\frac{1}{2}}
 \]
 よって、半径 $a\ \mathrm{cm}$ の円の円周は、半径 $2a\ \mathrm{cm}$ の円の円周の $\frac{1}{2}$ 倍である。
 

@@ -118,15 +118,15 @@ x & + & 3y & = & 600 & \text{･･･②}
 \[
 \begin{aligned}
 2y&=300\\
-y&=150
+y&=\bbox[2px,lightyellow]{150}
 \end{aligned}
 \]
 
 **ステップ5：** $y=150$ を①に代入して、$x$ を求める。
 \[
 \begin{aligned}
-x+150&=300\\
-x&=150
+x+\bbox[2px,lightyellow]{150}&=300\\
+x&=\bbox[2px,lightyellow]{150}
 \end{aligned}
 \]
 

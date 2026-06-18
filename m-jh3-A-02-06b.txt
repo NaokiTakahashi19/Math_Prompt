@@ -66,19 +66,19 @@
 \]
 
 【解説】  
-**ステップ1：** $5a = M, 6b = N$ とおく
+**ステップ1：** $\hlblue{5a} = \hlblue{M}, \hlpink{6b} = \hlpink{N}$ とおく
 \[
-= M^2 - N^2
+= \hlblue{M}^2 - \hlpink{N}^2
 \]
 
 **ステップ2：** $(a + b)(a - b) = a^2 - b^2$ を利用して因数分解
 \[
-= (M + N)(M - N)
+= (\hlblue{M} + \hlpink{N})(\hlblue{M} - \hlpink{N})
 \]
 
-**ステップ3：** $M = 5a, N = 6b$ を戻す
+**ステップ3：** $\hlblue{M = 5a}, \hlpink{N = 6b}$ を戻す
 \[
-= (5a + 6b)(5a - 6b)
+= \bbox[2px,lightyellow]{(5a + 6b)(5a - 6b)}
 \]
 
 ■問題2  
@@ -93,19 +93,19 @@
 \]
 
 【解説】  
-**ステップ1：** $x - y = M$ とおく
+**ステップ1：** $\hlblue{x - y} = \hlblue{M}$ とおく
 \[
-=  M^2 + 4M + 3
+=  \hlblue{M}^2 + 4\hlblue{M} + 3
 \]
 
 **ステップ2：** 公式 $x^2 + (a + b)x + ab = (x + a)(x + b)$ を利用して因数分解
 \[
-= (M + 3)(M + 1)
+= (\hlblue{M} + 3)(\hlblue{M} + 1)
 \]
 
-**ステップ3：** $M = x - y$ を戻す
+**ステップ3：** $\hlblue{M = x - y}$ を戻す
 \[
-= (x - y + 3)(x - y + 1)
+= \bbox[2px,lightyellow]{(x - y + 3)(x - y + 1)}
 \]
 
 以上、生成例

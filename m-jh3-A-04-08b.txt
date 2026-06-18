@@ -73,27 +73,27 @@ $\sqrt{a}$ の形に変形しなさい。
 
 $3$ を根号の中に入れるときは、$3$ を2乗して入れる。
 \[
-3^2 = 9
+\hlblue{3}^2 = \bbox[2px,lightyellow]{9}
 \]
 であるから、
 \[
-3 = \sqrt{9}
+\hlblue{3} = \sqrt{\bbox[2px,lightyellow]{9}}
 \]
 と表せます。
 
 **ステップ2：** $3$ を根号の中に入れる  
 
 \[
-3\sqrt{3}
-= \sqrt{9} \times \sqrt{3}
+\hlblue{3}\sqrt{3}
+= \sqrt{\bbox[2px,lightyellow]{9}} \times \sqrt{3}
 \]
 
 **ステップ3：** 根号の中をかける  
 
 \[
 \sqrt{9} \times \sqrt{3}
-= \sqrt{9 \times 3}
-= \sqrt{27}
+= \sqrt{\bbox[2px,lightyellow]{9} \times 3}
+= \bbox[2px,lightyellow]{\sqrt{27}}
 \]
 
 **ステップ4：** 答えを書く  
@@ -119,7 +119,7 @@ $a\sqrt{b}$ の形に変形しなさい。
 
 素因数分解すると、
 \[
-45 = 3 \times 3 \times 5 = 3^2 \times 5
+45 = \hlblue{3 \times 3} \times 5 = \hlblue{3^2} \times 5
 \]
 です。
 
@@ -127,14 +127,14 @@ $a\sqrt{b}$ の形に変形しなさい。
 
 \[
 \sqrt{45}
-= \sqrt{3^2 \times 5}
+= \sqrt{\hlblue{3^2} \times 5}
 \]
 
 **ステップ3：** 2乗の部分を根号の外に出す  
 
 \[
-\sqrt{3^2 \times 5}
-= 3\sqrt{5}
+\sqrt{\hlblue{3^2} \times 5}
+= \bbox[2px,lightyellow]{3\sqrt{5}}
 \]
 
 **ステップ4：** 答えを書く  
@@ -160,26 +160,26 @@ $\frac{\sqrt{b}}{a}$ の形に変形しなさい。
 
 \[
 \sqrt{\frac{3}{16}}
-= \frac{\sqrt{3}}{\sqrt{16}}
+= \frac{\sqrt{3}}{\sqrt{\hlblue{16}}}
 \]
 
 **ステップ2：** 分母の根号をはずす  
 
 \[
-16 = 4^2
+\hlblue{16} = \bbox[2px,lightyellow]{4^2}
 \]
 であるから、
 \[
-\sqrt{16}
-= \sqrt{4^2}
-= 4
+\sqrt{\hlblue{16}}
+= \sqrt{\bbox[2px,lightyellow]{4^2}}
+= \bbox[2px,lightyellow]{4}
 \]
 
 **ステップ3：** 分母を計算する  
 
 \[
 \frac{\sqrt{3}}{\sqrt{16}}
-= \frac{\sqrt{3}}{4}
+= \bbox[2px,lightyellow]{\frac{\sqrt{3}}{4}}
 \]
 
 **ステップ4：** 答えを書く  

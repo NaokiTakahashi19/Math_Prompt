@@ -66,14 +66,14 @@ m = 3 - n
 \]
 
 【解説】  
-指定された文字について解くときは、その文字だけが左辺に残るように等式を変形する。
+指定された文字について解くときは、$\hlblue{指定された文字}$ だけが左辺に残るように等式を変形する。
 
-**ステップ1：** $m$ だけを左辺に残す。
-$n$ を右辺に移項する。
+**ステップ1：** $\hlblue{m}$ だけを左辺に残す。
+$\hlpink{n}$ を右辺に移項する。
 \[
 \begin{aligned}
-m+n&=3\\
-m&=3-n
+\hlblue{m}+\hlpink{n}&=3\\
+\hlblue{m}&=3-\hlpink{n}
 \end{aligned}
 \]
 
@@ -89,26 +89,26 @@ h = \frac{3V}{S}
 \]
 
 【解説】  
-指定された文字について解くときは、その文字だけが左辺に残るように等式を変形する。
+指定された文字について解くときは、$\hlblue{指定された文字}$ だけが左辺に残るように等式を変形する。
 
 **ステップ1：** $h$ を含む項を左辺にする。
 \[
-\frac{1}{3}Sh=V
+\frac{1}{3}S\hlblue{h}=V
 \]
 
 **ステップ2：** 両辺に $3$ をかけて分数をなくす。
 \[
 \begin{aligned}
-3\times\frac{1}{3}Sh&=3\times V\\
-Sh&=3V
+3\times\frac{1}{3}S\hlblue{h}&=3\times V\\
+S\hlblue{h}&=3V
 \end{aligned}
 \]
 
 **ステップ3：** 両辺を $S$ でわり、$h$ だけを左辺に残す。
 \[
 \begin{aligned}
-\frac{Sh}{S}&=\frac{3V}{S}\\
-h&=\frac{3V}{S}
+\frac{S\hlblue{h}}{\hlpink{S}}&=\frac{3V}{\hlpink{S}}\\
+\hlblue{h}&=\bbox[2px,lightyellow]{\frac{3V}{S}}
 \end{aligned}
 \]
 
@@ -124,22 +124,22 @@ q = 5r -2p
 \]
 
 【解説】  
-指定された文字について解くときは、その文字だけが左辺に残るように等式を変形する。
+指定された文字について解くときは、$\hlblue{指定された文字}$ だけが左辺に残るように等式を変形する。
 
 **ステップ1：** 両辺に $5$ をかけて分数をなくす。
 \[
 \begin{aligned}
-5\times\frac{2p+q}{5}&=5\times r\\
-2p+q&=5r
+5\times\frac{2p+\hlblue{q}}{5}&=5\times r\\
+\hlpink{2p}+\hlblue{q}&=5r
 \end{aligned}
 \]
 
-**ステップ2：** $q$ だけを左辺に残す。
-$2p$ を右辺に移項する。
+**ステップ2：** $\hlblue{q}$ だけを左辺に残す。
+$\hlpink{2p}$ を右辺に移項する。
 \[
 \begin{aligned}
-2p+q&=5r\\
-q&=5r-2p
+\hlpink{2p}+\hlblue{q}&=5r\\
+\hlblue{q}&=5r-\hlpink{2p}
 \end{aligned}
 \]
 

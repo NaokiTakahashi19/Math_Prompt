@@ -75,7 +75,7 @@
 平方根とは、「2乗してもとの数になる数」のことです。
 つまり、
 \[
-x^2 = 3
+\hlblue{x}^2 = \bbox[2px,lightyellow]{3}
 \]
 を満たす $x$ を求めます。
 
@@ -85,22 +85,22 @@ $1^2 = 1$ や $2^2 = 4$ のように整数の2乗で表すことができない�
 
 **ステップ3：** 平方根を $\sqrt{\phantom{0}}$ を使って表す  
 
-2乗して $3$ になる正の数は、$\sqrt{3}$ です。
+2乗して $\bbox[2px,lightyellow]{3}$ になる正の数は、$\hlblue{\sqrt{3}}$ です。
 
 **ステップ4：** もう一つの平方根を忘れず  
 
 負の平方根も存在します。
 \[
- (- \sqrt{3})^2 = (-1)^2 \times (\sqrt{3})^2 = 1 \times 3 = 3
+ \hlpink{(- \sqrt{3})}^2 = (-1)^2 \times (\sqrt{3})^2 = 1 \times 3 = \bbox[2px,lightyellow]{3}
  \]
 となり、負の平方根も存在します。
 したがって、3の平方根は
 \[
-\sqrt{3}, - \sqrt{3}
+\hlblue{\sqrt{3}}, \hlpink{- \sqrt{3}}
 \]
 または、
 \[
-\pm \sqrt{3} 
+\bbox[2px,lightyellow]{\pm \sqrt{3}}
 \]
 
 ■問題2  
@@ -124,7 +124,7 @@ $1^2 = 1$ や $2^2 = 4$ のように整数の2乗で表すことができない�
 $\frac{3}{5}$ の平方根とは、2乗して $\frac{3}{5}$ になる数のことです。
 つまり、
 \[
-x^2 = \frac{3}{5}
+\hlblue{x}^2 = \bbox[2px,lightyellow]{\frac{3}{5}}
 \]
 を満たす $x$ を求めます。
 
@@ -134,21 +134,21 @@ $\frac{3}{5}$ は、整数や分数の2乗で簡単に表せないので、$\sqr
 
 **ステップ3：** 正の平方根を表す  
 
-2乗して $\frac{3}{5}$ になる正の数は、$\sqrt{\frac{3}{5}}$ です。
+2乗して $\bbox[2px,lightyellow]{\frac{3}{5}}$ になる正の数は、$\hlblue{\sqrt{\frac{3}{5}}}$ です。
 
 **ステップ4：** 負の平方根も忘れずに書く  
 
 負の平方根も存在します。
 \[
-\left(-\sqrt{\frac{3}{5}}\right)^2 = \frac{3}{5}
+\hlpink{\left(-\sqrt{\frac{3}{5}}\right)}^2 = \bbox[2px,lightyellow]{\frac{3}{5}}
 \]
 したがって、$\frac{3}{5}$ の平方根は
 \[
-\sqrt{\frac{3}{5}}, -\sqrt{\frac{3}{5}}
+\hlblue{\sqrt{\frac{3}{5}}}, \hlpink{-\sqrt{\frac{3}{5}}}
 \]
 または、
 \[
-\pm \sqrt{\frac{3}{5}}
+\bbox[2px,lightyellow]{\pm \sqrt{\frac{3}{5}}}
 \]
 
 以上、生成例

@@ -121,16 +121,16 @@ $+2y$ から $+2y$ を引くと $0y$ になるので、$y$ が消える。
 \[
 \begin{aligned}
 3x&=12\\
-x&=4
+x&=\bbox[2px,lightyellow]{4}
 \end{aligned}
 \]
 
 **ステップ4：** $x=4$ を①に代入して、$y$ を求める。
 \[
 \begin{aligned}
-2\times4+y&=18\\
+2\times\bbox[2px,lightyellow]{4}+y&=18\\
 8+y&=18\\
-y&=10
+y&=\bbox[2px,lightyellow]{10}
 \end{aligned}
 \]
 

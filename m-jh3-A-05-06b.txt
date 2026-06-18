@@ -86,14 +86,14 @@ x^2-5x+3=0
 \]
 は、
 \[
-a=1,\quad b=-5,\quad c=3
+\hlblue{a=1},\quad \hlpink{b=-5},\quad \bbox[2px,lightyellow]{c=3}
 \]
 です。
 
 **ステップ3：** 解の公式に代入する。  
 \[
 \begin{aligned}
-x&=\frac{-(-5)\pm\sqrt{(-5)^2-4\times1\times3}}{2\times1}\\
+x&=\frac{-\hlpink{(-5)}\pm\sqrt{\hlpink{(-5)}^2-4\times\hlblue{1}\times\bbox[2px,lightyellow]{3}}}{2\times\hlblue{1}}\\
 &=\frac{5\pm\sqrt{25-12}}{2}\\
 &=\frac{5\pm\sqrt{13}}{2}
 \end{aligned}
@@ -136,14 +136,14 @@ x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}
 \]
 は、
 \[
-a=2,\quad b=-8,\quad c=-1
+\hlblue{a=2},\quad \hlpink{b=-8},\quad \bbox[2px,lightyellow]{c=-1}
 \]
 です。
 
 **ステップ3：** 解の公式に代入する。  
 \[
 \begin{aligned}
-x&=\frac{-(-8)\pm\sqrt{(-8)^2-4\times2\times(-1)}}{2\times2}\\
+x&=\frac{-\hlpink{(-8)}\pm\sqrt{\hlpink{(-8)}^2-4\times\hlblue{2}\times\bbox[2px,lightyellow]{(-1)}}}{2\times\hlblue{2}}\\
 &=\frac{8\pm\sqrt{64+8}}{4}\\
 &=\frac{8\pm\sqrt{72}}{4}
 \end{aligned}
