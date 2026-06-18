@@ -57,7 +57,7 @@
  次の計算をしなさい。
 
 \[
-\hlblue{4} \times \hlpink{(-3)} \times \hlblue{8}
+4 \times (-3) \times 8
 \]
 
 【解答】  
@@ -90,7 +90,7 @@ $\hlpink{(-3)}$ のように − のついた数は１つなので，全体の�
  次の計算をしなさい。
 
 \[
-\hlpink{(-2)}\times\hlblue{7}\times\hlpink{(-9)}
+(-2)\times7\times(-9)
 \]
 
 【解答】  
@@ -128,7 +128,7 @@ $\hlpink{(-3)}$ のように − のついた数は１つなので，全体の�
  次の計算をしなさい。
 
 \[
-\hlblue{2}\times\hlpink{(-6)}\times\hlblue{5}\times\hlpink{(-4)}\times\hlpink{(-2)}
+2\times(-6)\times5\times(-4)\times(-2)
 \]
 
 【解答】  
@@ -177,7 +177,7 @@ $\hlpink{(-3)}$ のように − のついた数は１つなので，全体の�
  次の計算をしなさい。
 
 \[
-\hlpink{(-1.3)}\times\hlpink{(-1.25)}\times\hlblue{8}
+(-1.3)\times(-1.25)\times8
 \]
 
 【解答】  
@@ -211,7 +211,7 @@ $10.4\times1.25=10.4\times\bigl(1+\frac14\bigr)=10.4+2.6=13.0$
  次の計算をしなさい。
 
 \[
-\hlpink{\bigl(-\frac{2}{3}\bigr)}\times\hlpink{(-8)}\times\hlpink{\bigl(-\frac{3}{4}\bigr)}
+\bigl(-\frac{2}{3}\bigr)\times(-8)\times\bigl(-\frac{3}{4}\bigr)
 \]
 
 【解答】  
@@ -256,7 +256,7 @@ $10.4\times1.25=10.4\times\bigl(1+\frac14\bigr)=10.4+2.6=13.0$
  次の計算をしなさい。
 
 \[
-\hlblue{\bigl(\frac{5}{14}\bigr)}\times\hlpink{(-9)}\times\hlpink{\bigl(-\frac{7}{15}\bigr)}
+\bigl(\frac{5}{14}\bigr)\times(-9)\times\bigl(-\frac{7}{15}\bigr)
 \]
 
 【解答】  

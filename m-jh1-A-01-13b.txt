@@ -56,7 +56,7 @@
 ■問題1   
 次の数の逆数を求めなさい。
 \[
-\frac{\hlblue{4}}{\hlpink{5}}
+\frac{4}{5}
 \]
 
 【解答】  
@@ -81,7 +81,7 @@ $1$は正の数、$\frac{4}{5}$も正の数なので逆数（かけて1になる
 ■問題2   
 次の数の逆数を求めなさい。
 \[
-- \bigl(\frac{\hlblue{7}}{\hlpink{8}}\bigr)
+- \bigl(\frac{7}{8}\bigr)
 \]
 
 【解答】  
@@ -135,7 +135,7 @@ $1$は正の数、$- \bigl(\frac{7}{8}\bigr)$は
 ■問題4   
 除法を乗法に直して次の計算をしなさい。
 \[
-\hlpink{\bigl(-\frac{5}{6}\bigr)} \div \hlblue{\frac{10}{3}}
+\bigl(-\frac{5}{6}\bigr) \div \frac{10}{3}
 \]
 
 【解答】  
@@ -162,7 +162,7 @@ $1$は正の数、$- \bigl(\frac{7}{8}\bigr)$は
 ■問題5   
 除法を乗法に直して次の計算をしなさい。
 \[
-\hlpink{\bigl(-\frac{2}{3}\bigr)} \div \hlpink{\bigl(-\frac{2}{9}\bigr)} \times \hlblue{\frac{3}{2}}
+\bigl(-\frac{2}{3}\bigr) \div \bigl(-\frac{2}{9}\bigr) \times \frac{3}{2}
 \]
 
 【解答】  
