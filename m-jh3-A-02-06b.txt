@@ -66,19 +66,36 @@
 \]
 
 【解説】  
-**ステップ1：** $\hlblue{5a} = \hlblue{M}, \hlpink{6b} = \hlpink{N}$ とおく
+**ステップ1：** 平方の形を確認する
 \[
-= \hlblue{M}^2 - \hlpink{N}^2
+\begin{aligned}
+25a^2 - 36b^2
+&= \hlblue{(5a)^2} - \hlpink{(6b)^2}
+\end{aligned}
 \]
 
-**ステップ2：** $(a + b)(a - b) = a^2 - b^2$ を利用して因数分解
+**ステップ2：** $\hlblue{M}=\hlblue{5a},\ \hlpink{N}=\hlpink{6b}$ とおく
 \[
-= (\hlblue{M} + \hlpink{N})(\hlblue{M} - \hlpink{N})
+\begin{aligned}
+25a^2 - 36b^2
+&= \hlblue{M}^2 - \hlpink{N}^2
+\end{aligned}
 \]
 
-**ステップ3：** $\hlblue{M = 5a}, \hlpink{N = 6b}$ を戻す
+**ステップ3：** $(a + b)(a - b) = a^2 - b^2$ を利用して因数分解
 \[
-= \bbox[2px,lightyellow]{(5a + 6b)(5a - 6b)}
+\begin{aligned}
+25a^2 - 36b^2
+&= (\hlblue{M} + \hlpink{N})(\hlblue{M} - \hlpink{N})
+\end{aligned}
+\]
+
+**ステップ4：** $\hlblue{M}=\hlblue{5a},\ \hlpink{N}=\hlpink{6b}$ を戻す
+\[
+\begin{aligned}
+25a^2 - 36b^2
+&= \bbox[2px,lightyellow]{(5a + 6b)(5a - 6b)}
+\end{aligned}
 \]
 
 ■問題2  
@@ -95,17 +112,26 @@
 【解説】  
 **ステップ1：** $\hlblue{x - y} = \hlblue{M}$ とおく
 \[
-=  \hlblue{M}^2 + 4\hlblue{M} + 3
+\begin{aligned}
+(x-y)^2+4(x-y)+3
+&= \hlblue{M}^2 + 4\hlblue{M} + 3
+\end{aligned}
 \]
 
 **ステップ2：** 公式 $x^2 + (a + b)x + ab = (x + a)(x + b)$ を利用して因数分解
 \[
-= (\hlblue{M} + 3)(\hlblue{M} + 1)
+\begin{aligned}
+(x-y)^2+4(x-y)+3
+&= (\hlblue{M} + 3)(\hlblue{M} + 1)
+\end{aligned}
 \]
 
 **ステップ3：** $\hlblue{M = x - y}$ を戻す
 \[
-= \bbox[2px,lightyellow]{(x - y + 3)(x - y + 1)}
+\begin{aligned}
+(x-y)^2+4(x-y)+3
+&= \bbox[2px,lightyellow]{(x - y + 3)(x - y + 1)}
+\end{aligned}
 \]
 
 以上、生成例

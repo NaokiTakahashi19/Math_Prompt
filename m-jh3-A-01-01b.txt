@@ -68,12 +68,18 @@
 【解説】  
 **ステップ1：** 分配法則を使って展開する
 \[
-= \hlpink{2a} \times 3b + \hlpink{2a} \times 4c
+\begin{aligned}
+\hlpink{2a}(\hlblue{3b+4c})
+&= \hlpink{2a} \times \hlblue{3b} + \hlpink{2a} \times \hlblue{4c}
+\end{aligned}
 \]
 
 **ステップ2：** 計算する
 \[
-= 6ab + 8ac
+\begin{aligned}
+\hlpink{2a}(\hlblue{3b+4c})
+&= 6ab + 8ac
+\end{aligned}
 \]
 
 ■問題2  
@@ -90,12 +96,18 @@
 【解説】  
 **ステップ1：** 分配法則を使って展開する
 \[
-= x \times (\hlpink{-4x}) - 2y \times (\hlpink{-4x}) + 3 \times(\hlpink{-4x})
+\begin{aligned}
+(\hlblue{x-2y+3})\times(\hlpink{-4x})
+&= \hlblue{x}\times(\hlpink{-4x})+\hlblue{(-2y)}\times(\hlpink{-4x})+\hlblue{3}\times(\hlpink{-4x})
+\end{aligned}
 \]
 
 **ステップ2：** 計算する
 \[
-= -4x^2 + 8xy -12x 
+\begin{aligned}
+(\hlblue{x-2y+3})\times(\hlpink{-4x})
+&= -4x^2 + 8xy -12x
+\end{aligned}
 \]
 
 

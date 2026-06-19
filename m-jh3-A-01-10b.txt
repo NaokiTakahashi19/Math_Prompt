@@ -68,23 +68,34 @@ a^2 + 2ab + b^2 + 3a + 3b + 2
 【解説】  
 **ステップ1：** 共通の部分を一つの文字で置き換える
 \[
-a + b = M におきかえる
-= (M + 1)(M + 2)
+\begin{aligned}
+(a+b+1)(a+b+2)
+&= (M+1)(M+2) \quad (M=a+b)
+\end{aligned}
 \]
 
 **ステップ2：** 展開の公式を使ってかっこをはずす
 \[
-= M^2 + 3M + 2
+\begin{aligned}
+(a+b+1)(a+b+2)
+&= M^2 + 3M + 2
+\end{aligned}
 \]
 
 **ステップ3：** 置き換えた式をもどす
 \[
-= (a + b)^2 + 3(a + b) + 2
+\begin{aligned}
+(a+b+1)(a+b+2)
+&= (a + b)^2 + 3(a + b) + 2
+\end{aligned}
 \]
 
 **ステップ4：** 展開をする
 \[
-= a^2 + 2ab + b^2 + 3a + 3b + 2
+\begin{aligned}
+(a+b+1)(a+b+2)
+&= a^2 + 2ab + b^2 + 3a + 3b + 2
+\end{aligned}
 \]
 
 以上、生成例

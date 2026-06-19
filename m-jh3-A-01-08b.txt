@@ -73,12 +73,18 @@ $(\hlblue{x} + \hlpink{2})(\hlblue{x} - \hlpink{2})$ は、$(a + b)(a - b)$ の�
 
 **ステップ2：** 展開公式を利用する※
 \[
-= \hlblue{x}^2 - \hlpink{2}^2
+\begin{aligned}
+(\hlblue{x}+\hlpink{2})(\hlblue{x}-\hlpink{2})
+&= \hlblue{x}^2 - \hlpink{2}^2
+\end{aligned}
 \]
 
 **ステップ3：** 計算してまとめる
 \[
-= \bbox[2px,lightyellow]{x^2 - 4}
+\begin{aligned}
+(\hlblue{x}+\hlpink{2})(\hlblue{x}-\hlpink{2})
+&= \bbox[2px,lightyellow]{x^2 - 4}
+\end{aligned}
 \]
 
 ※展開公式：$(a + b)(a - b) = a^2 - b^2$
@@ -100,12 +106,18 @@ $(\hlblue{2x} + \hlpink{\frac{1}{2}})(\hlblue{2x} - \hlpink{\frac{1}{2}})$ は�
 
 **ステップ2：** 展開公式を利用する※
 \[
-= \hlblue{(2x)}^2 - \hlpink{\left(\frac{1}{2}\right)}^2
+\begin{aligned}
+\left(\hlblue{2x}+\hlpink{\frac{1}{2}}\right)\left(\hlblue{2x}-\hlpink{\frac{1}{2}}\right)
+&= \hlblue{(2x)}^2 - \hlpink{\left(\frac{1}{2}\right)}^2
+\end{aligned}
 \]
 
 **ステップ3：** 計算してまとめる
 \[
-= \bbox[2px,lightyellow]{4x^2 - \frac{1}{4}}
+\begin{aligned}
+\left(\hlblue{2x}+\hlpink{\frac{1}{2}}\right)\left(\hlblue{2x}-\hlpink{\frac{1}{2}}\right)
+&= \bbox[2px,lightyellow]{4x^2 - \frac{1}{4}}
+\end{aligned}
 \]
 
 ※展開公式：$(a + b)(a - b) = a^2 - b^2$

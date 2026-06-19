@@ -72,12 +72,18 @@ $(x + \hlblue{3})^2$ は、$(x + a)^2$ の形です。
 
 **ステップ2：** 展開公式にあてはめる※
 \[
-= x^2 +2 \times \hlblue{3} \times x + \hlblue{3}^2
+\begin{aligned}
+(x+\hlblue{3})^2
+&= x^2 +2 \times \hlblue{3} \times x + \hlblue{3}^2
+\end{aligned}
 \]
 
 **ステップ3：** 計算する
 \[
-= \bbox[2px,lightyellow]{x^2 + 6x + 9}
+\begin{aligned}
+(x+\hlblue{3})^2
+&= \bbox[2px,lightyellow]{x^2 + 6x + 9}
+\end{aligned}
 \]
 
 ※展開公式：$(x + a)^2 = x^2 + 2 \times x \times a + a^2$
@@ -99,12 +105,18 @@ $(x + \hlblue{\frac{1}{3}})^2$ は、$(x + a)^2$ の形です。
 
 **ステップ2：** 展開公式にあてはめる※
 \[
-= x^2 +2 \times \hlblue{\frac{1}{3}} \times x + \hlblue{\frac{1}{3}}^2
+\begin{aligned}
+\left(x+\hlblue{\frac{1}{3}}\right)^2
+&= x^2 +2 \times \hlblue{\frac{1}{3}} \times x + \hlblue{\frac{1}{3}}^2
+\end{aligned}
 \]
 
 **ステップ3：** 計算する
 \[
-= \bbox[2px,lightyellow]{x^2 + \frac{2}{3}x + \frac{1}{9}}
+\begin{aligned}
+\left(x+\hlblue{\frac{1}{3}}\right)^2
+&= \bbox[2px,lightyellow]{x^2 + \frac{2}{3}x + \frac{1}{9}}
+\end{aligned}
 \]
 
 ※展開公式：$(x + a)^2 = x^2 + 2 \times x \times a + a^2$

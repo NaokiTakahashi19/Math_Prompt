@@ -74,17 +74,26 @@
 わり算は、わる数の逆数をかける形に直すことができます。
 $2$ は $\frac{2}{1}$ と考えるので、逆数は $\frac{1}{2}$ です。
 \[
-= (4a^2 + 8a) \times \hlpink{\frac{1}{2}}
+\begin{aligned}
+(4a^2+8a)\div 2
+&= (4a^2 + 8a) \times \hlpink{\frac{1}{2}}
+\end{aligned}
 \]
 
 **ステップ2：** 分配法則を利用してかっこをはずす
 \[
-= 4a^2  \times \hlpink{\frac{1}{2}} + 8a \times \hlpink{\frac{1}{2}}
+\begin{aligned}
+(4a^2+8a)\div 2
+&= 4a^2 \times \hlpink{\frac{1}{2}} + 8a \times \hlpink{\frac{1}{2}}
+\end{aligned}
 \]
 
 **ステップ3：** 計算をする
 \[
-=　2a^2 + 4a
+\begin{aligned}
+(4a^2+8a)\div 2
+&= 2a^2 + 4a
+\end{aligned}
 \]
 
 ■問題2  
@@ -104,17 +113,26 @@ $2$ は $\frac{2}{1}$ と考えるので、逆数は $\frac{1}{2}$ です。
 わり算は、わる数の逆数をかける形に直すことができます。
 $3ab$ の逆数は $\frac{1}{3ab}$ です。
 \[
-= (6a^2b + 9ab^2) \times \hlpink{\frac{1}{3ab}}
+\begin{aligned}
+(6a^2b+9ab^2)\div 3ab
+&= (6a^2b + 9ab^2) \times \hlpink{\frac{1}{3ab}}
+\end{aligned}
 \]
 
 **ステップ2：** 分配法則を利用してかっこをはずす
 \[
-= 6a^2b  \times \hlpink{\frac{1}{3ab}} + 9ab^2 \times \hlpink{\frac{1}{3ab}}
+\begin{aligned}
+(6a^2b+9ab^2)\div 3ab
+&= 6a^2b \times \hlpink{\frac{1}{3ab}} + 9ab^2 \times \hlpink{\frac{1}{3ab}}
+\end{aligned}
 \]
 
 **ステップ3：** 分母と分子で同じ文字を消す
 \[
-= 2a + 3b
+\begin{aligned}
+(6a^2b+9ab^2)\div 3ab
+&= 2a + 3b
+\end{aligned}
 \]
 
 

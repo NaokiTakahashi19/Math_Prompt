@@ -66,14 +66,24 @@ b(a + c)
 \]
 
 【解説】  
+それぞれの項に共通してふくまれている因数を共通因数といいます。
+共通因数のくくりだしとは、各項に共通する因数をかっこの外に出して、式を積の形に直すことです。
+因数分解では、まず各項に共通する数や文字がないかを確認します。
+
 **ステップ1：** 因数にわける
 \[
-= a \times \hlpink{b} + \hlpink{b} \times c
+\begin{aligned}
+ab+bc
+&= a \times \hlpink{b} + \hlpink{b} \times c
+\end{aligned}
 \]
 
 **ステップ2：** 全ての項に共通する因数をさがしてくくりだす
 \[
-= \hlpink{b}(a + c)
+\begin{aligned}
+ab+bc
+&= \hlpink{b}(a + c)
+\end{aligned}
 \]
 
 ■問題2  
@@ -88,14 +98,24 @@ b(a + c)
 \]
 
 【解説】  
+それぞれの項に共通してふくまれている因数を共通因数といいます。
+共通因数のくくりだしとは、各項に共通する因数をかっこの外に出して、式を積の形に直すことです。
+因数分解では、まず各項に共通する数や文字がないかを確認します。
+
 **ステップ1：** 因数にわける
 \[
-= \hlpink{2} \times \hlpink{x} \times x \times \hlpink{y} + \hlpink{2} \times 2 \times \hlpink{x} \times \hlpink{y} \times y - \hlpink{2} \times \hlpink{x} \times \hlpink{y}
+\begin{aligned}
+2x^2y+4xy^2-2xy
+&= \hlpink{2} \times \hlpink{x} \times x \times \hlpink{y} + \hlpink{2} \times 2 \times \hlpink{x} \times \hlpink{y} \times y - \hlpink{2} \times \hlpink{x} \times \hlpink{y}
+\end{aligned}
 \]
 
 **ステップ2：** 全ての項に共通する因数をさがしてくくりだす
 \[
-= 2xy(x + 2y - 1)
+\begin{aligned}
+2x^2y+4xy^2-2xy
+&= 2xy(x + 2y - 1)
+\end{aligned}
 \]
 
 以上、生成例

@@ -66,20 +66,41 @@
 \]
 
 【解説】  
+乗法公式を利用すると、計算をくふうして簡単にできます。
+\[
+\begin{aligned}
+[1]\quad &(x+a)(x+b)=x^2+(a+b)x+ab\\
+[2]\quad &(x+a)^2=x^2+2ax+a^2\\
+[3]\quad &(x-a)^2=x^2-2ax+a^2\\
+[4]\quad &(x+a)(x-a)=x^2-a^2
+\end{aligned}
+\]
+今回は、$59$ と $61$ を $\hlblue{60}$ を中心にして $\hlpink{1}$ 小さい数・大きい数と見るので、[4] の公式に当てはまりそうです。
+
 **ステップ1：** 乗法公式などが使えるように変形する
 \[
-=(60 - 1)(60 + 1)
+\begin{aligned}
+59 \times 61
+&=(\hlblue{60}-\hlpink{1})(\hlblue{60}+\hlpink{1})
+\end{aligned}
 \]
 
-**ステップ2：** 乗法公式を使って変形する$(x + a)(x - a) = x^2 - a^2$
+**ステップ2：** [4] の公式に当てはめる
+$\hlblue{x}=\hlblue{60},\ \hlpink{a}=\hlpink{1}$ と見ると、$(\hlblue{x}+\hlpink{a})(\hlblue{x}-\hlpink{a})=\hlblue{x}^2-\hlpink{a}^2$ が使えます。
 \[
-=60^2 - 1^2
+\begin{aligned}
+59 \times 61
+&=\hlblue{60}^2-\hlpink{1}^2
+\end{aligned}
 \]
 
 **ステップ3：** 計算する
 \[
-= 3600 - 1
-= 3599
+\begin{aligned}
+59 \times 61
+&=3600-1\\
+&=3599
+\end{aligned}
 \]
 
 ■問題2  
@@ -94,15 +115,33 @@
 \]
 
 【解説】  
-**ステップ1：** 乗法公式を使って変形する$(x + a)(x - a) = x^2 - a^2$
+乗法公式を利用すると、計算をくふうして簡単にできます。
 \[
-=(55 + 45)(55 - 45)
+\begin{aligned}
+[1]\quad &(x+a)(x+b)=x^2+(a+b)x+ab\\
+[2]\quad &(x+a)^2=x^2+2ax+a^2\\
+[3]\quad &(x-a)^2=x^2-2ax+a^2\\
+[4]\quad &(x+a)(x-a)=x^2-a^2
+\end{aligned}
+\]
+今回は、2つの平方の差なので、[4] の公式 $x^2-a^2=(x+a)(x-a)$ を逆に使えそうです。
+
+**ステップ1：** [4] の公式を逆に使って変形する
+$\hlblue{x}=\hlblue{55},\ \hlpink{a}=\hlpink{45}$ と見ます。
+\[
+\begin{aligned}
+55^2-45^2
+&=(\hlblue{55}+\hlpink{45})(\hlblue{55}-\hlpink{45})
+\end{aligned}
 \]
 
 **ステップ2：** 計算する
 \[
-=100 \times 10
-=1000
+\begin{aligned}
+55^2-45^2
+&=100\times10\\
+&=1000
+\end{aligned}
 \]
 
 ■問題3  
@@ -117,18 +156,36 @@
 \]
 
 【解説】  
-**ステップ1：** 式の形から使う公式を確認する
-$99^2 = (100 - 1)^2$ と見ると、$(x - a)^2$ の形です。
-
-**ステップ2：** 展開公式にあてはめる※
+乗法公式を利用すると、計算をくふうして簡単にできます。
 \[
-= 100^2 - 2 \times 100 \times 1 + 1^2
+\begin{aligned}
+[1]\quad &(x+a)(x+b)=x^2+(a+b)x+ab\\
+[2]\quad &(x+a)^2=x^2+2ax+a^2\\
+[3]\quad &(x-a)^2=x^2-2ax+a^2\\
+[4]\quad &(x+a)(x-a)=x^2-a^2
+\end{aligned}
+\]
+今回は、$99$ を $\hlblue{100}-\hlpink{1}$ と見るので、[3] の公式に当てはまりそうです。
+
+**ステップ1：** 式の形から使う公式を確認する
+$99^2=(\hlblue{100}-\hlpink{1})^2$ と見ると、$(\hlblue{x}-\hlpink{a})^2$ の形です。
+
+**ステップ2：** [3] の公式に当てはめる
+$\hlblue{x}=\hlblue{100},\ \hlpink{a}=\hlpink{1}$ と見ます。
+\[
+\begin{aligned}
+99^2
+&=\hlblue{100}^2 - 2 \times \hlblue{100} \times \hlpink{1} + \hlpink{1}^2
+\end{aligned}
 \]
 
 **ステップ3：** 計算する
 \[
-= 10000 - 200 + 1
-= 9801
+\begin{aligned}
+99^2
+&=10000-200+1\\
+&=9801
+\end{aligned}
 \]
 
 ※展開公式：$(x - a)^2 = x^2 - 2ax + a^2$
