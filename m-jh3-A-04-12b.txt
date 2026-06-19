@@ -96,8 +96,8 @@ $\sqrt{8}$ はそのままでは $5\sqrt{2}$ と根号の中の数がそろっ�
 **ステップ4：** 係数だけを計算する
 
 \[
-5\hlpink{\sqrt{2}}+2\hlpink{\sqrt{2}}
-= (5+2)\hlpink{\sqrt{2}}
+\hlblue{5}\hlpink{\sqrt{2}}+\hlblue{2}\hlpink{\sqrt{2}}
+= (\hlblue{5}+\hlblue{2})\hlpink{\sqrt{2}}
 = 7\hlpink{\sqrt{2}}
 \]
 
@@ -153,14 +153,14 @@ $\sqrt{8}$ はそのままでは $5\sqrt{2}$ と根号の中の数がそろっ�
 
 \[
 \sqrt{75}-\sqrt{12}
-= 5\sqrt{3}-2\sqrt{3}
+= \hlblue{5}\sqrt{3}-\hlblue{2}\sqrt{3}
 \]
 
 **ステップ5：** 係数だけを計算する
 
 \[
-5\hlpink{\sqrt{3}}-2\hlpink{\sqrt{3}}
-= (5-2)\hlpink{\sqrt{3}}
+\hlblue{5}\hlpink{\sqrt{3}}-\hlblue{2}\hlpink{\sqrt{3}}
+= (\hlblue{5}-\hlblue{2})\hlpink{\sqrt{3}}
 = 3\hlpink{\sqrt{3}}
 \]
 

@@ -72,16 +72,18 @@
 **ステップ1：** 平方根の積の公式を確認する
 
 \[
-\sqrt{a} \times \sqrt{b} = \sqrt{ab}
+\sqrt{\hlblue{a}} \times \sqrt{\hlpink{b}} = \sqrt{\hlblue{a}\hlpink{b}}
 \]
 を使います。
 
 **ステップ2：** 根号の中をかける
 
 \[
+\begin{aligned}
 \sqrt{6} \times \sqrt{11}
-= \sqrt{6 \times 11}
-= \sqrt{66}
+&= \sqrt{\hlblue{6} \times \hlpink{11}}\\
+&= \sqrt{66}
+\end{aligned}
 \]
 
 **ステップ3：** 根号の中が簡単にできるか確認する

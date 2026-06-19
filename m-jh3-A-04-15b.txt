@@ -74,16 +74,16 @@
 **ステップ1：** 使う展開公式を確認する
 
 \[
-\left(x+a\right)\left(x+b\right)=x^2+\left(a+b\right)x+ab
+\left(\hlblue{x}+\hlpink{a}\right)\left(\hlblue{x}+\hlpink{b}\right)=\hlblue{x}^2+\left(\hlpink{a}+\hlpink{b}\right)\hlblue{x}+\hlpink{a}\hlpink{b}
 \]
 を使います。
-この問題では、$x=\sqrt{3}$、$a=2$、$b=5$ と見ます。
+この問題では、$\hlblue{x}=\hlblue{\sqrt{3}}$、$\hlpink{a}=\hlpink{2}$、$\hlpink{b}=\hlpink{5}$ と見ます。
 
 **ステップ2：** 公式にあてはめる
 
 \[
-\left(\sqrt{3}+2\right)\left(\sqrt{3}+5\right)
-= \left(\sqrt{3}\right)^2+\left(2+5\right)\sqrt{3}+2\times 5
+\left(\hlblue{\sqrt{3}}+\hlpink{2}\right)\left(\hlblue{\sqrt{3}}+\hlpink{5}\right)
+= \left(\hlblue{\sqrt{3}}\right)^2+\left(\hlpink{2}+\hlpink{5}\right)\hlblue{\sqrt{3}}+\hlpink{2}\times \hlpink{5}
 \]
 
 **ステップ3：** それぞれの項を計算する
@@ -126,16 +126,16 @@
 **ステップ1：** 使う展開公式を確認する
 
 \[
-\left(x+a\right)^2=x^2+2ax+a^2
+\left(\hlblue{x}+\hlpink{a}\right)^2=\hlblue{x}^2+2\hlpink{a}\hlblue{x}+\hlpink{a}^2
 \]
 を使います。
-この問題では、$x=\sqrt{5}$、$a=3$ と見ます。
+この問題では、$\hlblue{x}=\hlblue{\sqrt{5}}$、$\hlpink{a}=\hlpink{3}$ と見ます。
 
 **ステップ2：** 公式にあてはめる
 
 \[
-\left(\sqrt{5}+3\right)^2
-= \left(\sqrt{5}\right)^2+2\times 3\times \sqrt{5}+3^2
+\left(\hlblue{\sqrt{5}}+\hlpink{3}\right)^2
+= \left(\hlblue{\sqrt{5}}\right)^2+2\times \hlpink{3}\times \hlblue{\sqrt{5}}+\hlpink{3}^2
 \]
 
 **ステップ3：** それぞれの項を計算する

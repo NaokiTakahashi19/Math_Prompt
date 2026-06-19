@@ -75,11 +75,11 @@
 $a(b+c)=ab+ac$ です。
 かっこの外の数を、かっこの中の各項にかける。
 
-**ステップ2：** $\hlpink{\sqrt{3}}$ をかっこの中の各項にかける
+**ステップ2：** $\hlblue{\sqrt{3}}$ をかっこの中の各項にかける
 
 \[
-\hlpink{\sqrt{3}}\left(\sqrt{12}+3\right)
-= \hlblue{\sqrt{3}\times\sqrt{12}}+\hlpink{\sqrt{3}}\times 3
+\hlblue{\sqrt{3}}\left(\hlpink{\sqrt{12}}+\hlpink{3}\right)
+= \hlblue{\sqrt{3}}\times\hlpink{\sqrt{12}}+\hlblue{\sqrt{3}}\times \hlpink{3}
 \]
 
 **ステップ3：** 根号どうしの乗法を計算する
@@ -132,12 +132,12 @@ $a(b+c)=ab+ac$ です。
 
 二項式どうしの積では、左のかっこの各項を、右のかっこの各項にかける。
 
-**ステップ2：** $\sqrt{2}$ を右のかっこの各項にかける
+**ステップ2：** 左のかっこの各項を、右のかっこの各項にかける
 
 \[
-\left(\sqrt{2}+1\right)\left(\sqrt{3}-1\right)
-= \sqrt{2}\times\sqrt{3}-\sqrt{2}\times 1
-  +1\times\sqrt{3}-1\times 1
+\left(\hlblue{\sqrt{2}}+\hlblue{1}\right)\left(\hlpink{\sqrt{3}}\hlpink{-}\hlpink{1}\right)
+= \hlblue{\sqrt{2}}\times\hlpink{\sqrt{3}}\hlpink{-}\hlblue{\sqrt{2}}\times \hlpink{1}
+  +\hlblue{1}\times\hlpink{\sqrt{3}}\hlpink{-}\hlblue{1}\times \hlpink{1}
 \]
 
 **ステップ3：** それぞれの項を計算する

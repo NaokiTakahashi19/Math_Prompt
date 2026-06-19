@@ -101,8 +101,8 @@
 **ステップ5：** 係数だけを計算する
 
 \[
-3\hlpink{\sqrt{2}}+2\hlpink{\sqrt{2}}
-= (3+2)\hlpink{\sqrt{2}}
+\hlblue{3}\hlpink{\sqrt{2}}+\hlblue{2}\hlpink{\sqrt{2}}
+= (\hlblue{3}+\hlblue{2})\hlpink{\sqrt{2}}
 = 5\hlpink{\sqrt{2}}
 \]
 
@@ -163,20 +163,20 @@
 **ステップ5：** 係数を分数でそろえる
 
 \[
-3\sqrt{10}
-= \frac{6\sqrt{10}}{2}
+\hlblue{3}\sqrt{10}
+= \frac{\hlblue{6}\sqrt{10}}{2}
 \]
 なので、
 \[
-3\sqrt{10}-\frac{5\sqrt{10}}{2}
-= \frac{6\sqrt{10}}{2}-\frac{5\sqrt{10}}{2}
+\hlblue{3}\sqrt{10}-\frac{\hlblue{5}\sqrt{10}}{2}
+= \frac{\hlblue{6}\sqrt{10}}{2}-\frac{\hlblue{5}\sqrt{10}}{2}
 \]
 
 **ステップ6：** 係数だけを計算する
 
 \[
-\frac{6\hlpink{\sqrt{10}}}{2}-\frac{5\hlpink{\sqrt{10}}}{2}
-= \frac{(6-5)\hlpink{\sqrt{10}}}{2}
+\frac{\hlblue{6}\hlpink{\sqrt{10}}}{2}-\frac{\hlblue{5}\hlpink{\sqrt{10}}}{2}
+= \frac{(\hlblue{6}-\hlblue{5})\hlpink{\sqrt{10}}}{2}
 = \frac{\hlpink{\sqrt{10}}}{2}
 \]
 
