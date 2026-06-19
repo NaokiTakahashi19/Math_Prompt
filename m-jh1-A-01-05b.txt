@@ -74,12 +74,12 @@ $\hlblue{(+3)}$ と $\hlpink{(-5)}$ は符号が異なる。
 
 **ステップ2：** 絶対値を比べる
 \[
-|\hlblue{+3}| = 3,\quad |\hlpink{-5}| = \bbox[2px,lightyellow]{5}
+\hlblue{+3}\rightarrow |3|=3,\quad \hlpink{-5}\rightarrow |5|=5
 \]
 $5$ の方が大きいので、答えの符号は $-5$ と同じ「$-$」になる。
 つまり、
 \[
-\hlblue{(+3)}+\hlpink{(-5)}=-(\bbox[2px,lightyellow]{5}-3)
+\hlblue{(+3)}+\hlpink{(-5)}=-(5-3)
 \]
 と考える。
 
@@ -111,12 +111,12 @@ $\hlpink{(-4)}$ と $\hlblue{(+6)}$ は符号が異なる。
 
 **ステップ2：** 絶対値を比べる
 \[
-|\hlpink{-4}| = 4,\quad |\hlblue{+6}| = \bbox[2px,lightyellow]{6}
+\hlpink{-4}\rightarrow |4|=4,\quad \hlblue{+6}\rightarrow |6|=6
 \]
 $6$ の方が大きいので、答えの符号は $+6$ と同じ「$+$」になる。
 つまり、
 \[
-\hlpink{(-4)}+\hlblue{(+6)}=+(\bbox[2px,lightyellow]{6}-4)
+\hlpink{(-4)}+\hlblue{(+6)}=+(6-4)
 \]
 と考える。
 
@@ -148,12 +148,12 @@ $\hlpink{(-8)}$ と $\hlblue{(+2)}$ は符号が異なる。
 
 **ステップ2：** 絶対値を比べる
 \[
-|\hlpink{-8}| = \bbox[2px,lightyellow]{8},\quad |\hlblue{+2}| = 2
+\hlpink{-8}\rightarrow |8|=8,\quad \hlblue{+2}\rightarrow |2|=2
 \]
 $8$ の方が大きいので、答えの符号は $-8$ と同じ「$-$」になる。
 つまり、
 \[
-\hlpink{(-8)}+\hlblue{(+2)}=-(\bbox[2px,lightyellow]{8}-2)
+\hlpink{(-8)}+\hlblue{(+2)}=-(8-2)
 \]
 と考える。
 
@@ -249,12 +249,12 @@ $\hlblue{(+3.2)}$ と $\hlpink{(-2.3)}$ は符号が異なる。
 
 **ステップ2：** 絶対値を比べる
 \[
-|\hlblue{3.2}| = \bbox[2px,lightyellow]{3.2},\quad |\hlpink{2.3}| = 2.3
+\hlblue{+3.2}\rightarrow |3.2|=3.2,\quad \hlpink{-2.3}\rightarrow |2.3|=2.3
 \]
 $3.2$ の方が大きいので、答えの符号は $+3.2$ と同じ「$+$」になる。
 つまり、
 \[
-\hlblue{(+3.2)}+\hlpink{(-2.3)}=+(\bbox[2px,lightyellow]{3.2}-2.3)
+\hlblue{(+3.2)}+\hlpink{(-2.3)}=+(3.2-2.3)
 \]
 と考える。
 
@@ -286,13 +286,14 @@ $\hlpink{-\frac{3}{5}}$ と $\hlblue{\frac{4}{5}}$ は符号が異なる。
 
 **ステップ2：** 分母が同じなので、分子の絶対値を比べる
 \[
-\bigl|\hlpink{-3}\bigr| = 3,\quad |\hlblue{4}| = \bbox[2px,lightyellow]{4}
+\hlpink{-\frac{3}{5}}\rightarrow \left|\frac{3}{5}\right|=\frac{3}{5},\quad
+\hlblue{\frac{4}{5}}\rightarrow \left|\frac{4}{5}\right|=\frac{4}{5}
 \]
-$4$ の方が大きいので、答えの符号は $\frac{4}{5}$ と同じ「$+$」になる。
+$\frac{4}{5}$ の方が大きいので、答えの符号は $\frac{4}{5}$ と同じ「$+$」になる。
 つまり、
 \[
 \hlpink{\bigl(-\frac{3}{5}\bigr)}+\hlblue{\bigl(\frac{4}{5}\bigr)}
-=+\left(\bbox[2px,lightyellow]{\frac{4}{5}}-\frac{3}{5}\right)
+=+\left(\frac{4}{5}-\frac{3}{5}\right)
 \]
 と考える。
 
@@ -329,12 +330,13 @@ $\hlpink{-\frac{10}{15}}$ と $\hlblue{\frac{12}{15}}$ は符号が異なる。
 
 **ステップ3：** 分子の絶対値を比べて計算する
 \[
-|\hlpink{-10}| = 10,\quad |\hlblue{12}| = \bbox[2px,lightyellow]{12}
+\hlpink{-\frac{10}{15}}\rightarrow \frac{10}{15},\quad
+\hlblue{\frac{12}{15}}\rightarrow \frac{12}{15}
 \]
-$12$ の方が大きいので、答えの符号は「$+$」になる。
+$\frac{12}{15}$ の方が大きいので、答えの符号は「$+$」になる。
 つまり、
 \[
-\hlpink{-\frac{10}{15}}+\hlblue{\frac{12}{15}}=+\frac{\bbox[2px,lightyellow]{12}-10}{15}
+\hlpink{-\frac{10}{15}}+\hlblue{\frac{12}{15}}=+\frac{12-10}{15}
 \]
 と考える。
 \[

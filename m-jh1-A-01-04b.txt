@@ -71,6 +71,16 @@
 
 **ステップ2：** $-12$ と原点 $0$ との距離を考える
 $-12$ は、数直線上で原点 $0$ から左に $12$ だけ離れた点である。
+\begin{tikzpicture}[x=0.48cm,y=1.15cm,>=stealth]
+\draw[->,thick] (-13,0)--(1,0);
+\foreach \x/\label in {-12/{-12},-8/{-8},-4/{-4},0/{0}} {
+  \draw (\x,0.1)--(\x,-0.1);
+  \node[below] at (\x,-0.1) {$\label$};
+}
+\fill[pink] (-12,0) circle (2.5pt);
+\fill[black] (0,0) circle (2.5pt);
+\draw[<->,thick,blue] (-12,-0.8)--(0,-0.8) node[midway,below] {$12$};
+\end{tikzpicture}
 したがって、$-12$ の絶対値は $12$ である。
 
 **ステップ3：** 原点からの距離を答える  
@@ -95,6 +105,16 @@ $-12$ は、数直線上で原点 $0$ から左に $12$ だけ離れた点であ
 
 **ステップ2：** $0.6$ と原点 $0$ との距離を考える
 $0.6$ は、数直線上で原点 $0$ から右に $0.6$ だけ離れた点である。
+\begin{tikzpicture}[x=6.5cm,y=1.15cm,>=stealth]
+\draw[->,thick] (-0.15,0)--(0.85,0);
+\foreach \x/\label in {0/{0},0.3/{0.3},0.6/{0.6}} {
+  \draw (\x,0.1)--(\x,-0.1);
+  \node[below] at (\x,-0.1) {$\label$};
+}
+\fill[black] (0,0) circle (2.5pt);
+\fill[cyan] (0.6,0) circle (2.5pt);
+\draw[<->,thick,blue] (0,-0.8)--(0.6,-0.8) node[midway,below] {$0.6$};
+\end{tikzpicture}
 したがって、$0.6$ の絶対値は $0.6$ である。
 
 \[
@@ -119,6 +139,16 @@ $0.6$ は、数直線上で原点 $0$ から右に $0.6$ だけ離れた点で�
 
 **ステップ2：** $-\frac{5}{4}$ と原点 $0$ との距離を考える
 $-\frac{5}{4}$ は、数直線上で原点 $0$ から左に $\frac{5}{4}$ だけ離れた点である。
+\begin{tikzpicture}[x=4.2cm,y=1.15cm,>=stealth]
+\draw[->,thick] (-1.5,0)--(0.35,0);
+\foreach \x/\label in {-1.25/{-\frac{5}{4}},-1/{-1},0/{0}} {
+  \draw (\x,0.1)--(\x,-0.1);
+  \node[below] at (\x,-0.1) {$\label$};
+}
+\fill[pink] (-1.25,0) circle (2.5pt);
+\fill[black] (0,0) circle (2.5pt);
+\draw[<->,thick,blue] (-1.25,-0.8)--(0,-0.8) node[midway,below] {$\frac{5}{4}$};
+\end{tikzpicture}
 したがって、$-\frac{5}{4}$ の絶対値は $\frac{5}{4}$ である。
  
 \[
@@ -142,7 +172,19 @@ $-\frac{5}{4}$ は、数直線上で原点 $0$ から左に $\frac{5}{4}$ だけ
 絶対値が $8$ とは、数直線上で原点 $0$ からの距離が $8$ であるという意味である。
 
 **ステップ2：** 原点から $8$ だけ離れた点を考える
-原点 $0$ から右に $8$ だけ離れた点は $+8$、左に $8$ だけ離れた点は $-8$ である。
+原点 $0$ から距離が $8$ の点は、右側の $+8$ と左側の $-8$ である。
+\begin{tikzpicture}[x=0.48cm,y=1.15cm,>=stealth]
+\draw[->,thick] (-9,0)--(9,0);
+\foreach \x/\label in {-8/{-8},-4/{-4},0/{0},4/{4},8/{8}} {
+  \draw (\x,0.1)--(\x,-0.1);
+  \node[below] at (\x,-0.1) {$\label$};
+}
+\fill[pink] (-8,0) circle (2.5pt);
+\fill[black] (0,0) circle (2.5pt);
+\fill[cyan] (8,0) circle (2.5pt);
+\draw[<->,thick,blue] (-8,-0.8)--(0,-0.8) node[midway,below] {$8$};
+\draw[<->,thick,blue] (0,-1.25)--(8,-1.25) node[midway,below] {$8$};
+\end{tikzpicture}
 どちらも原点からの距離は $8$ なので、
 \[
 |\hlblue{+8}| = \bbox[2px,lightyellow]{8},\quad |\hlpink{-8}| = \bbox[2px,lightyellow]{8}
@@ -169,7 +211,19 @@ $-\frac{5}{4}$ は、数直線上で原点 $0$ から左に $\frac{5}{4}$ だけ
 絶対値が $1.7$ とは、数直線上で原点 $0$ からの距離が $1.7$ であるという意味である。
 
 **ステップ2：** 原点から $1.7$ だけ離れた点を考える
-原点 $0$ から右に $1.7$ だけ離れた点は $+1.7$、左に $1.7$ だけ離れた点は $-1.7$ である。
+原点 $0$ から距離が $1.7$ の点は、右側の $+1.7$ と左側の $-1.7$ である。
+\begin{tikzpicture}[x=2.4cm,y=1.15cm,>=stealth]
+\draw[->,thick] (-2,0)--(2,0);
+\foreach \x/\label in {-1.7/{-1.7},-1/{-1},0/{0},1/{1},1.7/{1.7}} {
+  \draw (\x,0.1)--(\x,-0.1);
+  \node[below] at (\x,-0.1) {$\label$};
+}
+\fill[pink] (-1.7,0) circle (2.5pt);
+\fill[black] (0,0) circle (2.5pt);
+\fill[cyan] (1.7,0) circle (2.5pt);
+\draw[<->,thick,blue] (-1.7,-0.8)--(0,-0.8) node[midway,below] {$1.7$};
+\draw[<->,thick,blue] (0,-1.25)--(1.7,-1.25) node[midway,below] {$1.7$};
+\end{tikzpicture}
 どちらも原点からの距離は $1.7$ なので、
 \[
 |\hlblue{+1.7}| = \bbox[2px,lightyellow]{1.7},\quad |\hlpink{-1.7}| = \bbox[2px,lightyellow]{1.7}
@@ -196,7 +250,19 @@ $-\frac{5}{4}$ は、数直線上で原点 $0$ から左に $\frac{5}{4}$ だけ
 絶対値が $\frac{5}{4}$ とは、数直線上で原点 $0$ からの距離が $\frac{5}{4}$ であるという意味である。
 
 **ステップ2：** 原点から $\frac{5}{4}$ だけ離れた点を考える
-原点 $0$ から右に $\frac{5}{4}$ だけ離れた点は $+\frac{5}{4}$、左に $\frac{5}{4}$ だけ離れた点は $-\frac{5}{4}$ である。
+原点 $0$ から距離が $\frac{5}{4}$ の点は、右側の $+\frac{5}{4}$ と左側の $-\frac{5}{4}$ である。
+\begin{tikzpicture}[x=3.2cm,y=1.15cm,>=stealth]
+\draw[->,thick] (-1.55,0)--(1.55,0);
+\foreach \x/\label in {-1.25/{-\frac{5}{4}},-1/{-1},0/{0},1/{1},1.25/{\frac{5}{4}}} {
+  \draw (\x,0.1)--(\x,-0.1);
+  \node[below] at (\x,-0.1) {$\label$};
+}
+\fill[pink] (-1.25,0) circle (2.5pt);
+\fill[black] (0,0) circle (2.5pt);
+\fill[cyan] (1.25,0) circle (2.5pt);
+\draw[<->,thick,blue] (-1.25,-0.8)--(0,-0.8) node[midway,below] {$\frac{5}{4}$};
+\draw[<->,thick,blue] (0,-1.25)--(1.25,-1.25) node[midway,below] {$\frac{5}{4}$};
+\end{tikzpicture}
 どちらも原点からの距離は $\frac{5}{4}$ なので、
 \[
 \left|\hlblue{+\frac{5}{4}}\right| = \bbox[2px,lightyellow]{\frac{5}{4}},\quad \left|\hlpink{-\frac{5}{4}}\right| = \bbox[2px,lightyellow]{\frac{5}{4}}

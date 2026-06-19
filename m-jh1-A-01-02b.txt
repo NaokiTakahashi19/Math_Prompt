@@ -72,6 +72,18 @@ $3000\mathrm{m}$ を基準にして、富士山の山頂 $3776\mathrm{m}$ を正
 \hlblue{3776} - \hlpink{3000} = \hlblue{+776}
 \]
 
+基準の $3000\mathrm{m}$ を $0$ の位置と見ると、富士山の山頂は上向きに $776\mathrm{m}$ 進んだ位置です。
+\begin{tikzpicture}[x=1cm,y=0.45cm,>=stealth]
+\draw[->,thick] (0,-1)--(0,8.7);
+\foreach \y/\label in {0/{3000\mathrm{m}},4/{3400\mathrm{m}},7.76/{3776\mathrm{m}}} {
+  \draw (-0.12,\y)--(0.12,\y);
+  \node[left] at (-0.12,\y) {$\label$};
+}
+\fill[pink] (0,0) circle (2.5pt);
+\fill[cyan] (0,7.76) circle (2.5pt);
+\draw[<->,thick,blue] (0.7,0)--(0.7,7.76) node[midway,right] {$+776\mathrm{m}$};
+\end{tikzpicture}
+
 **ステップ3：** 基準より高い → 「＋」をつける
 
 よって、答えは
@@ -79,6 +91,24 @@ $3000\mathrm{m}$ を基準にして、富士山の山頂 $3776\mathrm{m}$ を正
 \[
 \hlblue{+776}\mathrm{m}
 \]
+
+**ポイント整理：** 基準との差を正負の符号で表す
+
+\[
+\begin{array}{|c|c|}
+\hline
+\text{確認すること} & \text{この問題での見方} \\
+\hline
+\text{基準} & 3000\mathrm{m} \\
+\hline
+\text{正の向き} & \text{基準より高いときは }\hlblue{+} \\
+\hline
+\text{負の向き} & \text{基準より低いときは }\hlpink{-} \\
+\hline
+\end{array}
+\]
+
+今回は富士山の山頂が基準より $776\mathrm{m}$ 高いので、符号は「$+$」になります。
 
 ■問題2  
 地点Aから東へ $3\mathrm{km}$ 移動したことを $+3\mathrm{km}$ と表すと、西へ $4\mathrm{km}$ 移動することを正負の符号を使って表しなさい。
@@ -93,12 +123,41 @@ $3000\mathrm{m}$ を基準にして、富士山の山頂 $3776\mathrm{m}$ を正
 → 反対方向の「西」は「−」になる
 
 **ステップ2：** 西へ $4\mathrm{km}$ → マイナスをつけて表す
+東を右向きの「$+$」と見ると、西は左向きの「$-$」になります。
+\begin{tikzpicture}[x=0.8cm,y=1.15cm,>=stealth]
+\draw[->,thick] (-4.8,0)--(3.8,0);
+\foreach \x/\label in {-4/{-4\mathrm{km}},0/{0},3/{+3\mathrm{km}}} {
+  \draw (\x,0.1)--(\x,-0.1);
+  \node[below] at (\x,-0.1) {$\label$};
+}
+\fill[pink] (-4,0) circle (2.5pt);
+\fill[black] (0,0) circle (2.5pt);
+\fill[cyan] (3,0) circle (2.5pt);
+\end{tikzpicture}
 
 よって、答えは
 
 \[
 \hlpink{-4}\mathrm{km}
 \]
+
+**ポイント整理：** 反対方向は反対の符号で表す
+
+\[
+\begin{array}{|c|c|}
+\hline
+\text{確認すること} & \text{この問題での見方} \\
+\hline
+\text{正の向き} & \text{東へ進むことを }\hlblue{+}\text{ と決めている} \\
+\hline
+\text{負の向き} & \text{東と反対の西へ進むことは }\hlpink{-} \\
+\hline
+\text{表す量} & \text{西へ }4\mathrm{km}\text{ 移動する} \\
+\hline
+\end{array}
+\]
+
+東を「$+$」と決めたら、反対方向の西は「$-$」で表します。
 
 ■問題3  
 $1000$ 円の収入を $+1000$ 円と表すことにすると、$800$ 円使うことを正負の符号を使って表しなさい。
@@ -113,11 +172,40 @@ $1000$ 円の収入を $+1000$ 円と表すことにすると、$800$ 円使う�
 → 使う（減る）ということは「−」
 
 **ステップ2：** $800$ 円使う → マイナスをつけて表す
+収入を右向きの「$+$」と見ると、使うことは左向きの「$-$」になります。
+\begin{tikzpicture}[x=0.45cm,y=1.15cm,>=stealth]
+\draw[->,thick] (-9,0)--(11,0);
+\foreach \x/\label in {-8/{-800},0/{0},10/{+1000}} {
+  \draw (\x,0.1)--(\x,-0.1);
+  \node[below] at (\x,-0.1) {$\label$};
+}
+\fill[pink] (-8,0) circle (2.5pt);
+\fill[black] (0,0) circle (2.5pt);
+\fill[cyan] (10,0) circle (2.5pt);
+\end{tikzpicture}
 
 よって、答えは
 
 \[
 \hlpink{-800}\text{円}
 \]
+
+**ポイント整理：** 増える量と減る量は反対の符号で表す
+
+\[
+\begin{array}{|c|c|}
+\hline
+\text{確認すること} & \text{この問題での見方} \\
+\hline
+\text{正の向き} & \text{収入のようにお金が増えることを }\hlblue{+}\text{ と決めている} \\
+\hline
+\text{負の向き} & \text{使うことはお金が減るので }\hlpink{-} \\
+\hline
+\text{表す量} & 800\text{円使う} \\
+\hline
+\end{array}
+\]
+
+収入を「$+$」と決めたら、反対にお金が減る支出は「$-$」で表します。
 
 以上、生成例
