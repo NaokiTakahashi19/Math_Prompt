@@ -66,9 +66,20 @@
 \]
 
 【解説】  
+**乗法の符号ルール：** まず、かける2つの数の符号から、積の符号を決めます。
+\[
+\begin{array}{ccl}
+\hlblue{(+)} \times \hlblue{(+)} &\rightarrow& \hlblue{(+)}\\
+\hlpink{(-)} \times \hlpink{(-)} &\rightarrow& \hlblue{(+)}\\
+\hlblue{(+)} \times \hlpink{(-)} &\rightarrow& \hlpink{(-)}\\
+\hlpink{(-)} \times \hlblue{(+)} &\rightarrow& \hlpink{(-)}
+\end{array}
+\]
+同じ符号どうしの積は正、異なる符号どうしの積は負になります。
+
 **ステップ1：** 積の符号を決める
-$\hlblue{(-5)}$ と $\hlpink{(+4)}$ は符号が異なる。
-符号が異なる2つの数の積では、答えの符号は「$-$」になる。
+$\hlpink{(-5)}$ と $\hlblue{(+4)}$ は符号が異なる。
+符号が異なる2つの数の積では、答えの符号は $\hlpink{(-)}$ になります。
 
 **ステップ2：** 絶対値をかける
 積の絶対値は、それぞれの数の絶対値の積である。
@@ -94,16 +105,27 @@ $\hlblue{(-5)}$ と $\hlpink{(+4)}$ は符号が異なる。
 \]
 
 【解説】  
+**乗法の符号ルール：** まず、かける2つの数の符号から、積の符号を決めます。
+\[
+\begin{array}{ccl}
+\hlblue{(+)} \times \hlblue{(+)} &\rightarrow& \hlblue{(+)}\\
+\hlpink{(-)} \times \hlpink{(-)} &\rightarrow& \hlblue{(+)}\\
+\hlblue{(+)} \times \hlpink{(-)} &\rightarrow& \hlpink{(-)}\\
+\hlpink{(-)} \times \hlblue{(+)} &\rightarrow& \hlpink{(-)}
+\end{array}
+\]
+同じ符号どうしの積は正、異なる符号どうしの積は負になります。
+
 **ステップ1：** 積の符号を決める
-$\hlblue{(-8)}$ と $\hlpink{(-3)}$ はどちらも「$-$」で、符号が同じである。
-符号が同じ2つの数の積では、答えの符号は「$+$」になる。
+$\hlpink{(-8)}$ と $\hlpink{(-3)}$ はどちらも $\hlpink{(-)}$ で、符号が同じである。
+符号が同じ2つの数の積では、答えの符号は $\hlblue{(+)}$ になります。
 
 **ステップ2：** 絶対値をかける
 \[
 8\times3=24
 \]
 
-**ステップ3：** 「$+$」は省略して答える
+**ステップ3：** $\hlblue{(+)}$ は省略して答える
 \[
 24
 \]
@@ -121,9 +143,20 @@ $\hlblue{(-8)}$ と $\hlpink{(-3)}$ はどちらも「$-$」で、符号が同�
 \]
 
 【解説】  
+**乗法の符号ルール：** まず、かける2つの数の符号から、積の符号を決めます。
+\[
+\begin{array}{ccl}
+\hlblue{(+)} \times \hlblue{(+)} &\rightarrow& \hlblue{(+)}\\
+\hlpink{(-)} \times \hlpink{(-)} &\rightarrow& \hlblue{(+)}\\
+\hlblue{(+)} \times \hlpink{(-)} &\rightarrow& \hlpink{(-)}\\
+\hlpink{(-)} \times \hlblue{(+)} &\rightarrow& \hlpink{(-)}
+\end{array}
+\]
+同じ符号どうしの積は正、異なる符号どうしの積は負になります。
+
 **ステップ1：** 積の符号を決める
 $\hlblue{(8)}$ と $\hlpink{(-3)}$ は符号が異なる。
-符号が異なる2つの数の積では、答えの符号は「$-$」になる。
+符号が異なる2つの数の積では、答えの符号は $\hlpink{(-)}$ になります。
 
 **ステップ2：** 絶対値をかける
 \[
@@ -147,6 +180,17 @@ $\hlblue{(8)}$ と $\hlpink{(-3)}$ は符号が異なる。
 \]
 
 【解説】  
+**乗法の符号ルール：** まず、かける2つの数の符号から、積の符号を決めます。
+\[
+\begin{array}{ccl}
+\hlblue{(+)} \times \hlblue{(+)} &\rightarrow& \hlblue{(+)}\\
+\hlpink{(-)} \times \hlpink{(-)} &\rightarrow& \hlblue{(+)}\\
+\hlblue{(+)} \times \hlpink{(-)} &\rightarrow& \hlpink{(-)}\\
+\hlpink{(-)} \times \hlblue{(+)} &\rightarrow& \hlpink{(-)}
+\end{array}
+\]
+ただし、$0$ をかけると、符号に関係なく積は $0$ になります。
+
 **ステップ1：** $0$ との積のルールを確認する
 どんな数に $0$ をかけても、積は $0$ になる。
 また、$0$ にどんな数をかけても、積は $0$ になる。
@@ -169,9 +213,20 @@ $\hlblue{(8)}$ と $\hlpink{(-3)}$ は符号が異なる。
 \]
 
 【解説】  
+**乗法の符号ルール：** まず、かける2つの数の符号から、積の符号を決めます。
+\[
+\begin{array}{ccl}
+\hlblue{(+)} \times \hlblue{(+)} &\rightarrow& \hlblue{(+)}\\
+\hlpink{(-)} \times \hlpink{(-)} &\rightarrow& \hlblue{(+)}\\
+\hlblue{(+)} \times \hlpink{(-)} &\rightarrow& \hlpink{(-)}\\
+\hlpink{(-)} \times \hlblue{(+)} &\rightarrow& \hlpink{(-)}
+\end{array}
+\]
+同じ符号どうしの積は正、異なる符号どうしの積は負になります。
+
 **ステップ1：** 積の符号を決める
-$\hlblue{(-0.8)}$ と $\hlpink{0.9}$ は符号が異なる。
-符号が異なる2つの数の積では、答えの符号は「$-$」になる。
+$\hlpink{(-0.8)}$ と $\hlblue{0.9}$ は符号が異なる。
+符号が異なる2つの数の積では、答えの符号は $\hlpink{(-)}$ になります。
 
 **ステップ2：** 絶対値どうしをかける
 \[
@@ -196,9 +251,20 @@ $\hlblue{(-0.8)}$ と $\hlpink{0.9}$ は符号が異なる。
 \]
 
 【解説】  
+**乗法の符号ルール：** まず、かける2つの数の符号から、積の符号を決めます。
+\[
+\begin{array}{ccl}
+\hlblue{(+)} \times \hlblue{(+)} &\rightarrow& \hlblue{(+)}\\
+\hlpink{(-)} \times \hlpink{(-)} &\rightarrow& \hlblue{(+)}\\
+\hlblue{(+)} \times \hlpink{(-)} &\rightarrow& \hlpink{(-)}\\
+\hlpink{(-)} \times \hlblue{(+)} &\rightarrow& \hlpink{(-)}
+\end{array}
+\]
+同じ符号どうしの積は正、異なる符号どうしの積は負になります。
+
 **ステップ1：** 積の符号を決める
-$\hlblue{\bigl(-\frac{3}{4}\bigr)}$ と $\hlpink{8}$ は符号が異なる。
-符号が異なる2つの数の積では、答えの符号は「$-$」になる。
+$\hlpink{\bigl(-\frac{3}{4}\bigr)}$ と $\hlblue{8}$ は符号が異なる。
+符号が異なる2つの数の積では、答えの符号は $\hlpink{(-)}$ になります。
 
 **ステップ2：** 絶対値どうしをかける
 \[
@@ -223,9 +289,20 @@ $\hlblue{\bigl(-\frac{3}{4}\bigr)}$ と $\hlpink{8}$ は符号が異なる。
 \]
 
 【解説】  
+**乗法の符号ルール：** まず、かける2つの数の符号から、積の符号を決めます。
+\[
+\begin{array}{ccl}
+\hlblue{(+)} \times \hlblue{(+)} &\rightarrow& \hlblue{(+)}\\
+\hlpink{(-)} \times \hlpink{(-)} &\rightarrow& \hlblue{(+)}\\
+\hlblue{(+)} \times \hlpink{(-)} &\rightarrow& \hlpink{(-)}\\
+\hlpink{(-)} \times \hlblue{(+)} &\rightarrow& \hlpink{(-)}
+\end{array}
+\]
+同じ符号どうしの積は正、異なる符号どうしの積は負になります。
+
 **ステップ1：** 積の符号を決める
-$\hlblue{\bigl(-\frac{2}{3}\bigr)}$ と $\hlpink{\bigl(-\frac{7}{6}\bigr)}$ はどちらも「$-$」で、符号が同じである。
-符号が同じ2つの数の積では、答えの符号は「$+$」になる。
+$\hlpink{\bigl(-\frac{2}{3}\bigr)}$ と $\hlpink{\bigl(-\frac{7}{6}\bigr)}$ はどちらも $\hlpink{(-)}$ で、符号が同じである。
+符号が同じ2つの数の積では、答えの符号は $\hlblue{(+)}$ になります。
 
 **ステップ2：** 絶対値どうしをかける
 \[
@@ -237,17 +314,17 @@ $\hlblue{\bigl(-\frac{2}{3}\bigr)}$ と $\hlpink{\bigl(-\frac{7}{6}\bigr)}$ は�
 \frac{14}{18} = \frac{7}{9}
 \]
 
-**ステップ4：** 「$+$」は省略して答える
+**ステップ4：** $\hlblue{(+)}$ は省略して答える
 \[
 \frac{7}{9}
 \]
 
 **ポイント整理：** 正の数・負の数の乗法
-符号が同じ2つの数の積では、絶対値の積に、正の符号をつける。
+符号が同じ2つの数の積では、絶対値の積に、正の符号 $\hlblue{(+)}$ をつける。
 \[
 (+3)\times(+2)=+(3\times2),\quad (-3)\times(-2)=+(3\times2)
 \]
-符号が異なる2つの数の積では、絶対値の積に、負の符号をつける。
+符号が異なる2つの数の積では、絶対値の積に、負の符号 $\hlpink{(-)}$ をつける。
 \[
 (+3)\times(-2)=-(3\times2),\quad (-3)\times(+2)=-(3\times2)
 \]

@@ -62,7 +62,7 @@ ab + bc
 
 【解答】  
 \[
-\hlpink{b}(a + c)
+b(a + c)
 \]
 
 【解説】  
@@ -71,7 +71,7 @@ ab + bc
 = a \times \hlpink{b} + \hlpink{b} \times c
 \]
 
-**ステップ2：** 全ての項に共通する因数をさがしてくくりだす。
+**ステップ2：** 全ての項に共通する因数をさがしてくくりだす
 \[
 = \hlpink{b}(a + c)
 \]
@@ -93,7 +93,7 @@ ab + bc
 = \hlpink{2} \times \hlpink{x} \times x \times \hlpink{y} + \hlpink{2} \times 2 \times \hlpink{x} \times \hlpink{y} \times y - \hlpink{2} \times \hlpink{x} \times \hlpink{y}
 \]
 
-**ステップ2：** 全ての項に共通する因数をさがしてくくりだす。
+**ステップ2：** 全ての項に共通する因数をさがしてくくりだす
 \[
 = 2xy(x + 2y - 1)
 \]

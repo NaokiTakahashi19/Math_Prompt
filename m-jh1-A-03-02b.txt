@@ -56,42 +56,70 @@
 ## 生成例  
 ■問題1  
 次の方程式で、$0$ が解となるものを選びなさい。
-① $2x - 8 = 2$
-② $\displaystyle \frac{2}{3} = 3x$
-③ $\displaystyle \frac{3}{2}x = 2$
-④ $2(1 - x) = x + 2$
+\[
+\begin{array}{rl}
+① & 2x - 8 = 2 \\[0.6em]
+② & \displaystyle \frac{2}{3} = 3x \\[0.6em]
+③ & \displaystyle \frac{3}{2}x = 2 \\[0.6em]
+④ & 2(1 - x) = x + 2
+\end{array}
+\]
 
 【解答】
 ④
 
 【解説】  
-**ステップ1：** それぞれの方程式に $x = 0$ を代入して左辺と右辺が等しいかを調べましょう。
+**ステップ1：** それぞれの方程式に $x = 0$ を代入して左辺と右辺が等しいかを調べましょう
 
-① 左辺：$2 \times 0 - 8 = -8$，右辺：$2$ → 等しくない
-② 左辺：$\displaystyle \frac{2}{3}$，右辺：$3 \times 0 = 0$ → 等しくない
-③ 左辺：$\displaystyle \frac{3}{2} \times 0 = 0$，右辺：$2$ → 等しくない
-④ 左辺：$2(1 - 0) = 2$，右辺：$0 + 2 = 2$ → 等しい！
+\[
+\begin{array}{c|c|c|c}
+ & \text{左辺} & \text{右辺} & \text{判定} \\
+\hline
+① & 2 \times 0 - 8 = -8 & 2 & \times \\
+\hline
+② & \frac{2}{3} & 3 \times 0 = 0 & \times \\
+\hline
+③ & \frac{3}{2} \times 0 = 0 & 2 & \times \\
+\hline
+\hlblue{④} & \hlblue{2(1 - 0) = 2} & \hlblue{0 + 2 = 2} & \hlblue{\bigcirc} \\
+\hline
+\end{array}
+\]
 
 したがって、$x = 0$ が解になるのは ④番です。
 
 
 ■問題2  
 次の方程式で、$3$ が解となるものを選びなさい。
-① $x + 5 = 2$
-② $6 + 5x = 3$
-③ $\displaystyle \frac{2}{3}x = 2$
-④ $2x + 3 = 4x + 2$
+\[
+\begin{array}{rl}
+① & x + 5 = 2 \\[0.6em]
+② & 6 + 5x = 3 \\[0.6em]
+③ & \displaystyle \frac{2}{3}x = 2 \\[0.6em]
+④ & 2x + 3 = 4x + 2
+\end{array}
+\]
 
 【解答】
 ③
 
 【解説】  
-**ステップ1：** $x = 3$ をそれぞれの方程式に代入して確認しましょう。
+**ステップ1：** $x = 3$ をそれぞれの方程式に代入して確認しましょう
 
-① 左辺：$3 + 5 = 8$，右辺：$2$ → 等しくない
-② 左辺：$6 + 5 \times 3 = 6 + 15 = 21$，右辺：$3$ → 等しくない
-③ 左辺：$\displaystyle \frac{2}{3} \times 3 = 2$，右辺：$2$ → 等しい！
-④ 左辺：$2 \times 3 + 3 = 6 + 3 = 9$，右辺：$4 \times 3 + 2 = 12 + 2 = 14$ → 等しくない
+\[
+\begin{array}{c|c|c|c}
+ & \text{左辺} & \text{右辺} & \text{判定} \\
+\hline
+① & 3 + 5 = 8 & 2 & \times \\
+\hline
+② & 6 + 5 \times 3 = 21 & 3 & \times \\
+\hline
+\hlblue{③} & \hlblue{\frac{2}{3} \times 3 = 2} & \hlblue{2} & \hlblue{\bigcirc} \\
+\hline
+④ & 2 \times 3 + 3 = 9 & 4 \times 3 + 2 = 14 & \times \\
+\hline
+\end{array}
+\]
 
 ※③が正解のように見えますが、問題に「等しいものを**選びなさい**」とあるため複数選択肢の可能性をチェックします。
 

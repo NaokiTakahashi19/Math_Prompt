@@ -69,7 +69,7 @@ x=\frac{5+\sqrt{13}}{2},\ \frac{5-\sqrt{13}}{2}
 \]
 
 【解説】  
-**ステップ1：** 解の公式を確認する。  
+**ステップ1：** 解の公式を確認する
 2次方程式
 \[
 ax^2+bx+c=0
@@ -80,7 +80,7 @@ x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}
 \]
 で求められる。
 
-**ステップ2：** $a,\ b,\ c$ の値を確認する。  
+**ステップ2：** $a,\ b,\ c$ の値を確認する
 \[
 x^2-5x+3=0
 \]
@@ -90,7 +90,7 @@ x^2-5x+3=0
 \]
 です。
 
-**ステップ3：** 解の公式に代入する。  
+**ステップ3：** 解の公式に代入する
 \[
 \begin{aligned}
 x&=\frac{-\hlpink{(-5)}\pm\sqrt{\hlpink{(-5)}^2-4\times\hlblue{1}\times\bbox[2px,lightyellow]{3}}}{2\times\hlblue{1}}\\
@@ -99,7 +99,7 @@ x&=\frac{-\hlpink{(-5)}\pm\sqrt{\hlpink{(-5)}^2-4\times\hlblue{1}\times\bbox[2px
 \end{aligned}
 \]
 
-**ステップ4：** 解をまとめる。  
+**ステップ4：** 解をまとめる
 \[
 x=\frac{5+\sqrt{13}}{2},\ \frac{5-\sqrt{13}}{2}
 \]
@@ -119,7 +119,7 @@ x=2+\frac{3\sqrt{2}}{2},\ 2-\frac{3\sqrt{2}}{2}
 \]
 
 【解説】  
-**ステップ1：** 解の公式を確認する。  
+**ステップ1：** 解の公式を確認する
 2次方程式
 \[
 ax^2+bx+c=0
@@ -130,7 +130,7 @@ x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}
 \]
 で求められる。
 
-**ステップ2：** $a,\ b,\ c$ の値を確認する。  
+**ステップ2：** $a,\ b,\ c$ の値を確認する
 \[
 2x^2-8x-1=0
 \]
@@ -140,7 +140,7 @@ x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}
 \]
 です。
 
-**ステップ3：** 解の公式に代入する。  
+**ステップ3：** 解の公式に代入する
 \[
 \begin{aligned}
 x&=\frac{-\hlpink{(-8)}\pm\sqrt{\hlpink{(-8)}^2-4\times\hlblue{2}\times\bbox[2px,lightyellow]{(-1)}}}{2\times\hlblue{2}}\\
@@ -149,7 +149,7 @@ x&=\frac{-\hlpink{(-8)}\pm\sqrt{\hlpink{(-8)}^2-4\times\hlblue{2}\times\bbox[2px
 \end{aligned}
 \]
 
-**ステップ4：** 根号の中を簡単にする。  
+**ステップ4：** 根号の中を簡単にする
 \[
 \sqrt{72}=\sqrt{36\times2}=6\sqrt{2}
 \]
@@ -159,7 +159,7 @@ x=\frac{8\pm6\sqrt{2}}{4}
 \]
 となります。
 
-**ステップ5：** 分数を簡単にする。  
+**ステップ5：** 分数を簡単にする
 \[
 \begin{aligned}
 x&=\frac{8\pm6\sqrt{2}}{4}\\

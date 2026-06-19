@@ -83,9 +83,9 @@ $-12$ は、数直線上で原点 $0$ から左に $12$ だけ離れた点であ
 \end{tikzpicture}
 したがって、$-12$ の絶対値は $12$ である。
 
-**ステップ3：** 原点からの距離を答える  
+**ステップ3：** 原点からの距離を答える
 \[
-|\hlpink{-12}| = \bbox[2px,lightyellow]{12}
+|\hlpink{-12}| = 12
 \]
 
 ■問題2  
@@ -118,7 +118,7 @@ $0.6$ は、数直線上で原点 $0$ から右に $0.6$ だけ離れた点で�
 したがって、$0.6$ の絶対値は $0.6$ である。
 
 \[
-|\hlblue{0.6}| = \bbox[2px,lightyellow]{0.6}
+|\hlblue{0.6}| = 0.6
 \]
 
 ■問題3  
@@ -152,7 +152,7 @@ $-\frac{5}{4}$ は、数直線上で原点 $0$ から左に $\frac{5}{4}$ だけ
 したがって、$-\frac{5}{4}$ の絶対値は $\frac{5}{4}$ である。
  
 \[
-\bigl|\hlpink{-\frac{5}{4}}\bigr| = \bbox[2px,lightyellow]{\frac{5}{4}}
+\bigl|\hlpink{-\frac{5}{4}}\bigr| = \frac{5}{4}
 \]
 
 
@@ -187,7 +187,7 @@ $-\frac{5}{4}$ は、数直線上で原点 $0$ から左に $\frac{5}{4}$ だけ
 \end{tikzpicture}
 どちらも原点からの距離は $8$ なので、
 \[
-|\hlblue{+8}| = \bbox[2px,lightyellow]{8},\quad |\hlpink{-8}| = \bbox[2px,lightyellow]{8}
+|\hlblue{+8}| = 8,\quad |\hlpink{-8}| = 8
 \]
 
 したがって、絶対値が $8$ になる数は
@@ -226,7 +226,7 @@ $-\frac{5}{4}$ は、数直線上で原点 $0$ から左に $\frac{5}{4}$ だけ
 \end{tikzpicture}
 どちらも原点からの距離は $1.7$ なので、
 \[
-|\hlblue{+1.7}| = \bbox[2px,lightyellow]{1.7},\quad |\hlpink{-1.7}| = \bbox[2px,lightyellow]{1.7}
+|\hlblue{+1.7}| = 1.7,\quad |\hlpink{-1.7}| = 1.7
 \]
 
 したがって、絶対値が $1.7$ になる数は
@@ -265,7 +265,7 @@ $-\frac{5}{4}$ は、数直線上で原点 $0$ から左に $\frac{5}{4}$ だけ
 \end{tikzpicture}
 どちらも原点からの距離は $\frac{5}{4}$ なので、
 \[
-\left|\hlblue{+\frac{5}{4}}\right| = \bbox[2px,lightyellow]{\frac{5}{4}},\quad \left|\hlpink{-\frac{5}{4}}\right| = \bbox[2px,lightyellow]{\frac{5}{4}}
+\left|\hlblue{+\frac{5}{4}}\right| = \frac{5}{4},\quad \left|\hlpink{-\frac{5}{4}}\right| = \frac{5}{4}
 \]
 
 したがって、絶対値が $\frac{5}{4}$ になる数は
