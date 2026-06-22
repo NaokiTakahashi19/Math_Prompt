@@ -77,7 +77,6 @@ a^2 + 2ab + b^2 + 3a + 3b + 2
 **ステップ2：** 展開の公式を使ってかっこをはずす
 \[
 \begin{aligned}
-(a+b+1)(a+b+2)
 &= M^2 + 3M + 2
 \end{aligned}
 \]
@@ -85,7 +84,6 @@ a^2 + 2ab + b^2 + 3a + 3b + 2
 **ステップ3：** 置き換えた式をもどす
 \[
 \begin{aligned}
-(a+b+1)(a+b+2)
 &= (a + b)^2 + 3(a + b) + 2
 \end{aligned}
 \]
@@ -93,7 +91,6 @@ a^2 + 2ab + b^2 + 3a + 3b + 2
 **ステップ4：** 展開をする
 \[
 \begin{aligned}
-(a+b+1)(a+b+2)
 &= a^2 + 2ab + b^2 + 3a + 3b + 2
 \end{aligned}
 \]

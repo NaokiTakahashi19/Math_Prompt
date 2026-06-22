@@ -70,11 +70,11 @@ b(a + c)
 共通因数のくくりだしとは、各項に共通する因数をかっこの外に出して、式を積の形に直すことです。
 因数分解では、まず各項に共通する数や文字がないかを確認します。
 
-**ステップ1：** 因数にわける
+**ステップ1：** 共通因数をみつける
+2つの項に共通している $\hlpink{b}$ が共通因数です。
 \[
 \begin{aligned}
-ab+bc
-&= a \times \hlpink{b} + \hlpink{b} \times c
+a\hlpink{b} + \hlpink{b}c
 \end{aligned}
 \]
 
@@ -106,7 +106,7 @@ ab+bc
 \[
 \begin{aligned}
 2x^2y+4xy^2-2xy
-&= \hlpink{2} \times \hlpink{x} \times x \times \hlpink{y} + \hlpink{2} \times 2 \times \hlpink{x} \times \hlpink{y} \times y - \hlpink{2} \times \hlpink{x} \times \hlpink{y}
+&= (\hlpink{2} \times \hlpink{x} \times x \times \hlpink{y}) + (\hlpink{2} \times 2 \times \hlpink{x} \times \hlpink{y} \times y) - (\hlpink{2} \times \hlpink{x} \times \hlpink{y})
 \end{aligned}
 \]
 

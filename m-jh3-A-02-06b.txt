@@ -74,27 +74,16 @@
 \end{aligned}
 \]
 
-**ステップ2：** $\hlblue{M}=\hlblue{5a},\ \hlpink{N}=\hlpink{6b}$ とおく
+**ステップ2：** 2つの平方の差の公式を使う
 \[
-\begin{aligned}
-25a^2 - 36b^2
-&= \hlblue{M}^2 - \hlpink{N}^2
-\end{aligned}
+A^2-B^2=(A+B)(A-B)
 \]
+ここで、$A=5a$、$B=6b$ と見ます。
 
-**ステップ3：** $(a + b)(a - b) = a^2 - b^2$ を利用して因数分解
+**ステップ3：** 公式にあてはめて因数分解する
 \[
 \begin{aligned}
-25a^2 - 36b^2
-&= (\hlblue{M} + \hlpink{N})(\hlblue{M} - \hlpink{N})
-\end{aligned}
-\]
-
-**ステップ4：** $\hlblue{M}=\hlblue{5a},\ \hlpink{N}=\hlpink{6b}$ を戻す
-\[
-\begin{aligned}
-25a^2 - 36b^2
-&= \bbox[2px,lightyellow]{(5a + 6b)(5a - 6b)}
+&=(5a+6b)(5a-6b)
 \end{aligned}
 \]
 
@@ -106,11 +95,12 @@
 
 【解答】  
 \[
- (x - y + 3)(x - y + 1)
+(x-y+1)(x-y+3)
 \]
 
 【解説】  
-**ステップ1：** $\hlblue{x - y} = \hlblue{M}$ とおく
+**ステップ1：** 繰り返し現れる式を1つの文字におきかえる
+$x-y=\hlblue{M}$ とおくと、同じ式 $x-y$ を $\hlblue{M}$ として考えられます。
 \[
 \begin{aligned}
 (x-y)^2+4(x-y)+3
@@ -118,19 +108,18 @@
 \end{aligned}
 \]
 
-**ステップ2：** 公式 $x^2 + (a + b)x + ab = (x + a)(x + b)$ を利用して因数分解
+**ステップ2：** $M$ について因数分解する
+$1+3=4$、$1\times3=3$ なので、
 \[
 \begin{aligned}
-(x-y)^2+4(x-y)+3
-&= (\hlblue{M} + 3)(\hlblue{M} + 1)
+&=(\hlblue{M}+1)(\hlblue{M}+3)
 \end{aligned}
 \]
 
-**ステップ3：** $\hlblue{M = x - y}$ を戻す
+**ステップ3：** $M=x-y$ をもとに戻す
 \[
 \begin{aligned}
-(x-y)^2+4(x-y)+3
-&= \bbox[2px,lightyellow]{(x - y + 3)(x - y + 1)}
+&=(x-y+1)(x-y+3)
 \end{aligned}
 \]
 

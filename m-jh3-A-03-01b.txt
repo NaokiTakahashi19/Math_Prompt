@@ -188,6 +188,6 @@ $\hlblue{x}=\hlblue{100},\ \hlpink{a}=\hlpink{1}$ と見ます。
 \end{aligned}
 \]
 
-※展開公式：$(x - a)^2 = x^2 - 2ax + a^2$
+※乗法の公式：$(x - a)^2 = x^2 - 2ax + a^2$
 
 以上、生成例

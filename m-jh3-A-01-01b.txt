@@ -77,7 +77,6 @@
 **ステップ2：** 計算する
 \[
 \begin{aligned}
-\hlpink{2a}(\hlblue{3b+4c})
 &= 6ab + 8ac
 \end{aligned}
 \]
@@ -105,7 +104,6 @@
 **ステップ2：** 計算する
 \[
 \begin{aligned}
-(\hlblue{x-2y+3})\times(\hlpink{-4x})
 &= -4x^2 + 8xy -12x
 \end{aligned}
 \]

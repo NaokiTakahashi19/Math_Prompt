@@ -70,22 +70,30 @@ xy + 3x + 2y + 6
 【解説】  
 **ステップ1：** $(y + 3)$ を $M$ とおく
 \[
-(x + 2)\hlblue{(y + 3)} = (x + 2)\hlblue{M}
+\begin{aligned}
+(x + 2)\hlblue{(y + 3)} &= (x + 2)\hlblue{M}
+\end{aligned}
 \]
 
 **ステップ2：** 分配法則を使って展開する
 \[
-(x + 2)\hlblue{M} = x\hlblue{M} + 2\hlblue{M}
+\begin{aligned}
+&= x\hlblue{M} + 2\hlblue{M}
+\end{aligned}
 \]
 
 **ステップ3：** $M$ を $(y + 3)$ に戻す
 \[
-= x\hlblue{(y + 3)} + 2\hlblue{(y + 3)}
+\begin{aligned}
+&= x\hlblue{(y + 3)} + 2\hlblue{(y + 3)}
+\end{aligned}
 \]
 
 **ステップ4：** 分配法則を使ってかっこをはずす
 \[
-= \bbox[2px,lightyellow]{xy + 3x + 2y + 6}
+\begin{aligned}
+&= xy + 3x + 2y + 6
+\end{aligned}
 \]
 
 ■問題2  
@@ -103,22 +111,30 @@ ab + 3a - 2b - 6
 【解説】  
 **ステップ1：** $(b + 3)$ を $M$ とおく
 \[
-(a - 2)\hlblue{(b + 3)} = (a - 2)\hlblue{M}
+\begin{aligned}
+\hlpink{(a - 2)}\hlblue{(b + 3)} &= \hlpink{(a - 2)}\hlblue{M}
+\end{aligned}
 \]
 
 **ステップ2：** 分配法則を使って展開する
 \[
-(a - 2)\hlblue{M} = a\hlblue{M} - 2\hlblue{M}
+\begin{aligned}
+&= \hlpink{a}\hlblue{M} + \hlpink{(-2)}\hlblue{M}
+\end{aligned}
 \]
 
 **ステップ3：** $M$ を $(b + 3)$ に戻す
 \[
-= a\hlblue{(b + 3)} - 2\hlblue{(b + 3)}
+\begin{aligned}
+&= \hlpink{a}\hlblue{(b + 3)} + \hlpink{(-2)}\hlblue{(b + 3)}
+\end{aligned}
 \]
 
 **ステップ4：** 分配法則を使ってかっこをはずす
 \[
-= \bbox[2px,lightyellow]{ab + 3a - 2b - 6}
+\begin{aligned}
+&= ab + 3a - 2b - 6
+\end{aligned}
 \]
 
 ■問題3  
@@ -136,22 +152,30 @@ xy - 4x - 3y + 12
 【解説】  
 **ステップ1：** $(y - 4)$ を $M$ とおく
 \[
-(x - 3)\hlblue{(y - 4)} = (x - 3)\hlblue{M}
+\begin{aligned}
+\hlpink{(x - 3)}\hlblue{(y - 4)} &= \hlpink{(x - 3)}\hlblue{M}
+\end{aligned}
 \]
 
 **ステップ2：** 分配法則を使って展開する
 \[
-(x - 3)\hlblue{M} = x\hlblue{M} - 3\hlblue{M}
+\begin{aligned}
+&= \hlpink{x}\hlblue{M} + \hlpink{(-3)}\hlblue{M}
+\end{aligned}
 \]
 
 **ステップ3：** $M$ を $(y - 4)$ に戻す
 \[
-= x\hlblue{(y - 4)} - 3\hlblue{(y - 4)}
+\begin{aligned}
+&= \hlpink{x}\hlblue{(y - 4)} + \hlpink{(-3)}\hlblue{(y - 4)}
+\end{aligned}
 \]
 
 **ステップ4：** 分配法則を使ってかっこをはずす
 \[
-= \bbox[2px,lightyellow]{xy - 4x - 3y + 12}
+\begin{aligned}
+&= xy - 4x - 3y + 12
+\end{aligned}
 \]
 
 以上、生成例

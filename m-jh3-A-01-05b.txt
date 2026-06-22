@@ -7,7 +7,7 @@
 - **対象**：中学3年生
 - **立場**：中学校の数学の教師として
 - **単元**：多項式の計算 ― (x + a)(x + b)の展開
-- **内容**：展開公式 $(x+a)(x+b)=x^2+(a+b)x+ab$ を使って式を展開すること
+- **内容**：乗法の公式 $(x+a)(x+b)=x^2+(a+b)x+ab$ を使って式を展開すること
 - **レベル**：基礎レベル（教科書の基本問題レベル）
 
 ## 要件
@@ -51,7 +51,7 @@
 ## 注意点
    - 問題は「■問題1」の形式，解答・解説は【】を使用
    - 難易度は「教科書の基本問題レベル」を基準
-   - 解説では、式の形を見て4つの展開公式のどれを使うかを最初に説明する
+   - 解説では、式の形を見て4つの乗法の公式のどれを使うかを最初に説明する
    - つまずきやすい箇所には補足解説を加える
    
 ## 生成例  
@@ -67,10 +67,16 @@ x^2 +5x + 6
 \]
 
 【解説】  
-**ステップ1：** 式の形から使う公式を確認する
-$(x + \hlblue{2})(x + \hlpink{3})$ は、$(x + a)(x + b)$ の形です。
+**ステップ1：** 乗法の公式の形を確認する
+$(\bbox[2px,lightgreen]{x} + \hlblue{2})(\bbox[2px,lightgreen]{x} + \hlpink{3})$ は、$(\bbox[2px,lightgreen]{x} + \hlblue{a})(\bbox[2px,lightgreen]{x} + \hlpink{b})$ の形です。
+この式では、乗法の公式のうち、次の公式が使えます。
 
-**ステップ2：** 展開公式にあてはめる※
+**乗法の公式：**
+\[
+(x+a)(x+b)=x^2+(a+b)x+ab
+\]
+
+**ステップ2：** 乗法の公式にあてはめる
 \[
 \begin{aligned}
 (x+\hlblue{2})(x+\hlpink{3})
@@ -81,12 +87,9 @@ $(x + \hlblue{2})(x + \hlpink{3})$ は、$(x + a)(x + b)$ の形です。
 **ステップ3：** 整理する
 \[
 \begin{aligned}
-(x+\hlblue{2})(x+\hlpink{3})
-&= \bbox[2px,lightyellow]{x^2 +5x + 6}
+&= x^2 +5x + 6
 \end{aligned}
 \]
-
-※展開公式：$(x + a)(x + b) = x^2 + (a + b)x + ab$
 
 ■問題2  
 次の式を展開しなさい。
@@ -100,10 +103,16 @@ x^2 +\frac{5}{6}x + \frac{1}{6}
 \]
 
 【解説】  
-**ステップ1：** 式の形から使う公式を確認する
-$(x + \hlblue{\frac{1}{2}})(x + \hlpink{\frac{1}{3}})$ は、$(x + a)(x + b)$ の形です。
+**ステップ1：** 乗法の公式の形を確認する
+$(\bbox[2px,lightgreen]{x} + \hlblue{\frac{1}{2}})(\bbox[2px,lightgreen]{x} + \hlpink{\frac{1}{3}})$ は、$(\bbox[2px,lightgreen]{x} + \hlblue{a})(\bbox[2px,lightgreen]{x} + \hlpink{b})$ の形です。
+この式では、乗法の公式のうち、次の公式が使えます。
 
-**ステップ2：** 展開公式にあてはめる※
+**乗法の公式：**
+\[
+(x+a)(x+b)=x^2+(a+b)x+ab
+\]
+
+**ステップ2：** 乗法の公式にあてはめる
 \[
 \begin{aligned}
 \left(x+\hlblue{\frac{1}{2}}\right)\left(x+\hlpink{\frac{1}{3}}\right)
@@ -114,11 +123,8 @@ $(x + \hlblue{\frac{1}{2}})(x + \hlpink{\frac{1}{3}})$ は、$(x + a)(x + b)$ �
 **ステップ3：** 整理する
 \[
 \begin{aligned}
-\left(x+\hlblue{\frac{1}{2}}\right)\left(x+\hlpink{\frac{1}{3}}\right)
-&= \bbox[2px,lightyellow]{x^2 +\frac{5}{6}x + \frac{1}{6}}
+&= x^2 +\frac{5}{6}x + \frac{1}{6}
 \end{aligned}
 \]
-
-※展開公式：$(x + a)(x + b) = x^2 + (a + b)x + ab$
 
 以上、生成例

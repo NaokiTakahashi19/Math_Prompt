@@ -77,7 +77,6 @@
 **ステップ2：** 同類項をまとめる
 \[
 \begin{aligned}
-(a+2b)(b+3a)
 &= 3a^2 + 7ab +2b^2
 \end{aligned}
 \]
@@ -105,7 +104,6 @@ a^2 + 3ab - 2a + 6b - 8
 **ステップ2：** 分配法則を使って、残りのかっこをはずす
 \[
 \begin{aligned}
-(a+2)(a+3b-4)
 &= a^2 + 3ab - 4a + 2a + 6b - 8
 \end{aligned}
 \]
@@ -113,7 +111,6 @@ a^2 + 3ab - 2a + 6b - 8
 **ステップ3：** 同類項をまとめる
 \[
 \begin{aligned}
-(a+2)(a+3b-4)
 &= a^2 + 3ab - 2a + 6b - 8
 \end{aligned}
 \]
