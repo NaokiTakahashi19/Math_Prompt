@@ -87,7 +87,7 @@ $x^2 + 4x + 4$ は、$x^2 + 2ax + a^2$ の形です。
 \[
 \begin{aligned}
 x^2 + \hlblue{4}x + \hlpink{4}
-&= x^2 + \bbox[2px,plum]{2} \times \hlpink{2} \times x + \hlpink{2}^2
+&= x^2 + \bbox[2px,plum]{2} \times \hlblue{2} \times x + \hlpink{2}^2
 \end{aligned}
 \]
 
@@ -130,7 +130,7 @@ $x^2 - 22x + 121$ は、$x^2 - 2ax + a^2$ の形です。
 \[
 \begin{aligned}
 x^2 - \hlblue{22}x + \hlpink{121}
-&= x^2 - \bbox[2px,plum]{2} \times \hlpink{11} \times x + \hlpink{11}^2
+&= x^2 - \bbox[2px,plum]{2} \times \hlblue{11} \times x + \hlpink{11}^2
 \end{aligned}
 \]
 
