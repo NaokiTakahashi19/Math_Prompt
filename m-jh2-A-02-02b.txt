@@ -53,65 +53,77 @@
    - 難易度は「教科書の基本問題レベル」を基準
    - つまずきやすい箇所には補足解説を加える
    
-## 生成例  
-■問題1  
-1辺が $a\ \mathrm{cm}$ の立方体のそれぞれの辺すべてを2倍にしたときにその体積は何倍になりますか？
+## 生成例
+■問題1
+半径が $r\ \mathrm{cm}$ の円の面積を文字式で表しなさい。
 
 【解答】
 \[
-8
+\pi r^2\ \mathrm{cm}^2
 \]
 
-【解説】  
-**ステップ1：** もとの立方体の体積を文字式で表す
-1辺が $\hlblue{a\ \mathrm{cm}}$ の立方体の体積は、
+【解説】
+**ステップ1：** 円の面積の公式を確認する
+
+円の面積は、
 \[
-\hlblue{a} \times \hlblue{a} \times \hlblue{a} = \bbox[2px,lightyellow]{a^3}
+\pi\times\text{半径}\times\text{半径}
 \]
-である。
+で求める。
 
-**ステップ2：** すべての辺を2倍にしたときの体積を文字式を使って表す
-各辺を2倍にすると、1辺の長さは $\hlpink{2a\ \mathrm{cm}}$ になる。したがって、その体積は
+**ステップ2：** 半径 $r$ を代入する
+
 \[
-\hlpink{2a} \times \hlpink{2a} \times \hlpink{2a} = \bbox[2px,lightyellow]{8a^3}
+\pi\times r\times r
 \]
-である。
 
-**ステップ3：** すべての辺を2倍にしたときの体積が、もとの立方体の体積の何倍かを計算する
-もとの立方体の体積は $a^3$、すべての辺を2倍にした立方体の体積は $8a^3$ であるから、
+**ステップ3：** 文字式を整理する
+
 \[
-\bbox[2px,lightyellow]{8a^3} \div \hlblue{a^3} = \bbox[2px,lightyellow]{8}
+\pi\times r\times r=\pi r^2
 \]
-よって、体積は $8$ 倍になる。
 
-■問題2  
-半径 $a\ \mathrm{cm}$ の円の円周は、半径 $2a\ \mathrm{cm}$ の円の円周の何倍ですか？
+**ステップ4：** 答えを書く
+
+\[
+\pi r^2\ \mathrm{cm}^2
+\]
+となる。
+
+■問題2
+底辺が $a\ \mathrm{cm}$、高さが $h\ \mathrm{cm}$ の三角形の面積を文字式で表しなさい。
 
 【解答】
 \[
-\frac{1}{2}
+\frac{ah}{2}\ \mathrm{cm}^2
 \]
 
-【解説】  
-**ステップ1：** 半径 $a\ \mathrm{cm}$ の円の円周を文字式で表す
-半径 $\hlblue{a\ \mathrm{cm}}$ の円の円周は
-\[
-\bbox[2px,lightyellow]{2a\pi}
-\]
-である。
+【解説】
+**ステップ1：** 三角形の面積の公式を確認する
 
-**ステップ2：** 半径 $2a\ \mathrm{cm}$ の円の円周を文字式で表す
-半径 $\hlpink{2a\ \mathrm{cm}}$ の円の円周は
+三角形の面積は、
 \[
-2\pi\times\hlpink{2a}=\bbox[2px,lightyellow]{4a\pi}
+\text{底辺}\times\text{高さ}\div 2
 \]
-である。
+で求める。
 
-**ステップ3：** 半径 $a\ \mathrm{cm}$ の円の円周が半径 $2a\ \mathrm{cm}$ の円の円周の何倍かを計算する
-半径 $a\ \mathrm{cm}$ の円の円周を、半径 $2a\ \mathrm{cm}$ の円の円周でわると、
+**ステップ2：** 底辺 $a$、高さ $h$ を代入する
+
 \[
-\bbox[2px,lightyellow]{2a\pi} \div \bbox[2px,lightyellow]{4a\pi} = \bbox[2px,lightyellow]{\frac{1}{2}}
+a\times h\div 2
 \]
-よって、半径 $a\ \mathrm{cm}$ の円の円周は、半径 $2a\ \mathrm{cm}$ の円の円周の $\frac{1}{2}$ 倍である。
+
+**ステップ3：** 文字式を整理する
+
+\[
+a\times h\div 2=\frac{ah}{2}
+\]
+
+**ステップ4：** 答えを書く
+
+\[
+\frac{ah}{2}\ \mathrm{cm}^2
+\]
+となる。
 
 以上、生成例

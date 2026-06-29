@@ -61,109 +61,104 @@
 ■問題1  
 次の計算をしなさい。
 \[
-\sqrt{3}\left(\sqrt{12}+3\right)
+\sqrt{2}\left(\sqrt{2}+1\right)
 \]
 
 【解答】  
 \[
-6+3\sqrt{3}
+2+\sqrt{2}
 \]
 
 【解説】  
 **ステップ1：** 分配法則を確認する
 
-$a(b+c)=ab+ac$ です。
-かっこの外の数を、かっこの中の各項にかける。
+\[
+a(b+c)=ab+ac
+\]
+です。
+かっこの外の数を、かっこの中の各項にかけます。
 
-**ステップ2：** $\hlblue{\sqrt{3}}$ をかっこの中の各項にかける
+**ステップ2：** $\hlblue{\sqrt{2}}$ をかっこの中の各項にかける
 
 \[
-\hlblue{\sqrt{3}}\left(\hlpink{\sqrt{12}}+\hlpink{3}\right)
-= \hlblue{\sqrt{3}}\times\hlpink{\sqrt{12}}+\hlblue{\sqrt{3}}\times \hlpink{3}
+\hlblue{\sqrt{2}}\left(\hlpink{\sqrt{2}}+\hlpink{1}\right)
+= \hlblue{\sqrt{2}}\times\hlpink{\sqrt{2}}+\hlblue{\sqrt{2}}\times\hlpink{1}
 \]
 
-**ステップ3：** 根号どうしの乗法を計算する
+**ステップ3：** それぞれの項を計算する
 
 \[
-\hlblue{\sqrt{3}\times\sqrt{12}}
-= \sqrt{3\times 12}
-= \sqrt{36}
+\sqrt{2}\times\sqrt{2}=2
+\]
+また、
+\[
+\sqrt{2}\times 1=\sqrt{2}
+\]
+です。
+
+**ステップ4：** 整理する
+
+\[
+\sqrt{2}\times\sqrt{2}+\sqrt{2}\times 1
+= 2+\sqrt{2}
 \]
 
-**ステップ4：** 根号をはずす
+**ステップ5：** 答えを書く
 
 \[
-36 = 6^2
-\]
-であるから、
-\[
-\sqrt{36}
-= \sqrt{6^2}
-= 6
-\]
-
-**ステップ5：** もとの式に戻して整理する
-
-\[
-\sqrt{3}\times\sqrt{12}+\sqrt{3}\times 3
-= 6+3\sqrt{3}
-\]
-
-**ステップ6：** 答えを書く
-
-\[
-6+3\sqrt{3}
+2+\sqrt{2}
 \]
 となります。
 
 ■問題2  
 次の計算をしなさい。
 \[
-\left(\sqrt{2}+1\right)\left(\sqrt{3}-1\right)
+\sqrt{3}\left(\sqrt{3}+2\right)
 \]
 
 【解答】  
 \[
-\sqrt{6}-\sqrt{2}+\sqrt{3}-1
+3+2\sqrt{3}
 \]
 
 【解説】  
 **ステップ1：** 分配法則を確認する
 
-二項式どうしの積では、左のかっこの各項を、右のかっこの各項にかける。
+\[
+a(b+c)=ab+ac
+\]
+です。
+かっこの外の $\sqrt{3}$ を、かっこの中の $\sqrt{3}$ と $2$ の両方にかけます。
 
-**ステップ2：** 左のかっこの各項を、右のかっこの各項にかける
+**ステップ2：** $\hlblue{\sqrt{3}}$ をかっこの中の各項にかける
 
 \[
-\left(\hlblue{\sqrt{2}}+\hlblue{1}\right)\left(\hlpink{\sqrt{3}}\hlpink{-}\hlpink{1}\right)
-= \hlblue{\sqrt{2}}\times\hlpink{\sqrt{3}}\hlpink{-}\hlblue{\sqrt{2}}\times \hlpink{1}
-  +\hlblue{1}\times\hlpink{\sqrt{3}}\hlpink{-}\hlblue{1}\times \hlpink{1}
+\hlblue{\sqrt{3}}\left(\hlpink{\sqrt{3}}+\hlpink{2}\right)
+= \hlblue{\sqrt{3}}\times\hlpink{\sqrt{3}}+\hlblue{\sqrt{3}}\times\hlpink{2}
 \]
 
 **ステップ3：** それぞれの項を計算する
 
 \[
-\sqrt{2}\times\sqrt{3}=\sqrt{6}
+\sqrt{3}\times\sqrt{3}=3
 \]
 また、
 \[
-\sqrt{2}\times 1=\sqrt{2},\quad
-1\times\sqrt{3}=\sqrt{3},\quad
-1\times 1=1
+\sqrt{3}\times 2=2\sqrt{3}
 \]
+です。
 
-**ステップ4：** もとの式に戻して整理する
+**ステップ4：** 整理する
 
 \[
-\sqrt{2}\times\sqrt{3}-\sqrt{2}\times 1
-  +1\times\sqrt{3}-1\times 1
-= \sqrt{6}-\sqrt{2}+\sqrt{3}-1
+\sqrt{3}\times\sqrt{3}+\sqrt{3}\times 2
+= 3+2\sqrt{3}
 \]
 
 **ステップ5：** 答えを書く
 
 \[
-\sqrt{6}-\sqrt{2}+\sqrt{3}-1
+3+2\sqrt{3}
 \]
 となります。
 

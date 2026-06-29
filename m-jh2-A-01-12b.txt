@@ -58,71 +58,74 @@
    - かける単項式は分子に、わる単項式は分母に置くことを説明する
    - つまずきやすい箇所には補足解説を加える
    
-## 生成例  
-■問題1  
+## 生成例
+■問題1
 次の計算をしなさい。
 \[
-6a^2b \div 3a \times 2b
+6a^2 \div 3a \times 2
 \]
 
 【解答】
 \[
-4ab^2
+4a
 \]
 
-【解説】  
+【解説】
 **ステップ1：** かけ算とわり算をまとめて分数の形にする
-かける単項式は分子に、わる単項式は分母に置く。
+かける単項式は分子に、わる単項式は分母に置きます。
 \[
-= \frac{6a^2b \times 2b}{3a}
+=\frac{6a^2\times2}{3a}
 \]
 
 **ステップ2：** 係数と文字をかけ算の形に分ける
 \[
-= \frac{6\times \hlblue{a}\times a\times b\times2\times b}{3\times \hlblue{a}}
+=\frac{6\times\hlblue{a}\times a\times2}{3\times\hlblue{a}}
 \]
 
 **ステップ3：** 分子と分母で同じものを約分する
 \[
-= \frac{6\times a\times b\times2\times b}{3}
+=\frac{6\times a\times2}{3}
 \]
 
 **ステップ4：** 残った係数と文字を計算する
 \[
-= 4ab^2
+=4a
 \]
 
-■問題2  
+したがって、答えは $4a$ です。
+
+■問題2
 次の計算をしなさい。
 \[
-12x^2y \div 4x \times 3
+12xy \div 3x \times 2
 \]
 
 【解答】
 \[
-9xy
+8y
 \]
 
-【解説】  
+【解説】
 **ステップ1：** かけ算とわり算をまとめて分数の形にする
-かける単項式は分子に、わる単項式は分母に置く。
 \[
-= \frac{12x^2y \times 3}{4x}
+=\frac{12xy\times2}{3x}
 \]
 
 **ステップ2：** 係数と文字をかけ算の形に分ける
 \[
-= \frac{12\times x\times x\times y\times3}{4\times x}
+=\frac{12\times\hlblue{x}\times y\times2}{3\times\hlblue{x}}
 \]
 
 **ステップ3：** 分子と分母で同じものを約分する
 \[
-= \frac{12\times x\times y\times3}{4}
+=\frac{12\times y\times2}{3}
 \]
 
 **ステップ4：** 残った係数と文字を計算する
 \[
-= 9xy
+=8y
 \]
+
+したがって、答えは $8y$ です。
 
 以上、生成例

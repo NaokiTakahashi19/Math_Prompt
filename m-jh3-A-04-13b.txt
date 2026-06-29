@@ -60,130 +60,105 @@
 ■問題1  
 次の計算をしなさい。
 \[
-3\sqrt{2}+\frac{4}{\sqrt{2}}
+\sqrt{2}+\frac{2}{\sqrt{2}}
 \]
 
 【解答】  
 \[
-5\sqrt{2}
+2\sqrt{2}
 \]
 
 【解説】  
 **ステップ1：** 分母に根号がある項を確認する
 
 \[
-\frac{4}{\sqrt{2}}
+\frac{2}{\sqrt{2}}
 \]
 は分母に根号があるので、先に分母を有理化します。
 
 **ステップ2：** 分母と分子に $\sqrt{2}$ をかける
 
 \[
-\frac{4}{\sqrt{2}}
-= \frac{4 \times \sqrt{2}}{\sqrt{2} \times \sqrt{2}}
-= \frac{4\sqrt{2}}{2}
+\frac{2}{\sqrt{2}}
+= \frac{2\times \sqrt{2}}{\sqrt{2}\times \sqrt{2}}
+= \frac{2\sqrt{2}}{2}
 \]
 
 **ステップ3：** 約分する
 
 \[
-\frac{4\sqrt{2}}{2}
-= 2\sqrt{2}
+\frac{2\sqrt{2}}{2}
+= \sqrt{2}
 \]
 
 **ステップ4：** もとの式に戻す
 
 \[
-3\sqrt{2}+\frac{4}{\sqrt{2}}
-= 3\sqrt{2}+2\sqrt{2}
+\sqrt{2}+\frac{2}{\sqrt{2}}
+= \sqrt{2}+\sqrt{2}
 \]
 
 **ステップ5：** 係数だけを計算する
 
 \[
-\hlblue{3}\hlpink{\sqrt{2}}+\hlblue{2}\hlpink{\sqrt{2}}
-= (\hlblue{3}+\hlblue{2})\hlpink{\sqrt{2}}
-= 5\hlpink{\sqrt{2}}
+\hlblue{1}\hlpink{\sqrt{2}}+\hlblue{1}\hlpink{\sqrt{2}}
+= (\hlblue{1}+\hlblue{1})\hlpink{\sqrt{2}}
+= 2\hlpink{\sqrt{2}}
 \]
 
 **ステップ6：** 答えを書く
 
 \[
-5\sqrt{2}
+2\sqrt{2}
 \]
 となります。
 
 ■問題2  
 次の計算をしなさい。
 \[
-\sqrt{90}-\frac{25}{\sqrt{10}}
+\frac{1}{\sqrt{3}}+\frac{2}{\sqrt{3}}
 \]
 
 【解答】  
 \[
-\frac{\sqrt{10}}{2}
+\sqrt{3}
 \]
 
 【解説】  
-**ステップ1：** $\sqrt{90}$ を簡単にする
+**ステップ1：** 分母が同じ分数であることを確認する
 
 \[
-90 = 9 \times 10,\quad 9 = 3^2
+\frac{1}{\sqrt{3}}+\frac{2}{\sqrt{3}}
 \]
-であるから、
-\[
-\sqrt{90}
-= \sqrt{9 \times 10}
-= \sqrt{3^2 \times 10}
-= 3\sqrt{10}
-\]
+は分母がどちらも $\sqrt{3}$ なので、先に分子を足します。
 
-**ステップ2：** 分母に根号がある項を有理化する
+**ステップ2：** 分子を足す
 
 \[
-\frac{25}{\sqrt{10}}
-= \frac{25 \times \sqrt{10}}{\sqrt{10} \times \sqrt{10}}
-= \frac{25\sqrt{10}}{10}
+\frac{1}{\sqrt{3}}+\frac{2}{\sqrt{3}}
+= \frac{1+2}{\sqrt{3}}
+= \frac{3}{\sqrt{3}}
 \]
 
-**ステップ3：** 約分する
+**ステップ3：** 分母を有理化する
 
 \[
-\frac{25\sqrt{10}}{10}
-= \frac{5\sqrt{10}}{2}
+\frac{3}{\sqrt{3}}
+= \frac{3\times \sqrt{3}}{\sqrt{3}\times \sqrt{3}}
+= \frac{3\sqrt{3}}{3}
 \]
 
-**ステップ4：** 変形した結果をもとの式に代入する
+**ステップ4：** 約分する
 
 \[
-\sqrt{90}-\frac{25}{\sqrt{10}}
-= 3\sqrt{10}-\frac{5\sqrt{10}}{2}
+\frac{3\sqrt{3}}{3}
+= \sqrt{3}
 \]
 
-**ステップ5：** 係数を分数でそろえる
+**ステップ5：** 答えを書く
 
 \[
-\hlblue{3}\sqrt{10}
-= \frac{\hlblue{6}\sqrt{10}}{2}
-\]
-なので、
-\[
-\hlblue{3}\sqrt{10}-\frac{\hlblue{5}\sqrt{10}}{2}
-= \frac{\hlblue{6}\sqrt{10}}{2}-\frac{\hlblue{5}\sqrt{10}}{2}
-\]
-
-**ステップ6：** 係数だけを計算する
-
-\[
-\frac{\hlblue{6}\hlpink{\sqrt{10}}}{2}-\frac{\hlblue{5}\hlpink{\sqrt{10}}}{2}
-= \frac{(\hlblue{6}-\hlblue{5})\hlpink{\sqrt{10}}}{2}
-= \frac{\hlpink{\sqrt{10}}}{2}
-\]
-
-**ステップ7：** 答えを書く
-
-\[
-\frac{\sqrt{10}}{2}
+\sqrt{3}
 \]
 となります。
 
