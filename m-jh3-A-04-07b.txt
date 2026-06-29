@@ -72,7 +72,7 @@
 **ステップ1：** 平方根の積の公式を確認する
 
 \[
-\sqrt{\hlblue{a}} \times \sqrt{\hlpink{b}} = \sqrt{\hlblue{a}\hlpink{b}}
+\sqrt{\hlpink{a}} \times \sqrt{\hlblue{b}} = \sqrt{\hlpink{a}\hlblue{b}}
 \]
 を使います。
 
@@ -80,8 +80,8 @@
 
 \[
 \begin{aligned}
-\sqrt{6} \times \sqrt{11}
-&= \sqrt{\hlblue{6} \times \hlpink{11}}\\
+\sqrt{\hlpink{6}} \times \sqrt{\hlblue{11}}
+&= \sqrt{\hlpink{6} \times \hlblue{11}}\\
 &= \sqrt{66}
 \end{aligned}
 \]
@@ -113,15 +113,15 @@ $66$ は、$4,\ 9,\ 16,\ 25$ などの平方数を因数にもちません。
 **ステップ1：** 平方根の商の公式を確認する
 
 \[
-\frac{\sqrt{a}}{\sqrt{b}} = \sqrt{\frac{a}{b}}
+\frac{\sqrt{\hlpink{a}}}{\sqrt{\hlblue{b}}} = \sqrt{\frac{\hlpink{a}}{\hlblue{b}}}
 \]
 を使います。
 
 **ステップ2：** 根号の中をわる
 
 \[
-\frac{\sqrt{6}}{\sqrt{3}}
-= \sqrt{\frac{6}{3}}
+\frac{\sqrt{\hlpink{6}}}{\sqrt{\hlblue{3}}}
+= \sqrt{\frac{\hlpink{6}}{\hlblue{3}}}
 = \sqrt{2}
 \]
 
@@ -151,15 +151,15 @@ $2$ は平方数ではないので、これ以上根号をはずせません。
 **ステップ1：** 平方根の商の公式を確認する
 
 \[
-\frac{\sqrt{a}}{\sqrt{b}} = \sqrt{\frac{a}{b}}
+\frac{\sqrt{\hlpink{a}}}{\sqrt{\hlblue{b}}} = \sqrt{\frac{\hlpink{a}}{\hlblue{b}}}
 \]
 を使います。
 
 **ステップ2：** 根号の中をわる
 
 \[
-\frac{\sqrt{12}}{\sqrt{3}}
-= \sqrt{\frac{12}{3}}
+\frac{\sqrt{\hlpink{12}}}{\sqrt{\hlblue{3}}}
+= \sqrt{\frac{\hlpink{12}}{\hlblue{3}}}
 = \sqrt{4}
 \]
 

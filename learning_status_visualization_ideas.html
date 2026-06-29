@@ -1,0 +1,888 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>数学学習Webアプリ 習得状況可視化案</title>
+  <style>
+    :root {
+      --ink: #202124;
+      --muted: #5f6368;
+      --line: #d8dde3;
+      --paper: #ffffff;
+      --page: #f6f7f9;
+      --blue: #2f80ed;
+      --blue-soft: #e7f1ff;
+      --green: #2e9d65;
+      --green-soft: #e9f7ef;
+      --amber: #c88719;
+      --amber-soft: #fff4da;
+      --red: #d94b4b;
+      --red-soft: #fdeaea;
+      --gray-soft: #eef1f4;
+      --violet: #7a5cff;
+      --violet-soft: #f0edff;
+      --teal: #008c95;
+      --teal-soft: #e6f7f8;
+      --radius: 8px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: var(--page);
+      color: var(--ink);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans JP", sans-serif;
+      line-height: 1.7;
+    }
+
+    main {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 32px 20px 56px;
+    }
+
+    header {
+      padding: 12px 0 28px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    h1 {
+      margin: 0 0 10px;
+      font-size: clamp(26px, 4vw, 38px);
+      line-height: 1.25;
+      font-weight: 760;
+    }
+
+    h2 {
+      margin: 0 0 10px;
+      font-size: 22px;
+      line-height: 1.35;
+    }
+
+    h3 {
+      margin: 0 0 8px;
+      font-size: 16px;
+      line-height: 1.45;
+    }
+
+    p {
+      margin: 0;
+    }
+
+    .lead {
+      max-width: 850px;
+      color: var(--muted);
+      font-size: 16px;
+    }
+
+    .summary {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      margin: 22px 0 0;
+    }
+
+    .summary-item {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 14px 16px;
+    }
+
+    .summary-label {
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .summary-value {
+      margin-top: 4px;
+      font-size: 20px;
+      font-weight: 760;
+    }
+
+    .proposal {
+      display: grid;
+      grid-template-columns: minmax(0, 0.95fr) minmax(420px, 1.05fr);
+      gap: 22px;
+      align-items: start;
+      padding: 34px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .proposal:last-child {
+      border-bottom: 0;
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      min-height: 28px;
+      padding: 3px 10px;
+      margin: 0 0 12px;
+      border-radius: 999px;
+      background: var(--gray-soft);
+      color: #3a3f45;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .description {
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .details {
+      display: grid;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .detail-row {
+      display: grid;
+      grid-template-columns: 92px 1fr;
+      gap: 12px;
+      align-items: start;
+      font-size: 14px;
+    }
+
+    .detail-label {
+      color: var(--muted);
+      font-weight: 700;
+    }
+
+    .panel {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: 0 10px 22px rgba(32, 33, 36, 0.05);
+    }
+
+    .panel-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      padding: 14px 16px;
+      border-bottom: 1px solid var(--line);
+      background: #fbfcfd;
+    }
+
+    .panel-title {
+      font-size: 14px;
+      font-weight: 760;
+    }
+
+    .legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .legend-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      display: inline-block;
+      background: var(--gray-soft);
+      border: 1px solid var(--line);
+    }
+
+    .dot.done { background: var(--blue); border-color: var(--blue); }
+    .dot.active { background: var(--amber); border-color: var(--amber); }
+    .dot.weak { background: var(--red); border-color: var(--red); }
+    .dot.next { background: var(--green); border-color: var(--green); }
+
+    .map {
+      position: relative;
+      min-height: 330px;
+      padding: 18px;
+    }
+
+    .map svg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+    }
+
+    .node {
+      position: absolute;
+      width: 126px;
+      min-height: 58px;
+      padding: 8px 10px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--paper);
+      font-size: 12px;
+      line-height: 1.35;
+    }
+
+    .node strong {
+      display: block;
+      font-size: 12px;
+      margin-bottom: 3px;
+    }
+
+    .node.done { border-color: var(--blue); background: var(--blue-soft); }
+    .node.active { border-color: var(--amber); background: var(--amber-soft); }
+    .node.weak { border-color: var(--red); background: var(--red-soft); }
+    .node.next { border-color: var(--green); background: var(--green-soft); box-shadow: 0 0 0 3px rgba(46, 157, 101, 0.16); }
+
+    .roadmap {
+      padding: 18px;
+    }
+
+    .track {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .step {
+      min-height: 118px;
+      padding: 12px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #fbfcfd;
+    }
+
+    .step-number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 26px;
+      height: 26px;
+      margin-bottom: 8px;
+      border-radius: 50%;
+      background: var(--blue-soft);
+      color: var(--blue);
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .step.done { border-color: var(--blue); background: var(--blue-soft); }
+    .step.active { border-color: var(--amber); background: var(--amber-soft); }
+    .step.next { border-color: var(--green); background: var(--green-soft); }
+
+    .check-panel {
+      padding: 18px;
+    }
+
+    .selected-item {
+      padding: 12px 14px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--violet-soft);
+    }
+
+    .prereq-list {
+      display: grid;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .prereq {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 11px 12px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #fbfcfd;
+      font-size: 14px;
+    }
+
+    .status {
+      flex: 0 0 auto;
+      padding: 3px 8px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .status.done { background: var(--blue-soft); color: #165bb8; }
+    .status.weak { background: var(--red-soft); color: #a72f2f; }
+    .status.next { background: var(--green-soft); color: #1d7047; }
+    .status.active { background: var(--amber-soft); color: #845100; }
+
+    .recommendations {
+      display: grid;
+      gap: 10px;
+      padding: 18px;
+    }
+
+    .recommendation {
+      display: grid;
+      grid-template-columns: 34px 1fr auto;
+      gap: 12px;
+      align-items: center;
+      padding: 12px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #fbfcfd;
+    }
+
+    .rank {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background: var(--green-soft);
+      color: var(--green);
+      font-weight: 800;
+      font-size: 13px;
+    }
+
+    .action {
+      border: 1px solid var(--line);
+      background: var(--paper);
+      border-radius: 6px;
+      padding: 6px 10px;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--ink);
+      white-space: nowrap;
+    }
+
+    .heatmap {
+      padding: 18px;
+      overflow-x: auto;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+
+    th, td {
+      border: 1px solid var(--line);
+      padding: 8px;
+      text-align: center;
+      white-space: nowrap;
+    }
+
+    th {
+      background: #f1f3f5;
+      font-weight: 760;
+    }
+
+    td.name {
+      text-align: left;
+      font-weight: 700;
+      background: #fbfcfd;
+    }
+
+    .cell {
+      min-width: 58px;
+      font-weight: 760;
+    }
+
+    .cell.high { background: var(--blue-soft); color: #165bb8; }
+    .cell.mid { background: var(--amber-soft); color: #845100; }
+    .cell.low { background: var(--red-soft); color: #a72f2f; }
+    .cell.ready { background: var(--green-soft); color: #1d7047; }
+
+    .diagnosis {
+      padding: 18px;
+    }
+
+    .wrong-answer {
+      padding: 12px 14px;
+      border-left: 4px solid var(--red);
+      background: var(--red-soft);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      font-weight: 700;
+    }
+
+    .cause-flow {
+      display: grid;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .cause {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 12px;
+      align-items: center;
+      padding: 11px 12px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #fbfcfd;
+    }
+
+    .common-data {
+      margin-top: 30px;
+      padding: 22px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--paper);
+    }
+
+    .schema {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .schema div {
+      padding: 10px 12px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #fbfcfd;
+      font-size: 13px;
+    }
+
+    code {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 0.95em;
+    }
+
+    @media (max-width: 900px) {
+      .summary,
+      .proposal,
+      .schema {
+        grid-template-columns: 1fr;
+      }
+
+      .proposal {
+        gap: 16px;
+      }
+
+      .track {
+        grid-template-columns: 1fr;
+      }
+
+      .map {
+        min-height: 410px;
+      }
+
+      .node {
+        width: 138px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <h1>数学学習Webアプリにおける習得状況の可視化案</h1>
+      <p class="lead">
+        「数と式」の学習項目どうしの依存関係と、各生徒の習得状況を組み合わせて、次に学ぶべき項目・戻るべき前提・クラス全体の弱点を見えるようにするためのUI案です。
+      </p>
+      <div class="summary">
+        <div class="summary-item">
+          <div class="summary-label">対象データ</div>
+          <div class="summary-value">学習項目 + 依存関係</div>
+        </div>
+        <div class="summary-item">
+          <div class="summary-label">主な利用者</div>
+          <div class="summary-value">生徒・先生</div>
+        </div>
+        <div class="summary-item">
+          <div class="summary-label">設計方針</div>
+          <div class="summary-value">次の行動が分かる</div>
+        </div>
+      </div>
+    </header>
+
+    <section class="proposal">
+      <div>
+        <span class="tag">案1</span>
+        <h2>学習マップ型</h2>
+        <p class="description">
+          学習項目をノード、前提関係を線で表す形式です。全体像をつかみやすく、ある項目がどの学習につながるかを直感的に見せられます。
+        </p>
+        <div class="details">
+          <div class="detail-row">
+            <div class="detail-label">向いている場面</div>
+            <div>単元全体の位置づけを見せたいとき。先生が学習経路を確認するとき。</div>
+          </div>
+          <div class="detail-row">
+            <div class="detail-label">表示単位</div>
+            <div>中1・中2・中3、または単元ごとの部分マップ。</div>
+          </div>
+          <div class="detail-row">
+            <div class="detail-label">注意点</div>
+            <div>122項目を一度に出すと情報量が多いため、フィルタとズームが必要です。</div>
+          </div>
+        </div>
+      </div>
+      <div class="panel">
+        <div class="panel-head">
+          <div class="panel-title">単元マップ例：2次方程式</div>
+          <div class="legend">
+            <span class="legend-item"><span class="dot done"></span>習得済み</span>
+            <span class="legend-item"><span class="dot active"></span>学習中</span>
+            <span class="legend-item"><span class="dot weak"></span>要復習</span>
+            <span class="legend-item"><span class="dot next"></span>次におすすめ</span>
+          </div>
+        </div>
+        <div class="map">
+          <svg viewBox="0 0 560 330" aria-hidden="true">
+            <defs>
+              <marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+                <path d="M0,0 L8,4 L0,8 Z" fill="#9aa0a6"></path>
+              </marker>
+            </defs>
+            <path d="M130 80 C180 80, 205 80, 245 80" stroke="#9aa0a6" stroke-width="2" fill="none" marker-end="url(#arrow)"></path>
+            <path d="M130 170 C180 140, 205 110, 245 90" stroke="#9aa0a6" stroke-width="2" fill="none" marker-end="url(#arrow)"></path>
+            <path d="M370 80 C405 95, 430 120, 455 150" stroke="#9aa0a6" stroke-width="2" fill="none" marker-end="url(#arrow)"></path>
+            <path d="M370 205 C410 195, 430 178, 455 160" stroke="#9aa0a6" stroke-width="2" fill="none" marker-end="url(#arrow)"></path>
+            <path d="M130 260 C200 255, 310 245, 455 180" stroke="#9aa0a6" stroke-width="2" fill="none" marker-end="url(#arrow)"></path>
+          </svg>
+          <div class="node done" style="left: 18px; top: 48px;"><strong>3-A-02-02</strong>公式で因数分解</div>
+          <div class="node done" style="left: 18px; top: 138px;"><strong>3-A-02-03</strong>平方公式で因数分解</div>
+          <div class="node weak" style="left: 18px; top: 230px;"><strong>3-A-04-04</strong>根号をはずす</div>
+          <div class="node active" style="left: 244px; top: 48px;"><strong>3-A-05-02</strong>因数分解済み方程式</div>
+          <div class="node next" style="left: 244px; top: 176px;"><strong>3-A-05-04</strong>平方根で解く</div>
+          <div class="node" style="right: 18px; top: 128px;"><strong>3-A-05-07</strong>複雑な2次方程式</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="proposal">
+      <div>
+        <span class="tag">案2</span>
+        <h2>単元ロードマップ型</h2>
+        <p class="description">
+          学習順を一本道に近い形で見せる形式です。細かい依存関係を全部見せるより、生徒が「今どこにいるか」を理解しやすくなります。
+        </p>
+        <div class="details">
+          <div class="detail-row">
+            <div class="detail-label">向いている場面</div>
+            <div>生徒用ホーム画面。学習計画や今日の到達目標を示す場面。</div>
+          </div>
+          <div class="detail-row">
+            <div class="detail-label">表示単位</div>
+            <div>大単元から小項目へ、段階的に開くアコーディオン形式。</div>
+          </div>
+          <div class="detail-row">
+            <div class="detail-label">注意点</div>
+            <div>横道の依存関係は省略されやすいので、詳細画面へのリンクを用意します。</div>
+          </div>
+        </div>
+      </div>
+      <div class="panel">
+        <div class="panel-head">
+          <div class="panel-title">ロードマップ例：中1 数と式</div>
+        </div>
+        <div class="roadmap">
+          <div class="track">
+            <div class="step done">
+              <div class="step-number">1</div>
+              <h3>正と負の数</h3>
+              <p>符号・絶対値・数の大小</p>
+            </div>
+            <div class="step done">
+              <div class="step-number">2</div>
+              <h3>加法と減法</h3>
+              <p>符号の処理と混合計算</p>
+            </div>
+            <div class="step active">
+              <div class="step-number">3</div>
+              <h3>乗法と除法</h3>
+              <p>乗除・累乗・逆数</p>
+            </div>
+            <div class="step next">
+              <div class="step-number">4</div>
+              <h3>文字と式</h3>
+              <p>文字式・式の値・等式</p>
+            </div>
+            <div class="step">
+              <div class="step-number">5</div>
+              <h3>1次方程式</h3>
+              <p>解き方と文章題</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="proposal">
+      <div>
+        <span class="tag">案3</span>
+        <h2>前提チェック型</h2>
+        <p class="description">
+          ある学習項目を選んだとき、その前提項目の習得状況を一覧で表示します。つまずきの原因を前提知識から探しやすい形式です。
+        </p>
+        <div class="details">
+          <div class="detail-row">
+            <div class="detail-label">向いている場面</div>
+            <div>新しい項目に入る前の診断。間違い直しの前提確認。</div>
+          </div>
+          <div class="detail-row">
+            <div class="detail-label">表示単位</div>
+            <div>選択項目1つに対して、直接前提と重要な間接前提を表示します。</div>
+          </div>
+          <div class="detail-row">
+            <div class="detail-label">注意点</div>
+            <div>前提が多すぎる場合は「最重要前提」と「関連前提」に分けます。</div>
+          </div>
+        </div>
+      </div>
+      <div class="panel">
+        <div class="panel-head">
+          <div class="panel-title">前提チェック例</div>
+        </div>
+        <div class="check-panel">
+          <div class="selected-item">
+            <h3>選択中：3-A-05-03 因数分解して解く2次方程式</h3>
+            <p>2次方程式を因数分解し、積が0になる条件から解を求める。</p>
+          </div>
+          <div class="prereq-list">
+            <div class="prereq">
+              <span>3-A-02-02 乗法公式を利用した因数分解</span>
+              <span class="status done">習得済み</span>
+            </div>
+            <div class="prereq">
+              <span>3-A-02-03 平方公式を利用した因数分解</span>
+              <span class="status weak">要復習</span>
+            </div>
+            <div class="prereq">
+              <span>3-A-05-02 因数分解された形式の2次方程式</span>
+              <span class="status active">学習中</span>
+            </div>
+            <div class="prereq">
+              <span>1-A-01-07 正と負の数の減法</span>
+              <span class="status done">習得済み</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="proposal">
+      <div>
+        <span class="tag">案4</span>
+        <h2>次にやるべき項目リスト</h2>
+        <p class="description">
+          依存関係グラフを裏側で使い、画面には「今すぐ取り組める項目」をリストで出します。生徒の行動につながりやすい形式です。
+        </p>
+        <div class="details">
+          <div class="detail-row">
+            <div class="detail-label">向いている場面</div>
+            <div>生徒用トップ画面。毎日の学習開始時。</div>
+          </div>
+          <div class="detail-row">
+            <div class="detail-label">表示単位</div>
+            <div>前提がそろっている項目、復習すべき項目、目標項目を分けます。</div>
+          </div>
+          <div class="detail-row">
+            <div class="detail-label">注意点</div>
+            <div>おすすめ理由を短く添えると、納得して取り組みやすくなります。</div>
+          </div>
+        </div>
+      </div>
+      <div class="panel">
+        <div class="panel-head">
+          <div class="panel-title">今日のおすすめ例</div>
+        </div>
+        <div class="recommendations">
+          <div class="recommendation">
+            <span class="rank">1</span>
+            <div>
+              <h3>3-A-02-03 平方公式を利用した因数分解</h3>
+              <p>2次方程式の前提で、正答率が下がっています。</p>
+            </div>
+            <span class="action">復習</span>
+          </div>
+          <div class="recommendation">
+            <span class="rank">2</span>
+            <div>
+              <h3>3-A-05-02 因数分解された形式の2次方程式</h3>
+              <p>前提はほぼそろっています。次に進めます。</p>
+            </div>
+            <span class="action">演習</span>
+          </div>
+          <div class="recommendation">
+            <span class="rank">3</span>
+            <div>
+              <h3>3-A-05-03 因数分解して解く2次方程式</h3>
+              <p>上の2項目が安定したら取り組む目標です。</p>
+            </div>
+            <span class="action">予告</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="proposal">
+      <div>
+        <span class="tag">案5</span>
+        <h2>習得状況ヒートマップ</h2>
+        <p class="description">
+          複数の生徒やクラス全体の習得率を、単元ごとに色で表示します。先生が弱点単元を把握し、授業や課題を調整するために使いやすい形式です。
+        </p>
+        <div class="details">
+          <div class="detail-row">
+            <div class="detail-label">向いている場面</div>
+            <div>先生用ダッシュボード。クラス分析・面談・補習計画。</div>
+          </div>
+          <div class="detail-row">
+            <div class="detail-label">表示単位</div>
+            <div>生徒別、クラス平均、単元別、項目別で切り替えます。</div>
+          </div>
+          <div class="detail-row">
+            <div class="detail-label">注意点</div>
+            <div>色だけに頼らず、数値や件数も併記します。</div>
+          </div>
+        </div>
+      </div>
+      <div class="panel">
+        <div class="panel-head">
+          <div class="panel-title">クラス別ヒートマップ例</div>
+          <div class="legend">
+            <span class="legend-item"><span class="dot done"></span>80%以上</span>
+            <span class="legend-item"><span class="dot active"></span>50〜79%</span>
+            <span class="legend-item"><span class="dot weak"></span>50%未満</span>
+          </div>
+        </div>
+        <div class="heatmap">
+          <table>
+            <thead>
+              <tr>
+                <th>生徒</th>
+                <th>正負の数</th>
+                <th>文字式</th>
+                <th>1次方程式</th>
+                <th>因数分解</th>
+                <th>平方根</th>
+                <th>2次方程式</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="name">Aさん</td>
+                <td class="cell high">92</td>
+                <td class="cell high">86</td>
+                <td class="cell mid">72</td>
+                <td class="cell low">44</td>
+                <td class="cell mid">68</td>
+                <td class="cell low">38</td>
+              </tr>
+              <tr>
+                <td class="name">Bさん</td>
+                <td class="cell high">88</td>
+                <td class="cell mid">76</td>
+                <td class="cell high">84</td>
+                <td class="cell mid">63</td>
+                <td class="cell mid">58</td>
+                <td class="cell mid">61</td>
+              </tr>
+              <tr>
+                <td class="name">Cさん</td>
+                <td class="cell mid">70</td>
+                <td class="cell low">48</td>
+                <td class="cell low">41</td>
+                <td class="cell low">35</td>
+                <td class="cell mid">52</td>
+                <td class="cell low">28</td>
+              </tr>
+              <tr>
+                <td class="name">クラス平均</td>
+                <td class="cell high">83</td>
+                <td class="cell mid">70</td>
+                <td class="cell mid">66</td>
+                <td class="cell low">47</td>
+                <td class="cell mid">59</td>
+                <td class="cell low">42</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="proposal">
+      <div>
+        <span class="tag">案6</span>
+        <h2>つまずき原因の逆引き</h2>
+        <p class="description">
+          間違えた問題から、関連する前提項目を逆向きにたどります。「何を復習すれば解けるようになるか」を示す形式です。
+        </p>
+        <div class="details">
+          <div class="detail-row">
+            <div class="detail-label">向いている場面</div>
+            <div>解き直し画面。個別最適化された復習提案。</div>
+          </div>
+          <div class="detail-row">
+            <div class="detail-label">表示単位</div>
+            <div>間違いの種類、前提項目、復習問題を1セットで表示します。</div>
+          </div>
+          <div class="detail-row">
+            <div class="detail-label">注意点</div>
+            <div>誤答パターンと項目依存を組み合わせると、提案精度が上がります。</div>
+          </div>
+        </div>
+      </div>
+      <div class="panel">
+        <div class="panel-head">
+          <div class="panel-title">逆引き診断例</div>
+        </div>
+        <div class="diagnosis">
+          <div class="wrong-answer">
+            誤答：二次方程式で因数分解後、片方の解だけを書いてしまった。
+          </div>
+          <div class="cause-flow">
+            <div class="cause">
+              <div>
+                <h3>原因候補1：積が0になる条件が弱い</h3>
+                <p>「どちらかの因数が0」を使う必要があります。</p>
+              </div>
+              <span class="status weak">要復習</span>
+            </div>
+            <div class="cause">
+              <div>
+                <h3>原因候補2：因数分解の結果を方程式として読めていない</h3>
+                <p>式変形後に、2つの一次方程式へ分ける練習が必要です。</p>
+              </div>
+              <span class="status active">確認</span>
+            </div>
+            <div class="cause">
+              <div>
+                <h3>戻る項目：3-A-05-02 因数分解された形式の2次方程式</h3>
+                <p>短い復習問題を3問出してから、元の問題へ戻します。</p>
+              </div>
+              <span class="status next">提案</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="common-data">
+      <h2>共通で持っておきたいデータ</h2>
+      <p class="description">
+        どの案でも、学習項目の依存関係だけでなく、習得率・最終学習日・誤答タイプ・復習回数を合わせて持つと、可視化が実用的になります。
+      </p>
+      <div class="schema">
+        <div><strong>項目ID</strong><br><code>3-A-05-03</code></div>
+        <div><strong>前提項目</strong><br><code>3-A-02-02</code>, <code>3-A-05-02</code></div>
+        <div><strong>習得状態</strong><br>未学習・学習中・習得済み・要復習</div>
+        <div><strong>診断情報</strong><br>正答率・誤答タイプ・最終演習日</div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
