@@ -7,29 +7,48 @@
 - **対象**：中学3年生
 - **立場**：中学校の数学の教師として
 - **単元**：相似 ― 相似な三角形の辺の長さ
-- **内容**：＊＊＊＊＊＊＊＊＊＊＊＊
+- **内容**：相似な三角形や図形の対応する辺の比を使って、辺の長さを求めることができる
 - **レベル**：基礎レベル（教科書の基本問題レベル）
 
 ## 要件
 1. **問題形式**
-   - 定期テストや入試を意識した形式
+   - 教科書例題や定期テストの基本問題を意識した形式
+   - 相似な三角形の対応する辺の長さから、未知の辺を求める問題を入れる
+   - 相似な四角形の対応する辺の長さから、未知の辺を求める問題を入れてよい
+   - 対応する辺を確認してから比例式を立てる問題にする
+   - 比例式では、内項の積と外項の積が等しいことを使って計算する
+   - 写真教材の図や数値はそのまま使わず、数値や配置を少し変える
    - **順序**：問題 → 【解答】 → 【解説】
    - **見出し**：問題は「■問題1」のように通常表記、解答・解説は【】を用いる
    - **行末**：`■問題1`/`【解答】`/`【解説】` の行末には**半角スペース2つ**（改行扱い）
-2. **解答・解説**
+2. **図形・TikZルール**
+   - 図は必ず `\begin{tikzpicture} ... \end{tikzpicture}` で描く
+   - 相似な三角形や四角形を並べて描き、対応する頂点が分かるようにする
+   - 与えられた辺の長さと、求める辺の記号 $x$ を図中に入れる
+   - 点名、長さ、$x$ の表示が線と重ならないようにする
+   - ラベル位置は `at (2,0)` のようにできるだけ座標を直接指定し、`($(A)!0.5!(B)$)` のような中点計算は使わない
+   - 図は白黒を基本とし、線は太すぎず、読み取りやすい大きさにする
+3. **解答・解説**
    - ***ステップバイステップ*** で分かりやすく
+   - 解説の冒頭には、必ず次のポイント整理を入れる
+     - 相似な図形では、対応する辺の長さの比はすべて等しい
+     - 対応する頂点の順番をそろえると、対応する辺を見つけやすい
+     - 比例式 $a:b=m:n$ では、$an=bm$ が成り立つ
+   - まず相似な図形の対応する頂点を確認する
+   - 次に、対応する辺を確認する
+   - そのあと、比例式を立てて未知数を求める
+   - 「となり合う2辺の比」や「対応する辺の比」も扱い、内側の2つの数が入れかわる比例式の見方も補足する
    - 「間違えやすいポイント」や「コツ」を補足
-   - 必要に応じて「別解」や「ポイント整理」を提示
-3. **数式ルール**
+4. **数式ルール**
    - **ディスプレイ数式**：`\[ ... \]`
    - **インライン数式**：`$...$`
-   - **筆算の先頭**：列計算の最左に `+)` または `-)`、`×)` などを付ける
    - **分数**：`\frac` を使用（`\tfrac`は使わない）
    - **縦並び**：`=` の位置をそろえる（桁揃えで読みやすく）
    - **乗算記号**： `\times` に統一
-4. **出力形式**
+5. **出力形式**
    - プレーンテキスト形式（テキストファイルとしてダウンロード可能にする）
    - ファイル名：相似―相似な三角形の辺の長さ―基礎問題.txt
+
 ## 問題レベルの定義
 1. 基礎レベル
    - 教科書例題や章の導入問題（計算・定義確認）
@@ -51,11 +70,258 @@
 ## 注意点
    - 問題は「■問題1」の形式，解答・解説は【】を使用
    - 難易度は「教科書の基本問題レベル」を基準
+   - 対応する頂点の順番をそろえて説明する
+   - 対応していない辺どうしで比例式を作らないように注意を入れる
+   - 比例式では、単位をそろえて計算する
    - つまずきやすい箇所には補足解説を加える
-   
-## 生成例  
-＊＊＊＊＊＊＊＊＊＊＊＊
-＊＊＊＊＊＊＊＊＊＊＊＊
+
+## 生成例
+■問題1
+右の図で、$\triangle ABC \sim \triangle DEF$ であるとき、辺 $DF$ の長さを求めなさい。
+
+【図】
+\begin{tikzpicture}[scale=0.9, line cap=round, line join=round]
+\coordinate (A) at (0,2.3);
+\coordinate (B) at (-2.1,0);
+\coordinate (C) at (1.5,0);
+\coordinate (D) at (4.2,1.45);
+\coordinate (E) at (3.0,0);
+\coordinate (F) at (5.1,0);
+\draw (A)--(B)--(C)--cycle;
+\draw (D)--(E)--(F)--cycle;
+\node[above] at (A) {$A$};
+\node[below left] at (B) {$B$};
+\node[below right] at (C) {$C$};
+\node[above] at (D) {$D$};
+\node[below left] at (E) {$E$};
+\node[below right] at (F) {$F$};
+\node[left] at (-1.25,1.15) {$8\text{ cm}$};
+\node[right] at (0.90,1.15) {$6\text{ cm}$};
+\node[left] at (3.45,0.75) {$4\text{ cm}$};
+\node[right] at (4.75,0.75) {$x\text{ cm}$};
+\end{tikzpicture}
+
+【解答】
+\[
+DF=3\text{ cm}
+\]
+
+【解説】
+**ポイント整理：** 相似な図形の辺の長さ
+相似な図形では、対応する辺の長さの比はすべて等しくなります。
+対応する頂点の順番をそろえると、対応する辺を見つけやすくなります。
+また、比例式
+\[
+a:b=m:n
+\]
+では、
+\[
+an=bm
+\]
+が成り立ちます。
+
+**ステップ1：** 対応する頂点を確認する
+\[
+\triangle ABC \sim \triangle DEF
+\]
+なので、
+\[
+A\leftrightarrow D,\quad B\leftrightarrow E,\quad C\leftrightarrow F
+\]
+です。
+
+**ステップ2：** 対応する辺を確認する
+対応する辺は、
+\[
+AB\leftrightarrow DE,\quad AC\leftrightarrow DF
+\]
+です。
+
+**ステップ3：** 比例式を立てる
+$DF=x\text{ cm}$ とすると、
+\[
+8:4=6:x
+\]
+です。
+
+**ステップ4：** 比例式を解く
+\[
+8x=4\times6
+\]
+\[
+8x=24
+\]
+\[
+x=3
+\]
+したがって、
+\[
+DF=3\text{ cm}
+\]
+です。
+
+■問題2
+右の図で、$\triangle ABC \sim \triangle DEF$ であるとき、辺 $BC$ の長さを求めなさい。
+
+【図】
+\begin{tikzpicture}[scale=0.9, line cap=round, line join=round]
+\coordinate (A) at (0,2.3);
+\coordinate (B) at (-2.0,0);
+\coordinate (C) at (1.6,0);
+\coordinate (D) at (4.2,1.6);
+\coordinate (E) at (3.0,0);
+\coordinate (F) at (5.3,0);
+\draw (A)--(B)--(C)--cycle;
+\draw (D)--(E)--(F)--cycle;
+\node[above] at (A) {$A$};
+\node[below left] at (B) {$B$};
+\node[below right] at (C) {$C$};
+\node[above] at (D) {$D$};
+\node[below left] at (E) {$E$};
+\node[below right] at (F) {$F$};
+\node[left] at (-1.18,1.15) {$10\text{ cm}$};
+\node[below] at (-0.2,-0.2) {$x\text{ cm}$};
+\node[left] at (3.55,0.85) {$5\text{ cm}$};
+\node[below] at (4.15,-0.2) {$3.5\text{ cm}$};
+\end{tikzpicture}
+
+【解答】
+\[
+BC=7\text{ cm}
+\]
+
+【解説】
+**ポイント整理：** 対応する辺の比を使う
+相似な三角形では、対応する辺の比が等しくなります。
+
+**ステップ1：** 対応する辺を確認する
+\[
+\triangle ABC \sim \triangle DEF
+\]
+なので、
+\[
+AB\leftrightarrow DE,\quad BC\leftrightarrow EF
+\]
+です。
+
+**ステップ2：** 比例式を立てる
+$BC=x\text{ cm}$ とすると、
+\[
+10:5=x:3.5
+\]
+です。
+
+**ステップ3：** 比例式を解く
+\[
+5x=10\times3.5
+\]
+\[
+5x=35
+\]
+\[
+x=7
+\]
+したがって、
+\[
+BC=7\text{ cm}
+\]
+です。
+
+■問題3
+右の図で、四角形 $ABCD \sim$ 四角形 $EFGH$ であるとき、辺 $AB$、$EH$ の長さをそれぞれ求めなさい。
+
+【図】
+\begin{tikzpicture}[scale=0.85, line cap=round, line join=round]
+\coordinate (A) at (0,2.4);
+\coordinate (B) at (-1.5,1.4);
+\coordinate (C) at (-1.2,0);
+\coordinate (D) at (1.4,0);
+\coordinate (E) at (4.2,1.55);
+\coordinate (F) at (3.25,0.9);
+\coordinate (G) at (3.45,0);
+\coordinate (H) at (5.1,0);
+\draw (A)--(B)--(C)--(D)--cycle;
+\draw (E)--(F)--(G)--(H)--cycle;
+\node[above] at (A) {$A$};
+\node[left] at (B) {$B$};
+\node[below left] at (C) {$C$};
+\node[below right] at (D) {$D$};
+\node[above] at (E) {$E$};
+\node[left] at (F) {$F$};
+\node[below left] at (G) {$G$};
+\node[below right] at (H) {$H$};
+\node[right] at (0.8,1.2) {$18\text{ cm}$};
+\node[below] at (0.1,-0.22) {$15\text{ cm}$};
+\node[right] at (4.75,0.80) {$x\text{ cm}$};
+\node[below] at (4.3,-0.22) {$10\text{ cm}$};
+\node[left] at (3.65,1.20) {$8\text{ cm}$};
+\node[left] at (-0.92,1.95) {$y\text{ cm}$};
+\end{tikzpicture}
+
+【解答】
+\[
+AB=12\text{ cm},\quad EH=12\text{ cm}
+\]
+
+【解説】
+**ポイント整理：** 四角形でも対応する辺の比は等しい
+相似な図形では、三角形だけでなく四角形でも対応する辺の比は等しくなります。
+
+**ステップ1：** 対応する辺を確認する
+\[
+ABCD \sim EFGH
+\]
+なので、
+\[
+AB\leftrightarrow EF,\quad AD\leftrightarrow EH,\quad CD\leftrightarrow GH
+\]
+です。
+
+**ステップ2：** 相似比を確認する
+対応する辺 $CD$ と $GH$ に注目します。
+図より、
+\[
+CD=15\text{ cm},\quad GH=10\text{ cm}
+\]
+なので、大きい四角形と小さい四角形の対応する辺の比は、
+\[
+15:10=3:2
+\]
+です。
+
+**ステップ3：** $AB$ を求める
+$AB\leftrightarrow EF$ で、$EF=8\text{ cm}$ とすると、
+\[
+AB:8=3:2
+\]
+となります。
+したがって、
+\[
+2AB=24
+\]
+\[
+AB=12
+\]
+です。
+
+**ステップ4：** $EH$ を求める
+$CD\leftrightarrow GH$ で、$CD=15\text{ cm}$、$GH=10\text{ cm}$ です。
+また、$AD\leftrightarrow EH$ なので、
+\[
+18:EH=15:10
+\]
+です。
+\[
+15EH=180
+\]
+\[
+EH=12
+\]
+
+よって、
+\[
+AB=12\text{ cm},\quad EH=12\text{ cm}
+\]
+です。
 
 以上、生成例
-

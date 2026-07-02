@@ -7,7 +7,7 @@
 - **対象**：中学3年生
 - **立場**：中学校の数学の教師として
 - **単元**：円 ― 円の接線
-- **内容**：＊＊＊＊＊＊＊＊＊＊＊＊
+- **内容**：円の接線と半径の関係を利用して、接線のなす角、中心角、円周角を求める
 - **レベル**：基礎レベル（教科書の基本問題レベル）
 
 ## 要件
@@ -16,18 +16,36 @@
    - **順序**：問題 → 【解答】 → 【解説】
    - **見出し**：問題は「■問題1」のように通常表記、解答・解説は【】を用いる
    - **行末**：`■問題1`/`【解答】`/`【解説】` の行末には**半角スペース2つ**（改行扱い）
-2. **解答・解説**
+   - 問題文は「次の図で、$PA$、$PB$ は円 $O$ の接線であり、点 $A$、$B$ はその接点である。角 $x$ の大きさを求めなさい。」の形式を基本にする
+   - 問題文の直後に必ず「【図】」と書き、その直後にTikZの図を入れる
+   - 1つの大問の中に(1)〜(3)の小問を入れず、複数の大問に分ける
+2. **図形・TikZルール**
+   - 図は必ず `\begin{tikzpicture} ... \end{tikzpicture}` で描く
+   - 円 $O$、接線 $PA$、$PB$、接点 $A$、$B$、必要な半径 $OA$、$OB$、角度表示、求める角 $x$ を明確に入れる
+   - 必要に応じて円周上の点 $C$ を入れ、弧 $AB$ に対する円周角を利用する問題にしてよい
+   - 角マークは `\draw pic[draw] {angle=...};` を使わず、レンダリングしやすいように `\draw[shift={(A)}] (...) arc (...);` の形で描く
+   - TikZで座標を結ぶときは、`\draw (A)--(B);` のように、座標名を必ず括弧で囲む
+   - 図は白黒で、線は太すぎず、点名や角度ラベルが重ならないようにする
+   - 生成例全体で、少なくとも次の型を含める
+     - 円周角から中心角を求め、接線のなす角を求める問題
+     - 接線のなす角から中心角を求める問題
+     - 中心角から接線のなす角を求める問題
+3. **解答・解説**
    - ***ステップバイステップ*** で分かりやすく
+   - 解説の頭に、`**ポイント整理：** 円の接線` という形で次の内容を必ず述べる
+     - 円の接線は、接点を通る半径に垂直である
+     - 2本の接線 $PA$、$PB$ の接点が $A$、$B$ のとき、$OA\perp PA$、$OB\perp PB$ である
+     - 四角形 $PAOB$ では、$\angle PAO=\angle PBO=90^\circ$ なので、$\angle APB+\angle AOB=180^\circ$ になる
+   - 円周角が与えられている場合は、同じ弧に対する中心角が円周角の $2$ 倍であることを説明する
    - 「間違えやすいポイント」や「コツ」を補足
    - 必要に応じて「別解」や「ポイント整理」を提示
-3. **数式ルール**
+4. **数式ルール**
    - **ディスプレイ数式**：`\[ ... \]`
    - **インライン数式**：`$...$`
-   - **筆算の先頭**：列計算の最左に `+)` または `-)`、`×)` などを付ける
    - **分数**：`\frac` を使用（`\tfrac`は使わない）
    - **縦並び**：`=` の位置をそろえる（桁揃えで読みやすく）
    - **乗算記号**： `\times` に統一
-4. **出力形式**
+5. **出力形式**
    - プレーンテキスト形式（テキストファイルとしてダウンロード可能にする）
    - ファイル名：円―円の接線―基礎問題.txt
 ## 問題レベルの定義
@@ -51,11 +69,219 @@
 ## 注意点
    - 問題は「■問題1」の形式，解答・解説は【】を使用
    - 難易度は「教科書の基本問題レベル」を基準
+   - 接線と半径が垂直であることを使う問題にする
+   - 接線のなす角と中心角の関係 $\angle APB+\angle AOB=180^\circ$ を使う問題を含める
+   - 「【図】」だけで終わらせず、必ず直後に `\begin{tikzpicture} ... \end{tikzpicture}` の図を出力する
    - つまずきやすい箇所には補足解説を加える
-   
-## 生成例  
-＊＊＊＊＊＊＊＊＊＊＊＊
-＊＊＊＊＊＊＊＊＊＊＊＊
+
+## 生成例
+■問題1
+次の図で、$PA$、$PB$ は円 $O$ の接線であり、点 $A$、$B$ はその接点である。角 $x$ の大きさを求めなさい。
+
+【図】
+\begin{tikzpicture}[scale=0.95, line cap=round, line join=round]
+\coordinate (O) at (0,0);
+\coordinate (A) at (126:1.4);
+\coordinate (B) at (270:1.4);
+\coordinate (C) at (18:1.4);
+\coordinate (P) at (-4.31,-1.4);
+\draw (O) circle (1.4);
+\draw (P)--(A);
+\draw (P)--(2.2,-1.4);
+\draw (A)--(C)--(B);
+\fill (O) circle (1.4pt);
+\node at ($(O)+(-0.18,0.25)$) {$O$};
+\node[above left] at (A) {$A$};
+\node[below] at (B) {$B$};
+\node[above right] at (C) {$C$};
+\node[below left] at (P) {$P$};
+\draw[shift={(C)}] (177:0.38) arc (177:249:0.38);
+\node at ($(C)+(213:0.62)$) {$72^\circ$};
+\draw[shift={(P)}] (0:0.55) arc (0:36:0.55);
+\node at ($(P)+(18:0.82)$) {$x$};
+\end{tikzpicture}
+
+【解答】
+$36^\circ$
+
+【解説】
+**ポイント整理：** 円の接線
+円の接線は、接点を通る半径に垂直である。
+2本の接線 $PA$、$PB$ の接点が $A$、$B$ のとき、
+\[
+OA\perp PA,\quad OB\perp PB
+\]
+である。
+したがって、四角形 $PAOB$ では、
+\[
+\angle PAO=\angle PBO=90^\circ
+\]
+なので、
+\[
+\angle APB+\angle AOB=180^\circ
+\]
+である。
+
+**ステップ1：** 円周角から中心角を求める
+$\angle ACB=72^\circ$ は、弧 $\overset{\frown}{AB}$ に対する円周角です。
+同じ弧に対する中心角は円周角の $2$ 倍なので、
+\[
+\angle AOB=72^\circ\times 2=144^\circ
+\]
+です。
+
+**ステップ2：** 接線のなす角を求める
+四角形 $PAOB$ では、
+\[
+\angle APB+\angle AOB=180^\circ
+\]
+なので、
+\[
+\begin{aligned}
+x&=180^\circ-144^\circ\\
+&=36^\circ
+\end{aligned}
+\]
+
+したがって、答えは $36^\circ$ です。
+
+■問題2
+次の図で、$PA$、$PB$ は円 $O$ の接線であり、点 $A$、$B$ はその接点である。角 $x$ の大きさを求めなさい。
+
+【図】
+\begin{tikzpicture}[scale=0.95, line cap=round, line join=round]
+\coordinate (O) at (0,0);
+\coordinate (A) at (110:1.4);
+\coordinate (B) at (250:1.4);
+\coordinate (P) at (-4.09,0);
+\draw (O) circle (1.4);
+\draw (P)--(A);
+\draw (P)--(B);
+\draw (O)--(A);
+\draw (O)--(B);
+\fill (O) circle (1.4pt);
+\node at ($(O)+(0.18,0.25)$) {$O$};
+\node[above left] at (A) {$A$};
+\node[below left] at (B) {$B$};
+\node[left] at (P) {$P$};
+\draw[shift={(P)}] (-20:0.55) arc (-20:20:0.55);
+\node at ($(P)+(0:0.82)$) {$40^\circ$};
+\draw[shift={(O)}] (110:0.56) arc (110:250:0.56);
+\node at ($(O)+(180:0.78)$) {$x$};
+\end{tikzpicture}
+
+【解答】
+$140^\circ$
+
+【解説】
+**ポイント整理：** 円の接線
+円の接線は、接点を通る半径に垂直である。
+2本の接線 $PA$、$PB$ の接点が $A$、$B$ のとき、
+\[
+OA\perp PA,\quad OB\perp PB
+\]
+である。
+したがって、四角形 $PAOB$ では、
+\[
+\angle PAO=\angle PBO=90^\circ
+\]
+なので、
+\[
+\angle APB+\angle AOB=180^\circ
+\]
+である。
+
+**ステップ1：** 四角形 $PAOB$ に注目する
+図より、
+\[
+\angle APB=40^\circ
+\]
+です。
+また、$PA$、$PB$ は接線なので、
+\[
+\angle PAO=90^\circ,\quad \angle PBO=90^\circ
+\]
+です。
+
+**ステップ2：** 中心角 $x$ を求める
+\[
+\angle APB+\angle AOB=180^\circ
+\]
+なので、
+\[
+\begin{aligned}
+x&=180^\circ-40^\circ\\
+&=140^\circ
+\end{aligned}
+\]
+
+したがって、答えは $140^\circ$ です。
+
+■問題3
+次の図で、$PA$、$PB$ は円 $O$ の接線であり、点 $A$、$B$ はその接点である。角 $x$ の大きさを求めなさい。
+
+【図】
+\begin{tikzpicture}[scale=0.95, line cap=round, line join=round]
+\coordinate (O) at (0,0);
+\coordinate (A) at (118:1.4);
+\coordinate (B) at (242:1.4);
+\coordinate (P) at (-2.98,0);
+\draw (O) circle (1.4);
+\draw (P)--(A);
+\draw (P)--(B);
+\draw (O)--(A);
+\draw (O)--(B);
+\fill (O) circle (1.4pt);
+\node at ($(O)+(0.18,0.25)$) {$O$};
+\node[above left] at (A) {$A$};
+\node[below left] at (B) {$B$};
+\node[left] at (P) {$P$};
+\draw[shift={(O)}] (118:0.56) arc (118:242:0.56);
+\node at ($(O)+(180:0.78)$) {$124^\circ$};
+\draw[shift={(P)}] (-28:0.55) arc (-28:28:0.55);
+\node at ($(P)+(0:0.82)$) {$x$};
+\end{tikzpicture}
+
+【解答】
+$56^\circ$
+
+【解説】
+**ポイント整理：** 円の接線
+円の接線は、接点を通る半径に垂直である。
+2本の接線 $PA$、$PB$ の接点が $A$、$B$ のとき、
+\[
+OA\perp PA,\quad OB\perp PB
+\]
+である。
+したがって、四角形 $PAOB$ では、
+\[
+\angle PAO=\angle PBO=90^\circ
+\]
+なので、
+\[
+\angle APB+\angle AOB=180^\circ
+\]
+である。
+
+**ステップ1：** 中心角を確認する
+図より、
+\[
+\angle AOB=124^\circ
+\]
+です。
+
+**ステップ2：** 接線のなす角 $x$ を求める
+\[
+\angle APB+\angle AOB=180^\circ
+\]
+なので、
+\[
+\begin{aligned}
+x&=180^\circ-124^\circ\\
+&=56^\circ
+\end{aligned}
+\]
+
+したがって、答えは $56^\circ$ です。
 
 以上、生成例
-
