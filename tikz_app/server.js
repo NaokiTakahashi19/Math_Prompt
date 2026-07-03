@@ -56,6 +56,16 @@ function promptGrade(item) {
   return grade ? { value: grade, label: `中学${grade}年` } : { value: '', label: '学年未設定' };
 }
 
+function comparePromptCode(a, b) {
+  return String(a || '').localeCompare(String(b || ''), 'ja', { numeric: true });
+}
+
+function minPromptCode(current, next) {
+  if (!current) return next || '';
+  if (!next) return current;
+  return comparePromptCode(current, next) <= 0 ? current : next;
+}
+
 function buildPromptCatalog(files) {
   const grades = new Map();
 
@@ -70,15 +80,18 @@ function buildPromptCatalog(files) {
 
     const gradeEntry = grades.get(grade.value);
     if (!gradeEntry.units.has(unit)) {
-      gradeEntry.units.set(unit, { unit, items: new Map() });
+      gradeEntry.units.set(unit, { unit, code: item.code, items: new Map() });
     }
 
     const unitEntry = gradeEntry.units.get(unit);
+    unitEntry.code = minPromptCode(unitEntry.code, item.code);
     if (!unitEntry.items.has(itemName)) {
-      unitEntry.items.set(itemName, { item: itemName, levels: [] });
+      unitEntry.items.set(itemName, { item: itemName, code: item.code, levels: [] });
     }
 
-    unitEntry.items.get(itemName).levels.push({
+    const itemEntry = unitEntry.items.get(itemName);
+    itemEntry.code = minPromptCode(itemEntry.code, item.code);
+    itemEntry.levels.push({
       level: item.level,
       fileName: item.name,
       code: item.code,
@@ -94,9 +107,11 @@ function buildPromptCatalog(files) {
       units: Array.from(gradeEntry.units.values())
         .map(unitEntry => ({
           unit: unitEntry.unit,
+          code: unitEntry.code,
           items: Array.from(unitEntry.items.values())
             .map(itemEntry => ({
               item: itemEntry.item,
+              code: itemEntry.code,
               levels: itemEntry.levels.sort((a, b) => {
                 const levelOrder = ['基本問題', '標準問題', '応用問題', '発展問題'];
                 const levelDiff = levelOrder.indexOf(a.level) - levelOrder.indexOf(b.level);
@@ -104,9 +119,9 @@ function buildPromptCatalog(files) {
                 return a.label.localeCompare(b.label, 'ja', { numeric: true });
               })
             }))
-            .sort((a, b) => a.item.localeCompare(b.item, 'ja', { numeric: true }))
+            .sort((a, b) => comparePromptCode(a.code, b.code) || a.item.localeCompare(b.item, 'ja', { numeric: true }))
         }))
-        .sort((a, b) => a.unit.localeCompare(b.unit, 'ja', { numeric: true }))
+        .sort((a, b) => comparePromptCode(a.code, b.code) || a.unit.localeCompare(b.unit, 'ja', { numeric: true }))
     }))
     .sort((a, b) => {
       const gradeDiff = Number(a.grade || 99) - Number(b.grade || 99);

@@ -157,6 +157,33 @@ AG=\sqrt{50}=5\sqrt{2}
 ■問題2
 縦、横、高さがそれぞれ $3\,\mathrm{cm}$、$4\,\mathrm{cm}$、$12\,\mathrm{cm}$ の直方体において、対角線の長さを求めなさい。
 
+【図】
+\begin{tikzpicture}[scale=0.85, line cap=round, line join=round]
+\coordinate (A) at (0,2.4);
+\coordinate (B) at (4,2.4);
+\coordinate (C) at (5.3,3.2);
+\coordinate (D) at (1.3,3.2);
+\coordinate (E) at (0,0);
+\coordinate (F) at (4,0);
+\coordinate (G) at (5.3,0.8);
+\coordinate (H) at (1.3,0.8);
+\draw (A)--(B)--(C)--(D)--cycle;
+\draw (E)--(F)--(G)--(H)--cycle;
+\draw (A)--(E);
+\draw (B)--(F);
+\draw (C)--(G);
+\draw (D)--(H);
+\draw[dashed] (E)--(G);
+\draw[thick] (A)--(G);
+\node[above] at (A) {$A$};
+\node[below] at (E) {$E$};
+\node[below right] at (G) {$G$};
+\node[above] at (2,2.55) {$3\,\mathrm{cm}$};
+\node[above] at (0.65,2.95) {$4\,\mathrm{cm}$};
+\node[left] at (-0.25,1.2) {$12\,\mathrm{cm}$};
+\node[right] at (3.0,1.65) {$x\,\mathrm{cm}$};
+\end{tikzpicture}
+
 【解答】
 \[
 13\,\mathrm{cm}
@@ -204,6 +231,33 @@ x=13
 
 ■問題3
 縦、横、高さがそれぞれ $2\,\mathrm{cm}$、$6\,\mathrm{cm}$、$9\,\mathrm{cm}$ の直方体において、対角線の長さを求めなさい。
+
+【図】
+\begin{tikzpicture}[scale=0.85, line cap=round, line join=round]
+\coordinate (A) at (0,2.4);
+\coordinate (B) at (4,2.4);
+\coordinate (C) at (5.3,3.2);
+\coordinate (D) at (1.3,3.2);
+\coordinate (E) at (0,0);
+\coordinate (F) at (4,0);
+\coordinate (G) at (5.3,0.8);
+\coordinate (H) at (1.3,0.8);
+\draw (A)--(B)--(C)--(D)--cycle;
+\draw (E)--(F)--(G)--(H)--cycle;
+\draw (A)--(E);
+\draw (B)--(F);
+\draw (C)--(G);
+\draw (D)--(H);
+\draw[dashed] (E)--(G);
+\draw[thick] (A)--(G);
+\node[above] at (A) {$A$};
+\node[below] at (E) {$E$};
+\node[below right] at (G) {$G$};
+\node[above] at (2,2.55) {$2\,\mathrm{cm}$};
+\node[above] at (0.65,2.95) {$6\,\mathrm{cm}$};
+\node[left] at (-0.25,1.2) {$9\,\mathrm{cm}$};
+\node[right] at (3.0,1.65) {$x\,\mathrm{cm}$};
+\end{tikzpicture}
 
 【解答】
 \[

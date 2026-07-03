@@ -350,6 +350,7 @@
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" async></script>
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/dompurify/dist/purify.min.js" defer></script>
+  <script src="/vendor/docx.iife.js" defer></script>
 </head>
 <body>
   <header>
@@ -408,7 +409,8 @@
     const state = {
       catalog: [],
       results: [],
-      running: false
+      running: false,
+      renderPromise: Promise.resolve()
     };
 
     const countEl = document.getElementById('question-count');
@@ -432,6 +434,15 @@
     function setStatus(message, type = '') {
       statusEl.textContent = message;
       statusEl.className = type;
+    }
+
+    async function waitForMathJaxReady(timeoutMs = 5000) {
+      const startedAt = Date.now();
+      while (!(window.MathJax && typeof MathJax.typesetPromise === 'function')) {
+        if (Date.now() - startedAt > timeoutMs) return false;
+        await new Promise(resolve => setTimeout(resolve, 100));
+      }
+      return true;
     }
 
     function getApiKey() {
@@ -742,17 +753,38 @@
         }
 
         const raw = segment.content || '';
+        let htmlSegment = '';
         if (window.marked && typeof marked.parse === 'function') {
-          let parsed = marked.parse(raw);
-          if (window.DOMPurify?.sanitize) parsed = DOMPurify.sanitize(parsed);
-          html += `<div class="segment">${parsed}</div>`;
+          const displayMathRegex = /\\\[[\s\S]*?\\\]/g;
+          let lastIndex = 0;
+          let match;
+
+          while ((match = displayMathRegex.exec(raw)) !== null) {
+            const beforeMath = raw.slice(lastIndex, match.index);
+            if (beforeMath) {
+              let parsed = marked.parse(beforeMath);
+              if (window.DOMPurify?.sanitize) parsed = DOMPurify.sanitize(parsed);
+              htmlSegment += parsed;
+            }
+            htmlSegment += `<div>${escapeForHtml(match[0])}</div>`;
+            lastIndex = displayMathRegex.lastIndex;
+          }
+
+          const rest = raw.slice(lastIndex);
+          if (rest) {
+            let parsed = marked.parse(rest);
+            if (window.DOMPurify?.sanitize) parsed = DOMPurify.sanitize(parsed);
+            htmlSegment += parsed;
+          }
         } else {
-          html += `<div class="segment">${escapeForHtml(raw).replace(/\n/g, '<br>')}</div>`;
+          htmlSegment = escapeForHtml(raw).replace(/\n/g, '<br>');
         }
+
+        html += `<div class="segment">${htmlSegment}</div>`;
       }
 
       outputEl.innerHTML = html || '<p class="empty">内容がありません。</p>';
-      if (window.MathJax && typeof MathJax.typesetPromise === 'function') {
+      if (await waitForMathJaxReady()) {
         await MathJax.typesetPromise([outputEl]);
       }
     }
@@ -815,7 +847,7 @@
           await renderAllResultPreviews();
         });
       });
-      renderAllResultPreviews().catch(err => {
+      state.renderPromise = renderAllResultPreviews().catch(err => {
         console.error(err);
         setStatus('生成結果のレンダリングに失敗しました', 'error');
       });
@@ -925,44 +957,601 @@
       downloadBlob('generated-questions.txt', 'text/plain;charset=utf-8', currentResultContent());
     }
 
-    function downloadWord() {
-      const sections = state.results.map(result => {
-        const textarea = resultsList.querySelector(`textarea[data-result-number="${result.number}"]`);
-        const content = textarea ? textarea.value : result.content;
-        return `
-          <h2>問題${result.number}: ${escapeForHtml(result.label)}</h2>
-          <p><small>${escapeForHtml(result.fileName || '')}</small></p>
-          <pre>${escapeForHtml(content)}</pre>
-        `;
-      }).join('<hr>');
-      const html = `
-        <!DOCTYPE html>
-        <html lang="ja">
-        <head>
-          <meta charset="UTF-8">
-          <style>
-            body { font-family: "Yu Gothic", sans-serif; line-height: 1.7; }
-            pre { white-space: pre-wrap; font-family: "Yu Gothic", sans-serif; }
-          </style>
-        </head>
-        <body>${sections}</body>
-        </html>
-      `;
-      downloadBlob('generated-questions.doc', 'application/msword;charset=utf-8', html);
+    async function waitForRenderedPreviews() {
+      await state.renderPromise;
     }
 
-    function printPdf() {
-      const sections = state.results.map(result => {
+    function svgSize(svg) {
+      const viewBox = (svg.getAttribute('viewBox') || '').split(/\s+/).map(Number);
+      const parseLength = value => {
+        const text = String(value || '').trim();
+        const number = parseFloat(text);
+        if (!isFinite(number)) return 0;
+        if (/ex$/.test(text)) return number * 8;
+        if (/em$/.test(text)) return number * 16;
+        if (/pt$/.test(text)) return number * 1.333;
+        if (/cm$/.test(text)) return number * 37.795;
+        if (/mm$/.test(text)) return number * 3.7795;
+        if (/in$/.test(text)) return number * 96;
+        return number;
+      };
+
+      let width = parseLength(svg.getAttribute('width'));
+      let height = parseLength(svg.getAttribute('height'));
+      if ((!width || !height) && viewBox.length === 4) {
+        width = width || viewBox[2];
+        height = height || viewBox[3];
+      }
+      width = Math.max(8, Math.min(1400, Math.ceil(width || 320)));
+      height = Math.max(8, Math.min(1800, Math.ceil(height || 80)));
+      return { width, height };
+    }
+
+    async function svgToPngBase64(svg) {
+      const source = new XMLSerializer().serializeToString(svg);
+      const { width, height } = svgSize(svg);
+      const blob = new Blob([source], { type: 'image/svg+xml;charset=utf-8' });
+      const url = URL.createObjectURL(blob);
+
+      try {
+        const image = new Image();
+        image.decoding = 'async';
+        const loaded = new Promise((resolve, reject) => {
+          image.onload = resolve;
+          image.onerror = reject;
+        });
+        image.src = url;
+        await loaded;
+
+        const scale = 2;
+        const canvas = document.createElement('canvas');
+        canvas.width = Math.ceil(width * scale);
+        canvas.height = Math.ceil(height * scale);
+        const context = canvas.getContext('2d');
+        context.fillStyle = '#fff';
+        context.fillRect(0, 0, canvas.width, canvas.height);
+        context.drawImage(image, 0, 0, canvas.width, canvas.height);
+        return {
+          base64: canvas.toDataURL('image/png').split(',')[1],
+          width,
+          height
+        };
+      } finally {
+        URL.revokeObjectURL(url);
+      }
+    }
+
+    async function renderedHtmlForExport(number, imageStore = null) {
+      const preview = resultsList.querySelector(`.result-preview[data-result-number="${number}"]`);
+      if (!preview) return '';
+
+      const clone = preview.cloneNode(true);
+      clone.querySelectorAll('mjx-assistive-mml').forEach(node => node.remove());
+      clone.querySelectorAll('mjx-container').forEach(container => {
+        const svg = container.querySelector('svg');
+        const wrapper = document.createElement(container.getAttribute('display') === 'true' ? 'div' : 'span');
+        wrapper.className = container.getAttribute('display') === 'true' ? 'math-display' : 'math-inline';
+        if (svg) {
+          wrapper.innerHTML = svg.outerHTML;
+        } else {
+          wrapper.textContent = container.textContent || '';
+        }
+        container.replaceWith(wrapper);
+      });
+      if (imageStore) {
+        const svgs = Array.from(clone.querySelectorAll('svg'));
+        for (const svg of svgs) {
+          try {
+            const png = await svgToPngBase64(svg);
+            const name = `image${String(imageStore.length + 1).padStart(3, '0')}.png`;
+            imageStore.push({ name, base64: png.base64 });
+
+            const img = document.createElement('img');
+            img.src = name;
+            img.width = png.width;
+            img.height = png.height;
+            img.style.maxWidth = '100%';
+            img.style.height = 'auto';
+            svg.replaceWith(img);
+          } catch (err) {
+            console.error('Failed to convert SVG for Word export:', err);
+          }
+        }
+      }
+      return clone.innerHTML;
+    }
+
+    function buildWordMhtml(html, images) {
+      const boundary = `----=_NextPart_${Date.now()}`;
+      const parts = [
+        'MIME-Version: 1.0',
+        `Content-Type: multipart/related; boundary="${boundary}"; type="text/html"`,
+        '',
+        `--${boundary}`,
+        'Content-Type: text/html; charset="utf-8"',
+        'Content-Transfer-Encoding: 8bit',
+        'Content-Location: generated-questions.html',
+        '',
+        html
+      ];
+
+      images.forEach(image => {
+        parts.push(
+          `--${boundary}`,
+          'Content-Type: image/png',
+          'Content-Transfer-Encoding: base64',
+          `Content-Location: ${image.name}`,
+          '',
+          image.base64.replace(/(.{76})/g, '$1\n')
+        );
+      });
+
+      parts.push(`--${boundary}--`, '');
+      return parts.join('\n');
+    }
+
+    async function waitForDocxReady(timeoutMs = 7000) {
+      const startedAt = Date.now();
+      while (!window.docx) {
+        if (Date.now() - startedAt > timeoutMs) return false;
+        await new Promise(resolve => setTimeout(resolve, 100));
+      }
+      return true;
+    }
+
+    function base64ToUint8Array(base64) {
+      const binary = atob(base64);
+      const bytes = new Uint8Array(binary.length);
+      for (let i = 0; i < binary.length; i++) {
+        bytes[i] = binary.charCodeAt(i);
+      }
+      return bytes;
+    }
+
+    function normalizeTextForDocx(text) {
+      return String(text || '').replace(/\s+/g, ' ');
+    }
+
+    function cleanDocxText(text) {
+      return String(text || '')
+        .replace(/`([^`]+)`/g, '$1')
+        .replace(/\*\*([^*]+)\*\*/g, '$1')
+        .replace(/\*([^*]+)\*/g, '$1')
+        .replace(/^#+\s*/, '')
+        .trim();
+    }
+
+    function findMatchingBrace(text, startIndex, open = '{', close = '}') {
+      let depth = 0;
+      for (let i = startIndex; i < text.length; i++) {
+        if (text[i] === open) depth++;
+        if (text[i] === close) {
+          depth--;
+          if (depth === 0) return i;
+        }
+      }
+      return -1;
+    }
+
+    function normalizeTeX(tex) {
+      return String(tex || '')
+        .replace(/\\left/g, '')
+        .replace(/\\right/g, '')
+        .replace(/\\tfrac/g, '\\frac')
+        .replace(/\\dfrac/g, '\\frac')
+        .replace(/\\,/g, ' ')
+        .trim();
+    }
+
+    function texSymbol(command) {
+      const symbols = {
+        times: '×',
+        div: '÷',
+        cdot: '⋅',
+        pm: '±',
+        mp: '∓',
+        le: '≤',
+        leq: '≤',
+        ge: '≥',
+        geq: '≥',
+        neq: '≠',
+        ne: '≠',
+        infty: '∞',
+        circ: '°',
+        rightarrow: '→',
+        leftarrow: '←'
+      };
+      return symbols[command] || command;
+    }
+
+    function parseTeXGroup(tex, startIndex) {
+      if (tex[startIndex] !== '{') return { content: tex[startIndex] || '', end: startIndex + 1 };
+      const end = findMatchingBrace(tex, startIndex);
+      if (end === -1) return { content: tex.slice(startIndex + 1), end: tex.length };
+      return { content: tex.slice(startIndex + 1, end), end: end + 1 };
+    }
+
+    function parseTeXAtom(tex, index) {
+      const {
+        MathRun,
+        MathFraction,
+        MathRadical,
+        MathRoundBrackets,
+        MathSquareBrackets,
+        MathCurlyBrackets
+      } = window.docx;
+
+      if (tex[index] === '{') {
+        const group = parseTeXGroup(tex, index);
+        return { components: parseTeXToMathChildren(group.content), end: group.end };
+      }
+
+      if (tex[index] === '\\') {
+        const commandMatch = tex.slice(index + 1).match(/^([A-Za-z]+)/);
+        if (!commandMatch) return { components: [new MathRun(tex[index + 1] || '')], end: index + 2 };
+        const command = commandMatch[1];
+        let pos = index + 1 + command.length;
+
+        if (command === 'frac') {
+          while (/\s/.test(tex[pos])) pos++;
+          const numerator = parseTeXGroup(tex, pos);
+          pos = numerator.end;
+          while (/\s/.test(tex[pos])) pos++;
+          const denominator = parseTeXGroup(tex, pos);
+          return {
+            components: [new MathFraction({
+              numerator: parseTeXToMathChildren(numerator.content),
+              denominator: parseTeXToMathChildren(denominator.content)
+            })],
+            end: denominator.end
+          };
+        }
+
+        if (command === 'sqrt') {
+          while (/\s/.test(tex[pos])) pos++;
+          const radical = parseTeXGroup(tex, pos);
+          return {
+            components: [new MathRadical({ children: parseTeXToMathChildren(radical.content) })],
+            end: radical.end
+          };
+        }
+
+        if (command === 'text' || command === 'mathrm') {
+          while (/\s/.test(tex[pos])) pos++;
+          const group = parseTeXGroup(tex, pos);
+          return { components: [new MathRun(group.content)], end: group.end };
+        }
+
+        if (command === 'left' || command === 'right') {
+          return { components: [], end: pos };
+        }
+
+        return { components: [new MathRun(texSymbol(command))], end: pos };
+      }
+
+      const char = tex[index];
+      if (char === '(' || char === '[' || char === '{') {
+        const close = char === '(' ? ')' : char === '[' ? ']' : '}';
+        const end = findMatchingBrace(tex, index, char, close);
+        if (end !== -1) {
+          const children = parseTeXToMathChildren(tex.slice(index + 1, end));
+          if (char === '(') return { components: [new MathRoundBrackets({ children })], end: end + 1 };
+          if (char === '[') return { components: [new MathSquareBrackets({ children })], end: end + 1 };
+          return { components: [new MathCurlyBrackets({ children })], end: end + 1 };
+        }
+      }
+
+      return { components: [new MathRun(char)], end: index + 1 };
+    }
+
+    function parseTeXScript(tex, index) {
+      while (/\s/.test(tex[index])) index++;
+      if (tex[index] === '{') {
+        const group = parseTeXGroup(tex, index);
+        return { components: parseTeXToMathChildren(group.content), end: group.end };
+      }
+      const atom = parseTeXAtom(tex, index);
+      return { components: atom.components, end: atom.end };
+    }
+
+    function parseTeXToMathChildren(input) {
+      const {
+        MathRun,
+        MathSuperScript,
+        MathSubScript,
+        MathSubSuperScript
+      } = window.docx;
+      const tex = normalizeTeX(input);
+      const components = [];
+      let buffer = '';
+      let index = 0;
+
+      const flush = () => {
+        if (buffer) {
+          components.push(new MathRun(buffer));
+          buffer = '';
+        }
+      };
+
+      while (index < tex.length) {
+        const char = tex[index];
+        if (char === '^' || char === '_') {
+          flush();
+          const base = components.pop() || new MathRun('');
+          const firstKind = char;
+          const first = parseTeXScript(tex, index + 1);
+          index = first.end;
+
+          let subScript = firstKind === '_' ? first.components : null;
+          let superScript = firstKind === '^' ? first.components : null;
+          if ((tex[index] === '^' || tex[index] === '_') && tex[index] !== firstKind) {
+            const secondKind = tex[index];
+            const second = parseTeXScript(tex, index + 1);
+            index = second.end;
+            if (secondKind === '_') subScript = second.components;
+            if (secondKind === '^') superScript = second.components;
+          }
+
+          if (subScript && superScript) {
+            components.push(new MathSubSuperScript({ children: [base], subScript, superScript }));
+          } else if (subScript) {
+            components.push(new MathSubScript({ children: [base], subScript }));
+          } else {
+            components.push(new MathSuperScript({ children: [base], superScript }));
+          }
+          continue;
+        }
+
+        if (char === '\\' || char === '{' || char === '(' || char === '[') {
+          flush();
+          const atom = parseTeXAtom(tex, index);
+          components.push(...atom.components);
+          index = atom.end;
+          continue;
+        }
+
+        buffer += char;
+        index++;
+      }
+
+      flush();
+      return components.length ? components : [new MathRun('')];
+    }
+
+    function mathComponent(tex) {
+      return new window.docx.Math({ children: parseTeXToMathChildren(tex) });
+    }
+
+    function parseInlineMathToDocxRuns(text, inherited = {}) {
+      const { TextRun } = window.docx;
+      const runs = [];
+      const source = String(text || '');
+      const regex = /(\\\(([\s\S]*?)\\\)|\$([^$\n]+)\$)/g;
+      let lastIndex = 0;
+      let match;
+
+      while ((match = regex.exec(source)) !== null) {
+        const plain = cleanDocxText(source.slice(lastIndex, match.index));
+        if (plain) runs.push(new TextRun({ text: plain, ...inherited }));
+        runs.push(mathComponent(match[2] || match[3] || ''));
+        lastIndex = regex.lastIndex;
+      }
+
+      const rest = cleanDocxText(source.slice(lastIndex));
+      if (rest) runs.push(new TextRun({ text: rest, ...inherited }));
+      return runs;
+    }
+
+    function splitDisplayMathBlocks(text) {
+      const blocks = [];
+      const regex = /(\\\[[\s\S]*?\\\]|\$\$[\s\S]*?\$\$)/g;
+      let lastIndex = 0;
+      let match;
+      while ((match = regex.exec(text)) !== null) {
+        if (match.index > lastIndex) {
+          blocks.push({ type: 'text', content: text.slice(lastIndex, match.index) });
+        }
+        const raw = match[0];
+        const tex = raw.startsWith('$$') ? raw.slice(2, -2) : raw.slice(2, -2);
+        blocks.push({ type: 'math', content: tex });
+        lastIndex = regex.lastIndex;
+      }
+      if (lastIndex < text.length) blocks.push({ type: 'text', content: text.slice(lastIndex) });
+      return blocks;
+    }
+
+    async function nodeToDocxRuns(node, inherited = {}) {
+      const { TextRun, ImageRun } = window.docx;
+
+      if (node.nodeType === Node.TEXT_NODE) {
+        const text = normalizeTextForDocx(node.textContent);
+        return text ? [new TextRun({ text, ...inherited })] : [];
+      }
+
+      if (node.nodeType !== Node.ELEMENT_NODE) return [];
+
+      const tag = node.tagName.toLowerCase();
+      if (tag === 'br') return [new TextRun({ text: '', break: 1 })];
+
+      if (tag === 'svg') {
+        const png = await svgToPngBase64(node);
+        return [new ImageRun({
+          data: base64ToUint8Array(png.base64),
+          transformation: {
+            width: Math.max(8, Math.round(png.width)),
+            height: Math.max(8, Math.round(png.height))
+          }
+        })];
+      }
+
+      if (tag === 'img') {
+        const src = node.getAttribute('src') || '';
+        if (src.startsWith('data:image/png;base64,')) {
+          const width = Number(node.getAttribute('width')) || 120;
+          const height = Number(node.getAttribute('height')) || 40;
+          return [new ImageRun({
+            data: base64ToUint8Array(src.split(',')[1]),
+            transformation: { width, height }
+          })];
+        }
+        return [];
+      }
+
+      const nextInherited = {
+        ...inherited,
+        bold: inherited.bold || tag === 'strong' || tag === 'b',
+        italics: inherited.italics || tag === 'em' || tag === 'i'
+      };
+      const runs = [];
+      for (const child of Array.from(node.childNodes)) {
+        runs.push(...await nodeToDocxRuns(child, nextInherited));
+      }
+      return runs;
+    }
+
+    async function elementToDocxParagraphs(element) {
+      const { Paragraph, TextRun, AlignmentType, HeadingLevel } = window.docx;
+      const paragraphs = [];
+      const blockSelector = 'h1,h2,h3,p,div.segment,div.math-display,ul,ol,li';
+      const blocks = Array.from(element.querySelectorAll(blockSelector))
+        .filter(node => !node.closest('mjx-assistive-mml'));
+
+      for (const block of blocks) {
+        if (block.matches('ul,ol')) continue;
+        if (block.closest('li') && !block.matches('li')) continue;
+
+        const runs = await nodeToDocxRuns(block, {
+          bold: block.matches('h1,h2,h3,strong,b')
+        });
+        if (!runs.length) continue;
+
+        const isHeading = block.matches('h1,h2,h3');
+        const isDisplayMath = block.classList.contains('math-display') || block.querySelector(':scope > mjx-container[display="true"], :scope > svg');
+        paragraphs.push(new Paragraph({
+          children: runs,
+          heading: isHeading ? HeadingLevel.HEADING_2 : undefined,
+          bullet: block.matches('li') ? { level: 0 } : undefined,
+          alignment: isDisplayMath ? AlignmentType.CENTER : undefined,
+          spacing: { after: isHeading ? 160 : 120 }
+        }));
+      }
+
+      if (!paragraphs.length) {
+        paragraphs.push(new Paragraph({ children: [new TextRun('')] }));
+      }
+      return paragraphs;
+    }
+
+    function rawTextToDocxParagraphs(content) {
+      const { Paragraph, TextRun, AlignmentType } = window.docx;
+      const paragraphs = [];
+      const blocks = splitDisplayMathBlocks(content || '');
+
+      for (const block of blocks) {
+        if (block.type === 'math') {
+          paragraphs.push(new Paragraph({
+            children: [mathComponent(block.content)],
+            alignment: AlignmentType.CENTER,
+            spacing: { after: 140 }
+          }));
+          continue;
+        }
+
+        const lines = block.content.split(/\r?\n/);
+        for (const line of lines) {
+          const rawLine = line.trim();
+          if (!rawLine) continue;
+
+          const bold = /^(\*\*.*\*\*|■|【|ステップ|間違えやすいポイント)/.test(rawLine);
+          const runs = parseInlineMathToDocxRuns(rawLine, { bold });
+          if (!runs.length) runs.push(new TextRun(''));
+
+          paragraphs.push(new Paragraph({
+            children: runs,
+            spacing: { after: bold ? 120 : 100 }
+          }));
+        }
+      }
+
+      if (!paragraphs.length) {
+        paragraphs.push(new Paragraph({ children: [new TextRun('')] }));
+      }
+      return paragraphs;
+    }
+
+    async function previewToDocxParagraphs(result) {
+      const { Paragraph, TextRun, HeadingLevel } = window.docx;
+      const paragraphs = [
+        new Paragraph({
+          heading: HeadingLevel.HEADING_2,
+          children: [new TextRun({ text: `問題${result.number}: ${result.label}`, bold: true })],
+          spacing: { after: 80 }
+        }),
+        new Paragraph({
+          children: [new TextRun({ text: result.fileName || '', size: 18 })],
+          spacing: { after: 180 }
+        })
+      ];
+
+      paragraphs.push(...rawTextToDocxParagraphs(result.content || ''));
+      return paragraphs;
+    }
+
+    async function downloadWord() {
+      await syncEditedResultsToPreview();
+      await waitForRenderedPreviews();
+      if (!await waitForDocxReady()) {
+        setStatus('Word出力ライブラリを読み込めませんでした。ページを再読み込みしてください', 'error');
+        return;
+      }
+
+      const { Document, Packer, Paragraph, PageBreak } = window.docx;
+      const children = [];
+      for (const result of state.results) {
+        if (children.length) children.push(new Paragraph({ children: [new PageBreak()] }));
+        children.push(...await previewToDocxParagraphs(result));
+      }
+
+      const doc = new Document({
+        sections: [{
+          properties: {
+            page: {
+              margin: { top: 900, right: 900, bottom: 900, left: 900 }
+            }
+          },
+          children
+        }]
+      });
+      const blob = await Packer.toBlob(doc);
+      downloadBlob('generated-questions.docx', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document', blob);
+    }
+
+    async function syncEditedResultsToPreview() {
+      let changed = false;
+      for (const result of state.results) {
         const textarea = resultsList.querySelector(`textarea[data-result-number="${result.number}"]`);
-        const content = textarea ? textarea.value : result.content;
-        return `
+        if (textarea && textarea.value !== result.content) {
+          result.content = textarea.value;
+          changed = true;
+        }
+      }
+      if (changed) await renderAllResultPreviews();
+    }
+
+    async function printPdf() {
+      await syncEditedResultsToPreview();
+      await waitForRenderedPreviews();
+      const sections = [];
+      for (const result of state.results) {
+        const content = await renderedHtmlForExport(result.number) || escapeForHtml(result.content);
+        sections.push(`
           <section>
             <h2>問題${result.number}: ${escapeForHtml(result.label)}</h2>
             <p class="file">${escapeForHtml(result.fileName || '')}</p>
-            <pre>${escapeForHtml(content)}</pre>
+            <div class="rendered">${content}</div>
           </section>
-        `;
-      }).join('');
+        `);
+      }
       const win = window.open('', '_blank');
       if (!win) {
         setStatus('PDF出力用のウィンドウを開けませんでした', 'error');
@@ -976,15 +1565,21 @@
           <title>生成問題</title>
           <style>
             @page { margin: 18mm; }
-            body { font-family: "Yu Gothic", sans-serif; line-height: 1.7; color: #111; }
-            section { break-inside: avoid; margin-bottom: 24px; }
-            h2 { font-size: 16px; margin: 0 0 4px; }
+            body { font-family: "Yu Gothic", sans-serif; line-height: 1.7; color: #111; font-size: 12px; }
+            section { break-inside: avoid; page-break-inside: avoid; margin-bottom: 24px; }
+            h2 { font-size: 15px; margin: 0 0 4px; }
             .file { color: #555; font-size: 11px; margin: 0 0 10px; }
-            pre { white-space: pre-wrap; font-family: "Yu Gothic", sans-serif; margin: 0; }
+            .rendered h1, .rendered h2, .rendered h3 { line-height: 1.35; }
+            .rendered table { border-collapse: collapse; margin: 0.75em 0 1em; max-width: 100%; width: fit-content; display: block; overflow-x: auto; }
+            .rendered th, .rendered td { border: 1px solid #999; padding: 4px 10px; text-align: right; white-space: nowrap; }
+            .rendered svg { max-width: 100%; height: auto; }
+            .rendered .segment > svg { display: block; margin-left: auto; margin-right: auto; }
+            mjx-container[jax="SVG"][display="true"] { display: block; text-align: center; margin: 1em 0; }
+            mjx-container[jax="SVG"]:not([display="true"]) { display: inline-block; vertical-align: -0.2em; margin: 0 .1em; }
             hr { border: 0; border-top: 1px solid #ddd; margin: 20px 0; }
           </style>
         </head>
-        <body>${sections}</body>
+        <body>${sections.join('')}</body>
         </html>
       `);
       win.document.close();

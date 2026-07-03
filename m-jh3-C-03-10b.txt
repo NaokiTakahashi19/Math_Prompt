@@ -175,6 +175,34 @@ h=12
 ■問題2
 底面が1辺 $8\sqrt{2}\,\mathrm{cm}$ の正方形で、他の辺が $17\,\mathrm{cm}$ である正四角錐があります。この正四角錐の体積を求めなさい。
 
+【図】
+\begin{tikzpicture}[scale=0.78, line cap=round, line join=round]
+\coordinate (A) at (0,0);
+\coordinate (B) at (4,0);
+\coordinate (C) at (5.2,1.4);
+\coordinate (D) at (1.2,1.4);
+\coordinate (H) at (2.6,0.7);
+\coordinate (O) at (2.6,4.2);
+\draw (A)--(B)--(C)--(D)--cycle;
+\draw (O)--(A);
+\draw (O)--(B);
+\draw (O)--(C);
+\draw[dashed] (O)--(D);
+\draw[dashed] (A)--(C);
+\draw[dashed] (B)--(D);
+\draw[thick] (O)--(H);
+\draw (H)--++(-0.18,0.10)--++(0,0.24)--++(0.18,-0.10);
+\node[below left] at (A) {$A$};
+\node[below right] at (B) {$B$};
+\node[right] at (C) {$C$};
+\node[left] at (D) {$D$};
+\node[below] at (H) {$H$};
+\node[above] at (O) {$O$};
+\node[below] at (2,-0.25) {$8\sqrt{2}\,\mathrm{cm}$};
+\node[left] at (1.05,2.2) {$17\,\mathrm{cm}$};
+\node[right] at (2.82,2.35) {$h\,\mathrm{cm}$};
+\end{tikzpicture}
+
 【解答】
 \[
 640\,\mathrm{cm^3}
@@ -231,6 +259,34 @@ h=15
 
 ■問題3
 底面が1辺 $10\,\mathrm{cm}$ の正方形で、他の辺が $15\,\mathrm{cm}$ である正四角錐があります。この正四角錐の体積を求めなさい。
+
+【図】
+\begin{tikzpicture}[scale=0.78, line cap=round, line join=round]
+\coordinate (A) at (0,0);
+\coordinate (B) at (4,0);
+\coordinate (C) at (5.2,1.4);
+\coordinate (D) at (1.2,1.4);
+\coordinate (H) at (2.6,0.7);
+\coordinate (O) at (2.6,4.2);
+\draw (A)--(B)--(C)--(D)--cycle;
+\draw (O)--(A);
+\draw (O)--(B);
+\draw (O)--(C);
+\draw[dashed] (O)--(D);
+\draw[dashed] (A)--(C);
+\draw[dashed] (B)--(D);
+\draw[thick] (O)--(H);
+\draw (H)--++(-0.18,0.10)--++(0,0.24)--++(0.18,-0.10);
+\node[below left] at (A) {$A$};
+\node[below right] at (B) {$B$};
+\node[right] at (C) {$C$};
+\node[left] at (D) {$D$};
+\node[below] at (H) {$H$};
+\node[above] at (O) {$O$};
+\node[below] at (2,-0.25) {$10\,\mathrm{cm}$};
+\node[left] at (1.05,2.2) {$15\,\mathrm{cm}$};
+\node[right] at (2.82,2.35) {$h\,\mathrm{cm}$};
+\end{tikzpicture}
 
 【解答】
 \[
