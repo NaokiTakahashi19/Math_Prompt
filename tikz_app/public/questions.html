@@ -1,0 +1,1039 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>問題生成</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f6f7f9;
+      --panel: #ffffff;
+      --line: #d8dde5;
+      --text: #17202a;
+      --muted: #5c6673;
+      --accent: #1967d2;
+      --accent-strong: #174ea6;
+      --danger: #b3261e;
+      --ok: #137333;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Arial, "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
+      font-size: 14px;
+    }
+
+    header {
+      background: var(--panel);
+      border-bottom: 1px solid var(--line);
+      padding: 14px 24px;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    h1 {
+      margin: 0 0 4px;
+      font-size: 22px;
+      line-height: 1.25;
+    }
+
+    header p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    main {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 18px 20px 40px;
+    }
+
+    .toolbar,
+    .output-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 14px;
+    }
+
+    label {
+      color: var(--muted);
+      font-weight: 700;
+    }
+
+    input,
+    select,
+    button,
+    textarea {
+      font: inherit;
+    }
+
+    select,
+    input[type="password"] {
+      min-height: 34px;
+      border: 1px solid var(--line);
+      background: #fff;
+      color: var(--text);
+      padding: 6px 8px;
+      border-radius: 6px;
+    }
+
+    input[type="password"] {
+      width: min(300px, 100%);
+    }
+
+    button {
+      min-height: 34px;
+      border: 1px solid var(--line);
+      background: #fff;
+      color: var(--text);
+      padding: 6px 12px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    button.primary {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #fff;
+      font-weight: 700;
+    }
+
+    button.primary:hover {
+      background: var(--accent-strong);
+    }
+
+    button:disabled {
+      cursor: not-allowed;
+      opacity: 0.55;
+    }
+
+    .panel {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 16px;
+      margin-bottom: 16px;
+    }
+
+    .table-wrap {
+      overflow-x: auto;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+    }
+
+    table {
+      width: 100%;
+      min-width: 980px;
+      border-collapse: collapse;
+      background: #fff;
+    }
+
+    th,
+    td {
+      border-bottom: 1px solid var(--line);
+      padding: 10px;
+      text-align: left;
+      vertical-align: middle;
+    }
+
+    th {
+      background: #f1f3f6;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    td.index-cell {
+      width: 70px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    td.status-cell {
+      width: 160px;
+      color: var(--muted);
+    }
+
+    .condition-select {
+      width: 100%;
+    }
+
+    #status {
+      min-height: 22px;
+      color: var(--muted);
+      margin: 8px 0 0;
+    }
+
+    #status.error {
+      color: var(--danger);
+    }
+
+    #status.ok {
+      color: var(--ok);
+    }
+
+    progress {
+      width: min(460px, 100%);
+      height: 12px;
+      margin-right: 8px;
+      vertical-align: middle;
+    }
+
+    #results-panel {
+      display: none;
+    }
+
+    #results-panel.active {
+      display: block;
+    }
+
+    .result-item {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      margin: 0 0 12px;
+      background: #fff;
+    }
+
+    .result-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      padding: 10px 12px;
+      border-bottom: 1px solid var(--line);
+      background: #f8f9fb;
+    }
+
+    .result-title {
+      font-weight: 700;
+      line-height: 1.45;
+    }
+
+    .result-title small {
+      display: block;
+      color: var(--muted);
+      font-weight: 400;
+    }
+
+    .result-body {
+      width: 100%;
+      min-height: 260px;
+      display: block;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      resize: vertical;
+      padding: 14px;
+      margin-top: 10px;
+      line-height: 1.7;
+      font-family: "Courier New", "Yu Gothic", monospace;
+      white-space: pre-wrap;
+    }
+
+    .result-preview {
+      padding: 18px;
+      line-height: 1.8;
+      overflow-x: auto;
+    }
+
+    .result-preview h1,
+    .result-preview h2,
+    .result-preview h3 {
+      line-height: 1.35;
+    }
+
+    .result-preview table {
+      border-collapse: collapse;
+      margin: 0.75em 0 1em;
+      max-width: 100%;
+      min-width: auto;
+      width: fit-content;
+      display: block;
+      overflow-x: auto;
+    }
+
+    .result-preview th,
+    .result-preview td {
+      border: 1px solid #999;
+      padding: 4px 10px;
+      text-align: right;
+      white-space: nowrap;
+    }
+
+    .result-preview .segment > svg {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    mjx-container[jax="SVG"][display="true"] {
+      display: block;
+      text-align: center;
+      margin: 1em 0;
+    }
+
+    mjx-container[jax="SVG"]:not([display="true"]) {
+      display: inline-block;
+      vertical-align: -0.2em;
+      margin: 0 .1em;
+    }
+
+    details.raw-editor {
+      border-top: 1px solid var(--line);
+      padding: 10px 12px 14px;
+    }
+
+    details.raw-editor summary {
+      cursor: pointer;
+      color: var(--muted);
+      font-weight: 700;
+    }
+
+    .empty {
+      color: var(--muted);
+      padding: 18px 0 4px;
+    }
+
+    @media (max-width: 720px) {
+      header {
+        padding: 12px 16px;
+        display: block;
+      }
+
+      main {
+        padding: 14px 12px 32px;
+      }
+
+      .toolbar {
+        align-items: stretch;
+      }
+
+      .toolbar > * {
+        width: 100%;
+      }
+
+      button,
+      select,
+      input[type="password"] {
+        width: 100%;
+      }
+    }
+  </style>
+  <script>
+    window.MathJax = {
+      loader: { load: ['[tex]/bbox'] },
+      tex: {
+        packages: {'[+]': ['bbox']},
+        inlineMath: [['$', '$']],
+        displayMath: [['\\[','\\]'], ['$$','$$']],
+        processEscapes: true,
+        processEnvironments: true
+      },
+      svg: { fontCache: 'global' },
+      options: { skipHtmlTags: ['script','noscript','style','textarea','pre'] }
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" async></script>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/dompurify/dist/purify.min.js" defer></script>
+</head>
+<body>
+  <header>
+    <div>
+      <h1>問題生成</h1>
+      <p>問題ごとに単元・項目名・難易度を選び、生成結果を確認してから出力できます。</p>
+    </div>
+  </header>
+
+  <main>
+    <section class="panel">
+      <div class="toolbar">
+        <label for="api-key-input">OpenAI APIキー</label>
+        <input id="api-key-input" type="password" autocomplete="off" placeholder="APIキー" />
+        <button id="api-key-btn" type="button">APIキー保存</button>
+        <label for="question-count">問題数</label>
+        <select id="question-count"></select>
+        <button id="generate-btn" class="primary" type="button">生成</button>
+      </div>
+      <div class="toolbar">
+        <progress id="progress-bar" max="1" value="0"></progress>
+        <span id="progress-text">待機中</span>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>番号</th>
+              <th>学年</th>
+              <th>単元</th>
+              <th>項目名</th>
+              <th>難易度</th>
+              <th>状態</th>
+            </tr>
+          </thead>
+          <tbody id="condition-body"></tbody>
+        </table>
+      </div>
+      <p id="status"></p>
+    </section>
+
+    <section id="results-panel" class="panel">
+      <div class="output-actions">
+        <button id="download-txt-btn" type="button" disabled>テキスト出力</button>
+        <button id="download-word-btn" type="button" disabled>Word出力</button>
+        <button id="print-pdf-btn" type="button" disabled>PDF出力</button>
+      </div>
+      <div id="results-list">
+        <p class="empty">生成結果はここに表示されます。</p>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const apiKeyStorageKey = 'tikzAppOpenAIApiKey';
+    const state = {
+      catalog: [],
+      results: [],
+      running: false
+    };
+
+    const countEl = document.getElementById('question-count');
+    const bodyEl = document.getElementById('condition-body');
+    const statusEl = document.getElementById('status');
+    const progressBar = document.getElementById('progress-bar');
+    const progressText = document.getElementById('progress-text');
+    const generateBtn = document.getElementById('generate-btn');
+    const resultsPanel = document.getElementById('results-panel');
+    const resultsList = document.getElementById('results-list');
+
+    function escapeForHtml(value) {
+      return String(value || '')
+        .replaceAll('&', '&amp;')
+        .replaceAll('<', '&lt;')
+        .replaceAll('>', '&gt;')
+        .replaceAll('"', '&quot;')
+        .replaceAll("'", '&#39;');
+    }
+
+    function setStatus(message, type = '') {
+      statusEl.textContent = message;
+      statusEl.className = type;
+    }
+
+    function getApiKey() {
+      const input = document.getElementById('api-key-input');
+      return (input.value || localStorage.getItem(apiKeyStorageKey) || '').trim();
+    }
+
+    function updateApiKeyButtonState() {
+      const btn = document.getElementById('api-key-btn');
+      btn.textContent = getApiKey() ? 'APIキー保存済み' : 'APIキー保存';
+    }
+
+    function configureApiKey() {
+      const apiKey = getApiKey();
+      if (apiKey) {
+        localStorage.setItem(apiKeyStorageKey, apiKey);
+        setStatus('APIキーをブラウザに保存しました', 'ok');
+      } else {
+        localStorage.removeItem(apiKeyStorageKey);
+        setStatus('APIキーを削除しました');
+      }
+      updateApiKeyButtonState();
+    }
+
+    function makeOption(value, text, title = '') {
+      const option = document.createElement('option');
+      option.value = value;
+      option.textContent = text;
+      if (title) option.title = title;
+      return option;
+    }
+
+    function getGrade(gradeValue) {
+      return state.catalog.find(grade => grade.grade === gradeValue) || state.catalog[0];
+    }
+
+    function getUnit(gradeValue, unitName) {
+      const grade = getGrade(gradeValue);
+      return grade?.units.find(unit => unit.unit === unitName) || grade?.units[0];
+    }
+
+    function getItem(gradeValue, unitName, itemName) {
+      const unit = getUnit(gradeValue, unitName);
+      return unit?.items.find(item => item.item === itemName) || unit?.items[0];
+    }
+
+    function fillGradeSelect(selectEl, selectedValue = '') {
+      selectEl.innerHTML = '';
+      state.catalog.forEach(grade => {
+        selectEl.appendChild(makeOption(grade.grade, grade.label));
+      });
+      if (selectedValue && state.catalog.some(grade => grade.grade === selectedValue)) {
+        selectEl.value = selectedValue;
+      }
+    }
+
+    function fillUnitSelect(selectEl, selectedValue = '') {
+      const gradeValue = selectEl.closest('tr')?.querySelector('.grade-select')?.value || '';
+      const grade = getGrade(gradeValue);
+      selectEl.innerHTML = '';
+      (grade?.units || []).forEach(unit => {
+        selectEl.appendChild(makeOption(unit.unit, unit.unit));
+      });
+      if (selectedValue && grade?.units.some(unit => unit.unit === selectedValue)) {
+        selectEl.value = selectedValue;
+      }
+    }
+
+    function fillItemSelect(selectEl, gradeValue, unitName, selectedValue = '') {
+      const unit = getUnit(gradeValue, unitName);
+      selectEl.innerHTML = '';
+      (unit?.items || []).forEach(item => {
+        selectEl.appendChild(makeOption(item.item, item.item));
+      });
+      if (selectedValue && unit?.items.some(item => item.item === selectedValue)) {
+        selectEl.value = selectedValue;
+      }
+    }
+
+    function fillLevelSelect(selectEl, gradeValue, unitName, itemName, selectedValue = '') {
+      const item = getItem(gradeValue, unitName, itemName);
+      selectEl.innerHTML = '';
+      (item?.levels || []).forEach(level => {
+        const option = makeOption(level.fileName, level.level, level.label);
+        option.dataset.label = level.label;
+        option.dataset.code = level.code;
+        option.dataset.level = level.level;
+        option.dataset.title = level.title;
+        selectEl.appendChild(option);
+      });
+      if (selectedValue && item?.levels.some(level => level.fileName === selectedValue)) {
+        selectEl.value = selectedValue;
+      }
+    }
+
+    function rowSelections() {
+      return Array.from(bodyEl.querySelectorAll('tr')).map(row => ({
+        grade: row.querySelector('.grade-select')?.value || '',
+        unit: row.querySelector('.unit-select')?.value || '',
+        item: row.querySelector('.item-select')?.value || '',
+        fileName: row.querySelector('.level-select')?.value || ''
+      }));
+    }
+
+    function updateRow(row, selected = {}) {
+      const gradeSelect = row.querySelector('.grade-select');
+      const unitSelect = row.querySelector('.unit-select');
+      const itemSelect = row.querySelector('.item-select');
+      const levelSelect = row.querySelector('.level-select');
+
+      fillGradeSelect(gradeSelect, selected.grade);
+      fillUnitSelect(unitSelect, selected.unit);
+      fillItemSelect(itemSelect, gradeSelect.value, unitSelect.value, selected.item);
+      fillLevelSelect(levelSelect, gradeSelect.value, unitSelect.value, itemSelect.value, selected.fileName);
+    }
+
+    function renderConditionRows() {
+      const saved = rowSelections();
+      const count = Number(countEl.value || 1);
+      bodyEl.innerHTML = '';
+
+      for (let i = 0; i < count; i++) {
+        const row = document.createElement('tr');
+        row.dataset.index = String(i);
+        row.innerHTML = `
+          <td class="index-cell">問題${i + 1}</td>
+          <td><select class="condition-select grade-select" aria-label="問題${i + 1} 学年"></select></td>
+          <td><select class="condition-select unit-select" aria-label="問題${i + 1} 単元"></select></td>
+          <td><select class="condition-select item-select" aria-label="問題${i + 1} 項目名"></select></td>
+          <td><select class="condition-select level-select" aria-label="問題${i + 1} 難易度"></select></td>
+          <td class="status-cell">待機中</td>
+        `;
+        bodyEl.appendChild(row);
+        updateRow(row, saved[i] || {});
+
+        row.querySelector('.grade-select').addEventListener('change', () => {
+          updateRow(row, { grade: row.querySelector('.grade-select').value });
+        });
+        row.querySelector('.unit-select').addEventListener('change', () => {
+          updateRow(row, {
+            grade: row.querySelector('.grade-select').value,
+            unit: row.querySelector('.unit-select').value
+          });
+        });
+        row.querySelector('.item-select').addEventListener('change', () => {
+          updateRow(row, {
+            grade: row.querySelector('.grade-select').value,
+            unit: row.querySelector('.unit-select').value,
+            item: row.querySelector('.item-select').value
+          });
+        });
+      }
+    }
+
+    function selectedLevelForRow(row) {
+      const levelSelect = row.querySelector('.level-select');
+      const selectedOption = levelSelect.selectedOptions[0];
+      return {
+        sourceFile: levelSelect.value,
+        label: selectedOption?.dataset.label || selectedOption?.textContent || '',
+        code: selectedOption?.dataset.code || '',
+        title: selectedOption?.dataset.title || '',
+        level: selectedOption?.dataset.level || ''
+      };
+    }
+
+    function selectedConfigs() {
+      return Array.from(bodyEl.querySelectorAll('tr')).map((row, index) => ({
+        index,
+        row,
+        ...selectedLevelForRow(row)
+      }));
+    }
+
+    function setRowStatus(row, message, type = '') {
+      const statusCell = row.querySelector('.status-cell');
+      statusCell.textContent = message;
+      statusCell.style.color = type === 'error' ? 'var(--danger)' : type === 'ok' ? 'var(--ok)' : 'var(--muted)';
+    }
+
+    async function fetchJson(url, options = {}) {
+      const response = await fetch(url, options);
+      const data = await response.json().catch(() => ({}));
+      if (!response.ok) throw new Error(data.error || '通信に失敗しました');
+      return data;
+    }
+
+    async function waitForJob(jobId, onTick) {
+      while (true) {
+        await new Promise(resolve => setTimeout(resolve, 1000));
+        const job = await fetchJson(`/generate-jobs/${encodeURIComponent(jobId)}`);
+        onTick(job);
+        if (job.status === 'completed') return job;
+        if (job.status === 'failed') throw new Error(job.error || '作問に失敗しました');
+      }
+    }
+
+    async function generateOne(config, apiKey, totalCount) {
+      setRowStatus(config.row, 'プロンプト読込中');
+      const promptData = await fetchJson(`/prompt-files/${encodeURIComponent(config.sourceFile)}`);
+
+      setRowStatus(config.row, '生成中');
+      const job = await fetchJson('/generate-questions', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          apiKey,
+          prompt: promptData.content || '',
+          sourceFile: config.sourceFile,
+          count: 1
+        })
+      });
+
+      const completedJob = await waitForJob(job.id, latestJob => {
+        setRowStatus(config.row, latestJob.message || '生成中');
+      });
+      const generated = (completedJob.files || [])[0];
+      if (!generated) throw new Error('生成結果が空です');
+
+      setRowStatus(config.row, '完了', 'ok');
+      return {
+        ...config,
+        number: config.index + 1,
+        fileName: generated.name,
+        content: generated.content || '',
+        generatedAt: new Date().toISOString(),
+        totalCount
+      };
+    }
+
+    function splitIntoSegments(text) {
+      const segments = [];
+      let pos = 0;
+      while (pos < text.length) {
+        const pTikz = text.indexOf('\\begin{tikzpicture}', pos);
+        const cands = [
+          { i: pTikz, type: 'tikz', end: '\\end{tikzpicture}' }
+        ].filter(candidate => candidate.i !== -1).sort((a, b) => a.i - b.i);
+
+        if (!cands.length) break;
+        const next = cands[0];
+        if (next.i > pos) segments.push({ type: 'text', content: text.slice(pos, next.i) });
+
+        const endIndex = text.indexOf(next.end, next.i);
+        if (endIndex === -1) {
+          segments.push({ type: 'text', content: text.slice(next.i) });
+          break;
+        }
+
+        segments.push({ type: next.type, code: text.slice(next.i, endIndex + next.end.length) });
+        pos = endIndex + next.end.length;
+      }
+      if (pos < text.length) segments.push({ type: 'text', content: text.slice(pos) });
+      return segments;
+    }
+
+    function tikzQuoteShim(code) {
+      code = code.replace(/\\usetikzlibrary\{([^}]*)\}/g, (match, inner) => {
+        if (!/\bquotes\b/.test(inner)) return match;
+        const rest = inner.split(',').map(part => part.trim()).filter(part => part && part !== 'quotes');
+        return rest.length ? `\\usetikzlibrary{${rest.join(',')}}` : '% quotes removed';
+      });
+
+      const re = /(--|to)\s*\[\s*(?:"([^"]+)"|'([^']+)')\s*((?:\s*,\s*[^,\]\r\n]+)*)\s*\]/g;
+      return code.replace(re, (match, connector, dquoted, squoted, optRaw) => {
+        const label = (dquoted ?? squoted ?? '').replace(/\\/g, '\\\\');
+        let opts = (optRaw || '').trim().replace(/^\s*,/, '');
+        const hasPos = /(?:^|,)\s*(pos\s*=|near\s*(?:start|end)|midway)\b/.test(opts);
+        if (!hasPos) opts = opts ? `midway, ${opts}` : 'midway';
+        const hasSide = /\b(above|below|left|right)\b/.test(opts);
+        const hasAutoOrSwap = /\b(auto|swap)\b/.test(opts);
+        if (!hasSide && !hasAutoOrSwap) opts = `${opts}, auto`;
+        return `${connector} node[${opts}] {${label}}`;
+      });
+    }
+
+    async function renderGeneratedContent(input, outputEl) {
+      if (window.marked?.setOptions) {
+        marked.setOptions({ gfm: true, breaks: true });
+      }
+
+      const segments = splitIntoSegments(input || '');
+      const tikzPieces = [];
+
+      for (const segment of segments) {
+        if (segment.type !== 'tikz') continue;
+        try {
+          const response = await fetch('/render', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ tikz: tikzQuoteShim(segment.code) })
+          });
+          if (!response.ok) throw new Error('TikZ render failed');
+          const data = await response.json();
+          tikzPieces.push(data.svg || '<p style="color:red">TikZ レンダリング失敗</p>');
+        } catch (err) {
+          console.error(err);
+          tikzPieces.push(`<pre>${escapeForHtml(segment.code)}</pre>`);
+        }
+      }
+
+      let tikzIndex = 0;
+      let html = '';
+      for (const segment of segments) {
+        if (segment.type === 'tikz') {
+          html += `<div class="segment">${tikzPieces[tikzIndex++] || ''}</div>`;
+          continue;
+        }
+
+        const raw = segment.content || '';
+        if (window.marked && typeof marked.parse === 'function') {
+          let parsed = marked.parse(raw);
+          if (window.DOMPurify?.sanitize) parsed = DOMPurify.sanitize(parsed);
+          html += `<div class="segment">${parsed}</div>`;
+        } else {
+          html += `<div class="segment">${escapeForHtml(raw).replace(/\n/g, '<br>')}</div>`;
+        }
+      }
+
+      outputEl.innerHTML = html || '<p class="empty">内容がありません。</p>';
+      if (window.MathJax && typeof MathJax.typesetPromise === 'function') {
+        await MathJax.typesetPromise([outputEl]);
+      }
+    }
+
+    async function renderAllResultPreviews() {
+      const previews = Array.from(resultsList.querySelectorAll('.result-preview'));
+      for (const preview of previews) {
+        const result = state.results.find(item => String(item.number) === preview.dataset.resultNumber);
+        if (!result) continue;
+        await renderGeneratedContent(result.content, preview);
+      }
+    }
+
+    function renderResults() {
+      resultsPanel.classList.add('active');
+      const hasResults = state.results.length > 0;
+      document.getElementById('download-txt-btn').disabled = !hasResults;
+      document.getElementById('download-word-btn').disabled = !hasResults;
+      document.getElementById('print-pdf-btn').disabled = !hasResults;
+
+      if (!hasResults) {
+        resultsList.innerHTML = '<p class="empty">生成結果はここに表示されます。</p>';
+        return;
+      }
+
+      resultsList.innerHTML = '';
+      state.results.forEach(result => {
+        const item = document.createElement('article');
+        item.className = 'result-item';
+        item.innerHTML = `
+          <div class="result-head">
+            <div class="result-title">
+              問題${result.number}: ${escapeForHtml(result.label)}
+              <small>${escapeForHtml(result.fileName || '')}</small>
+            </div>
+            <button type="button" data-regenerate="${result.number}">再生成</button>
+          </div>
+          <div class="result-preview" data-result-number="${result.number}">
+            <p class="empty">レンダリング中...</p>
+          </div>
+          <details class="raw-editor">
+            <summary>原稿を編集</summary>
+            <textarea class="result-body" data-result-number="${result.number}" spellcheck="false">${escapeForHtml(result.content)}</textarea>
+            <button type="button" data-rerender="${result.number}">プレビュー更新</button>
+          </details>
+        `;
+        resultsList.appendChild(item);
+      });
+
+      resultsList.querySelectorAll('[data-regenerate]').forEach(button => {
+        button.addEventListener('click', () => regenerateResult(Number(button.dataset.regenerate)));
+      });
+      resultsList.querySelectorAll('[data-rerender]').forEach(button => {
+        button.addEventListener('click', async () => {
+          const number = Number(button.dataset.rerender);
+          const textarea = resultsList.querySelector(`[data-result-number="${number}"].result-body`);
+          const result = state.results.find(item => item.number === number);
+          if (!textarea || !result) return;
+          result.content = textarea.value;
+          await renderAllResultPreviews();
+        });
+      });
+      renderAllResultPreviews().catch(err => {
+        console.error(err);
+        setStatus('生成結果のレンダリングに失敗しました', 'error');
+      });
+    }
+
+    function currentResultContent() {
+      return state.results.map(result => {
+        const textarea = resultsList.querySelector(`textarea[data-result-number="${result.number}"]`);
+        const content = textarea ? textarea.value : result.content;
+        return [
+          `# 問題${result.number}: ${result.label}`,
+          `保存ファイル: ${result.fileName || ''}`,
+          '',
+          content
+        ].join('\n');
+      }).join('\n\n---\n\n');
+    }
+
+    async function generateAll() {
+      if (state.running) return;
+      const apiKey = getApiKey();
+      if (!apiKey) {
+        setStatus('OpenAI APIキーを入力して保存してください', 'error');
+        document.getElementById('api-key-input').focus();
+        return;
+      }
+
+      const configs = selectedConfigs();
+      if (configs.some(config => !config.sourceFile)) {
+        setStatus('すべての問題で単元・項目名・難易度を選択してください', 'error');
+        return;
+      }
+
+      state.running = true;
+      state.results = [];
+      generateBtn.disabled = true;
+      progressBar.max = configs.length;
+      progressBar.value = 0;
+      progressText.textContent = `0/${configs.length}問`;
+      setStatus('生成を開始しました');
+      renderResults();
+
+      configs.forEach(config => setRowStatus(config.row, '待機中'));
+
+      try {
+        for (const config of configs) {
+          const result = await generateOne(config, apiKey, configs.length);
+          state.results.push(result);
+          progressBar.value = state.results.length;
+          progressText.textContent = `${state.results.length}/${configs.length}問`;
+          renderResults();
+        }
+        setStatus(`${state.results.length}問を生成しました`, 'ok');
+      } catch (err) {
+        console.error(err);
+        setStatus(err.message || '生成に失敗しました', 'error');
+      } finally {
+        state.running = false;
+        generateBtn.disabled = false;
+      }
+    }
+
+    async function regenerateResult(number) {
+      if (state.running) return;
+      const apiKey = getApiKey();
+      if (!apiKey) {
+        setStatus('OpenAI APIキーを入力して保存してください', 'error');
+        return;
+      }
+
+      const config = selectedConfigs()[number - 1];
+      if (!config?.sourceFile) return;
+
+      state.running = true;
+      generateBtn.disabled = true;
+      setStatus(`問題${number}を再生成しています`);
+
+      try {
+        const result = await generateOne(config, apiKey, state.results.length || Number(countEl.value || 1));
+        const index = state.results.findIndex(item => item.number === number);
+        if (index >= 0) state.results[index] = result;
+        else state.results.push(result);
+        renderResults();
+        setStatus(`問題${number}を再生成しました`, 'ok');
+      } catch (err) {
+        console.error(err);
+        setStatus(err.message || '再生成に失敗しました', 'error');
+      } finally {
+        state.running = false;
+        generateBtn.disabled = false;
+      }
+    }
+
+    function downloadBlob(fileName, mimeType, content) {
+      const blob = new Blob([content], { type: mimeType });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = fileName;
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+      URL.revokeObjectURL(url);
+    }
+
+    function downloadText() {
+      downloadBlob('generated-questions.txt', 'text/plain;charset=utf-8', currentResultContent());
+    }
+
+    function downloadWord() {
+      const sections = state.results.map(result => {
+        const textarea = resultsList.querySelector(`textarea[data-result-number="${result.number}"]`);
+        const content = textarea ? textarea.value : result.content;
+        return `
+          <h2>問題${result.number}: ${escapeForHtml(result.label)}</h2>
+          <p><small>${escapeForHtml(result.fileName || '')}</small></p>
+          <pre>${escapeForHtml(content)}</pre>
+        `;
+      }).join('<hr>');
+      const html = `
+        <!DOCTYPE html>
+        <html lang="ja">
+        <head>
+          <meta charset="UTF-8">
+          <style>
+            body { font-family: "Yu Gothic", sans-serif; line-height: 1.7; }
+            pre { white-space: pre-wrap; font-family: "Yu Gothic", sans-serif; }
+          </style>
+        </head>
+        <body>${sections}</body>
+        </html>
+      `;
+      downloadBlob('generated-questions.doc', 'application/msword;charset=utf-8', html);
+    }
+
+    function printPdf() {
+      const sections = state.results.map(result => {
+        const textarea = resultsList.querySelector(`textarea[data-result-number="${result.number}"]`);
+        const content = textarea ? textarea.value : result.content;
+        return `
+          <section>
+            <h2>問題${result.number}: ${escapeForHtml(result.label)}</h2>
+            <p class="file">${escapeForHtml(result.fileName || '')}</p>
+            <pre>${escapeForHtml(content)}</pre>
+          </section>
+        `;
+      }).join('');
+      const win = window.open('', '_blank');
+      if (!win) {
+        setStatus('PDF出力用のウィンドウを開けませんでした', 'error');
+        return;
+      }
+      win.document.write(`
+        <!DOCTYPE html>
+        <html lang="ja">
+        <head>
+          <meta charset="UTF-8">
+          <title>生成問題</title>
+          <style>
+            @page { margin: 18mm; }
+            body { font-family: "Yu Gothic", sans-serif; line-height: 1.7; color: #111; }
+            section { break-inside: avoid; margin-bottom: 24px; }
+            h2 { font-size: 16px; margin: 0 0 4px; }
+            .file { color: #555; font-size: 11px; margin: 0 0 10px; }
+            pre { white-space: pre-wrap; font-family: "Yu Gothic", sans-serif; margin: 0; }
+            hr { border: 0; border-top: 1px solid #ddd; margin: 20px 0; }
+          </style>
+        </head>
+        <body>${sections}</body>
+        </html>
+      `);
+      win.document.close();
+      win.focus();
+      win.print();
+    }
+
+    async function loadCatalog() {
+      setStatus('単元一覧を読み込み中...');
+      const data = await fetchJson('/prompt-catalog');
+      state.catalog = Array.isArray(data.grades) ? data.grades : [];
+      if (!state.catalog.length) {
+        setStatus('利用できるプロンプトがありません', 'error');
+        generateBtn.disabled = true;
+        return;
+      }
+      renderConditionRows();
+      setStatus('');
+    }
+
+    function initQuestionCount() {
+      for (let i = 1; i <= 10; i++) {
+        countEl.appendChild(makeOption(String(i), `${i}問`));
+      }
+      countEl.value = '1';
+    }
+
+    document.getElementById('api-key-btn').addEventListener('click', configureApiKey);
+    document.getElementById('api-key-input').addEventListener('input', updateApiKeyButtonState);
+    document.getElementById('api-key-input').addEventListener('keydown', event => {
+      if (event.key === 'Enter') configureApiKey();
+    });
+    countEl.addEventListener('change', renderConditionRows);
+    generateBtn.addEventListener('click', generateAll);
+    document.getElementById('download-txt-btn').addEventListener('click', downloadText);
+    document.getElementById('download-word-btn').addEventListener('click', downloadWord);
+    document.getElementById('print-pdf-btn').addEventListener('click', printPdf);
+
+    window.addEventListener('DOMContentLoaded', async () => {
+      document.getElementById('api-key-input').value = localStorage.getItem(apiKeyStorageKey) || '';
+      updateApiKeyButtonState();
+      initQuestionCount();
+      try {
+        await loadCatalog();
+      } catch (err) {
+        console.error(err);
+        setStatus(err.message || '単元一覧の読み込みに失敗しました', 'error');
+      }
+    });
+  </script>
+</body>
+</html>

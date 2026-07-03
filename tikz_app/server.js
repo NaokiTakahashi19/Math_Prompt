@@ -37,6 +37,84 @@ function buildPromptFileLabel(fileName, content) {
   };
 }
 
+function splitPromptTitle(title) {
+  const parts = title.split(/\s*[―-]\s*/);
+  return {
+    unit: (parts[0] || title || '').trim(),
+    item: (parts.slice(1).join(' ― ') || parts[0] || title || '').trim()
+  };
+}
+
+function isPromptCatalogItem(item) {
+  return item.name && item.code && item.title && item.level;
+}
+
+function promptGrade(item) {
+  const codeGrade = String(item.code || '').match(/^([123])-/)?.[1];
+  const fileGrade = String(item.name || '').match(/m-jh([123])-/)?.[1];
+  const grade = codeGrade || fileGrade || '';
+  return grade ? { value: grade, label: `中学${grade}年` } : { value: '', label: '学年未設定' };
+}
+
+function buildPromptCatalog(files) {
+  const grades = new Map();
+
+  for (const item of files.filter(isPromptCatalogItem)) {
+    const grade = promptGrade(item);
+    const { unit, item: itemName } = splitPromptTitle(item.title);
+    if (!unit || !itemName) continue;
+
+    if (!grades.has(grade.value)) {
+      grades.set(grade.value, { grade: grade.value, label: grade.label, units: new Map() });
+    }
+
+    const gradeEntry = grades.get(grade.value);
+    if (!gradeEntry.units.has(unit)) {
+      gradeEntry.units.set(unit, { unit, items: new Map() });
+    }
+
+    const unitEntry = gradeEntry.units.get(unit);
+    if (!unitEntry.items.has(itemName)) {
+      unitEntry.items.set(itemName, { item: itemName, levels: [] });
+    }
+
+    unitEntry.items.get(itemName).levels.push({
+      level: item.level,
+      fileName: item.name,
+      code: item.code,
+      title: item.title,
+      label: item.label
+    });
+  }
+
+  return Array.from(grades.values())
+    .map(gradeEntry => ({
+      grade: gradeEntry.grade,
+      label: gradeEntry.label,
+      units: Array.from(gradeEntry.units.values())
+        .map(unitEntry => ({
+          unit: unitEntry.unit,
+          items: Array.from(unitEntry.items.values())
+            .map(itemEntry => ({
+              item: itemEntry.item,
+              levels: itemEntry.levels.sort((a, b) => {
+                const levelOrder = ['基本問題', '標準問題', '応用問題', '発展問題'];
+                const levelDiff = levelOrder.indexOf(a.level) - levelOrder.indexOf(b.level);
+                if (levelDiff !== 0) return levelDiff;
+                return a.label.localeCompare(b.label, 'ja', { numeric: true });
+              })
+            }))
+            .sort((a, b) => a.item.localeCompare(b.item, 'ja', { numeric: true }))
+        }))
+        .sort((a, b) => a.unit.localeCompare(b.unit, 'ja', { numeric: true }))
+    }))
+    .sort((a, b) => {
+      const gradeDiff = Number(a.grade || 99) - Number(b.grade || 99);
+      if (gradeDiff !== 0) return gradeDiff;
+      return a.label.localeCompare(b.label, 'ja', { numeric: true });
+    });
+}
+
 function validatePromptFileName(fileName) {
   const safeName = path.basename(fileName || '');
   return safeName === fileName && safeName.toLowerCase().endsWith('.txt') ? safeName : '';
@@ -190,6 +268,10 @@ app.use(express.json({ limit: '5mb' }));
 const publicDir = path.join(__dirname, 'public');
 app.use(express.static(publicDir));
 
+app.get('/questions', (req, res) => {
+  res.sendFile(path.join(publicDir, 'questions.html'));
+});
+
 // Expose the fonts.css file and associated fonts from node-tikzjax so that
 // generated SVGs can refer to them.  The embedFontCss option will add a
 // <style> tag importing this stylesheet.
@@ -228,6 +310,30 @@ app.get('/prompt-files', async (req, res) => {
   } catch (err) {
     console.error('Failed to list Math_Prompt files:', err);
     res.status(500).json({ error: 'Failed to list prompt files.' });
+  }
+});
+
+app.get('/prompt-catalog', async (req, res) => {
+  try {
+    const entries = await fs.readdir(mathPromptDir, { withFileTypes: true });
+    const fileNames = entries
+      .filter(entry => entry.isFile() && entry.name.toLowerCase().endsWith('.txt'))
+      .map(entry => entry.name)
+      .sort((a, b) => a.localeCompare(b, 'ja', { numeric: true }));
+
+    const files = await Promise.all(fileNames.map(async fileName => {
+      try {
+        const content = await fs.readFile(path.join(mathPromptDir, fileName), 'utf8');
+        return buildPromptFileLabel(fileName, content);
+      } catch {
+        return { name: fileName, code: '', title: '', level: '', label: fileName };
+      }
+    }));
+
+    res.json({ grades: buildPromptCatalog(files) });
+  } catch (err) {
+    console.error('Failed to build Math_Prompt catalog:', err);
+    res.status(500).json({ error: 'Failed to build prompt catalog.' });
   }
 });
 
