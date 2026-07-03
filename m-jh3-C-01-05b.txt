@@ -280,7 +280,7 @@ $\triangle DBA$ と $\triangle DAC$ は、図の中で向きが違って見え�
 \coordinate (C) at (4.2,0);
 \coordinate (A) at (3.4,3.6);
 \coordinate (D) at (3.4,0);
-\coordinate (E) at ($(A)!0.28!(C)$);
+\coordinate (E) at (3.79,1.84);
 \coordinate (F) at (3.4,1.65);
 \draw (A)--(B)--(C)--cycle;
 \draw (A)--(D);

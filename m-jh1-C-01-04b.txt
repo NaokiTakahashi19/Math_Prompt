@@ -7,29 +7,45 @@
 - **対象**：中学1年生
 - **立場**：中学校の数学の教師として
 - **単元**：平面図形 ― 図形の移動（平行移動）
-- **内容**：＊＊＊＊＊＊＊＊＊＊＊＊
+- **内容**：図形の形と大きさを変えずに、一定の方向へ一定の距離だけずらす平行移動を理解し、矢印で示された向きと長さにしたがって図形を作図できる
 - **レベル**：基礎レベル（教科書の基本問題レベル）
 
 ## 要件
 1. **問題形式**
    - 定期テストや入試を意識した形式
+   - 方眼上の図形を、矢印 $\overrightarrow{OP}$ の方向にその長さだけ平行移動させる問題を中心にする
+   - 1つの大問の中に複数の小問を詰め込まず、複数の大問に分ける
+   - 各大問に図を1つずつつける
    - **順序**：問題 → 【解答】 → 【解説】
    - **見出し**：問題は「■問題1」のように通常表記、解答・解説は【】を用いる
    - **行末**：`■問題1`/`【解答】`/`【解説】` の行末には**半角スペース2つ**（改行扱い）
-2. **解答・解説**
+2. **図形・TikZルール**
+   - 図は必ず `\begin{tikzpicture} ... \end{tikzpicture}` で描く
+   - 方眼を使う問題では、薄いグリッドを描き、点名と三角形が見やすいようにする
+   - 移動前の図形は実線、移動後の図形は点線または別の線種で示してよい
+   - 対応する点を結ぶ線分を補助線として入れる場合は点線にする
+   - 矢印 $\overrightarrow{OP}$ は、向きと長さが読み取れるように、方眼上に始点 $O$ と終点 $P$ を明示する
+   - 点名や矢印のラベルが図形の辺と重ならないようにする
+3. **解答・解説**
    - ***ステップバイステップ*** で分かりやすく
-   - 「間違えやすいポイント」や「コツ」を補足
-   - 必要に応じて「別解」や「ポイント整理」を提示
-3. **数式ルール**
+   - 解説のはじめに、平行移動の意味を説明する
+     - 移動とは、図形の形と大きさを変えずに、位置だけを変えること
+     - 平行移動とは、図形を一定の方向に、一定の距離だけずらすこと
+   - 作図問題では、まず矢印 $\overrightarrow{OP}$ が「横に何ます、縦に何ます」動くかを読み取る
+   - 次に、各頂点を同じ向きに同じだけ動かす
+   - 最後に、移動後の対応する点を結んで図形を完成させる
+   - 平行移動では、対応する点を結んだ線分はそれぞれ平行で長さが等しいことを説明する
+   - $\triangle ABC$ を平行移動して $\triangle DEF$ にする場合、対応は $A\leftrightarrow D$、$B\leftrightarrow E$、$C\leftrightarrow F$ とする
+4. **数式ルール**
    - **ディスプレイ数式**：`\[ ... \]`
    - **インライン数式**：`$...$`
-   - **筆算の先頭**：列計算の最左に `+)` または `-)`、`×)` などを付ける
    - **分数**：`\frac` を使用（`\tfrac`は使わない）
    - **縦並び**：`=` の位置をそろえる（桁揃えで読みやすく）
    - **乗算記号**： `\times` に統一
-4. **出力形式**
+5. **出力形式**
    - プレーンテキスト形式（テキストファイルとしてダウンロード可能にする）
    - ファイル名：平面図形―図形の移動（平行移動）―基礎問題.txt
+
 ## 問題レベルの定義
 1. 基礎レベル
    - 教科書例題や章の導入問題（計算・定義確認）
@@ -52,9 +68,255 @@
    - 問題は「■問題1」の形式，解答・解説は【】を使用
    - 難易度は「教科書の基本問題レベル」を基準
    - つまずきやすい箇所には補足解説を加える
-## 生成例  
-＊＊＊＊＊＊＊＊＊＊＊＊
-＊＊＊＊＊＊＊＊＊＊＊＊
+   - 平行移動では図形を回したり、裏返したりしないことを強調する
+   - 矢印の向きだけでなく、長さも同じだけ動かすことを説明する
+
+## 生成例
+
+■問題1
+次の図の $\triangle ABC$ を、矢印 $\overrightarrow{OP}$ の方向にその長さだけ平行移動させてできる $\triangle DEF$ をかきなさい。
+
+【図】
+\begin{tikzpicture}[scale=0.55, line cap=round, line join=round]
+\draw[step=1, gray!35, very thin] (0,0) grid (12,8);
+\coordinate (A) at (2,6);
+\coordinate (B) at (1,3);
+\coordinate (C) at (6,5);
+\coordinate (O) at (1,1);
+\coordinate (P) at (5,1);
+\coordinate (D) at (6,6);
+\coordinate (E) at (5,3);
+\coordinate (F) at (10,5);
+\draw[thick] (A)--(B)--(C)--cycle;
+\draw[->, thick] (O)--(P);
+\node[above] at (A) {$A$};
+\node[left] at (B) {$B$};
+\node[right] at (C) {$C$};
+\node[below left] at (O) {$O$};
+\node[below right] at (P) {$P$};
+\end{tikzpicture}
+
+【解答】
+\[
+A\to D,\quad B\to E,\quad C\to F
+\]
+となるように、各頂点を右に4ますずつ動かして結んだ $\triangle DEF$。
+
+【図】
+\begin{tikzpicture}[scale=0.55, line cap=round, line join=round]
+\draw[step=1, gray!35, very thin] (0,0) grid (12,8);
+\coordinate (A) at (2,6);
+\coordinate (B) at (1,3);
+\coordinate (C) at (6,5);
+\coordinate (O) at (1,1);
+\coordinate (P) at (5,1);
+\coordinate (D) at (6,6);
+\coordinate (E) at (5,3);
+\coordinate (F) at (10,5);
+\draw[thick] (A)--(B)--(C)--cycle;
+\draw[dashed, thick] (D)--(E)--(F)--cycle;
+\draw[->, thick] (O)--(P);
+\draw[dotted] (A)--(D);
+\draw[dotted] (B)--(E);
+\draw[dotted] (C)--(F);
+\node[above] at (A) {$A$};
+\node[left] at (B) {$B$};
+\node[right] at (C) {$C$};
+\node[above] at (D) {$D$};
+\node[left] at (E) {$E$};
+\node[right] at (F) {$F$};
+\node[below left] at (O) {$O$};
+\node[below right] at (P) {$P$};
+\end{tikzpicture}
+
+【解説】
+**ポイント整理：平行移動**
+
+移動とは、図形の形と大きさを変えずに、位置だけを変えることです。
+
+平行移動とは、図形を一定の方向に、一定の距離だけずらすことです。
+
+**ステップ1：矢印の動きを読む**
+
+矢印 $\overrightarrow{OP}$ は、右に4ます進んでいます。
+
+したがって、$\triangle ABC$ の各頂点も、右に4ますずつ動かします。
+
+**ステップ2：各頂点を動かす**
+
+\[
+A\to D,\quad B\to E,\quad C\to F
+\]
+となるように、
+
+- 点 $A$ を右に4ます動かして点 $D$
+- 点 $B$ を右に4ます動かして点 $E$
+- 点 $C$ を右に4ます動かして点 $F$
+
+をとります。
+
+**ステップ3：対応する点を結ぶ**
+
+点 $D,E,F$ を結ぶと、平行移動した $\triangle DEF$ ができます。
+
+**コツ**
+
+平行移動では、すべての点を同じ向きに同じ長さだけ動かします。図形の向きや形は変わりません。
+
+
+■問題2
+次の図の $\triangle ABC$ を、矢印 $\overrightarrow{OP}$ の方向にその長さだけ平行移動させてできる $\triangle DEF$ をかきなさい。
+
+【図】
+\begin{tikzpicture}[scale=0.55, line cap=round, line join=round]
+\draw[step=1, gray!35, very thin] (0,0) grid (12,9);
+\coordinate (A) at (3,6);
+\coordinate (B) at (4,3);
+\coordinate (C) at (6,5);
+\coordinate (O) at (1,2);
+\coordinate (P) at (4,0);
+\coordinate (D) at (6,4);
+\coordinate (E) at (7,1);
+\coordinate (F) at (9,3);
+\draw[thick] (A)--(B)--(C)--cycle;
+\draw[->, thick] (O)--(P);
+\node[above left] at (A) {$A$};
+\node[below] at (B) {$B$};
+\node[right] at (C) {$C$};
+\node[left] at (O) {$O$};
+\node[below right] at (P) {$P$};
+\end{tikzpicture}
+
+【解答】
+\[
+A\to D,\quad B\to E,\quad C\to F
+\]
+となるように、各頂点を右に3ます、下に2ます動かして結んだ $\triangle DEF$。
+
+【図】
+\begin{tikzpicture}[scale=0.55, line cap=round, line join=round]
+\draw[step=1, gray!35, very thin] (0,0) grid (12,9);
+\coordinate (A) at (3,6);
+\coordinate (B) at (4,3);
+\coordinate (C) at (6,5);
+\coordinate (O) at (1,2);
+\coordinate (P) at (4,0);
+\coordinate (D) at (6,4);
+\coordinate (E) at (7,1);
+\coordinate (F) at (9,3);
+\draw[thick] (A)--(B)--(C)--cycle;
+\draw[dashed, thick] (D)--(E)--(F)--cycle;
+\draw[->, thick] (O)--(P);
+\draw[dotted] (A)--(D);
+\draw[dotted] (B)--(E);
+\draw[dotted] (C)--(F);
+\node[above left] at (A) {$A$};
+\node[below] at (B) {$B$};
+\node[right] at (C) {$C$};
+\node[above] at (D) {$D$};
+\node[below] at (E) {$E$};
+\node[right] at (F) {$F$};
+\node[left] at (O) {$O$};
+\node[below right] at (P) {$P$};
+\end{tikzpicture}
+
+【解説】
+**ステップ1：矢印の動きを読む**
+
+矢印 $\overrightarrow{OP}$ は、右に3ます、下に2ます進んでいます。
+
+**ステップ2：各頂点を同じだけ動かす**
+
+点 $A,B,C$ をそれぞれ、右に3ます、下に2ます動かします。
+
+\[
+A\to D,\quad B\to E,\quad C\to F
+\]
+です。
+
+**ステップ3：新しい三角形をかく**
+
+点 $D,E,F$ を結ぶと、平行移動した $\triangle DEF$ ができます。
+
+**間違えやすいポイント**
+
+点ごとに違う動かし方をしてはいけません。平行移動では、どの点も同じ向きに同じ長さだけ動きます。
+
+
+■問題3
+$\triangle ABC$ を平行移動して $\triangle DEF$ ができました。このとき、次の問いに答えなさい。
+
+【図】
+\begin{tikzpicture}[scale=0.6, line cap=round, line join=round]
+\draw[step=1, gray!35, very thin] (0,0) grid (11,7);
+\coordinate (A) at (2,5);
+\coordinate (B) at (1,2);
+\coordinate (C) at (4,3);
+\coordinate (D) at (7,5);
+\coordinate (E) at (6,2);
+\coordinate (F) at (9,3);
+\draw[thick] (A)--(B)--(C)--cycle;
+\draw[dashed, thick] (D)--(E)--(F)--cycle;
+\draw[dotted] (A)--(D);
+\draw[dotted] (B)--(E);
+\draw[dotted] (C)--(F);
+\node[above] at (A) {$A$};
+\node[left] at (B) {$B$};
+\node[below right] at (C) {$C$};
+\node[above] at (D) {$D$};
+\node[left] at (E) {$E$};
+\node[below right] at (F) {$F$};
+\end{tikzpicture}
+
+(1) 対応する点をすべて答えなさい。
+
+(2) 線分 $AD$、$BE$、$CF$ について、平行移動の性質としていえることを答えなさい。
+
+【解答】
+(1)
+\[
+A\leftrightarrow D,\quad B\leftrightarrow E,\quad C\leftrightarrow F
+\]
+
+(2)
+\[
+AD\parallel BE\parallel CF
+\]
+であり、
+\[
+AD=BE=CF
+\]
+です。
+
+【解説】
+**ステップ1：対応する点を確認する**
+
+平行移動では、移動前と移動後で対応する点があります。
+
+この図では、
+\[
+A\leftrightarrow D,\quad B\leftrightarrow E,\quad C\leftrightarrow F
+\]
+です。
+
+**ステップ2：対応する点を結んだ線分を見る**
+
+対応する点を結ぶと、線分 $AD$、$BE$、$CF$ ができます。
+
+平行移動では、対応する点を結んだ線分は、それぞれ平行で長さが等しくなります。
+
+したがって、
+\[
+AD\parallel BE\parallel CF
+\]
+であり、
+\[
+AD=BE=CF
+\]
+です。
+
+**ポイント**
+
+平行移動では、図形の形・大きさ・向きは変わりません。変わるのは位置だけです。
 
 以上、生成例
-

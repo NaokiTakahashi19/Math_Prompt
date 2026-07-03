@@ -7,29 +7,47 @@
 - **対象**：中学1年生
 - **立場**：中学校の数学の教師として
 - **単元**：平面図形 ― 図形の移動（回転移動）
-- **内容**：＊＊＊＊＊＊＊＊＊＊＊＊
+- **内容**：図形の形と大きさを変えずに、ある点を中心として一定の角度だけ回す回転移動を理解し、回転の中心・向き・角度にしたがって図形を作図できる
 - **レベル**：基礎レベル（教科書の基本問題レベル）
 
 ## 要件
 1. **問題形式**
    - 定期テストや入試を意識した形式
+   - 点 $O$ を回転の中心として、$\triangle ABC$ を指定された向き・角度だけ回転移動させる作図問題を中心にする
+   - 1つの大問の中に複数の小問を詰め込まず、複数の大問に分ける
+   - 各大問に図を1つずつつける
    - **順序**：問題 → 【解答】 → 【解説】
    - **見出し**：問題は「■問題1」のように通常表記、解答・解説は【】を用いる
    - **行末**：`■問題1`/`【解答】`/`【解説】` の行末には**半角スペース2つ**（改行扱い）
-2. **解答・解説**
+2. **図形・TikZルール**
+   - 図は必ず `\begin{tikzpicture} ... \end{tikzpicture}` で描く
+   - 方眼を使う問題では、薄いグリッドを描き、回転の中心 $O$ と三角形の頂点名を見やすくする
+   - 移動前の図形は実線、移動後の図形は点線または別の線種で示してよい
+   - 回転の中心 $O$ から対応する点へ補助線を引く場合は点線にする
+   - 回転の向きは、曲線矢印で示す
+   - 点名や角度のラベルが、辺や補助線と重ならないようにする
+3. **解答・解説**
    - ***ステップバイステップ*** で分かりやすく
-   - 「間違えやすいポイント」や「コツ」を補足
-   - 必要に応じて「別解」や「ポイント整理」を提示
-3. **数式ルール**
+   - 解説のはじめに、回転移動の意味を説明する
+     - 移動とは、図形の形と大きさを変えずに、位置だけを変えること
+     - 回転移動とは、図形をある点を中心として、一定の角度だけ回すこと
+     - その中心となる点を回転の中心という
+   - 作図問題では、まず回転の中心、回転の向き、回転角を確認する
+   - 次に、各頂点について、中心からの距離を変えずに、指定された角度だけ回すことを説明する
+   - 最後に、移動後の対応する点を結んで図形を完成させる
+   - 回転移動では、対応する点は回転の中心から等しい距離にあり、中心と対応する点を結んでできる角の大きさはすべて等しいことを説明する
+   - $\triangle ABC$ を回転移動して $\triangle DEF$ にする場合、対応は $A\leftrightarrow D$、$B\leftrightarrow E$、$C\leftrightarrow F$ とする
+   - $180^\circ$ の回転移動は点対称移動ともいうことを補足する
+4. **数式ルール**
    - **ディスプレイ数式**：`\[ ... \]`
    - **インライン数式**：`$...$`
-   - **筆算の先頭**：列計算の最左に `+)` または `-)`、`×)` などを付ける
    - **分数**：`\frac` を使用（`\tfrac`は使わない）
    - **縦並び**：`=` の位置をそろえる（桁揃えで読みやすく）
    - **乗算記号**： `\times` に統一
-4. **出力形式**
+5. **出力形式**
    - プレーンテキスト形式（テキストファイルとしてダウンロード可能にする）
    - ファイル名：平面図形―図形の移動（回転移動）―基礎問題.txt
+
 ## 問題レベルの定義
 1. 基礎レベル
    - 教科書例題や章の導入問題（計算・定義確認）
@@ -52,9 +70,264 @@
    - 問題は「■問題1」の形式，解答・解説は【】を使用
    - 難易度は「教科書の基本問題レベル」を基準
    - つまずきやすい箇所には補足解説を加える
-## 生成例  
-＊＊＊＊＊＊＊＊＊＊＊＊
-＊＊＊＊＊＊＊＊＊＊＊＊
+   - 回転移動では、図形の形や大きさは変わらないことを強調する
+   - 回転の向きと角度を読み間違えないように説明する
+   - 平行移動と混同しないように、「中心からの距離が変わらない」ことを明確にする
+
+## 生成例
+
+■問題1
+次の図の $\triangle ABC$ を、点 $O$ を中心として、矢印の向きに $90^\circ$ 回転移動させてできる $\triangle DEF$ をかきなさい。
+
+【図】
+\begin{tikzpicture}[scale=0.55, line cap=round, line join=round]
+\draw[step=1, gray!35, very thin] (0,0) grid (11,9);
+\coordinate (O) at (6,2);
+\coordinate (A) at (6,7);
+\coordinate (B) at (6,4);
+\coordinate (C) at (9,5);
+\coordinate (D) at (1,2);
+\coordinate (E) at (4,2);
+\coordinate (F) at (3,5);
+\draw[thick] (A)--(B)--(C)--cycle;
+\fill (O) circle (2pt);
+\draw[->, thick] (5.5,6.6) arc (100:170:1.4);
+\node[above] at (A) {$A$};
+\node[left] at (B) {$B$};
+\node[right] at (C) {$C$};
+\node[below] at (O) {$O$};
+\end{tikzpicture}
+
+【解答】
+\[
+A\to D,\quad B\to E,\quad C\to F
+\]
+となるように、点 $O$ を中心として矢印の向きに $90^\circ$ 回転させて結んだ $\triangle DEF$。
+
+【図】
+\begin{tikzpicture}[scale=0.55, line cap=round, line join=round]
+\draw[step=1, gray!35, very thin] (0,0) grid (11,9);
+\coordinate (O) at (6,2);
+\coordinate (A) at (6,7);
+\coordinate (B) at (6,4);
+\coordinate (C) at (9,5);
+\coordinate (D) at (1,2);
+\coordinate (E) at (4,2);
+\coordinate (F) at (3,5);
+\draw[thick] (A)--(B)--(C)--cycle;
+\draw[dashed, thick] (D)--(E)--(F)--cycle;
+\draw[dotted] (O)--(A);
+\draw[dotted] (O)--(D);
+\draw[dotted] (O)--(B);
+\draw[dotted] (O)--(E);
+\draw[dotted] (O)--(C);
+\draw[dotted] (O)--(F);
+\fill (O) circle (2pt);
+\draw[->, thick] (5.5,6.6) arc (100:170:1.4);
+\node[above] at (A) {$A$};
+\node[left] at (B) {$B$};
+\node[right] at (C) {$C$};
+\node[left] at (D) {$D$};
+\node[below left] at (E) {$E$};
+\node[above left] at (F) {$F$};
+\node[below] at (O) {$O$};
+\end{tikzpicture}
+
+【解説】
+**ポイント整理：回転移動**
+
+移動とは、図形の形と大きさを変えずに、位置だけを変えることです。
+
+回転移動とは、図形をある点を中心として、一定の角度だけ回すことです。
+
+このとき、中心となる点を回転の中心といいます。
+
+**ステップ1：回転の中心・向き・角度を確認する**
+
+回転の中心は点 $O$ です。
+
+矢印の向きに $90^\circ$ 回転させます。
+
+**ステップ2：各頂点を回転させる**
+
+点 $A,B,C$ をそれぞれ、点 $O$ を中心として同じ向きに $90^\circ$ 回転させます。
+
+\[
+A\to D,\quad B\to E,\quad C\to F
+\]
+です。
+
+**ステップ3：新しい三角形をかく**
+
+点 $D,E,F$ を結ぶと、回転移動した $\triangle DEF$ ができます。
+
+**コツ**
+
+回転移動では、中心 $O$ から対応する点までの距離は変わりません。たとえば、
+\[
+OA=OD,\quad OB=OE,\quad OC=OF
+\]
+です。
+
+
+■問題2
+次の図の $\triangle ABC$ を、点 $O$ を中心として、矢印の向きに $180^\circ$ 回転移動させてできる $\triangle DEF$ をかきなさい。
+
+【図】
+\begin{tikzpicture}[scale=0.62, line cap=round, line join=round]
+\coordinate (O) at (0,0);
+\coordinate (A) at (-2.6,0.8);
+\coordinate (B) at (-1.8,-1.5);
+\coordinate (C) at (-0.2,-0.4);
+\coordinate (D) at (2.6,-0.8);
+\coordinate (E) at (1.8,1.5);
+\coordinate (F) at (0.2,0.4);
+\draw[thick] (A)--(B)--(C)--cycle;
+\fill (O) circle (1.8pt);
+\draw[->, thick] (1.4,-0.2) arc (-10:120:1.2);
+\node[above] at (O) {$O$};
+\node[left] at (A) {$A$};
+\node[below] at (B) {$B$};
+\node[right] at (C) {$C$};
+\end{tikzpicture}
+
+【解答】
+\[
+A\to D,\quad B\to E,\quad C\to F
+\]
+となるように、点 $O$ を中心として $180^\circ$ 回転させて結んだ $\triangle DEF$。
+
+【図】
+\begin{tikzpicture}[scale=0.62, line cap=round, line join=round]
+\coordinate (O) at (0,0);
+\coordinate (A) at (-2.6,0.8);
+\coordinate (B) at (-1.8,-1.5);
+\coordinate (C) at (-0.2,-0.4);
+\coordinate (D) at (2.6,-0.8);
+\coordinate (E) at (1.8,1.5);
+\coordinate (F) at (0.2,0.4);
+\draw[thick] (A)--(B)--(C)--cycle;
+\draw[dashed, thick] (D)--(E)--(F)--cycle;
+\draw[dotted] (A)--(D);
+\draw[dotted] (B)--(E);
+\draw[dotted] (C)--(F);
+\fill (O) circle (1.8pt);
+\draw[->, thick] (1.4,-0.2) arc (-10:120:1.2);
+\node[above] at (O) {$O$};
+\node[left] at (A) {$A$};
+\node[below] at (B) {$B$};
+\node[right] at (C) {$C$};
+\node[right] at (D) {$D$};
+\node[above] at (E) {$E$};
+\node[above right] at (F) {$F$};
+\end{tikzpicture}
+
+【解説】
+**ステップ1：回転の中心と角度を確認する**
+
+回転の中心は点 $O$ です。
+
+矢印の向きに $180^\circ$ 回転させます。
+
+**ステップ2：各頂点を回転させる**
+
+点 $A$ を $180^\circ$ 回転させた点を $D$、点 $B$ を $180^\circ$ 回転させた点を $E$、点 $C$ を $180^\circ$ 回転させた点を $F$ とします。
+
+**ステップ3：点を結ぶ**
+
+点 $D,E,F$ を結ぶと、回転移動した $\triangle DEF$ ができます。
+
+**ポイント**
+
+$180^\circ$ の回転移動は、点対称移動ともいいます。
+
+このとき、対応する2点を結ぶ線分は回転の中心 $O$ を通り、点 $O$ はその線分の中点になります。
+
+
+■問題3
+$\triangle ABC$ を点 $O$ を中心として回転移動し、$\triangle DEF$ ができました。このとき、次の問いに答えなさい。
+
+【図】
+\begin{tikzpicture}[scale=0.62, line cap=round, line join=round]
+\coordinate (O) at (0,0);
+\coordinate (A) at (0,2.3);
+\coordinate (B) at (-1.8,0.8);
+\coordinate (C) at (-0.8,2.9);
+\coordinate (D) at (2.3,0);
+\coordinate (E) at (0.8,1.8);
+\coordinate (F) at (2.9,0.8);
+\draw[thick] (A)--(B)--(C)--cycle;
+\draw[dashed, thick] (D)--(E)--(F)--cycle;
+\draw[dotted] (O)--(A);
+\draw[dotted] (O)--(D);
+\draw[dotted] (O)--(B);
+\draw[dotted] (O)--(E);
+\draw[dotted] (O)--(C);
+\draw[dotted] (O)--(F);
+\fill (O) circle (1.8pt);
+\draw[->, thick] (0.4,1.4) arc (75:15:1.4);
+\node[below left] at (O) {$O$};
+\node[above] at (A) {$A$};
+\node[left] at (B) {$B$};
+\node[above left] at (C) {$C$};
+\node[right] at (D) {$D$};
+\node[above right] at (E) {$E$};
+\node[right] at (F) {$F$};
+\end{tikzpicture}
+
+(1) 対応する点をすべて答えなさい。
+
+(2) 回転移動の性質として、中心 $O$ と対応する点の距離についていえることを答えなさい。
+
+(3) 回転移動の性質として、中心 $O$ と対応する点を結んでできる角についていえることを答えなさい。
+
+【解答】
+(1)
+\[
+A\leftrightarrow D,\quad B\leftrightarrow E,\quad C\leftrightarrow F
+\]
+
+(2)
+\[
+OA=OD,\quad OB=OE,\quad OC=OF
+\]
+
+(3)
+\[
+\angle AOD=\angle BOE=\angle COF
+\]
+
+【解説】
+**ステップ1：対応する点を確認する**
+
+$\triangle ABC$ が回転移動して $\triangle DEF$ になっているので、
+\[
+A\leftrightarrow D,\quad B\leftrightarrow E,\quad C\leftrightarrow F
+\]
+です。
+
+**ステップ2：中心からの距離を確認する**
+
+回転移動では、回転の中心から対応する点までの距離は等しくなります。
+
+したがって、
+\[
+OA=OD,\quad OB=OE,\quad OC=OF
+\]
+です。
+
+**ステップ3：回転角を確認する**
+
+回転移動では、中心と対応する点を結んでできる角の大きさは、すべて等しくなります。
+
+したがって、
+\[
+\angle AOD=\angle BOE=\angle COF
+\]
+です。
+
+**間違えやすいポイント**
+
+回転移動では、対応する点をまっすぐ同じ向きにずらすのではありません。回転の中心からの距離を保ったまま、同じ角度だけ回します。
 
 以上、生成例
-

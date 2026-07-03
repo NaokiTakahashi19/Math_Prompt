@@ -7,29 +7,45 @@
 - **対象**：中学1年生
 - **立場**：中学校の数学の教師として
 - **単元**：平面図形 ― 図形の移動（対称移動）
-- **内容**：＊＊＊＊＊＊＊＊＊＊＊＊
+- **内容**：図形をある直線を折り目として折り返す対称移動を理解し、対称の軸をもとに対応する点を作図できる
 - **レベル**：基礎レベル（教科書の基本問題レベル）
 
 ## 要件
 1. **問題形式**
    - 定期テストや入試を意識した形式
+   - 直線 $\ell$ を対称の軸として、$\triangle ABC$ を対称移動させてできる $\triangle DEF$ を作図する問題を中心にする
+   - 1つの大問の中に複数の小問を詰め込まず、複数の大問に分ける
+   - 各大問に図を1つずつつける
    - **順序**：問題 → 【解答】 → 【解説】
    - **見出し**：問題は「■問題1」のように通常表記、解答・解説は【】を用いる
    - **行末**：`■問題1`/`【解答】`/`【解説】` の行末には**半角スペース2つ**（改行扱い）
-2. **解答・解説**
+2. **図形・TikZルール**
+   - 図は必ず `\begin{tikzpicture} ... \end{tikzpicture}` で描く
+   - 方眼を使う問題では、薄いグリッドを描き、対称の軸 $\ell$ と三角形の頂点名を見やすくする
+   - 移動前の図形は実線、移動後の図形は点線または別の線種で示してよい
+   - 対応する点を結ぶ線分を補助線として入れる場合は点線にする
+   - 対称の軸と対応点を結ぶ線分が垂直に交わることを、必要に応じて直角マークで示す
+   - 点名や軸のラベルが、辺や補助線と重ならないようにする
+3. **解答・解説**
    - ***ステップバイステップ*** で分かりやすく
-   - 「間違えやすいポイント」や「コツ」を補足
-   - 必要に応じて「別解」や「ポイント整理」を提示
-3. **数式ルール**
+   - 解説のはじめに、対称移動の意味を説明する
+     - 対称移動とは、図形をある直線を折り目として折り返すこと
+     - このときの折り目の直線を対称の軸という
+   - 作図問題では、まず対称の軸を確認する
+   - 次に、各頂点から対称の軸に垂線を引き、軸の反対側に同じ距離だけ離れた点を取ることを説明する
+   - 最後に、移動後の対応する点を結んで図形を完成させる
+   - 対称移動では、対応する点を結んだ線分は対称の軸によって垂直に2等分されることを説明する
+   - $\triangle ABC$ を対称移動して $\triangle DEF$ にする場合、対応は $A\leftrightarrow D$、$B\leftrightarrow E$、$C\leftrightarrow F$ とする
+4. **数式ルール**
    - **ディスプレイ数式**：`\[ ... \]`
    - **インライン数式**：`$...$`
-   - **筆算の先頭**：列計算の最左に `+)` または `-)`、`×)` などを付ける
    - **分数**：`\frac` を使用（`\tfrac`は使わない）
    - **縦並び**：`=` の位置をそろえる（桁揃えで読みやすく）
    - **乗算記号**： `\times` に統一
-4. **出力形式**
+5. **出力形式**
    - プレーンテキスト形式（テキストファイルとしてダウンロード可能にする）
    - ファイル名：平面図形―図形の移動（対称移動）―基礎問題.txt
+
 ## 問題レベルの定義
 1. 基礎レベル
    - 教科書例題や章の導入問題（計算・定義確認）
@@ -52,55 +68,235 @@
    - 問題は「■問題1」の形式，解答・解説は【】を使用
    - 難易度は「教科書の基本問題レベル」を基準
    - つまずきやすい箇所には補足解説を加える
-## 生成例  
+   - 対称移動では、図形の形と大きさは変わらず、向きは裏返ることを説明する
+   - 対応点を結ぶ線分が、対称の軸と垂直に交わり、対称の軸によって2等分されることを強調する
+   - 平行移動や回転移動と混同しないように、「直線を折り目として折り返す」ことを明確にする
+
+## 生成例
+
 ■問題1
-次の図で、三角形 $ABC$ を直線 $\ell$ を対称の軸として対称移動した三角形 $A'B'C'$ を、方眼上に書き入れなさい。
+次の図の $\triangle ABC$ を、直線 $\ell$ を対称の軸として対称移動させてできる $\triangle DEF$ をかきなさい。
 
-\begin{tikzpicture}[scale=0.55]
-\draw[step=1, color=blue!35, line width=0.3pt] (-6,-5) grid (8,5);
-\draw[line width=1.2pt] (1,-5) -- (1,5) node[above] {$\ell$};
-\coordinate (A) at (-1,2);
-\coordinate (B) at (-5,-1);
-\coordinate (C) at (-2,-4);
-\draw[line width=1.2pt] (A) -- (B) -- (C) -- cycle;
-\filldraw (A) circle (2pt) node[above right] {$A$};
-\filldraw (B) circle (2pt) node[left] {$B$};
-\filldraw (C) circle (2pt) node[below] {$C$};
+【図】
+\begin{tikzpicture}[scale=0.55, line cap=round, line join=round]
+\draw[step=1, gray!35, very thin] (0,0) grid (12,8);
+\draw[thick] (7,0)--(7,8) node[above] {$\ell$};
+\coordinate (A) at (6,6);
+\coordinate (B) at (2,4);
+\coordinate (C) at (4,1);
+\coordinate (D) at (8,6);
+\coordinate (E) at (12,4);
+\coordinate (F) at (10,1);
+\draw[thick] (A)--(B)--(C)--cycle;
+\node[above] at (A) {$A$};
+\node[left] at (B) {$B$};
+\node[below] at (C) {$C$};
 \end{tikzpicture}
 
-【解答】  
-三角形 $ABC$ を直線 $\ell$ に対して対称移動すると、次のようになる。
+【解答】
+\[
+A\to D,\quad B\to E,\quad C\to F
+\]
+となるように、直線 $\ell$ の反対側に同じ距離だけ離れた点を取り、$D,E,F$ を結んだ $\triangle DEF$。
 
-\begin{tikzpicture}[scale=0.55]
-\draw[step=1, color=blue!35, line width=0.3pt] (-6,-5) grid (8,5);
-\draw[line width=1.2pt] (1,-5) -- (1,5) node[above] {$\ell$};
-\coordinate (A) at (-1,2);
-\coordinate (B) at (-5,-1);
-\coordinate (C) at (-2,-4);
-\coordinate (Ap) at (3,2);
-\coordinate (Bp) at (7,-1);
-\coordinate (Cp) at (4,-4);
-\draw[line width=1.2pt] (A) -- (B) -- (C) -- cycle;
-\draw[line width=1.2pt, red] (Ap) -- (Bp) -- (Cp) -- cycle;
-\filldraw (A) circle (2pt) node[above right] {$A$};
-\filldraw (B) circle (2pt) node[left] {$B$};
-\filldraw (C) circle (2pt) node[below] {$C$};
-\filldraw[red] (Ap) circle (2pt) node[above right] {$A'$};
-\filldraw[red] (Bp) circle (2pt) node[right] {$B'$};
-\filldraw[red] (Cp) circle (2pt) node[below] {$C'$};
+【図】
+\begin{tikzpicture}[scale=0.55, line cap=round, line join=round]
+\draw[step=1, gray!35, very thin] (0,0) grid (12,8);
+\draw[thick] (7,0)--(7,8) node[above] {$\ell$};
+\coordinate (A) at (6,6);
+\coordinate (B) at (2,4);
+\coordinate (C) at (4,1);
+\coordinate (D) at (8,6);
+\coordinate (E) at (12,4);
+\coordinate (F) at (10,1);
+\draw[thick] (A)--(B)--(C)--cycle;
+\draw[dashed, thick] (D)--(E)--(F)--cycle;
+\draw[dotted] (A)--(D);
+\draw[dotted] (B)--(E);
+\draw[dotted] (C)--(F);
+\draw (7,5.82)--++(0.18,0)--++(0,0.18);
+\draw (7,3.82)--++(0.18,0)--++(0,0.18);
+\draw (7,0.82)--++(0.18,0)--++(0,0.18);
+\node[above] at (A) {$A$};
+\node[left] at (B) {$B$};
+\node[below] at (C) {$C$};
+\node[above] at (D) {$D$};
+\node[right] at (E) {$E$};
+\node[below] at (F) {$F$};
 \end{tikzpicture}
 
-【解説】  
-**ステップ1：** 対称の軸を確認する
-対称移動では、対応する点どうしを結んだ線分が、対称の軸と垂直に交わり、対称の軸によって二等分されます。
+【解説】
+**ポイント整理：対称移動**
 
-**ステップ2：** 点 $A,B,C$ から直線 $\ell$ までの距離を数える
-方眼を使って、それぞれの点が直線 $\ell$ から横に何マス離れているかを数えます。
+対称移動とは、図形をある直線を折り目として折り返すことです。
 
-**ステップ3：** 反対側に同じ距離だけ離れた点を取る
-点 $A$ に対応する点を $A'$、点 $B$ に対応する点を $B'$、点 $C$ に対応する点を $C'$ とします。
+このときの折り目の直線を、対称の軸といいます。
 
-**ステップ4：** 点 $A',B',C'$ を結ぶ
-3つの点を結ぶと、三角形 $ABC$ を直線 $\ell$ に対して対称移動した三角形 $A'B'C'$ ができます。
+**ステップ1：対称の軸を確認する**
+
+この問題では、直線 $\ell$ が対称の軸です。
+
+**ステップ2：各頂点から軸までの距離を数える**
+
+点 $A,B,C$ から直線 $\ell$ まで、横に何ます離れているかを数えます。
+
+**ステップ3：反対側に同じ距離だけ離れた点を取る**
+
+直線 $\ell$ の反対側に、同じ距離だけ離れた点を取ります。
+
+\[
+A\to D,\quad B\to E,\quad C\to F
+\]
+です。
+
+**ステップ4：移動後の点を結ぶ**
+
+点 $D,E,F$ を結ぶと、対称移動した $\triangle DEF$ ができます。
+
+**コツ**
+
+対応する点を結んだ線分は、対称の軸と垂直に交わり、対称の軸によって2等分されます。
+
+
+■問題2
+次の図の $\triangle ABC$ を、直線 $\ell$ を対称の軸として対称移動させてできる $\triangle DEF$ をかきなさい。
+
+【図】
+\begin{tikzpicture}[scale=0.75, line cap=round, line join=round]
+\draw[thick] (0,-2.3)--(0,2.5) node[above] {$\ell$};
+\coordinate (A) at (1.5,1.7);
+\coordinate (B) at (1.2,-1.2);
+\coordinate (C) at (3.4,0.2);
+\coordinate (D) at (-1.5,1.7);
+\coordinate (E) at (-1.2,-1.2);
+\coordinate (F) at (-3.4,0.2);
+\draw[thick] (A)--(B)--(C)--cycle;
+\node[above] at (A) {$A$};
+\node[below] at (B) {$B$};
+\node[right] at (C) {$C$};
+\end{tikzpicture}
+
+【解答】
+\[
+A\to D,\quad B\to E,\quad C\to F
+\]
+となるように、直線 $\ell$ に対して反対側の同じ距離の位置に点を取り、$D,E,F$ を結んだ $\triangle DEF$。
+
+【図】
+\begin{tikzpicture}[scale=0.75, line cap=round, line join=round]
+\draw[thick] (0,-2.3)--(0,2.5) node[above] {$\ell$};
+\coordinate (A) at (1.5,1.7);
+\coordinate (B) at (1.2,-1.2);
+\coordinate (C) at (3.4,0.2);
+\coordinate (D) at (-1.5,1.7);
+\coordinate (E) at (-1.2,-1.2);
+\coordinate (F) at (-3.4,0.2);
+\draw[thick] (A)--(B)--(C)--cycle;
+\draw[dashed, thick] (D)--(E)--(F)--cycle;
+\draw[dotted] (A)--(D);
+\draw[dotted] (B)--(E);
+\draw[dotted] (C)--(F);
+\node[above] at (A) {$A$};
+\node[below] at (B) {$B$};
+\node[right] at (C) {$C$};
+\node[above] at (D) {$D$};
+\node[below] at (E) {$E$};
+\node[left] at (F) {$F$};
+\end{tikzpicture}
+
+【解説】
+**ステップ1：折り返す直線を確認する**
+
+直線 $\ell$ が対称の軸です。
+
+**ステップ2：対応する点を作る**
+
+点 $A$ から直線 $\ell$ に垂線を引き、直線 $\ell$ の反対側に同じ距離だけ離れた点を $D$ とします。
+
+同じように、点 $B$ に対応する点を $E$、点 $C$ に対応する点を $F$ とします。
+
+**ステップ3：点を結ぶ**
+
+点 $D,E,F$ を結ぶと、対称移動した $\triangle DEF$ ができます。
+
+**間違えやすいポイント**
+
+対称移動では、図形は直線 $\ell$ を折り目として裏返ります。平行にそのままずらすわけではありません。
+
+
+■問題3
+$\triangle ABC$ を直線 $\ell$ を対称の軸として対称移動し、$\triangle DEF$ ができました。このとき、次の問いに答えなさい。
+
+【図】
+\begin{tikzpicture}[scale=0.7, line cap=round, line join=round]
+\draw[thick] (0,-2.4)--(0,2.6) node[above] {$\ell$};
+\coordinate (A) at (-2.2,1.7);
+\coordinate (B) at (-2.6,-1.2);
+\coordinate (C) at (-0.9,0.1);
+\coordinate (D) at (2.2,1.7);
+\coordinate (E) at (2.6,-1.2);
+\coordinate (F) at (0.9,0.1);
+\draw[thick] (A)--(B)--(C)--cycle;
+\draw[dashed, thick] (D)--(E)--(F)--cycle;
+\draw[dotted] (A)--(D);
+\draw[dotted] (B)--(E);
+\draw[dotted] (C)--(F);
+\node[above] at (A) {$A$};
+\node[below] at (B) {$B$};
+\node[above right] at (C) {$C$};
+\node[above] at (D) {$D$};
+\node[below] at (E) {$E$};
+\node[above left] at (F) {$F$};
+\end{tikzpicture}
+
+(1) 対応する点をすべて答えなさい。
+
+(2) 線分 $AD$、$BE$、$CF$ と直線 $\ell$ の関係を答えなさい。
+
+(3) 直線 $\ell$ は、線分 $AD$、$BE$、$CF$ をどのように分けていますか。
+
+【解答】
+(1)
+\[
+A\leftrightarrow D,\quad B\leftrightarrow E,\quad C\leftrightarrow F
+\]
+
+(2)
+\[
+AD\perp \ell,\quad BE\perp \ell,\quad CF\perp \ell
+\]
+
+(3) 直線 $\ell$ は、線分 $AD$、$BE$、$CF$ をそれぞれ2等分している。
+
+【解説】
+**ステップ1：対応する点を確認する**
+
+$\triangle ABC$ が対称移動して $\triangle DEF$ になっているので、
+\[
+A\leftrightarrow D,\quad B\leftrightarrow E,\quad C\leftrightarrow F
+\]
+です。
+
+**ステップ2：対応する点を結んだ線分を見る**
+
+対応する点を結ぶと、線分 $AD$、$BE$、$CF$ ができます。
+
+対称移動では、対応する点を結んだ線分は、対称の軸と垂直に交わります。
+
+したがって、
+\[
+AD\perp \ell,\quad BE\perp \ell,\quad CF\perp \ell
+\]
+です。
+
+**ステップ3：対称の軸が線分をどう分けるかを見る**
+
+対称移動では、対称の軸は、対応する点を結んだ線分を2等分します。
+
+したがって、直線 $\ell$ は、線分 $AD$、$BE$、$CF$ をそれぞれ2等分しています。
+
+**ポイント**
+
+対応する点を結んだ線分が、対称の軸によって垂直に2等分されることが、対称移動の大切な性質です。
 
 以上、生成例
