@@ -7,29 +7,45 @@
 - **対象**：中学3年生
 - **立場**：中学校の数学の教師として
 - **単元**：相似 ― 相似な三角形
-- **内容**：＊＊＊＊＊＊＊＊＊＊＊＊
+- **内容**：図形の中から相似な三角形を見つけ、2組の角がそれぞれ等しいことを根拠に、三角形の相似を証明できる
 - **レベル**：基礎レベル（教科書の基本問題レベル）
 
 ## 要件
 1. **問題形式**
    - 定期テストや入試を意識した形式
+   - 問題文は「次の図において、$\triangle ABC \sim \triangle DBA$ であることを証明しなさい。」のように、証明する相似を明示する形式にする
+   - 1つの大問の中に複数の小問を詰め込まず、複数の大問に分ける
+   - 各大問に図を1つずつつける
    - **順序**：問題 → 【解答】 → 【解説】
    - **見出し**：問題は「■問題1」のように通常表記、解答・解説は【】を用いる
    - **行末**：`■問題1`/`【解答】`/`【解説】` の行末には**半角スペース2つ**（改行扱い）
-2. **解答・解説**
+2. **図形・TikZルール**
+   - 図は必ず `\begin{tikzpicture} ... \end{tikzpicture}` で描く
+   - 図には頂点名、直角マーク、必要な垂線を入れる
+   - 直角マークや点名が辺や角度と重ならないようにする
+   - 必要に応じて、元の図だけでなく、向きをそろえた2つの三角形を並べた補助図も入れてよい
+   - 補助図を入れる場合は、対応する頂点や等しい角が見やすくなるようにする
+3. **解答・解説**
    - ***ステップバイステップ*** で分かりやすく
-   - 「間違えやすいポイント」や「コツ」を補足
-   - 必要に応じて「別解」や「ポイント整理」を提示
-3. **数式ルール**
+   - 解説のはじめに、三角形の相似条件を整理する
+   - 基本問題では、主に「2組の角がそれぞれ等しい」を使って証明する
+   - 証明では、次の流れを守る
+     - どの2つの三角形について考えるかを書く
+     - 仮定や垂線から、直角どうしが等しいことを書く
+     - 共通な角、または対頂角、または同じ三角形の残りの角から等しい角を見つける
+     - 「2組の角がそれぞれ等しいから」と書いて相似を結論づける
+   - 「向きをそろえると、対応する角や辺が見やすくなる」ことを補足する
+   - 相似を表すときは、対応する頂点の順番をそろえて `$\triangle ABC \sim \triangle DBA$` のように書く
+4. **数式ルール**
    - **ディスプレイ数式**：`\[ ... \]`
    - **インライン数式**：`$...$`
-   - **筆算の先頭**：列計算の最左に `+)` または `-)`、`×)` などを付ける
    - **分数**：`\frac` を使用（`\tfrac`は使わない）
    - **縦並び**：`=` の位置をそろえる（桁揃えで読みやすく）
    - **乗算記号**： `\times` に統一
-4. **出力形式**
+5. **出力形式**
    - プレーンテキスト形式（テキストファイルとしてダウンロード可能にする）
-   - ファイル名：相似―三角形の相似条件―基礎問題.txt
+   - ファイル名：相似―相似な三角形―基礎問題.txt
+
 ## 問題レベルの定義
 1. 基礎レベル
    - 教科書例題や章の導入問題（計算・定義確認）
@@ -52,10 +68,290 @@
    - 問題は「■問題1」の形式，解答・解説は【】を使用
    - 難易度は「教科書の基本問題レベル」を基準
    - つまずきやすい箇所には補足解説を加える
-   
-## 生成例  
-＊＊＊＊＊＊＊＊＊＊＊＊
-＊＊＊＊＊＊＊＊＊＊＊＊
+   - 証明は、いきなり結論を書かず、等しい角を2組見つけてから相似条件につなげる
+   - 相似記号を書くときは、対応する頂点の順番を必ずそろえる
+
+## 生成例
+
+■問題1
+$\angle A=90^\circ$ の直角三角形 $ABC$ において、頂点 $A$ から辺 $BC$ に垂線 $AD$ をひきます。次の図において、$\triangle ABC \sim \triangle DBA$ であることを証明しなさい。
+
+【図】
+\begin{tikzpicture}[scale=0.9, line cap=round, line join=round]
+\coordinate (A) at (0,2.6);
+\coordinate (B) at (-2.8,0);
+\coordinate (C) at (2.2,0);
+\coordinate (D) at (0,0);
+\draw (A)--(B)--(C)--cycle;
+\draw (A)--(D);
+\draw ($(A)!0.18!(B)$)--++(0.16,-0.18)--++(0.18,0.16);
+\draw (D)--++(0.24,0)--++(0,0.24)--++(-0.24,0);
+\node[above] at (A) {$A$};
+\node[below left] at (B) {$B$};
+\node[below right] at (C) {$C$};
+\node[below] at (D) {$D$};
+\end{tikzpicture}
+
+【解答】
+$\triangle ABC$ と $\triangle DBA$ において、
+
+仮定より、$\angle BAC=90^\circ$ であり、$AD \perp BC$ だから、
+\[
+\angle BAC=\angle BDA=90^\circ \quad \cdots ①
+\]
+
+また、$\angle ABC$ と $\angle DBA$ は共通な角であるから、
+\[
+\angle ABC=\angle DBA \quad \cdots ②
+\]
+
+①、②より、2組の角がそれぞれ等しいから、
+\[
+\triangle ABC \sim \triangle DBA
+\]
+
+【解説】
+**ポイント整理：三角形の相似条件**
+
+三角形の相似条件は、次の3つです。
+
+1. 2組の角がそれぞれ等しい
+2. 3組の辺の比がすべて等しい
+3. 2組の辺の比とその間の角がそれぞれ等しい
+
+この問題では、角の情報が分かりやすいので、「2組の角がそれぞれ等しい」を使います。
+
+**ステップ1：比べる三角形を確認する**
+
+$\triangle ABC$ と $\triangle DBA$ を比べます。
+
+向きをそろえて見ると、対応は
+\[
+A \leftrightarrow D,\quad B \leftrightarrow B,\quad C \leftrightarrow A
+\]
+です。
+
+**ステップ2：直角どうしを見つける**
+
+$\angle A=90^\circ$ なので、
+\[
+\angle BAC=90^\circ
+\]
+です。
+
+また、$AD \perp BC$ なので、
+\[
+\angle BDA=90^\circ
+\]
+です。
+
+したがって、
+\[
+\angle BAC=\angle BDA
+\]
+です。
+
+**ステップ3：共通な角を見つける**
+
+$\angle ABC$ と $\angle DBA$ は、どちらも点 $B$ の同じ角です。
+
+したがって、
+\[
+\angle ABC=\angle DBA
+\]
+です。
+
+**ステップ4：相似条件を使う**
+
+2組の角がそれぞれ等しいので、
+\[
+\triangle ABC \sim \triangle DBA
+\]
+です。
+
+**コツ**
+
+図のままだと対応が見えにくい場合があります。三角形の向きをそろえて考えると、どの角どうしが対応するかが見やすくなります。
+
+
+■問題2
+問題1の図において、$\triangle DBA \sim \triangle DAC$ であることを証明しなさい。
+
+【図】
+\begin{tikzpicture}[scale=0.9, line cap=round, line join=round]
+\coordinate (A) at (0,2.6);
+\coordinate (B) at (-2.8,0);
+\coordinate (C) at (2.2,0);
+\coordinate (D) at (0,0);
+\draw (A)--(B)--(C)--cycle;
+\draw (A)--(D);
+\draw ($(A)!0.18!(B)$)--++(0.16,-0.18)--++(0.18,0.16);
+\draw (D)--++(0.24,0)--++(0,0.24)--++(-0.24,0);
+\node[above] at (A) {$A$};
+\node[below left] at (B) {$B$};
+\node[below right] at (C) {$C$};
+\node[below] at (D) {$D$};
+\end{tikzpicture}
+
+【解答】
+$\triangle DBA$ と $\triangle DAC$ において、
+
+$AD \perp BC$ だから、
+\[
+\angle BDA=\angle ADC=90^\circ \quad \cdots ①
+\]
+
+また、$\triangle ABC$ で $\angle BAC=90^\circ$ だから、
+\[
+\angle DBA+\angle ACB=90^\circ
+\]
+
+$\triangle ADC$ で $\angle ADC=90^\circ$ だから、
+\[
+\angle DAC+\angle ACB=90^\circ
+\]
+
+したがって、
+\[
+\angle DBA=\angle DAC \quad \cdots ②
+\]
+
+①、②より、2組の角がそれぞれ等しいから、
+\[
+\triangle DBA \sim \triangle DAC
+\]
+
+【解説】
+**ステップ1：直角どうしを確認する**
+
+$AD \perp BC$ なので、
+\[
+\angle BDA=90^\circ,\quad \angle ADC=90^\circ
+\]
+です。
+
+したがって、
+\[
+\angle BDA=\angle ADC
+\]
+です。
+
+**ステップ2：もう1組の等しい角を見つける**
+
+ここでは、同じ角 $\angle ACB$ を使って考えます。
+
+$\triangle ABC$ は $\angle A=90^\circ$ の直角三角形なので、
+\[
+\angle DBA+\angle ACB=90^\circ
+\]
+です。
+
+また、$\triangle ADC$ は $\angle D=90^\circ$ の直角三角形なので、
+\[
+\angle DAC+\angle ACB=90^\circ
+\]
+です。
+
+どちらも $\angle ACB$ を足すと $90^\circ$ になるので、
+\[
+\angle DBA=\angle DAC
+\]
+です。
+
+**ステップ3：相似条件を使う**
+
+2組の角がそれぞれ等しいので、
+\[
+\triangle DBA \sim \triangle DAC
+\]
+です。
+
+**間違えやすいポイント**
+
+$\triangle DBA$ と $\triangle DAC$ は、図の中で向きが違って見えます。対応する角を確認してから、頂点の順番をそろえて相似を表します。
+
+
+■問題3
+右の図のように、$\triangle ABC$ について、頂点 $A$ から辺 $BC$ に垂線 $AD$ を、頂点 $B$ から辺 $AC$ に垂線 $BE$ をひきます。$AD$ と $BE$ の交点を $F$ とするとき、$\triangle BDF \sim \triangle AEF$ であることを証明しなさい。
+
+【図】
+\begin{tikzpicture}[scale=0.85, line cap=round, line join=round]
+\coordinate (B) at (0,0);
+\coordinate (C) at (4.2,0);
+\coordinate (A) at (3.4,3.6);
+\coordinate (D) at (3.4,0);
+\coordinate (E) at ($(A)!0.28!(C)$);
+\coordinate (F) at (3.4,1.65);
+\draw (A)--(B)--(C)--cycle;
+\draw (A)--(D);
+\draw (B)--(E);
+\draw (D)--++(0.24,0)--++(0,0.24)--++(-0.24,0);
+\draw ($(E)!0.5!(A)$) ++(0.07,-0.18)--++(0.18,0.08)--++(-0.08,0.18);
+\node[above] at (A) {$A$};
+\node[below left] at (B) {$B$};
+\node[below right] at (C) {$C$};
+\node[below] at (D) {$D$};
+\node[right] at (E) {$E$};
+\node[left] at (F) {$F$};
+\end{tikzpicture}
+
+【解答】
+$\triangle BDF$ と $\triangle AEF$ において、
+
+$AD \perp BC$、$BE \perp AC$ だから、
+\[
+\angle BDF=\angle AEF=90^\circ \quad \cdots ①
+\]
+
+また、$\angle BFD$ と $\angle AFE$ は対頂角なので、
+\[
+\angle BFD=\angle AFE \quad \cdots ②
+\]
+
+①、②より、2組の角がそれぞれ等しいから、
+\[
+\triangle BDF \sim \triangle AEF
+\]
+
+【解説】
+**ステップ1：直角どうしを確認する**
+
+$AD \perp BC$ なので、
+\[
+\angle BDF=90^\circ
+\]
+です。
+
+$BE \perp AC$ なので、
+\[
+\angle AEF=90^\circ
+\]
+です。
+
+したがって、
+\[
+\angle BDF=\angle AEF
+\]
+です。
+
+**ステップ2：対頂角を確認する**
+
+直線 $AD$ と $BE$ が交わっているので、
+\[
+\angle BFD=\angle AFE
+\]
+です。
+
+**ステップ3：相似条件を使う**
+
+2組の角がそれぞれ等しいので、
+\[
+\triangle BDF \sim \triangle AEF
+\]
+です。
+
+**ポイント**
+
+垂線が2本ある図では、まず直角を探します。次に、交点のまわりの対頂角を使うと、2組の角がそろいます。
 
 以上、生成例
-
