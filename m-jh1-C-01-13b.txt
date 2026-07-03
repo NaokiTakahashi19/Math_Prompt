@@ -7,29 +7,49 @@
 - **対象**：中学1年生
 - **立場**：中学校の数学の教師として
 - **単元**：平面図形 ― 作図の基本（いろいろな作図）
-- **内容**：＊＊＊＊＊＊＊＊＊＊＊＊
+- **内容**：垂直二等分線、角の二等分線、垂線、正三角形などの基本作図を組み合わせて、条件を満たす点や線を作図できる
 - **レベル**：基礎レベル（教科書の基本問題レベル）
 
 ## 要件
 1. **問題形式**
    - 定期テストや入試を意識した形式
+   - 垂直二等分線、角の二等分線、垂線、正三角形の作図を組み合わせる問題を扱う
+   - 条件を満たす点や線を作図する問題を中心にする
+   - 1問につき、使う基本作図が多すぎないようにする
+   - 1つの大問の中に複数の小問を詰め込みすぎず、複数の大問に分ける
    - **順序**：問題 → 【解答】 → 【解説】
    - **見出し**：問題は「■問題1」のように通常表記、解答・解説は【】を用いる
    - **行末**：`■問題1`/`【解答】`/`【解説】` の行末には**半角スペース2つ**（改行扱い）
-2. **解答・解説**
+2. **図形・TikZルール**
+   - 図は必ず `\begin{tikzpicture} ... \end{tikzpicture}` で描く
+   - 問題図と作図後の図を必要に応じて分けて示す
+   - 作図に使う弧は薄い線または点線で描く
+   - 完成した線や求める点は、ほかの補助線より目立つようにする
+   - 点名、角度、弧、線分の長さが重ならないように配置する
+   - 作図の跡が分かるように、補助線や弧を残してよい
+3. **解答・解説**
    - ***ステップバイステップ*** で分かりやすく
-   - 「間違えやすいポイント」や「コツ」を補足
-   - 必要に応じて「別解」や「ポイント整理」を提示
-3. **数式ルール**
+   - 解説のはじめに「どの基本作図を使うか」を整理する
+   - 作図で使う基本事項を必要に応じて確認する
+     - 2点から等しい距離にある点は、2点を結ぶ線分の垂直二等分線上にある
+     - 2辺までの距離が等しい点は、その角の二等分線上にある
+     - 線分の中点や折り目は、垂直二等分線を利用して作図できる
+     - $45^\circ$ は直角の二等分で作図できる
+     - $30^\circ$ は正三角形の $60^\circ$ を二等分して作図できる
+   - 問題文の条件を、作図で使える言葉に言いかえる
+   - 例：「2点 $A,B$ から等しい距離」→「線分 $AB$ の垂直二等分線」
+   - 例：「2辺 $AB,BC$ までの距離が等しい」→「$\angle ABC$ の二等分線」
+   - 最後に、作図した点や線が条件を満たす理由を短く確認する
+4. **数式ルール**
    - **ディスプレイ数式**：`\[ ... \]`
    - **インライン数式**：`$...$`
-   - **筆算の先頭**：列計算の最左に `+)` または `-)`、`×)` などを付ける
    - **分数**：`\frac` を使用（`\tfrac`は使わない）
    - **縦並び**：`=` の位置をそろえる（桁揃えで読みやすく）
    - **乗算記号**： `\times` に統一
-4. **出力形式**
+5. **出力形式**
    - プレーンテキスト形式（テキストファイルとしてダウンロード可能にする）
    - ファイル名：平面図形―作図の基本（いろいろな作図）―基礎問題.txt
+
 ## 問題レベルの定義
 1. 基礎レベル
    - 教科書例題や章の導入問題（計算・定義確認）
@@ -52,9 +72,369 @@
    - 問題は「■問題1」の形式，解答・解説は【】を使用
    - 難易度は「教科書の基本問題レベル」を基準
    - つまずきやすい箇所には補足解説を加える
-## 生成例  
-＊＊＊＊＊＊＊＊＊＊＊＊
-＊＊＊＊＊＊＊＊＊＊＊＊
+   - 作図では、定規で長さを測らず、コンパスで等しい長さを取ることを強調する
+   - 作図の手順だけでなく、「なぜその作図をするのか」を説明する
+   - 条件を図形の性質に言いかえる部分を重視する
+
+## 生成例
+
+■問題1
+右の図の $\triangle ABC$ で、2点 $A,B$ から等しい距離にあり、さらに2辺 $BA,BC$ までの距離が等しい点 $P$ を作図しなさい。
+
+【図】
+\begin{tikzpicture}[scale=0.85, line cap=round, line join=round]
+\coordinate (A) at (0.3,2.8);
+\coordinate (B) at (-2.0,0);
+\coordinate (C) at (2.4,0);
+\draw[thick] (A)--(B)--(C)--cycle;
+\fill (A) circle (1.5pt);
+\fill (B) circle (1.5pt);
+\fill (C) circle (1.5pt);
+\node[above] at (A) {$A$};
+\node[below left] at (B) {$B$};
+\node[below right] at (C) {$C$};
+\end{tikzpicture}
+
+【解答】
+線分 $AB$ の垂直二等分線と、$\angle ABC$ の二等分線の交点を $P$ とする。
+
+【図】
+\begin{tikzpicture}[scale=0.85, line cap=round, line join=round]
+\coordinate (A) at (0.3,2.8);
+\coordinate (B) at (-2.0,0);
+\coordinate (C) at (2.4,0);
+\coordinate (P) at (-0.35,1.15);
+\coordinate (E) at (-1.26,0.90);
+\coordinate (F) at (-0.99,0);
+\draw[thick] (A)--(B)--(C)--cycle;
+\draw[dashed, gray] (A) circle (2.2);
+\draw[dashed, gray] (B) circle (2.2);
+\draw[thick] (-1.45,2.45)--(0.75,-0.35);
+\draw[dashed, gray] (B) circle (1.0);
+\draw[dashed, gray] (E) circle (1.05);
+\draw[dashed, gray] (F) circle (1.05);
+\draw[thick] (B)--(0.2,1.45);
+\fill (A) circle (1.5pt);
+\fill (B) circle (1.5pt);
+\fill (C) circle (1.5pt);
+\fill (P) circle (1.8pt);
+\node[above] at (A) {$A$};
+\node[below left] at (B) {$B$};
+\node[below right] at (C) {$C$};
+\node[right] at (P) {$P$};
+\end{tikzpicture}
+
+【解説】
+**ステップ1：条件を作図の言葉に言いかえる**
+
+「2点 $A,B$ から等しい距離にある点」は、線分 $AB$ の垂直二等分線上にあります。
+
+また、「2辺 $BA,BC$ までの距離が等しい点」は、$\angle ABC$ の二等分線上にあります。
+
+したがって、次の2つを作図します。
+
+\[
+\begin{aligned}
+&\text{線分 }AB\text{ の垂直二等分線}\\
+&\angle ABC\text{ の二等分線}
+\end{aligned}
+\]
+
+**ステップ2：線分 $AB$ の垂直二等分線を作図する**
+
+点 $A$、点 $B$ を中心として、同じ半径の弧をかきます。
+
+その交点を結ぶと、線分 $AB$ の垂直二等分線ができます。
+
+**ステップ3：$\angle ABC$ の二等分線を作図する**
+
+点 $B$ を中心に弧をかき、辺 $BA,BC$ との交点を作ります。
+
+その2つの交点から同じ半径の弧をかき、弧の交点と点 $B$ を結ぶと、$\angle ABC$ の二等分線ができます。
+
+**ステップ4：交点をとる**
+
+線分 $AB$ の垂直二等分線と、$\angle ABC$ の二等分線の交点を $P$ とします。
+
+点 $P$ はどちらの条件も満たすので、求める点です。
+
+**ポイント**
+
+いろいろな作図では、まず問題文の条件を「どの基本作図を使うか」に言いかえることが大切です。
+
+
+■問題2
+次の図のような三角形の紙があります。頂点 $A$ が辺 $BC$ 上の点 $P$ と重なるように折りたい。折り目となる線分を作図しなさい。
+
+【図】
+\begin{tikzpicture}[scale=0.85, line cap=round, line join=round]
+\coordinate (A) at (0,2.8);
+\coordinate (B) at (-2.4,0);
+\coordinate (C) at (2.4,0);
+\coordinate (P) at (0.8,0);
+\draw[thick] (A)--(B)--(C)--cycle;
+\fill (A) circle (1.5pt);
+\fill (B) circle (1.5pt);
+\fill (C) circle (1.5pt);
+\fill (P) circle (1.5pt);
+\node[above] at (A) {$A$};
+\node[below left] at (B) {$B$};
+\node[below right] at (C) {$C$};
+\node[below] at (P) {$P$};
+\end{tikzpicture}
+
+【解答】
+線分 $AP$ の垂直二等分線を作図する。この直線が折り目になる。
+
+【図】
+\begin{tikzpicture}[scale=0.85, line cap=round, line join=round]
+\coordinate (A) at (0,2.8);
+\coordinate (B) at (-2.4,0);
+\coordinate (C) at (2.4,0);
+\coordinate (P) at (0.8,0);
+\coordinate (M) at (0.4,1.4);
+\draw[thick] (A)--(B)--(C)--cycle;
+\draw[dashed, gray] (A) circle (2.1);
+\draw[dashed, gray] (P) circle (2.1);
+\draw[very thick] (-1.15,0.95)--(1.95,1.85);
+\draw[dotted] (A)--(P);
+\fill (A) circle (1.5pt);
+\fill (B) circle (1.5pt);
+\fill (C) circle (1.5pt);
+\fill (P) circle (1.5pt);
+\fill (M) circle (1.5pt);
+\node[above] at (A) {$A$};
+\node[below left] at (B) {$B$};
+\node[below right] at (C) {$C$};
+\node[below] at (P) {$P$};
+\node[right] at (M) {$M$};
+\end{tikzpicture}
+
+【解説】
+**ステップ1：折り目の性質を考える**
+
+点 $A$ が点 $P$ に重なるように折るとき、折り目は線分 $AP$ の垂直二等分線になります。
+
+折り目上の点は、折り重なる2点 $A,P$ からの距離が等しくなるからです。
+
+**ステップ2：線分 $AP$ の垂直二等分線を作図する**
+
+点 $A$、点 $P$ を中心として、同じ半径の弧をかきます。
+
+その交点を結ぶと、線分 $AP$ の垂直二等分線ができます。
+
+**ステップ3：折り目を確認する**
+
+作図した線分 $AP$ の垂直二等分線が、求める折り目です。
+
+**間違えやすいポイント**
+
+頂点 $A$ と重なる点は $P$ なので、作図するのは線分 $AP$ の垂直二等分線です。線分 $BC$ の垂直二等分線ではありません。
+
+
+■問題3
+3点 $A,B,C$ から等しい距離にある点 $P$ を作図しなさい。
+
+【図】
+\begin{tikzpicture}[scale=0.85, line cap=round, line join=round]
+\coordinate (A) at (-1.6,1.5);
+\coordinate (B) at (-0.3,-1.0);
+\coordinate (C) at (2.0,0.7);
+\fill (A) circle (1.8pt);
+\fill (B) circle (1.8pt);
+\fill (C) circle (1.8pt);
+\node[above left] at (A) {$A$};
+\node[below] at (B) {$B$};
+\node[right] at (C) {$C$};
+\end{tikzpicture}
+
+【解答】
+線分 $AB$ の垂直二等分線と、線分 $BC$ の垂直二等分線の交点を $P$ とする。
+
+【図】
+\begin{tikzpicture}[scale=0.85, line cap=round, line join=round]
+\coordinate (A) at (-1.6,1.5);
+\coordinate (B) at (-0.3,-1.0);
+\coordinate (C) at (2.0,0.7);
+\coordinate (P) at (0.14,0.82);
+\draw[dashed, gray] (A)--(B)--(C)--cycle;
+\draw[dashed, gray] (A) circle (2.0);
+\draw[dashed, gray] (B) circle (2.0);
+\draw[dashed, gray] (B) circle (1.8);
+\draw[dashed, gray] (C) circle (1.8);
+\draw[thick] (-1.8,-0.19)--(1.1,1.32);
+\draw[thick] (-0.4,1.54)--(1.4,-0.89);
+\draw[dotted] (P)--(A);
+\draw[dotted] (P)--(B);
+\draw[dotted] (P)--(C);
+\fill (A) circle (1.8pt);
+\fill (B) circle (1.8pt);
+\fill (C) circle (1.8pt);
+\fill (P) circle (1.8pt);
+\node[above left] at (A) {$A$};
+\node[below] at (B) {$B$};
+\node[right] at (C) {$C$};
+\node[above] at (P) {$P$};
+\end{tikzpicture}
+
+【解説】
+**ステップ1：条件を言いかえる**
+
+点 $P$ は、3点 $A,B,C$ から等しい距離にある点です。
+
+まず、2点 $A,B$ から等しい距離にある点は、線分 $AB$ の垂直二等分線上にあります。
+
+また、2点 $B,C$ から等しい距離にある点は、線分 $BC$ の垂直二等分線上にあります。
+
+**ステップ2：2本の垂直二等分線を作図する**
+
+線分 $AB$ の垂直二等分線を作図します。
+
+次に、線分 $BC$ の垂直二等分線を作図します。
+
+**ステップ3：交点をとる**
+
+2本の垂直二等分線の交点を $P$ とします。
+
+このとき、
+\[
+PA=PB,\quad PB=PC
+\]
+なので、
+\[
+PA=PB=PC
+\]
+となります。
+
+したがって、点 $P$ は3点 $A,B,C$ から等しい距離にある点です。
+
+
+■問題4
+半直線 $OA$ をもとに、$\angle POA=45^\circ$ となる半直線 $OP$ を作図しなさい。
+
+【図】
+\begin{tikzpicture}[scale=0.9, line cap=round, line join=round]
+\coordinate (O) at (0,0);
+\coordinate (A) at (3,0);
+\draw[thick] (O)--(A);
+\fill (O) circle (1.5pt);
+\fill (A) circle (1.5pt);
+\node[below] at (O) {$O$};
+\node[below] at (A) {$A$};
+\end{tikzpicture}
+
+【解答】
+点 $O$ で半直線 $OA$ に垂線を立てて直角を作り、その直角を二等分した半直線を $OP$ とする。
+
+【図】
+\begin{tikzpicture}[scale=0.9, line cap=round, line join=round]
+\coordinate (O) at (0,0);
+\coordinate (A) at (3,0);
+\coordinate (Q) at (0,2.5);
+\coordinate (P) at (2.0,2.0);
+\draw[thick] (O)--(A);
+\draw[dashed] (O)--(Q);
+\draw[very thick] (O)--(P);
+\draw[dashed, gray] (O) circle (1.0);
+\draw[dashed, gray] (1,0) circle (1.2);
+\draw[dashed, gray] (0,1) circle (1.2);
+\draw (0.5,0) arc (0:45:0.5);
+\node at (0.9,0.32) {$45^\circ$};
+\fill (O) circle (1.5pt);
+\fill (A) circle (1.5pt);
+\fill (P) circle (1.5pt);
+\node[below] at (O) {$O$};
+\node[below] at (A) {$A$};
+\node[above right] at (P) {$P$};
+\end{tikzpicture}
+
+【解説】
+**ステップ1：$45^\circ$ の作り方を確認する**
+
+$45^\circ$ は、$90^\circ$ の半分です。
+
+したがって、まず点 $O$ で半直線 $OA$ に垂線を立てて、直角を作ります。
+
+**ステップ2：直角を二等分する**
+
+作った直角を、角の二等分線の作図で二等分します。
+
+その二等分線を半直線 $OP$ とします。
+
+**ステップ3：角の大きさを確認する**
+
+直角 $90^\circ$ を二等分したので、
+\[
+\angle POA=45^\circ
+\]
+となります。
+
+
+■問題5
+半直線 $OA$ をもとに、$\angle POA=30^\circ$ となる半直線 $OP$ を作図しなさい。
+
+【図】
+\begin{tikzpicture}[scale=0.9, line cap=round, line join=round]
+\coordinate (O) at (0,0);
+\coordinate (A) at (3,0);
+\draw[thick] (O)--(A);
+\fill (O) circle (1.5pt);
+\fill (A) circle (1.5pt);
+\node[below] at (O) {$O$};
+\node[below] at (A) {$A$};
+\end{tikzpicture}
+
+【解答】
+半直線 $OA$ を1辺とする正三角形を作って $60^\circ$ を作り、その角を二等分した半直線を $OP$ とする。
+
+【図】
+\begin{tikzpicture}[scale=0.9, line cap=round, line join=round]
+\coordinate (O) at (0,0);
+\coordinate (A) at (3,0);
+\coordinate (Q) at (1.5,2.598);
+\coordinate (P) at (2.4,1.39);
+\draw[thick] (O)--(A);
+\draw[dashed] (O)--(Q)--(A);
+\draw[very thick] (O)--(P);
+\draw[dashed, gray] (O) circle (3);
+\draw[dashed, gray] (A) circle (3);
+\draw (0.65,0) arc (0:30:0.65);
+\node at (1.05,0.28) {$30^\circ$};
+\fill (O) circle (1.5pt);
+\fill (A) circle (1.5pt);
+\fill (Q) circle (1.5pt);
+\fill (P) circle (1.5pt);
+\node[below] at (O) {$O$};
+\node[below] at (A) {$A$};
+\node[above] at (Q) {$Q$};
+\node[above right] at (P) {$P$};
+\end{tikzpicture}
+
+【解説】
+**ステップ1：$60^\circ$ を作る**
+
+半直線 $OA$ を1辺とする正三角形を作ると、
+\[
+\angle QOA=60^\circ
+\]
+となります。
+
+**ステップ2：$60^\circ$ を二等分する**
+
+角の二等分線の作図を使って、$\angle QOA$ を二等分します。
+
+その二等分線を半直線 $OP$ とします。
+
+**ステップ3：角の大きさを確認する**
+
+$60^\circ$ を二等分したので、
+\[
+\angle POA=30^\circ
+\]
+となります。
+
+**ポイント**
+
+$30^\circ$ は正三角形で作った $60^\circ$ を二等分して作図します。
 
 以上、生成例
-

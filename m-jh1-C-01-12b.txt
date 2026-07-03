@@ -7,29 +7,51 @@
 - **対象**：中学1年生
 - **立場**：中学校の数学の教師として
 - **単元**：平面図形 ― 作図の基本（角の二等分線の作図）
-- **内容**：＊＊＊＊＊＊＊＊＊＊＊＊
+- **内容**：定規とコンパスを使って角の二等分線を作図し、角の二等分線上の点と角の2辺までの距離の関係を理解できる
 - **レベル**：基礎レベル（教科書の基本問題レベル）
 
 ## 要件
 1. **問題形式**
    - 定期テストや入試を意識した形式
+   - $\angle AOB$ や三角形の角の二等分線を作図する問題を中心にする
+   - 角の二等分線と辺との交点を求める問題を含める
+   - 「2辺までの距離が等しい点」を、角の二等分線を使って作図する問題も含める
+   - 1つの大問の中に複数の小問を詰め込みすぎず、複数の大問に分ける
    - **順序**：問題 → 【解答】 → 【解説】
    - **見出し**：問題は「■問題1」のように通常表記、解答・解説は【】を用いる
    - **行末**：`■問題1`/`【解答】`/`【解説】` の行末には**半角スペース2つ**（改行扱い）
-2. **解答・解説**
+2. **図形・TikZルール**
+   - 図は必ず `\begin{tikzpicture} ... \end{tikzpicture}` で描く
+   - 問題図と作図後の図を必要に応じて分けて示す
+   - 作図に使う弧は薄い線または点線で描く
+   - 完成した角の二等分線や求める点は、ほかの補助線より目立つようにする
+   - 点名、角度、弧、補助線が重ならないように配置する
+   - 角の2辺と弧の交点は $C,D$、弧どうしの交点は $E$ などとしてよい
+3. **解答・解説**
    - ***ステップバイステップ*** で分かりやすく
-   - 「間違えやすいポイント」や「コツ」を補足
-   - 必要に応じて「別解」や「ポイント整理」を提示
-3. **数式ルール**
+   - 解説のはじめに、角の二等分線の意味と性質を説明する
+     - 1つの角を2等分する半直線を、その角の二等分線という
+     - 角の二等分線は、その角の対称の軸である
+     - 角の二等分線上の点から角の2辺までの距離は等しい
+     - 角の内部にあり、角の2辺までの距離が等しい点は、角の二等分線上にある
+   - 作図手順は、次の流れで説明する
+     - 角の頂点を中心として弧をかき、角の2辺との交点を $C,D$ とする
+     - $C,D$ を中心として同じ半径の弧をかき、その交点を $E$ とする
+     - 頂点と $E$ を結ぶ
+     - 頂点と $E$ を結んだ半直線が角の二等分線になる
+   - 三角形の問題では、どの角の二等分線を作図するのかを最初に確認する
+   - 「2辺までの距離が等しい」という条件は、角の二等分線に言いかえる
+   - 最後に、作図した点や線が条件を満たす理由を短く確認する
+4. **数式ルール**
    - **ディスプレイ数式**：`\[ ... \]`
    - **インライン数式**：`$...$`
-   - **筆算の先頭**：列計算の最左に `+)` または `-)`、`×)` などを付ける
    - **分数**：`\frac` を使用（`\tfrac`は使わない）
    - **縦並び**：`=` の位置をそろえる（桁揃えで読みやすく）
    - **乗算記号**： `\times` に統一
-4. **出力形式**
+5. **出力形式**
    - プレーンテキスト形式（テキストファイルとしてダウンロード可能にする）
    - ファイル名：平面図形―作図の基本（角の二等分線の作図）―基礎問題.txt
+
 ## 問題レベルの定義
 1. 基礎レベル
    - 教科書例題や章の導入問題（計算・定義確認）
@@ -52,9 +74,235 @@
    - 問題は「■問題1」の形式，解答・解説は【】を使用
    - 難易度は「教科書の基本問題レベル」を基準
    - つまずきやすい箇所には補足解説を加える
-## 生成例  
-＊＊＊＊＊＊＊＊＊＊＊＊
-＊＊＊＊＊＊＊＊＊＊＊＊
+   - 作図では、定規で長さを測らず、コンパスで等しい長さを取ることを強調する
+   - 弧をかくときは、コンパスの開きを変えない場面をはっきり説明する
+   - 作図の手順だけでなく、「なぜその作図をするのか」を説明する
+
+## 生成例
+
+■問題1
+$\angle AOB$ の二等分線を作図しなさい。
+
+【図】
+\begin{tikzpicture}[scale=0.9, line cap=round, line join=round]
+\coordinate (O) at (0,0);
+\coordinate (A) at (3.0,1.8);
+\coordinate (B) at (3.4,0);
+\draw[thick] (O)--(A);
+\draw[thick] (O)--(B);
+\fill (O) circle (1.5pt);
+\node[left] at (O) {$O$};
+\node[above right] at (A) {$A$};
+\node[right] at (B) {$B$};
+\end{tikzpicture}
+
+【解答】
+点 $O$ を中心とする弧をかき、角の2辺との交点を $C,D$ とする。
+点 $C,D$ を中心として同じ半径の弧をかき、その交点を $E$ とする。
+半直線 $OE$ が、$\angle AOB$ の二等分線である。
+
+【図】
+\begin{tikzpicture}[scale=0.9, line cap=round, line join=round]
+\coordinate (O) at (0,0);
+\coordinate (A) at (3.0,1.8);
+\coordinate (B) at (3.4,0);
+\coordinate (C) at (1.72,1.03);
+\coordinate (D) at (2.0,0);
+\coordinate (E) at (2.7,0.55);
+\draw[thick] (O)--(A);
+\draw[thick] (O)--(B);
+\draw[dashed, gray] (2,0) arc (0:31:2.0);
+\draw[dashed, gray] (C) circle (1.1);
+\draw[dashed, gray] (D) circle (1.1);
+\draw[very thick] (O)--(3.2,0.65);
+\draw (0.75,0) arc (0:16:0.75);
+\draw (0.55,0.29) arc (28:16:0.75);
+\fill (O) circle (1.5pt);
+\fill (C) circle (1.4pt);
+\fill (D) circle (1.4pt);
+\fill (E) circle (1.5pt);
+\node[left] at (O) {$O$};
+\node[above right] at (A) {$A$};
+\node[right] at (B) {$B$};
+\node[above] at (C) {$C$};
+\node[below] at (D) {$D$};
+\node[above right] at (E) {$E$};
+\end{tikzpicture}
+
+【解説】
+**ポイント整理：角の二等分線**
+
+1つの角を2等分する半直線を、その角の二等分線といいます。
+
+角の二等分線上の点から、角の2辺までの距離は等しくなります。
+
+**ステップ1：頂点 $O$ を中心に弧をかく**
+
+点 $O$ を中心として弧をかき、角の2辺 $OA,OB$ との交点を $C,D$ とします。
+
+**ステップ2：点 $C,D$ を中心に弧をかく**
+
+点 $C$ と点 $D$ をそれぞれ中心として、同じ半径の弧をかきます。
+
+このとき、コンパスの開きは変えません。
+
+2つの弧の交点を $E$ とします。
+
+**ステップ3：頂点と交点を結ぶ**
+
+定規で半直線 $OE$ をひきます。
+
+この半直線 $OE$ が、$\angle AOB$ の二等分線です。
+
+**コツ**
+
+角の二等分線は、角の内部をちょうど半分に分ける半直線です。
+作図では、角の2辺上に同じ条件の点を作ってから、その中間の方向を見つけます。
+
+
+■問題2
+右の図の $\triangle ABC$ で、$\angle B$ の二等分線と辺 $AC$ との交点を $P$ とします。点 $P$ を作図しなさい。
+
+【図】
+\begin{tikzpicture}[scale=0.85, line cap=round, line join=round]
+\coordinate (A) at (0.4,3.0);
+\coordinate (B) at (-2.3,0);
+\coordinate (C) at (2.5,0);
+\draw[thick] (A)--(B)--(C)--cycle;
+\fill (A) circle (1.5pt);
+\fill (B) circle (1.5pt);
+\fill (C) circle (1.5pt);
+\node[above] at (A) {$A$};
+\node[below left] at (B) {$B$};
+\node[below right] at (C) {$C$};
+\end{tikzpicture}
+
+【解答】
+$\angle ABC$ の二等分線を作図し、その二等分線と辺 $AC$ の交点を $P$ とする。
+
+【図】
+\begin{tikzpicture}[scale=0.85, line cap=round, line join=round]
+\coordinate (A) at (0.4,3.0);
+\coordinate (B) at (-2.3,0);
+\coordinate (C) at (2.5,0);
+\coordinate (D) at (-1.0,1.45);
+\coordinate (E) at (-0.8,0);
+\coordinate (F) at (-0.15,1.15);
+\coordinate (P) at (1.36,1.63);
+\draw[thick] (A)--(B)--(C)--cycle;
+\draw[dashed, gray] (B) circle (2.0);
+\draw[dashed, gray] (D) circle (1.35);
+\draw[dashed, gray] (E) circle (1.35);
+\draw[very thick] (B)--(P);
+\fill (A) circle (1.5pt);
+\fill (B) circle (1.5pt);
+\fill (C) circle (1.5pt);
+\fill (P) circle (1.8pt);
+\node[above] at (A) {$A$};
+\node[below left] at (B) {$B$};
+\node[below right] at (C) {$C$};
+\node[right] at (P) {$P$};
+\end{tikzpicture}
+
+【解説】
+**ステップ1：どの角を二等分するか確認する**
+
+問題では、$\angle B$ の二等分線を使います。
+
+つまり、$\angle ABC$ の二等分線を作図します。
+
+**ステップ2：$\angle ABC$ の二等分線を作図する**
+
+点 $B$ を中心として弧をかき、辺 $BA,BC$ との交点を作ります。
+
+その2つの交点を中心として、同じ半径の弧をかきます。
+
+弧の交点と点 $B$ を結ぶと、$\angle ABC$ の二等分線ができます。
+
+**ステップ3：辺 $AC$ との交点をとる**
+
+作図した角の二等分線と辺 $AC$ の交点を $P$ とします。
+
+したがって、求める点は $P$ です。
+
+**間違えやすいポイント**
+
+$\angle B$ の二等分線なので、頂点 $B$ から出る半直線を作図します。
+頂点 $A$ や頂点 $C$ から二等分線を引かないように注意します。
+
+
+■問題3
+右の図の $\triangle ABC$ で、辺 $BC$ 上にあり、2辺 $AB,AC$ までの距離が等しい点を $P$ とします。点 $P$ を作図しなさい。
+
+【図】
+\begin{tikzpicture}[scale=0.85, line cap=round, line join=round]
+\coordinate (A) at (0,3.0);
+\coordinate (B) at (-2.4,0);
+\coordinate (C) at (2.4,0);
+\draw[thick] (A)--(B)--(C)--cycle;
+\fill (A) circle (1.5pt);
+\fill (B) circle (1.5pt);
+\fill (C) circle (1.5pt);
+\node[above] at (A) {$A$};
+\node[below left] at (B) {$B$};
+\node[below right] at (C) {$C$};
+\end{tikzpicture}
+
+【解答】
+$\angle A$ の二等分線を作図し、その二等分線と辺 $BC$ の交点を $P$ とする。
+
+【図】
+\begin{tikzpicture}[scale=0.85, line cap=round, line join=round]
+\coordinate (A) at (0,3.0);
+\coordinate (B) at (-2.4,0);
+\coordinate (C) at (2.4,0);
+\coordinate (D) at (-0.9,1.9);
+\coordinate (E) at (0.9,1.9);
+\coordinate (F) at (0,1.25);
+\coordinate (P) at (0,0);
+\draw[thick] (A)--(B)--(C)--cycle;
+\draw[dashed, gray] (A) circle (1.4);
+\draw[dashed, gray] (D) circle (1.05);
+\draw[dashed, gray] (E) circle (1.05);
+\draw[very thick] (A)--(P);
+\fill (A) circle (1.5pt);
+\fill (B) circle (1.5pt);
+\fill (C) circle (1.5pt);
+\fill (P) circle (1.8pt);
+\node[above] at (A) {$A$};
+\node[below left] at (B) {$B$};
+\node[below right] at (C) {$C$};
+\node[below] at (P) {$P$};
+\end{tikzpicture}
+
+【解説】
+**ステップ1：条件を作図の言葉に言いかえる**
+
+点 $P$ は、2辺 $AB,AC$ までの距離が等しい点です。
+
+角の内部にあり、角の2辺までの距離が等しい点は、その角の二等分線上にあります。
+
+したがって、$\angle A$ の二等分線を作図します。
+
+**ステップ2：$\angle A$ の二等分線を作図する**
+
+点 $A$ を中心として弧をかき、辺 $AB,AC$ との交点を作ります。
+
+その2つの交点を中心として、同じ半径の弧をかきます。
+
+弧の交点と点 $A$ を結ぶと、$\angle A$ の二等分線ができます。
+
+**ステップ3：辺 $BC$ との交点をとる**
+
+作図した角の二等分線と辺 $BC$ の交点を $P$ とします。
+
+点 $P$ は角の二等分線上にあるので、2辺 $AB,AC$ までの距離が等しくなります。
+
+したがって、求める点は $P$ です。
+
+**ポイント**
+
+「2辺までの距離が等しい点」は、角の二等分線上にあります。
+この言いかえができると、どの基本作図を使えばよいかが分かりやすくなります。
 
 以上、生成例
-
