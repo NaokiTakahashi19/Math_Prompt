@@ -2,3 +2,4 @@
 openclaw/
 node_modules/
 .env
+tikz_app/.run/

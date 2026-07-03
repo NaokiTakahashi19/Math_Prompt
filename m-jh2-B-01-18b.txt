@@ -173,7 +173,31 @@ AB=5,\quad BC=8,\quad CD=5
 です。
 
 ■問題2
-問題1の設定で、点 $P$ が辺 $AB$ 上、辺 $BC$ 上、辺 $CD$ 上にあるときの $x$ と $y$ の関係を、それぞれ式で表しなさい。
+次の図の長方形 $ABCD$ で、$AB=5\,\mathrm{cm}$、$AD=8\,\mathrm{cm}$ とします。
+点 $P$ は点 $A$ を出発して、辺 $AB$、辺 $BC$、辺 $CD$ 上を通って点 $D$ まで動きます。
+点 $P$ が点 $A$ から $x\,\mathrm{cm}$ 動いたときの $\triangle APD$ の面積を $y\,\mathrm{cm^2}$ とします。
+
+点 $P$ が辺 $AB$ 上、辺 $BC$ 上、辺 $CD$ 上にあるときの $x$ と $y$ の関係を、それぞれ式で表しなさい。
+
+【図】
+\begin{tikzpicture}[scale=0.75, line cap=round, line join=round]
+\coordinate (A) at (0,4);
+\coordinate (B) at (0,0);
+\coordinate (C) at (6.4,0);
+\coordinate (D) at (6.4,4);
+\coordinate (P) at (0,1.6);
+\draw (A)--(B)--(C)--(D)--cycle;
+\draw[thick] (A)--(P)--(D)--cycle;
+\fill (P) circle (1.6pt);
+\node[above left] at (A) {$A$};
+\node[below left] at (B) {$B$};
+\node[below right] at (C) {$C$};
+\node[above right] at (D) {$D$};
+\node[left] at (P) {$P$};
+\node[left] at (0,2) {$5\,\mathrm{cm}$};
+\node[above] at (3.2,4) {$8\,\mathrm{cm}$};
+\node at (3.1,2.4) {$y\,\mathrm{cm^2}$};
+\end{tikzpicture}
 
 【解答】
 \[
@@ -242,9 +266,35 @@ y=
 です。
 
 ■問題3
-問題1、問題2の設定で、$x$ と $y$ の関係を表すグラフをかきなさい。
+次の図の長方形 $ABCD$ で、$AB=5\,\mathrm{cm}$、$AD=8\,\mathrm{cm}$ とします。
+点 $P$ は点 $A$ を出発して、辺 $AB$、辺 $BC$、辺 $CD$ 上を通って点 $D$ まで動きます。
+点 $P$ が点 $A$ から $x\,\mathrm{cm}$ 動いたときの $\triangle APD$ の面積を $y\,\mathrm{cm^2}$ とします。
+
+$x$ と $y$ の関係を表すグラフをかきなさい。
 
 【図】
+\begin{tikzpicture}[scale=0.75, line cap=round, line join=round]
+\coordinate (A) at (0,4);
+\coordinate (B) at (0,0);
+\coordinate (C) at (6.4,0);
+\coordinate (D) at (6.4,4);
+\coordinate (P) at (4,0);
+\draw (A)--(B)--(C)--(D)--cycle;
+\draw[thick] (A)--(P)--(D)--cycle;
+\fill (P) circle (1.6pt);
+\node[above left] at (A) {$A$};
+\node[below left] at (B) {$B$};
+\node[below right] at (C) {$C$};
+\node[above right] at (D) {$D$};
+\node[below] at (P) {$P$};
+\node[left] at (0,2) {$5\,\mathrm{cm}$};
+\node[above] at (3.2,4) {$8\,\mathrm{cm}$};
+\node at (3.3,2.1) {$y\,\mathrm{cm^2}$};
+\end{tikzpicture}
+
+【解答】
+点 $(0,0)$、$(5,20)$、$(13,20)$、$(18,0)$ を順に結んだ折れ線のグラフ。
+
 \begin{tikzpicture}[scale=0.36, line cap=round, line join=round]
 \draw[step=1, gray!30, very thin] (0,0) grid (18,22);
 \draw[->] (0,0)--(19,0) node[right] {$x\,(\mathrm{cm})$};
@@ -261,12 +311,11 @@ y=
 \node[below] at (18,0) {$(18,0)$};
 \end{tikzpicture}
 
-【解答】
-点 $(0,0)$、$(5,20)$、$(13,20)$、$(18,0)$ を順に結んだ折れ線のグラフ。
-
 【解説】
-**ステップ1：** 区間ごとの式を確認する
-問題2より、
+**ステップ1：** 点 $P$ の位置で場合分けする
+点 $P$ は $A\to B\to C\to D$ の順に動きます。
+したがって、次の3つの場合に分けて考えます。
+
 \[
 y=
 \begin{cases}

@@ -536,6 +536,18 @@ app.post('/render', async (req, res) => {
 // Start the server.  Use the PORT environment variable if supplied; otherwise
 // default to 3000.  When the server starts, log the URL to the console.
 const port = process.env.PORT || 3000;
-app.listen(port, () => {
+const server = app.listen(port, () => {
   console.log(`TikZ app listening at http://localhost:${port}`);
+});
+
+process.on('unhandledRejection', err => {
+  console.error('Unhandled promise rejection:', err);
+});
+
+process.on('uncaughtException', err => {
+  console.error('Uncaught exception:', err);
+});
+
+process.on('SIGTERM', () => {
+  server.close(() => process.exit(0));
 });

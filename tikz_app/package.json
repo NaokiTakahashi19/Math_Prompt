@@ -4,7 +4,10 @@
   "description": "Local web app to render TikZ diagrams side by side",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "start:local": "./scripts/start-local-server.sh",
+    "stop:local": "./scripts/stop-local-server.sh",
+    "restart:local": "npm run stop:local && npm run start:local"
   },
   "dependencies": {
     "express": "^4.19.2",
