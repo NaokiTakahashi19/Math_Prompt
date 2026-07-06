@@ -1150,11 +1150,15 @@
 
     function normalizeTeX(tex) {
       return String(tex || '')
+        .replace(/\\begin\{(?:aligned|align\*?|gathered|gather\*?)\}/g, '')
+        .replace(/\\end\{(?:aligned|align\*?|gathered|gather\*?)\}/g, '')
         .replace(/\\left/g, '')
         .replace(/\\right/g, '')
         .replace(/\\tfrac/g, '\\frac')
         .replace(/\\dfrac/g, '\\frac')
         .replace(/\\,/g, ' ')
+        .replace(/\\\\/g, '  ')
+        .replace(/&/g, '')
         .trim();
     }
 
@@ -1165,18 +1169,53 @@
         cdot: '⋅',
         pm: '±',
         mp: '∓',
+        quad: '  ',
+        qquad: '    ',
         le: '≤',
         leq: '≤',
         ge: '≥',
         geq: '≥',
         neq: '≠',
         ne: '≠',
+        lt: '<',
+        gt: '>',
+        perp: '⊥',
+        parallel: '∥',
+        angle: '∠',
+        triangle: '△',
+        therefore: '∴',
+        because: '∵',
+        sim: '∼',
+        cong: '≅',
+        equiv: '≡',
+        approx: '≈',
+        propto: '∝',
+        frown: '⌢',
+        smile: '⌣',
         infty: '∞',
         circ: '°',
+        degree: '°',
+        pi: 'π',
+        theta: 'θ',
+        alpha: 'α',
+        beta: 'β',
+        gamma: 'γ',
+        Delta: '△',
         rightarrow: '→',
-        leftarrow: '←'
+        leftarrow: '←',
+        to: '→'
       };
       return symbols[command] || command;
+    }
+
+    function overlineText(text) {
+      return Array.from(String(text || '').replace(/\s+/g, '')).map(char => `${char}\u0305`).join('');
+    }
+
+    function arcText(text) {
+      const chars = Array.from(String(text || '').replace(/\s+/g, ''));
+      if (chars.length === 2) return `${chars[0]}\u0361${chars[1]}`;
+      return chars.join('');
     }
 
     function parseTeXGroup(tex, startIndex) {
@@ -1203,7 +1242,11 @@
 
       if (tex[index] === '\\') {
         const commandMatch = tex.slice(index + 1).match(/^([A-Za-z]+)/);
-        if (!commandMatch) return { components: [new MathRun(tex[index + 1] || '')], end: index + 2 };
+        if (!commandMatch) {
+          const spacing = { ',': ' ', ';': ' ', ':': ' ', '!': '' };
+          const next = tex[index + 1] || '';
+          return { components: [new MathRun(Object.prototype.hasOwnProperty.call(spacing, next) ? spacing[next] : next)], end: index + 2 };
+        }
         const command = commandMatch[1];
         let pos = index + 1 + command.length;
 
@@ -1235,6 +1278,37 @@
           while (/\s/.test(tex[pos])) pos++;
           const group = parseTeXGroup(tex, pos);
           return { components: [new MathRun(group.content)], end: group.end };
+        }
+
+        if (command === 'overline' || command === 'bar') {
+          while (/\s/.test(tex[pos])) pos++;
+          const group = parseTeXGroup(tex, pos);
+          return { components: [new MathRun(overlineText(group.content))], end: group.end };
+        }
+
+        if (command === 'overset') {
+          while (/\s/.test(tex[pos])) pos++;
+          const top = parseTeXGroup(tex, pos);
+          pos = top.end;
+          while (/\s/.test(tex[pos])) pos++;
+          const base = parseTeXGroup(tex, pos);
+          const topText = top.content.replace(/\s+/g, '');
+          if (/\\frown|frown|⌢/.test(topText)) {
+            return { components: [new MathRun(arcText(base.content))], end: base.end };
+          }
+          return {
+            components: [
+              ...parseTeXToMathChildren(base.content),
+              new MathRun(texSymbol(topText.replace(/^\\/, '')))
+            ],
+            end: base.end
+          };
+        }
+
+        if (command === 'begin' || command === 'end') {
+          while (/\s/.test(tex[pos])) pos++;
+          const group = parseTeXGroup(tex, pos);
+          return { components: [], end: group.end };
         }
 
         if (command === 'left' || command === 'right') {
