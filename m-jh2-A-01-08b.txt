@@ -69,20 +69,20 @@
 **ステップ1：** 分配法則を使って、かっこをはずす
 かっこの外の数を、かっこの中の各項にそれぞれかけます。
 \[
-=\hlblue{2}\times a+\hlblue{2}\times3b+\hlpink{3}\times a+\hlpink{3}\times b
+\begin{aligned}
+2(a+3b)+3(a+b)
+&=\hlblue{2}\times a+\hlblue{2}\times3b+\hlpink{3}\times a+\hlpink{3}\times b
+\end{aligned}
 \]
 
-**ステップ2：** それぞれの積を計算する
+**ステップ2：** 等号でつないで計算する
 \[
-=2a+6b+3a+3b
-\]
-
-**ステップ3：** 同類項をまとめる
-\[
-=(2a+3a)+(6b+3b)
-\]
-\[
-=5a+9b
+\begin{aligned}
+2(a+3b)+3(a+b)
+&=2a+6b+3a+3b\\
+&=(2a+3a)+(6b+3b)\\
+&=5a+9b
+\end{aligned}
 \]
 
 したがって、答えは $5a+9b$ です。
@@ -102,20 +102,20 @@
 **ステップ1：** 分配法則を使って、かっこをはずす
 $-2(x+y)$ は、$-2$ を $x$ と $y$ の両方にかけると考えます。
 \[
-=\hlblue{4}\times x+\hlblue{4}\times2y+(-\hlpink{2})\times x+(-\hlpink{2})\times y
+\begin{aligned}
+4(x+2y)-2(x+y)
+&=\hlblue{4}\times x+\hlblue{4}\times2y+(-\hlpink{2})\times x+(-\hlpink{2})\times y
+\end{aligned}
 \]
 
-**ステップ2：** それぞれの積を計算する
+**ステップ2：** 等号でつないで計算する
 \[
-=4x+8y-2x-2y
-\]
-
-**ステップ3：** 同類項をまとめる
-\[
-=(4x-2x)+(8y-2y)
-\]
-\[
-=2x+6y
+\begin{aligned}
+4(x+2y)-2(x+y)
+&=4x+8y-2x-2y\\
+&=(4x-2x)+(8y-2y)\\
+&=2x+6y
+\end{aligned}
 \]
 
 したがって、答えは $2x+6y$ です。

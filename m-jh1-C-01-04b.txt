@@ -21,6 +21,8 @@
    - **行末**：`■問題1`/`【解答】`/`【解説】` の行末には**半角スペース2つ**（改行扱い）
 2. **図形・TikZルール**
    - 図は必ず `\begin{tikzpicture} ... \end{tikzpicture}` で描く
+   - 各問題で `【図】` と書いた直後に、実際の `\begin{tikzpicture} ... \end{tikzpicture}` のコードを必ず出力する
+   - `【図】` だけで終わらせたり、`[図]`、`（図省略）`、`図を入れる` などのプレースホルダで代用したりしない
    - 方眼を使う問題では、薄いグリッドを描き、点名と三角形が見やすいようにする
    - 移動前の図形は実線、移動後の図形は点線または別の線種で示してよい
    - 対応する点を結ぶ線分を補助線として入れる場合は点線にする
@@ -87,7 +89,7 @@
 \coordinate (D) at (6,6);
 \coordinate (E) at (5,3);
 \coordinate (F) at (10,5);
-\draw[thick] (A)--(B)--(C)--cycle;
+\draw[thick] (A)--(B)--(C)-- cycle;
 \draw[->, thick] (O)--(P);
 \node[above] at (A) {$A$};
 \node[left] at (B) {$B$};
@@ -113,8 +115,8 @@ A\to D,\quad B\to E,\quad C\to F
 \coordinate (D) at (6,6);
 \coordinate (E) at (5,3);
 \coordinate (F) at (10,5);
-\draw[thick] (A)--(B)--(C)--cycle;
-\draw[dashed, thick] (D)--(E)--(F)--cycle;
+\draw[thick] (A)--(B)--(C)-- cycle;
+\draw[dashed, thick] (D)--(E)--(F)-- cycle;
 \draw[->, thick] (O)--(P);
 \draw[dotted] (A)--(D);
 \draw[dotted] (B)--(E);
@@ -178,7 +180,7 @@ A\to D,\quad B\to E,\quad C\to F
 \coordinate (D) at (6,4);
 \coordinate (E) at (7,1);
 \coordinate (F) at (9,3);
-\draw[thick] (A)--(B)--(C)--cycle;
+\draw[thick] (A)--(B)--(C)-- cycle;
 \draw[->, thick] (O)--(P);
 \node[above left] at (A) {$A$};
 \node[below] at (B) {$B$};
@@ -204,8 +206,8 @@ A\to D,\quad B\to E,\quad C\to F
 \coordinate (D) at (6,4);
 \coordinate (E) at (7,1);
 \coordinate (F) at (9,3);
-\draw[thick] (A)--(B)--(C)--cycle;
-\draw[dashed, thick] (D)--(E)--(F)--cycle;
+\draw[thick] (A)--(B)--(C)-- cycle;
+\draw[dashed, thick] (D)--(E)--(F)-- cycle;
 \draw[->, thick] (O)--(P);
 \draw[dotted] (A)--(D);
 \draw[dotted] (B)--(E);
@@ -255,8 +257,8 @@ $\triangle ABC$ を平行移動して $\triangle DEF$ ができました。こ�
 \coordinate (D) at (7,5);
 \coordinate (E) at (6,2);
 \coordinate (F) at (9,3);
-\draw[thick] (A)--(B)--(C)--cycle;
-\draw[dashed, thick] (D)--(E)--(F)--cycle;
+\draw[thick] (A)--(B)--(C)-- cycle;
+\draw[dashed, thick] (D)--(E)--(F)-- cycle;
 \draw[dotted] (A)--(D);
 \draw[dotted] (B)--(E);
 \draw[dotted] (C)--(F);

@@ -7,7 +7,7 @@
 - **対象**：中学1年生
 - **立場**：中学校の数学の教師として
 - **単元**：平面図形 ― 円（弧・弦・接線・接点）
-- **内容**：＊＊＊＊＊＊＊＊＊＊＊＊
+- **内容**：円の弧・弦・接線・接点の意味を理解し、接線の性質を使って基本的な作図ができる
 - **レベル**：基礎レベル（教科書の基本問題レベル）
 
 ## 要件
@@ -52,9 +52,160 @@
    - 問題は「■問題1」の形式，解答・解説は【】を使用
    - 難易度は「教科書の基本問題レベル」を基準
    - つまずきやすい箇所には補足解説を加える
-## 生成例  
-＊＊＊＊＊＊＊＊＊＊＊＊
-＊＊＊＊＊＊＊＊＊＊＊＊
+## 生成例
+■問題1
+次の図で、点 $P$ から点 $Q$ までの円周の部分を何といいますか。また、記号で表しなさい。
+
+【図】
+\begin{tikzpicture}[scale=0.85, line cap=round, line join=round]
+\coordinate (O) at (0,0);
+\coordinate (P) at (140:2);
+\coordinate (Q) at (220:2);
+\draw (O) circle (2);
+\draw[very thick] (P) arc (140:220:2);
+\fill (O) circle (1.5pt);
+\fill (P) circle (1.7pt);
+\fill (Q) circle (1.7pt);
+\node[right] at (O) {$O$};
+\node[above left] at (P) {$P$};
+\node[below left] at (Q) {$Q$};
+\end{tikzpicture}
+
+【解答】
+弧
+\[
+\overset{\frown}{PQ}
+\]
+
+【解説】
+**ポイント整理：円の用語**
+
+円周上の2点を結ぶ円周の一部を、弧といいます。
+また、円周上の2点を結ぶ線分を、弦といいます。
+
+**ステップ1：図のどの部分かを確認する**
+
+図では、点 $P$ から点 $Q$ までの円周の部分が太く示されています。
+
+**ステップ2：用語を答える**
+
+円周の一部なので、これは弧です。
+
+**ステップ3：記号で表す**
+
+点 $P$ から点 $Q$ までの弧は、
+\[
+\overset{\frown}{PQ}
+\]
+と表します。
+
+
+■問題2
+次の円 $O$ の周上の点 $A$ を通る接線を作図しなさい。
+
+【図】
+\begin{tikzpicture}[scale=0.85, line cap=round, line join=round]
+\coordinate (O) at (0,0);
+\coordinate (A) at (30:2);
+\draw (O) circle (2);
+\draw[dashed] (O)--(A);
+\fill (O) circle (1.5pt);
+\fill (A) circle (1.7pt);
+\node[left] at (O) {$O$};
+\node[above right] at (A) {$A$};
+\end{tikzpicture}
+
+【解答】
+半径 $OA$ をひき、点 $A$ を通る $OA$ の垂線を作図する。この直線が円 $O$ の接線である。
+
+【図】
+\begin{tikzpicture}[scale=0.85, line cap=round, line join=round]
+\coordinate (O) at (0,0);
+\coordinate (A) at (30:2);
+\draw (O) circle (2);
+\draw[dashed] (O)--(A);
+\draw[very thick] ($(A)+(-60:2.2)$)--($(A)+(120:2.2)$);
+\draw ($(A)+(-150:0.22)$)--++(-60:0.22)--++(30:0.22);
+\fill (O) circle (1.5pt);
+\fill (A) circle (1.7pt);
+\node[left] at (O) {$O$};
+\node[above right] at (A) {$A$};
+\node[right] at ($(A)+(120:1.5)$) {$\ell$};
+\end{tikzpicture}
+
+【解説】
+**ポイント整理：接線と接点**
+
+円と直線が1点だけを共有するとき、その直線は円に接するといいます。
+この直線を接線、円と直線が接する点を接点といいます。
+
+また、円の接線は、接点を通る半径に垂直です。
+
+**ステップ1：中心と接点を結ぶ**
+
+円の中心 $O$ と、接点になる点 $A$ を結びます。
+これで半径 $OA$ ができます。
+
+**ステップ2：半径に垂直な直線を作図する**
+
+点 $A$ を通り、半径 $OA$ に垂直な直線を作図します。
+
+**ステップ3：接線であることを確認する**
+
+作図した直線は、点 $A$ で半径 $OA$ に垂直です。
+したがって、この直線は円 $O$ の接線です。
+
+
+■問題3
+次の図で、直線 $\ell$ に接し、点 $O$ を中心とする円を作図しなさい。
+
+【図】
+\begin{tikzpicture}[scale=0.85, line cap=round, line join=round]
+\draw[thick] (-3,0)--(3,0) node[right] {$\ell$};
+\coordinate (O) at (0.7,1.9);
+\fill (O) circle (1.7pt);
+\node[above] at (O) {$O$};
+\end{tikzpicture}
+
+【解答】
+点 $O$ から直線 $\ell$ に垂線を下ろし、交点を $A$ とする。
+$OA$ を半径として、点 $O$ を中心とする円をかく。
+
+【図】
+\begin{tikzpicture}[scale=0.85, line cap=round, line join=round]
+\draw[thick] (-3,0)--(3,0) node[right] {$\ell$};
+\coordinate (O) at (0.7,1.9);
+\coordinate (A) at (0.7,0);
+\draw[dashed] (O)--(A);
+\draw (0.7,0)--++(0.22,0)--++(0,0.22)--++(-0.22,0);
+\draw (O) circle (1.9);
+\fill (O) circle (1.7pt);
+\fill (A) circle (1.7pt);
+\node[above] at (O) {$O$};
+\node[below] at (A) {$A$};
+\end{tikzpicture}
+
+【解説】
+**ステップ1：接点を考える**
+
+円が直線 $\ell$ に接するとき、接点を通る半径は接線に垂直です。
+したがって、中心 $O$ から直線 $\ell$ に垂線を下ろします。
+
+**ステップ2：接点を決める**
+
+垂線と直線 $\ell$ の交点を $A$ とします。
+この点 $A$ が接点になります。
+
+**ステップ3：円をかく**
+
+$OA$ を半径として、点 $O$ を中心とする円をかきます。
+この円は直線 $\ell$ と点 $A$ だけで接します。
+
+**間違えやすいポイント**
+
+接線は、接点を通る半径と垂直です。
+円の中心から接線までの最短距離が、円の半径になります。
 
 以上、生成例
 
+以上、生成例

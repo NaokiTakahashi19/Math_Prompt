@@ -17,12 +17,16 @@
    - 対応する辺の長さの比を、記号を使って表す問題を入れる
    - 対応する角の大きさが等しいことを、記号を使って表す問題を入れる
    - 相似な図形の相似比を答える問題を入れる
+   - 単問形式のアダプティブドリルで使うため、各問題はその問題だけで解けるようにする
+   - 「問題1の図で」「上の図で」「前問の結果より」のように、前の問題を参照する問題文や解説にしない
    - 写真教材の図や数値はそのまま使わず、倍率や図形の配置を少し変える
    - **順序**：問題 → 【解答】 → 【解説】
    - **見出し**：問題は「■問題1」のように通常表記、解答・解説は【】を用いる
    - **行末**：`■問題1`/`【解答】`/`【解説】` の行末には**半角スペース2つ**（改行扱い）
 2. **図形・TikZルール**
    - 図は必ず `\begin{tikzpicture} ... \end{tikzpicture}` で描く
+   - 各問題で `【図】` と書いた直後に、実際の `\begin{tikzpicture} ... \end{tikzpicture}` のコードを必ず出力する
+   - `【図】` だけで終わらせたり、`[図]`、`（図省略）`、`図を入れる` などのプレースホルダで代用したりしない
    - 方眼上に三角形や四角形を描く場合は、薄いグリッドを入れる
    - 拡大図・縮小図は、対応する頂点が分かるように点名を入れる
    - 対応する辺や角を確認しやすいように、図形を離して配置する
@@ -73,6 +77,7 @@
    - 対応する頂点の順番をそろえて説明する
    - 辺の長さの比と角の大きさの関係を混同しないように説明する
    - 相似比を書くときは、どちらの図形を先にした比なのかを明記する
+   - 各問題は独立させ、前の問題の図や答えを参照しない
    - つまずきやすい箇所には補足解説を加える
 
 ## 生成例
@@ -88,8 +93,8 @@
 \coordinate (D) at (11,7);
 \coordinate (E) at (7,1);
 \coordinate (F) at (15,1);
-\draw[thick] (A)--(B)--(C)--cycle;
-\draw[thick] (D)--(E)--(F)--cycle;
+\draw[thick] (A)--(B)--(C)-- cycle;
+\draw[thick] (D)--(E)--(F)-- cycle;
 \node[above] at (A) {$A$};
 \node[below left] at (B) {$B$};
 \node[below right] at (C) {$C$};
@@ -146,7 +151,34 @@ AB:DE=BC:EF=CA:FD=1:2
 辺の長さは2倍になりますが、角の大きさは2倍にはなりません。相似な図形では、対応する角の大きさは等しいままです。
 
 ■問題2
-問題1の図で、$\triangle DEF$ で辺 $EF$ を底辺とするときの高さは、$\triangle ABC$ で辺 $BC$ を底辺とするときの高さの何倍ですか。
+下の図で、$\triangle DEF$ は $\triangle ABC$ を2倍に拡大した図形です。$\triangle DEF$ で辺 $EF$ を底辺とするときの高さは、$\triangle ABC$ で辺 $BC$ を底辺とするときの高さの何倍ですか。
+
+【図】
+\begin{tikzpicture}[scale=0.55, line cap=round, line join=round]
+\draw[step=1, gray!45, very thin] (-1,-1) grid (16,8);
+\coordinate (A) at (3,4);
+\coordinate (B) at (1,1);
+\coordinate (C) at (5,1);
+\coordinate (D) at (11,7);
+\coordinate (E) at (7,1);
+\coordinate (F) at (15,1);
+\draw[thick] (A)--(B)--(C)-- cycle;
+\draw[thick] (D)--(E)--(F)-- cycle;
+\draw[dashed] (A)--(3,1);
+\draw[dashed] (D)--(11,1);
+\draw (2.75,1)--(2.75,1.25)--(3,1.25);
+\draw (10.75,1)--(10.75,1.25)--(11,1.25);
+\node[above] at (A) {$A$};
+\node[below left] at (B) {$B$};
+\node[below right] at (C) {$C$};
+\node[above] at (D) {$D$};
+\node[below left] at (E) {$E$};
+\node[below right] at (F) {$F$};
+\node[right] at (3.1,2.5) {$h_1$};
+\node[right] at (11.1,4.0) {$h_2$};
+\node[below] at (3,0.6) {$BC$};
+\node[below] at (11,0.6) {$EF$};
+\end{tikzpicture}
 
 【解答】
 \[
@@ -158,11 +190,10 @@ AB:DE=BC:EF=CA:FD=1:2
 相似な図形では、対応する辺だけでなく、対応する高さの比も相似比と同じになります。
 
 **ステップ1：** 相似比を確認する
-問題1より、
 \[
 \triangle ABC:\triangle DEF=1:2
 \]
-です。
+です。つまり、$\triangle DEF$ は $\triangle ABC$ の2倍の図形です。
 
 **ステップ2：** 対応する高さを考える
 $BC$ を底辺とするときの高さと、$EF$ を底辺とするときの高さは対応しています。

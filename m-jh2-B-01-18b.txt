@@ -24,6 +24,8 @@
    - 数値は画像例と同じものを使わず、別の長さを用いる
 2. **図形・TikZルール**
    - 図は必ず `\begin{tikzpicture} ... \end{tikzpicture}` で描く
+   - 各問題で `【図】` と書いた直後に、実際の `\begin{tikzpicture} ... \end{tikzpicture}` のコードを必ず出力する
+   - `【図】` だけで終わらせたり、`[図]`、`（図省略）`、`図を入れる` などのプレースホルダで代用したりしない
    - 長方形 $ABCD$、動点 $P$、三角形、辺の長さを明確に入れる
    - 点 $P$ の位置が分かるように、必要に応じて複数の図を並べる
    - グラフを入れる場合は、座標軸、目盛り、折れ線を入れる
@@ -97,8 +99,8 @@
 \coordinate (C) at (6.4,0);
 \coordinate (D) at (6.4,4);
 \coordinate (P) at (0,1.6);
-\draw (A)--(B)--(C)--(D)--cycle;
-\draw[thick] (A)--(P)--(D)--cycle;
+\draw (A)--(B)--(C)--(D)-- cycle;
+\draw[thick] (A)--(P)--(D)-- cycle;
 \fill (P) circle (1.6pt);
 \node[above left] at (A) {$A$};
 \node[below left] at (B) {$B$};
@@ -186,8 +188,8 @@ AB=5,\quad BC=8,\quad CD=5
 \coordinate (C) at (6.4,0);
 \coordinate (D) at (6.4,4);
 \coordinate (P) at (0,1.6);
-\draw (A)--(B)--(C)--(D)--cycle;
-\draw[thick] (A)--(P)--(D)--cycle;
+\draw (A)--(B)--(C)--(D)-- cycle;
+\draw[thick] (A)--(P)--(D)-- cycle;
 \fill (P) circle (1.6pt);
 \node[above left] at (A) {$A$};
 \node[below left] at (B) {$B$};
@@ -279,8 +281,8 @@ $x$ と $y$ の関係を表すグラフをかきなさい。
 \coordinate (C) at (6.4,0);
 \coordinate (D) at (6.4,4);
 \coordinate (P) at (4,0);
-\draw (A)--(B)--(C)--(D)--cycle;
-\draw[thick] (A)--(P)--(D)--cycle;
+\draw (A)--(B)--(C)--(D)-- cycle;
+\draw[thick] (A)--(P)--(D)-- cycle;
 \fill (P) circle (1.6pt);
 \node[above left] at (A) {$A$};
 \node[below left] at (B) {$B$};

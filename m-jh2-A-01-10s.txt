@@ -87,9 +87,14 @@
 = (-3)\times4\times a\times a\times a\times b\times b\times b
 \]
 
-**ステップ3：** 係数どうし、文字どうしをそれぞれ計算する
+**ステップ3：** 等号でつないで計算する
 \[
-= -12a^3b^3
+\begin{aligned}
+(-3a^2b)\times4ab^2
+&=\hlblue{(-3)\times a\times a\times b}\times\hlpink{4\times a\times b\times b}\\
+&=(-3)\times4\times a\times a\times a\times b\times b\times b\\
+&=-12a^3b^3
+\end{aligned}
 \]
 
 **ポイント：**  
@@ -128,9 +133,14 @@
 = \frac{2}{3}\times(-9)\times x\times x\times x\times y\times y\times y\times y
 \]
 
-**ステップ3：** 係数どうし、文字どうしをそれぞれ計算する
+**ステップ3：** 等号でつないで計算する
 \[
-= -6x^3y^4
+\begin{aligned}
+\frac{2}{3}x^2y\times(-9xy^3)
+&=\hlblue{\frac{2}{3}\times x\times x\times y}\times\hlpink{(-9)\times x\times y\times y\times y}\\
+&=\frac{2}{3}\times(-9)\times x\times x\times x\times y\times y\times y\times y\\
+&=-6x^3y^4
+\end{aligned}
 \]
 
 **ポイント：**  

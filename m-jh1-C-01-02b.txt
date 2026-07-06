@@ -23,6 +23,8 @@
    - **行末**：`■問題1`/`【解答】`/`【解説】` の行末には**半角スペース2つ**（改行扱い）
 2. **図形・TikZルール**
    - 図は必ず `\begin{tikzpicture} ... \end{tikzpicture}` で描く
+   - 各問題で `【図】` と書いた直後に、実際の `\begin{tikzpicture} ... \end{tikzpicture}` のコードを必ず出力する
+   - `【図】` だけで終わらせたり、`[図]`、`（図省略）`、`図を入れる` などのプレースホルダで代用したりしない
    - 点名、角の印、平行の印、直角の印が重ならないように配置する
    - 平行を示す図では、平行な線分に矢印の印を入れてよい
    - 垂直を示す図では、直角マークを入れる
@@ -92,7 +94,7 @@
 \node[right] at (D) {$D$};
 \node[below] at (O) {$O$};
 \draw (O) ++(32:0.38) arc (32:148:0.38);
-\node at (0,0.62) {ア};
+\node at (0,0.62) {$1$};
 \end{tikzpicture}
 
 【解答】
@@ -137,7 +139,7 @@
 \coordinate (B) at (-2.0,0);
 \coordinate (C) at (2.0,0);
 \coordinate (D) at (2.0,1.5);
-\draw (A)--(B)--(C)--(D)--cycle;
+\draw (A)--(B)--(C)--(D)-- cycle;
 \node[above] at (A) {$A$};
 \node[below left] at (B) {$B$};
 \node[below right] at (C) {$C$};
@@ -210,7 +212,7 @@ AD \perp CD,\quad BC \perp CD
 \draw (T)--++(-0.25,0)--++(0,-0.25)--++(0.25,0);
 \draw (U)--++(0,0.25)--++(-0.25,0)--++(0,-0.25);
 \draw (T) ++(180:0.42) arc (180:270:0.42);
-\node at (-0.52,0.70) {イ};
+\node at (-0.52,0.70) {$1$};
 \end{tikzpicture}
 
 【解答】

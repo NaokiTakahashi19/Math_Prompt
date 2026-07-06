@@ -73,20 +73,20 @@
 **ステップ1：** 分配法則を使って、かっこをはずす
 分数をかけるときも、かっこの中の各項にそれぞれかけます。
 \[
-=\hlblue{\frac{1}{2}}\times2a+\hlblue{\frac{1}{2}}\times4b+a
+\begin{aligned}
+\frac{1}{2}(2a+4b)+a
+&=\hlblue{\frac{1}{2}}\times2a+\hlblue{\frac{1}{2}}\times4b+a
+\end{aligned}
 \]
 
-**ステップ2：** それぞれの積を計算する
+**ステップ2：** 等号でつないで計算する
 \[
-=a+2b+a
-\]
-
-**ステップ3：** 同類項をまとめる
-\[
-=(a+a)+2b
-\]
-\[
-=2a+2b
+\begin{aligned}
+\frac{1}{2}(2a+4b)+a
+&=a+2b+a\\
+&=(a+a)+2b\\
+&=2a+2b
+\end{aligned}
 \]
 
 したがって、答えは $2a+2b$ です。
@@ -105,20 +105,20 @@ x+y
 【解説】
 **ステップ1：** 分配法則を使って、かっこをはずす
 \[
-=\hlblue{\frac{1}{3}}\times6x+\hlblue{\frac{1}{3}}\times3y-x
+\begin{aligned}
+\frac{1}{3}(6x+3y)-x
+&=\hlblue{\frac{1}{3}}\times6x+\hlblue{\frac{1}{3}}\times3y-x
+\end{aligned}
 \]
 
-**ステップ2：** それぞれの積を計算する
+**ステップ2：** 等号でつないで計算する
 \[
-=2x+y-x
-\]
-
-**ステップ3：** 同類項をまとめる
-\[
-=(2x-x)+y
-\]
-\[
-=x+y
+\begin{aligned}
+\frac{1}{3}(6x+3y)-x
+&=2x+y-x\\
+&=(2x-x)+y\\
+&=x+y
+\end{aligned}
 \]
 
 したがって、答えは $x+y$ です。

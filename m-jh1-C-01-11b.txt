@@ -7,7 +7,7 @@
 - **対象**：中学1年生
 - **立場**：中学校の数学の教師として
 - **単元**：平面図形 ― 作図の基本（直線上にない点を通る垂線の作図）
-- **内容**：＊＊＊＊＊＊＊＊＊＊＊＊
+- **内容**：直線上にない点を通る垂線を、円と垂直二等分線の作図を利用して作図できる
 - **レベル**：基礎レベル（教科書の基本問題レベル）
 
 ## 要件
@@ -52,9 +52,163 @@
    - 問題は「■問題1」の形式，解答・解説は【】を使用
    - 難易度は「教科書の基本問題レベル」を基準
    - つまずきやすい箇所には補足解説を加える
-## 生成例  
-＊＊＊＊＊＊＊＊＊＊＊＊
-＊＊＊＊＊＊＊＊＊＊＊＊
+## 生成例
+■問題1
+次の図で、点 $P$ を通る直線 $XY$ の垂線を作図しなさい。
+
+【図】
+\begin{tikzpicture}[scale=0.85, line cap=round, line join=round]
+\draw[thick] (-3,0)--(3,0);
+\coordinate (P) at (0.8,1.8);
+\fill (P) circle (1.7pt);
+\node[below] at (-3,0) {$X$};
+\node[below] at (3,0) {$Y$};
+\node[above] at (P) {$P$};
+\end{tikzpicture}
+
+【解答】
+点 $P$ を中心とする円をかき、直線 $XY$ との交点を $A,B$ とする。
+線分 $AB$ の垂直二等分線を作図すると、その直線が点 $P$ を通る垂線になる。
+
+【図】
+\begin{tikzpicture}[scale=0.85, line cap=round, line join=round]
+\draw[thick] (-3,0)--(3,0);
+\coordinate (P) at (0.8,1.8);
+\coordinate (A) at (-0.6,0);
+\coordinate (B) at (2.2,0);
+\coordinate (Q) at (0.8,0);
+\draw[dashed, gray] (P) circle (2.28);
+\draw[dashed, gray] (A) circle (2.1);
+\draw[dashed, gray] (B) circle (2.1);
+\draw[very thick] (0.8,-1.2)--(0.8,2.4);
+\draw (0.8,0)--++(0.22,0)--++(0,0.22)--++(-0.22,0);
+\fill (P) circle (1.7pt);
+\fill (A) circle (1.4pt);
+\fill (B) circle (1.4pt);
+\fill (Q) circle (1.4pt);
+\node[below] at (-3,0) {$X$};
+\node[below] at (3,0) {$Y$};
+\node[above] at (P) {$P$};
+\node[below] at (A) {$A$};
+\node[below] at (B) {$B$};
+\node[below right] at (Q) {$Q$};
+\end{tikzpicture}
+
+【解説】
+**ポイント整理：直線上にない点を通る垂線**
+
+点 $P$ から直線 $XY$ に垂線を下ろすには、点 $P$ を中心とする円で直線上に2点 $A,B$ を作ります。
+点 $P$ は $A,B$ から等しい距離にあるので、点 $P$ は線分 $AB$ の垂直二等分線上にあります。
+
+**ステップ1：直線上に2点を作る**
+
+点 $P$ を中心として円をかき、直線 $XY$ との交点を $A,B$ とします。
+
+【手順図】
+\begin{tikzpicture}[scale=0.85, line cap=round, line join=round]
+\draw[thick] (-3,0)--(3,0);
+\coordinate (P) at (0.8,1.8);
+\coordinate (A) at (-0.6,0);
+\coordinate (B) at (2.2,0);
+\draw[dashed, gray] (P) circle (2.28);
+\fill (P) circle (1.7pt);
+\fill (A) circle (1.4pt);
+\fill (B) circle (1.4pt);
+\node[above] at (P) {$P$};
+\node[below] at (A) {$A$};
+\node[below] at (B) {$B$};
+\end{tikzpicture}
+
+**ステップ2：線分 $AB$ の垂直二等分線を作図する**
+
+点 $A,B$ を中心として同じ半径の弧をかき、その交点を結びます。
+
+【手順図】
+\begin{tikzpicture}[scale=0.85, line cap=round, line join=round]
+\draw[thick] (-3,0)--(3,0);
+\coordinate (P) at (0.8,1.8);
+\coordinate (A) at (-0.6,0);
+\coordinate (B) at (2.2,0);
+\coordinate (Q) at (0.8,0);
+\draw[dashed, gray] (A) circle (2.1);
+\draw[dashed, gray] (B) circle (2.1);
+\draw[very thick] (0.8,-1.2)--(0.8,2.4);
+\draw (0.8,0)--++(0.22,0)--++(0,0.22)--++(-0.22,0);
+\fill (P) circle (1.7pt);
+\fill (A) circle (1.4pt);
+\fill (B) circle (1.4pt);
+\fill (Q) circle (1.4pt);
+\node[above] at (P) {$P$};
+\node[below] at (A) {$A$};
+\node[below] at (B) {$B$};
+\node[below right] at (Q) {$Q$};
+\end{tikzpicture}
+
+**ステップ3：垂線であることを確認する**
+
+作図した直線は線分 $AB$ の垂直二等分線なので、直線 $XY$ と垂直に交わります。
+また、点 $P$ を通っています。
+
+
+■問題2
+次の $\triangle ABC$ で、頂点 $A$ を通る直線 $BC$ の垂線を作図しなさい。
+
+【図】
+\begin{tikzpicture}[scale=0.82, line cap=round, line join=round]
+\coordinate (A) at (0.7,2.6);
+\coordinate (B) at (-2.5,0);
+\coordinate (C) at (2.7,0);
+\draw[thick] (A)--(B)--(C)-- cycle;
+\node[above] at (A) {$A$};
+\node[below left] at (B) {$B$};
+\node[below right] at (C) {$C$};
+\end{tikzpicture}
+
+【解答】
+点 $A$ を中心とする円をかき、直線 $BC$ との交点を $D,E$ とする。
+線分 $D E$ の垂直二等分線を作図すると、その直線が頂点 $A$ を通る直線 $BC$ の垂線になる。
+
+【図】
+\begin{tikzpicture}[scale=0.82, line cap=round, line join=round]
+\coordinate (A) at (0.7,2.6);
+\coordinate (B) at (-2.5,0);
+\coordinate (C) at (2.7,0);
+\coordinate (D) at (-0.9,0);
+\coordinate (E) at (2.3,0);
+\coordinate (H) at (0.7,0);
+\draw[thick] (A)--(B)--(C)-- cycle;
+\draw[dashed, gray] (A) circle (3.05);
+\draw[dashed, gray] (D) circle (2.35);
+\draw[dashed, gray] (E) circle (2.35);
+\draw[very thick] (0.7,-0.8)--(0.7,3.1);
+\draw (0.7,0)--++(0.22,0)--++(0,0.22)--++(-0.22,0);
+\fill (A) circle (1.6pt);
+\fill (D) circle (1.4pt);
+\fill (E) circle (1.4pt);
+\fill (H) circle (1.4pt);
+\node[above] at (A) {$A$};
+\node[below left] at (B) {$B$};
+\node[below right] at (C) {$C$};
+\node[below] at (D) {$D$};
+\node[below] at (E) {$E$};
+\node[below right] at (H) {$H$};
+\end{tikzpicture}
+
+【解説】
+**ステップ1：直線 $BC$ を作図の基準にする**
+
+頂点 $A$ は直線 $BC$ 上にありません。
+したがって、直線上にない点を通る垂線の作図を使います。
+
+**ステップ2：直線 $BC$ 上に2点を作る**
+
+点 $A$ を中心として弧をかき、直線 $BC$ との交点を $D,E$ とします。
+
+**ステップ3：線分 $D E$ の垂直二等分線を作図する**
+
+点 $D,E$ を中心として同じ半径の弧をかき、その交点を結びます。
+この直線が、頂点 $A$ を通る直線 $BC$ の垂線です。
 
 以上、生成例
 
+以上、生成例

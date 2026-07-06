@@ -21,6 +21,8 @@
    - **行末**：`■問題1`/`【解答】`/`【解説】` の行末には**半角スペース2つ**（改行扱い）
 2. **図形・TikZルール**
    - 図は必ず `\begin{tikzpicture} ... \end{tikzpicture}` で描く
+   - 各問題で `【図】` と書いた直後に、実際の `\begin{tikzpicture} ... \end{tikzpicture}` のコードを必ず出力する
+   - `【図】` だけで終わらせたり、`[図]`、`（図省略）`、`図を入れる` などのプレースホルダで代用したりしない
    - 方眼を使う問題では、薄いグリッドを描き、対称の軸 $\ell$ と三角形の頂点名を見やすくする
    - 移動前の図形は実線、移動後の図形は点線または別の線種で示してよい
    - 対応する点を結ぶ線分を補助線として入れる場合は点線にする
@@ -87,7 +89,7 @@
 \coordinate (D) at (8,6);
 \coordinate (E) at (12,4);
 \coordinate (F) at (10,1);
-\draw[thick] (A)--(B)--(C)--cycle;
+\draw[thick] (A)--(B)--(C)-- cycle;
 \node[above] at (A) {$A$};
 \node[left] at (B) {$B$};
 \node[below] at (C) {$C$};
@@ -109,8 +111,8 @@ A\to D,\quad B\to E,\quad C\to F
 \coordinate (D) at (8,6);
 \coordinate (E) at (12,4);
 \coordinate (F) at (10,1);
-\draw[thick] (A)--(B)--(C)--cycle;
-\draw[dashed, thick] (D)--(E)--(F)--cycle;
+\draw[thick] (A)--(B)--(C)-- cycle;
+\draw[dashed, thick] (D)--(E)--(F)-- cycle;
 \draw[dotted] (A)--(D);
 \draw[dotted] (B)--(E);
 \draw[dotted] (C)--(F);
@@ -163,6 +165,7 @@ A\to D,\quad B\to E,\quad C\to F
 
 【図】
 \begin{tikzpicture}[scale=0.75, line cap=round, line join=round]
+\draw[step=1, gray!35, very thin] (-4,-3) grid (4,3);
 \draw[thick] (0,-2.3)--(0,2.5) node[above] {$\ell$};
 \coordinate (A) at (1.5,1.7);
 \coordinate (B) at (1.2,-1.2);
@@ -170,7 +173,7 @@ A\to D,\quad B\to E,\quad C\to F
 \coordinate (D) at (-1.5,1.7);
 \coordinate (E) at (-1.2,-1.2);
 \coordinate (F) at (-3.4,0.2);
-\draw[thick] (A)--(B)--(C)--cycle;
+\draw[thick] (A)--(B)--(C)-- cycle;
 \node[above] at (A) {$A$};
 \node[below] at (B) {$B$};
 \node[right] at (C) {$C$};
@@ -184,6 +187,7 @@ A\to D,\quad B\to E,\quad C\to F
 
 【図】
 \begin{tikzpicture}[scale=0.75, line cap=round, line join=round]
+\draw[step=1, gray!35, very thin] (-4,-3) grid (4,3);
 \draw[thick] (0,-2.3)--(0,2.5) node[above] {$\ell$};
 \coordinate (A) at (1.5,1.7);
 \coordinate (B) at (1.2,-1.2);
@@ -191,8 +195,8 @@ A\to D,\quad B\to E,\quad C\to F
 \coordinate (D) at (-1.5,1.7);
 \coordinate (E) at (-1.2,-1.2);
 \coordinate (F) at (-3.4,0.2);
-\draw[thick] (A)--(B)--(C)--cycle;
-\draw[dashed, thick] (D)--(E)--(F)--cycle;
+\draw[thick] (A)--(B)--(C)-- cycle;
+\draw[dashed, thick] (D)--(E)--(F)-- cycle;
 \draw[dotted] (A)--(D);
 \draw[dotted] (B)--(E);
 \draw[dotted] (C)--(F);
@@ -229,6 +233,7 @@ $\triangle ABC$ を直線 $\ell$ を対称の軸として対称移動し、$\tri
 
 【図】
 \begin{tikzpicture}[scale=0.7, line cap=round, line join=round]
+\draw[step=1, gray!35, very thin] (-4,-3) grid (4,3);
 \draw[thick] (0,-2.4)--(0,2.6) node[above] {$\ell$};
 \coordinate (A) at (-2.2,1.7);
 \coordinate (B) at (-2.6,-1.2);
@@ -236,8 +241,8 @@ $\triangle ABC$ を直線 $\ell$ を対称の軸として対称移動し、$\tri
 \coordinate (D) at (2.2,1.7);
 \coordinate (E) at (2.6,-1.2);
 \coordinate (F) at (0.9,0.1);
-\draw[thick] (A)--(B)--(C)--cycle;
-\draw[dashed, thick] (D)--(E)--(F)--cycle;
+\draw[thick] (A)--(B)--(C)-- cycle;
+\draw[dashed, thick] (D)--(E)--(F)-- cycle;
 \draw[dotted] (A)--(D);
 \draw[dotted] (B)--(E);
 \draw[dotted] (C)--(F);

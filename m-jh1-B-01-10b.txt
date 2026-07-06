@@ -52,10 +52,11 @@
    - 問題は「■問題1」の形式，解答・解説は【】を使用
    - 難易度は「教科書の基本問題レベル」を基準
    - つまずきやすい箇所には補足解説を加える
-## 生成例  
+## 生成例
 ■問題1
-座標平面上に座標が$(2, -1)$の位置を書き入れなさい。
+座標平面上に座標が $(2,-1)$ の位置を書き入れなさい。
 
+【図】
 \begin{tikzpicture}[scale=0.45]
 \draw[step=1, color=blue!35, line width=0.3pt] (-6,-6) grid (6,6);
 \draw[->, color=blue!80!black, line width=1pt] (-6.3,0) -- (6.5,0) node[right] {$x$};
@@ -67,9 +68,47 @@
 \node[left] at (0,-5) {$-5$};
 \end{tikzpicture}
 
-■問題2　
-座標平面上に座標が$(-2, 4)$の位置を書き入れなさい。
+【解答】
+点 $(2,-1)$ を座標平面上にかき入れる。
 
+【図】
+\begin{tikzpicture}[scale=0.45]
+\draw[step=1, color=blue!35, line width=0.3pt] (-6,-6) grid (6,6);
+\draw[->, color=blue!80!black, line width=1pt] (-6.3,0) -- (6.5,0) node[right] {$x$};
+\draw[->, color=blue!80!black, line width=1pt] (0,-6.3) -- (0,6.5) node[above] {$y$};
+\node[below left] at (0,0) {$O$};
+\node[below] at (5,0) {$5$};
+\node[below] at (-5,0) {$-5$};
+\node[left] at (0,5) {$5$};
+\node[left] at (0,-5) {$-5$};
+\fill (2,-1) circle (2.5pt);
+\node[below right] at (2,-1) {$(2,-1)$};
+\end{tikzpicture}
+
+【解説】
+**ポイント整理：座標の書き入れ方**
+
+座標 $(a,b)$ は、原点から横に $a$、縦に $b$ 進んだ点を表します。
+
+**ステップ1：$x$ 座標を見る**
+
+$(2,-1)$ の $x$ 座標は $2$ です。
+原点から右へ $2$ 進みます。
+
+**ステップ2：$y$ 座標を見る**
+
+$(2,-1)$ の $y$ 座標は $-1$ です。
+そこから下へ $1$ 進みます。
+
+**ステップ3：点を打つ**
+
+右へ $2$、下へ $1$ 進んだ場所に点を打ちます。
+
+
+■問題2
+座標平面上に座標が $(-2,4)$ の位置を書き入れなさい。
+
+【図】
 \begin{tikzpicture}[scale=0.45]
 \draw[step=1, color=blue!35, line width=0.3pt] (-6,-6) grid (6,6);
 \draw[->, color=blue!80!black, line width=1pt] (-6.3,0) -- (6.5,0) node[right] {$x$};
@@ -80,5 +119,37 @@
 \node[left] at (0,5) {$5$};
 \node[left] at (0,-5) {$-5$};
 \end{tikzpicture}
+
+【解答】
+点 $(-2,4)$ を座標平面上にかき入れる。
+
+【図】
+\begin{tikzpicture}[scale=0.45]
+\draw[step=1, color=blue!35, line width=0.3pt] (-6,-6) grid (6,6);
+\draw[->, color=blue!80!black, line width=1pt] (-6.3,0) -- (6.5,0) node[right] {$x$};
+\draw[->, color=blue!80!black, line width=1pt] (0,-6.3) -- (0,6.5) node[above] {$y$};
+\node[below left] at (0,0) {$O$};
+\node[below] at (5,0) {$5$};
+\node[below] at (-5,0) {$-5$};
+\node[left] at (0,5) {$5$};
+\node[left] at (0,-5) {$-5$};
+\fill (-2,4) circle (2.5pt);
+\node[above left] at (-2,4) {$(-2,4)$};
+\end{tikzpicture}
+
+【解説】
+**ステップ1：$x$ 座標を見る**
+
+$(-2,4)$ の $x$ 座標は $-2$ です。
+原点から左へ $2$ 進みます。
+
+**ステップ2：$y$ 座標を見る**
+
+$(-2,4)$ の $y$ 座標は $4$ です。
+そこから上へ $4$ 進みます。
+
+**ステップ3：点を打つ**
+
+左へ $2$、上へ $4$ 進んだ場所に点を打ちます。
 
 以上、生成例

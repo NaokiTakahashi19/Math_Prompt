@@ -21,6 +21,8 @@
    - **行末**：`■問題1`/`【解答】`/`【解説】` の行末には**半角スペース2つ**（改行扱い）
 2. **図形・TikZルール**
    - 図は必ず `\begin{tikzpicture} ... \end{tikzpicture}` で描く
+   - 各問題で `【図】` と書いた直後に、実際の `\begin{tikzpicture} ... \end{tikzpicture}` のコードを必ず出力する
+   - `【図】` だけで終わらせたり、`[図]`、`（図省略）`、`図を入れる` などのプレースホルダで代用したりしない
    - 方眼を使う問題では、薄いグリッドを描き、回転の中心 $O$ と三角形の頂点名を見やすくする
    - 移動前の図形は実線、移動後の図形は点線または別の線種で示してよい
    - 回転の中心 $O$ から対応する点へ補助線を引く場合は点線にする
@@ -89,7 +91,7 @@
 \coordinate (D) at (1,2);
 \coordinate (E) at (4,2);
 \coordinate (F) at (3,5);
-\draw[thick] (A)--(B)--(C)--cycle;
+\draw[thick] (A)--(B)--(C)-- cycle;
 \fill (O) circle (2pt);
 \draw[->, thick] (5.5,6.6) arc (100:170:1.4);
 \node[above] at (A) {$A$};
@@ -114,8 +116,8 @@ A\to D,\quad B\to E,\quad C\to F
 \coordinate (D) at (1,2);
 \coordinate (E) at (4,2);
 \coordinate (F) at (3,5);
-\draw[thick] (A)--(B)--(C)--cycle;
-\draw[dashed, thick] (D)--(E)--(F)--cycle;
+\draw[thick] (A)--(B)--(C)-- cycle;
+\draw[dashed, thick] (D)--(E)--(F)-- cycle;
 \draw[dotted] (O)--(A);
 \draw[dotted] (O)--(D);
 \draw[dotted] (O)--(B);
@@ -175,6 +177,7 @@ OA=OD,\quad OB=OE,\quad OC=OF
 
 【図】
 \begin{tikzpicture}[scale=0.62, line cap=round, line join=round]
+\draw[step=1, gray!35, very thin] (-4,-3) grid (4,3);
 \coordinate (O) at (0,0);
 \coordinate (A) at (-2.6,0.8);
 \coordinate (B) at (-1.8,-1.5);
@@ -182,7 +185,7 @@ OA=OD,\quad OB=OE,\quad OC=OF
 \coordinate (D) at (2.6,-0.8);
 \coordinate (E) at (1.8,1.5);
 \coordinate (F) at (0.2,0.4);
-\draw[thick] (A)--(B)--(C)--cycle;
+\draw[thick] (A)--(B)--(C)-- cycle;
 \fill (O) circle (1.8pt);
 \draw[->, thick] (1.4,-0.2) arc (-10:120:1.2);
 \node[above] at (O) {$O$};
@@ -199,6 +202,7 @@ A\to D,\quad B\to E,\quad C\to F
 
 【図】
 \begin{tikzpicture}[scale=0.62, line cap=round, line join=round]
+\draw[step=1, gray!35, very thin] (-4,-3) grid (4,3);
 \coordinate (O) at (0,0);
 \coordinate (A) at (-2.6,0.8);
 \coordinate (B) at (-1.8,-1.5);
@@ -206,8 +210,8 @@ A\to D,\quad B\to E,\quad C\to F
 \coordinate (D) at (2.6,-0.8);
 \coordinate (E) at (1.8,1.5);
 \coordinate (F) at (0.2,0.4);
-\draw[thick] (A)--(B)--(C)--cycle;
-\draw[dashed, thick] (D)--(E)--(F)--cycle;
+\draw[thick] (A)--(B)--(C)-- cycle;
+\draw[dashed, thick] (D)--(E)--(F)-- cycle;
 \draw[dotted] (A)--(D);
 \draw[dotted] (B)--(E);
 \draw[dotted] (C)--(F);
@@ -256,8 +260,8 @@ $\triangle ABC$ を点 $O$ を中心として回転移動し、$\triangle DEF$ �
 \coordinate (D) at (2.3,0);
 \coordinate (E) at (0.8,1.8);
 \coordinate (F) at (2.9,0.8);
-\draw[thick] (A)--(B)--(C)--cycle;
-\draw[dashed, thick] (D)--(E)--(F)--cycle;
+\draw[thick] (A)--(B)--(C)-- cycle;
+\draw[dashed, thick] (D)--(E)--(F)-- cycle;
 \draw[dotted] (O)--(A);
 \draw[dotted] (O)--(D);
 \draw[dotted] (O)--(B);

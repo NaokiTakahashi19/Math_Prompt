@@ -68,22 +68,20 @@
 【解説】  
 **ステップ1：** 分配法則を利用して、かっこをはずす
 \[
-= \hlblue{3} \times 3a + \hlblue{3} \times 7b - \hlpink{2} \times 3a - \hlpink{2} \times 5b
+\begin{aligned}
+3(3a + 7b) - 2(3a + 5b)
+&=\hlblue{3} \times 3a + \hlblue{3} \times 7b - \hlpink{2} \times 3a - \hlpink{2} \times 5b
+\end{aligned}
 \]
 
-**ステップ2：** それぞれの積を計算する
+**ステップ2：** 等号でつないで計算する
 \[
-= 9a + 21b -6a -10b
-\]
-
-**ステップ3：** 項を並びかえる
-\[
-= 9a -6a + 21b - 10b
-\]
-
-**ステップ4：** 同類項をまとめる
-\[
-= 3a + 11b
+\begin{aligned}
+3(3a + 7b) - 2(3a + 5b)
+&=9a+21b-6a-10b\\
+&=9a-6a+21b-10b\\
+&=3a+11b
+\end{aligned}
 \]
 
 ■問題2  
@@ -99,21 +97,20 @@
 【解説】  
 **ステップ1：** 分配法則を利用して、かっこをはずす
 \[
-= \hlblue{5} \times 3x + \hlblue{5} \times y + (-\hlpink{2}) \times x + (-\hlpink{2}) \times (-4y)
+\begin{aligned}
+5(3x + y) - 2(x - 4y)
+&=\hlblue{5} \times 3x + \hlblue{5} \times y + (-\hlpink{2}) \times x + (-\hlpink{2}) \times (-4y)
+\end{aligned}
 \]
 
-**ステップ2：** それぞれの積を計算する
+**ステップ2：** 等号でつないで計算する
 \[
-= 15x + 5y - 2x + 8y
-\]
-
-**ステップ3：** 項を並びかえる
-\[
-= 15x - 2x + 5y + 8y
-\]
-**ステップ4：** 同類項をまとめる
-\[
-= 13x + 13y
+\begin{aligned}
+5(3x + y) - 2(x - 4y)
+&=15x+5y-2x+8y\\
+&=15x-2x+5y+8y\\
+&=13x+13y
+\end{aligned}
 \]
 
 以上、生成例

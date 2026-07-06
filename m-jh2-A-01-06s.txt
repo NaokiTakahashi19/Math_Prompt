@@ -81,7 +81,13 @@
 
 **ステップ2：** 計算をする
 \[
-= -6x + 15y - 12
+\begin{aligned}
+-3(2x-5y+4)
+&=\hlblue{(-3)}\times\hlpink{2x}
+\hlblue{(-3)}\times\hlpink{(-5y)}
+\hlblue{(-3)}\times\hlpink{4}\\
+&=-6x+15y-12
+\end{aligned}
 \]
 
 **ポイント：**  
@@ -112,18 +118,15 @@ $(-3)\times(-5y)=+15y$ のように、負の数どうしの積は正になる。
 +\hlblue{\frac{3}{4}}\times\hlpink{16}
 \]
 
-**ステップ2：** それぞれ約分して計算する
+**ステップ2：** 等号でつないで約分して計算する
 \[
 \begin{aligned}
-\frac{3}{4}\times 8a&=6a\\
-\frac{3}{4}\times(-12b)&=-9b\\
-\frac{3}{4}\times16&=12
+\frac{3}{4}(8a-12b+16)
+&=\hlblue{\frac{3}{4}}\times\hlpink{8a}
+\hlblue{\frac{3}{4}}\times\hlpink{(-12b)}
+\hlblue{\frac{3}{4}}\times\hlpink{16}\\
+&=6a-9b+12
 \end{aligned}
-\]
-
-**ステップ3：** 答えを書く
-\[
-6a - 9b + 12
 \]
 
 **ポイント：**  

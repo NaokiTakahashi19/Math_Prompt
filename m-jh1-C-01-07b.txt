@@ -52,9 +52,143 @@
    - 問題は「■問題1」の形式，解答・解説は【】を使用
    - 難易度は「教科書の基本問題レベル」を基準
    - つまずきやすい箇所には補足解説を加える
-## 生成例  
-＊＊＊＊＊＊＊＊＊＊＊＊
-＊＊＊＊＊＊＊＊＊＊＊＊
+## 生成例
+■問題1
+次の図の $\triangle ABC$ を、点 $O$ を対称の中心として点対称移動させてできる $\triangle DEF$ をかきなさい。
+
+【図】
+\begin{tikzpicture}[scale=0.55, line cap=round, line join=round]
+\draw[step=1, gray!35, very thin] (0,0) grid (12,8);
+\coordinate (O) at (6,4);
+\coordinate (A) at (3,6);
+\coordinate (B) at (2,3);
+\coordinate (C) at (5,2);
+\coordinate (D) at (9,2);
+\coordinate (E) at (10,5);
+\coordinate (F) at (7,6);
+\draw[thick] (A)--(B)--(C)-- cycle;
+\fill (O) circle (2pt);
+\node[above] at (A) {$A$};
+\node[left] at (B) {$B$};
+\node[below] at (C) {$C$};
+\node[below right] at (O) {$O$};
+\end{tikzpicture}
+
+【解答】
+\[
+A\to D,\quad B\to E,\quad C\to F
+\]
+となるように、点 $O$ を中心として $180^\circ$ 回転させて結んだ $\triangle DEF$。
+
+【図】
+\begin{tikzpicture}[scale=0.55, line cap=round, line join=round]
+\draw[step=1, gray!35, very thin] (0,0) grid (12,8);
+\coordinate (O) at (6,4);
+\coordinate (A) at (3,6);
+\coordinate (B) at (2,3);
+\coordinate (C) at (5,2);
+\coordinate (D) at (9,2);
+\coordinate (E) at (10,5);
+\coordinate (F) at (7,6);
+\draw[thick] (A)--(B)--(C)-- cycle;
+\draw[dashed, thick] (D)--(E)--(F)-- cycle;
+\draw[dotted] (A)--(D);
+\draw[dotted] (B)--(E);
+\draw[dotted] (C)--(F);
+\fill (O) circle (2pt);
+\node[above] at (A) {$A$};
+\node[left] at (B) {$B$};
+\node[below] at (C) {$C$};
+\node[below] at (D) {$D$};
+\node[right] at (E) {$E$};
+\node[above] at (F) {$F$};
+\node[below right] at (O) {$O$};
+\end{tikzpicture}
+
+【解説】
+**ポイント整理：点対称移動**
+
+点対称移動とは、ある点を中心として $180^\circ$ 回転させる移動です。
+このときの中心の点を、対称の中心といいます。
+
+**ステップ1：対称の中心を確認する**
+
+この問題では、点 $O$ が対称の中心です。
+
+**ステップ2：対応する点をとる**
+
+点 $A$ と点 $D$、点 $B$ と点 $E$、点 $C$ と点 $F$ は、それぞれ点 $O$ をはさんで一直線上にあります。
+また、点 $O$ はそれぞれの線分の中点です。
+
+\[
+AO=OD,\quad BO=OE,\quad CO=OF
+\]
+
+**ステップ3：移動後の点を結ぶ**
+
+点 $D,E,F$ を結ぶと、点対称移動した $\triangle DEF$ ができます。
+
+**コツ**
+
+点対称移動では、対応する2点を結ぶ線分は対称の中心を通り、その中心で2等分されます。
+
+
+■問題2
+$\triangle ABC$ を点 $O$ を対称の中心として点対称移動し、$\triangle DEF$ ができました。このとき、次の問いに答えなさい。
+
+【図】
+\begin{tikzpicture}[scale=0.6, line cap=round, line join=round]
+\draw[step=1, gray!35, very thin] (-5,-4) grid (5,4);
+\coordinate (O) at (0,0);
+\coordinate (A) at (-3,2);
+\coordinate (B) at (-4,-1);
+\coordinate (C) at (-1,-2);
+\coordinate (D) at (3,-2);
+\coordinate (E) at (4,1);
+\coordinate (F) at (1,2);
+\draw[thick] (A)--(B)--(C)-- cycle;
+\draw[dashed, thick] (D)--(E)--(F)-- cycle;
+\draw[dotted] (A)--(D);
+\draw[dotted] (B)--(E);
+\draw[dotted] (C)--(F);
+\fill (O) circle (2pt);
+\node[above] at (A) {$A$};
+\node[left] at (B) {$B$};
+\node[below] at (C) {$C$};
+\node[below] at (D) {$D$};
+\node[right] at (E) {$E$};
+\node[above] at (F) {$F$};
+\node[below right] at (O) {$O$};
+\end{tikzpicture}
+
+(1) 点 $A$ に対応する点を答えなさい。
+
+(2) 線分 $AD$ と点 $O$ の関係を答えなさい。
+
+【解答】
+(1)
+\[
+D
+\]
+
+(2) 点 $O$ は線分 $AD$ の中点である。
+
+【解説】
+**ステップ1：対応する点を確認する**
+
+$\triangle ABC$ を点対称移動して $\triangle DEF$ ができているので、
+\[
+A\leftrightarrow D,\quad B\leftrightarrow E,\quad C\leftrightarrow F
+\]
+です。
+
+したがって、点 $A$ に対応する点は $D$ です。
+
+**ステップ2：対称の中心の性質を使う**
+
+点対称移動では、対応する2点を結ぶ線分は対称の中心を通ります。
+また、対称の中心はその線分を2等分します。
+
+したがって、点 $O$ は線分 $AD$ の中点です。
 
 以上、生成例
-

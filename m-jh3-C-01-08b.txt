@@ -23,6 +23,9 @@
    - **行末**：`■問題1`/`【解答】`/`【解説】` の行末には**半角スペース2つ**（改行扱い）
 2. **図形・TikZルール**
    - 図は必ず `\begin{tikzpicture} ... \end{tikzpicture}` で描く
+   - 各問題で `【図】` と書いた直後に、実際の `\begin{tikzpicture} ... \end{tikzpicture}` のコードを必ず出力する
+   - `【図】` だけで終わらせたり、`[図]`、`（図省略）`、`図を入れる` などのプレースホルダで代用したりしない
+   - 図は問題文の一部として出力し、解説だけに図を置かない
    - 三角形、辺上の点、線分の長さ、平行かどうかを調べる線分を明確に入れる
    - 平行と分かった線分には、解説内で `//` を使って表す
    - 拡大図の問題では、中心 $O$、もとの三角形、拡大後の三角形が見分けられるようにする
@@ -73,6 +76,8 @@
    - 比を比べるときは、同じ向き・同じ対応でそろえることを強調する
    - $AP:AB$ と $AQ:AC$ を比べる方法、$AP:PB$ と $AQ:QC$ を比べる方法を混同しないようにする
    - 平行を判断する理由を、式だけでなく言葉でも説明する
+   - 「【図】」だけで終わらせず、必ず直後に `\begin{tikzpicture} ... \end{tikzpicture}` の図を出力する
+   - `[図]` のような代替表記は使わない
    - つまずきやすい箇所には補足解説を加える
 
 ## 生成例
@@ -87,8 +92,8 @@
 \coordinate (D) at (-0.2,0);
 \coordinate (F) at (-1.1,1.5);
 \coordinate (E) at (0.88,1.8);
-\draw (A)--(B)--(C)--cycle;
-\draw (D)--(E)--(F)--cycle;
+\draw (A)--(B)--(C)-- cycle;
+\draw (D)--(E)--(F)-- cycle;
 \node[above] at (A) {$A$};
 \node[below left] at (B) {$B$};
 \node[below right] at (C) {$C$};
@@ -171,7 +176,7 @@ FE // BC
 \coordinate (C) at (2.2,0);
 \coordinate (P) at (-0.75,1.95);
 \coordinate (Q) at (0.9,1.75);
-\draw (A)--(B)--(C)--cycle;
+\draw (A)--(B)--(C)-- cycle;
 \draw (P)--(Q);
 \node[above] at (A) {$A$};
 \node[below left] at (B) {$B$};
@@ -248,8 +253,8 @@ OA'=3OA,\quad OB'=3OB,\quad OC'=3OC
 \draw (O)--(Ap);
 \draw (O)--(Bp);
 \draw (O)--(Cp);
-\draw[thick] (A)--(B)--(C)--cycle;
-\draw[thick] (Ap)--(Bp)--(Cp)--cycle;
+\draw[thick] (A)--(B)--(C)-- cycle;
+\draw[thick] (Ap)--(Bp)--(Cp)-- cycle;
 \node[left] at (O) {$O$};
 \node[above] at (A) {$A$};
 \node[below] at (B) {$B$};

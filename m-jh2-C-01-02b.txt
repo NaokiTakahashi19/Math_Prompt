@@ -23,6 +23,8 @@
    - **行末**：`■問題1`/`【解答】`/`【解説】` の行末には**半角スペース2つ**（改行扱い）
 2. **図形・TikZルール**
    - 図は必ず `\begin{tikzpicture} ... \end{tikzpicture}` で描く
+   - 各問題で `【図】` と書いた直後に、実際の `\begin{tikzpicture} ... \end{tikzpicture}` のコードを必ず出力する
+   - `【図】` だけで終わらせたり、`[図]`、`（図省略）`、`図を入れる` などのプレースホルダで代用したりしない
    - 三角形、辺の延長、角度、$\angle x$ などの記号を明確に入れる
    - 外角の問題では、どの角が外角か分かるように辺を延長する
    - 角を表す弧は、角の位置とずれないように入れる
@@ -83,7 +85,7 @@
 \coordinate (A) at (0,2.2);
 \coordinate (B) at (-1.4,0);
 \coordinate (C) at (1.6,0);
-\draw (A)--(B)--(C)--cycle;
+\draw (A)--(B)--(C)-- cycle;
 \node[above] at (A) {$A$};
 \node[below left] at (B) {$B$};
 \node[below right] at (C) {$C$};
@@ -133,7 +135,7 @@ x=67^\circ
 \coordinate (B) at (-1.6,0);
 \coordinate (C) at (1.6,0);
 \coordinate (D) at (2.7,0);
-\draw (A)--(B)--(C)--cycle;
+\draw (A)--(B)--(C)-- cycle;
 \draw (C)--(D);
 \node[above] at (A) {$A$};
 \node[below left] at (B) {$B$};
@@ -183,7 +185,7 @@ x=63^\circ
 \coordinate (B) at (-1.5,0);
 \coordinate (C) at (1.5,0);
 \coordinate (D) at (2.6,0);
-\draw (A)--(B)--(C)--cycle;
+\draw (A)--(B)--(C)-- cycle;
 \draw (C)--(D);
 \node[above] at (A) {$A$};
 \node[below left] at (B) {$B$};

@@ -27,6 +27,8 @@
    - **行末**：`■問題1`/`【解答】`/`【解説】` の行末には**半角スペース2つ**（改行扱い）
 2. **図形・TikZルール**
    - 図を使う場合は必ず `\begin{tikzpicture} ... \end{tikzpicture}` で描く
+   - 各問題で `【図】` と書いた直後に、実際の `\begin{tikzpicture} ... \end{tikzpicture}` のコードを必ず出力する
+   - `【図】` だけで終わらせたり、`[図]`、`（図省略）`、`図を入れる` などのプレースホルダで代用したりしない
    - 2つの三角形を横に並べ、頂点名、辺の長さ、角度、等しい角の印を見やすく入れる
    - 図は白黒で、線は太すぎず、点名・角度・辺の長さが重ならないようにする
    - 図のかわりに表を使う問題を入れてもよい
@@ -89,8 +91,8 @@
 \coordinate (D) at (4,2);
 \coordinate (E) at (2.8,0);
 \coordinate (F) at (5.4,0);
-\draw (A)--(B)--(C)--cycle;
-\draw (D)--(E)--(F)--cycle;
+\draw (A)--(B)--(C)-- cycle;
+\draw (D)--(E)--(F)-- cycle;
 \node[above] at (A) {$A$};
 \node[below left] at (B) {$B$};
 \node[below right] at (C) {$C$};
@@ -147,8 +149,8 @@
 \coordinate (D) at (4.2,2.4);
 \coordinate (E) at (2.4,0);
 \coordinate (F) at (6,0);
-\draw (A)--(B)--(C)--cycle;
-\draw (D)--(E)--(F)--cycle;
+\draw (A)--(B)--(C)-- cycle;
+\draw (D)--(E)--(F)-- cycle;
 \node[above] at (A) {$A$};
 \node[below left] at (B) {$B$};
 \node[below right] at (C) {$C$};
@@ -204,8 +206,8 @@
 \coordinate (D) at (4.2,2.4);
 \coordinate (E) at (2.3,0);
 \coordinate (F) at (6.1,0);
-\draw (A)--(B)--(C)--cycle;
-\draw (D)--(E)--(F)--cycle;
+\draw (A)--(B)--(C)-- cycle;
+\draw (D)--(E)--(F)-- cycle;
 \node[above] at (A) {$A$};
 \node[below left] at (B) {$B$};
 \node[below right] at (C) {$C$};

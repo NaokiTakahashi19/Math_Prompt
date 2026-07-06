@@ -22,6 +22,8 @@
    - **行末**：`■問題1`/`【解答】`/`【解説】` の行末には**半角スペース2つ**（改行扱い）
 2. **図形・TikZルール**
    - 図は必ず `\begin{tikzpicture} ... \end{tikzpicture}` で描く
+   - 各問題で `【図】` と書いた直後に、実際の `\begin{tikzpicture} ... \end{tikzpicture}` のコードを必ず出力する
+   - `【図】` だけで終わらせたり、`[図]`、`（図省略）`、`図を入れる` などのプレースホルダで代用したりしない
    - 直角三角形、直角記号、与えられた辺の長さ、求める辺 $x$ を明確に入れる
    - 辺の長さには `cm` をつける
    - ラベル位置は `at (2,0)` のようにできるだけ座標を直接指定し、`($(A)!0.5!(B)$)` のような中点計算は使わない
@@ -82,7 +84,7 @@
 \coordinate (A) at (0,0);
 \coordinate (B) at (4,0);
 \coordinate (C) at (4,2);
-\draw (A)--(B)--(C)--cycle;
+\draw (A)--(B)--(C)-- cycle;
 \draw (B)--++(-0.25,0)--++(0,0.25)--++(0.25,0);
 \node[below] at (2,-0.1) {$5\,\mathrm{cm}$};
 \node[right] at (4.1,1) {$2\,\mathrm{cm}$};
@@ -135,7 +137,7 @@ x=\sqrt{29}
 \coordinate (A) at (0,0);
 \coordinate (B) at (0,2.7);
 \coordinate (C) at (4,0);
-\draw (A)--(B)--(C)--cycle;
+\draw (A)--(B)--(C)-- cycle;
 \draw (A)--++(0.25,0)--++(0,0.25)--++(-0.25,0);
 \node[left] at (-0.1,1.35) {$x\,\mathrm{cm}$};
 \node[below] at (2,-0.1) {$5\,\mathrm{cm}$};
@@ -188,7 +190,7 @@ x=12
 \coordinate (A) at (0,0);
 \coordinate (B) at (4.8,0);
 \coordinate (C) at (4.8,2);
-\draw (A)--(B)--(C)--cycle;
+\draw (A)--(B)--(C)-- cycle;
 \draw (C)--++(-0.25,0)--++(0,-0.25)--++(0.25,0);
 \node[below] at (2.4,-0.1) {$17\,\mathrm{cm}$};
 \node[above] at (2.25,1.25) {$15\,\mathrm{cm}$};

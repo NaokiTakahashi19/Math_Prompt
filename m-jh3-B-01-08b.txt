@@ -49,6 +49,8 @@
    - **乗算記号**： `\times` に統一
 4. **グラフの描画ルール**
    - 図やグラフを入れる場合は、必ず `\begin{tikzpicture} ... \end{tikzpicture}` で描く
+   - 各問題で `【図】` と書いた直後に、実際の `\begin{tikzpicture} ... \end{tikzpicture}` のコードを必ず出力する
+   - `【図】` だけで終わらせたり、`[図]`、`（図省略）`、`図を入れる` などのプレースホルダで代用したりしない
    - 時間と距離の関係が分かるように、横軸を $x$ 秒、縦軸を $y\,\mathrm{m}$ とする
    - 必要に応じて、求める時間区間の両端に点や補助線を入れる
    - ラベル位置は `at (2,0)` のようにできるだけ座標を直接指定し、`($(A)!0.5!(B)$)` のような中点計算は使わない
@@ -98,7 +100,7 @@
 【図】
 \begin{tikzpicture}[scale=0.72, line cap=round, line join=round]
 \draw[step=1, gray!30, very thin] (0,0) grid (6,9);
-\draw[->, thick] (0,0)--(6.5,0) node[right] {$x(\text{秒})$};
+\draw[->, thick] (0,0)--(6.5,0) node[right] {$x\,(\mathrm{s})$};
 \draw[->, thick] (0,0)--(0,9.5) node[above] {$y(\mathrm{m})$};
 \foreach \x/\label in {0/0,2/10,4/20,6/30}{
   \draw (\x,0)--(\x,-0.15);

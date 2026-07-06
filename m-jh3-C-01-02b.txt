@@ -21,6 +21,8 @@
    - 1つの大問の中に(1)〜(3)の小問を入れず、複数の大問に分ける
 2. **図形・TikZルール**
    - 図は必ず `\begin{tikzpicture} ... \end{tikzpicture}` で描く
+   - 各問題で `【図】` と書いた直後に、実際の `\begin{tikzpicture} ... \end{tikzpicture}` のコードを必ず出力する
+   - `【図】` だけで終わらせたり、`[図]`、`（図省略）`、`図を入れる` などのプレースホルダで代用したりしない
    - 2つの相似な三角形を横に並べ、頂点名と辺の長さを明確に入れる
    - 辺の長さは `5\,\mathrm{cm}` のようにTikZ内でもTeX表記にする
    - 対応する辺が読み取りやすいように、$\triangle ABC\sim\triangle DEF$ の順序に合わせて、$A\leftrightarrow D$、$B\leftrightarrow E$、$C\leftrightarrow F$ となる図にする

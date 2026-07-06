@@ -86,9 +86,14 @@
 = (-2) \times 2 \times x \times y
 \]
 
-**ステップ3：** 係数どうし、文字どうしをそれぞれ計算する
+**ステップ3：** 等号でつないで計算する
 \[
-= -4xy
+\begin{aligned}
+(-2x)\times2y
+&=\hlblue{(-2)\times x}\times\hlpink{2\times y}\\
+&=(-2)\times2\times x\times y\\
+&=-4xy
+\end{aligned}
 \]
 
 ■問題2  
@@ -123,9 +128,14 @@
 = \frac{3}{2}  \times 8 \times x \times y
 \]
 
-**ステップ3：** 係数どうし、文字どうしをそれぞれ計算する
+**ステップ3：** 等号でつないで計算する
 \[
-= 12xy
+\begin{aligned}
+\frac{3}{2}x\times8y
+&=\hlblue{\frac{3}{2}\times x}\times\hlpink{8\times y}\\
+&=\frac{3}{2}\times8\times x\times y\\
+&=12xy
+\end{aligned}
 \]
 
 ■問題3  
@@ -160,10 +170,15 @@
 = 2 \times 3 \times x \times x
 \]
 
-**ステップ3：** 係数どうし、文字どうしをそれぞれ計算する
+**ステップ3：** 等号でつないで計算する
 同じ文字の積は指数を使って表す。
 \[
-= 6x^2
+\begin{aligned}
+2x\times3x
+&=\hlblue{2\times x}\times\hlpink{3\times x}\\
+&=2\times3\times x\times x\\
+&=6x^2
+\end{aligned}
 \]
 
 以上、生成例

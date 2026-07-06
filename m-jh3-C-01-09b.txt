@@ -22,6 +22,8 @@
    - **行末**：`■問題1`/`【解答】`/`【解説】` の行末には**半角スペース2つ**（改行扱い）
 2. **図形・TikZルール**
    - 図は必ず `\begin{tikzpicture} ... \end{tikzpicture}` で描く
+   - 各問題で `【図】` と書いた直後に、実際の `\begin{tikzpicture} ... \end{tikzpicture}` のコードを必ず出力する
+   - `【図】` だけで終わらせたり、`[図]`、`（図省略）`、`図を入れる` などのプレースホルダで代用したりしない
    - 三角形、台形、中点を表す点名、平行な線分、必要な長さを明確に入れる
    - 中点を示すため、同じ長さの辺には短い刻み線を入れる
    - 平行な線分には矢印などの印を入れてよい
@@ -84,7 +86,7 @@
 \coordinate (C) at (2.2,0);
 \coordinate (M) at (-1,1.5);
 \coordinate (N) at (1.1,1.5);
-\draw (A)--(B)--(C)--cycle;
+\draw (A)--(B)--(C)-- cycle;
 \draw (M)--(N);
 \node[above] at (A) {$A$};
 \node[below left] at (B) {$B$};
@@ -152,8 +154,8 @@ $\triangle ABC$ の辺 $BC,CA,AB$ の中点をそれぞれ $D,E,F$ とします�
 \coordinate (D) at (0,0);
 \coordinate (E) at (1.1,1.5);
 \coordinate (F) at (-1.1,1.5);
-\draw (A)--(B)--(C)--cycle;
-\draw (D)--(E)--(F)--cycle;
+\draw (A)--(B)--(C)-- cycle;
+\draw (D)--(E)--(F)-- cycle;
 \node[above] at (A) {$A$};
 \node[below left] at (B) {$B$};
 \node[below right] at (C) {$C$};
@@ -230,7 +232,7 @@ $\triangle ABC$ の面積は $12\text{ cm}^2$ なので、
 \coordinate (E) at (-1.9,1.2);
 \coordinate (F) at (0,1.2);
 \coordinate (G) at (2.0,1.2);
-\draw (A)--(D)--(C)--(B)--cycle;
+\draw (A)--(D)--(C)--(B)-- cycle;
 \draw (B)--(D);
 \draw (E)--(G);
 \node[above] at (A) {$A$};

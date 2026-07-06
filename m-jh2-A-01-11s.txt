@@ -87,9 +87,15 @@
 = \frac{-18\times a\times a\times b}{6}
 \]
 
-**ステップ4：** 係数を簡単にしてまとめる
+**ステップ4：** 等号でつないでまとめる
 \[
-= -3a^2b
+\begin{aligned}
+-18a^3b^2 \div 6ab
+&=\frac{-18a^3b^2}{6ab}\\
+&=\frac{-18\times \hlblue{a}\times a\times a\times \hlpink{b}\times b}{6\times \hlblue{a}\times \hlpink{b}}\\
+&=\frac{-18\times a\times a\times b}{6}\\
+&=-3a^2b
+\end{aligned}
 \]
 
 ■問題2  
@@ -123,9 +129,15 @@ $-\frac{2}{3}ab$ でわるので、逆数にして $-\frac{3}{2ab}$ をかける
 = \frac{8\times a\times b\times b\times(-3)}{2}
 \]
 
-**ステップ4：** 係数を簡単にしてまとめる
+**ステップ4：** 等号でつないでまとめる
 \[
-= -12ab^2
+\begin{aligned}
+8a^2b^3 \div \left(-\frac{2}{3}ab\right)
+&=8a^2b^3 \times \left(-\frac{3}{2ab}\right)\\
+&=\frac{8\times a\times \hlblue{a}\times b\times b\times \hlpink{b}\times(-3)}{2\times \hlblue{a}\times \hlpink{b}}\\
+&=\frac{8\times a\times b\times b\times(-3)}{2}\\
+&=-12ab^2
+\end{aligned}
 \]
 
 **ポイント：**  

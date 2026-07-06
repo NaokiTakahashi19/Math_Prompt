@@ -25,6 +25,8 @@
    - **行末**：`■問題1`/`【解答】`/`【解説】` の行末には**半角スペース2つ**（改行扱い）
 2. **図形・TikZルール**
    - 図は必ず `\begin{tikzpicture} ... \end{tikzpicture}` で描く
+   - 各問題で `【図】` と書いた直後に、実際の `\begin{tikzpicture} ... \end{tikzpicture}` のコードを必ず出力する
+   - `【図】` だけで終わらせたり、`[図]`、`（図省略）`、`図を入れる` などのプレースホルダで代用したりしない
    - 三角形、頂点名、等しい辺を表す印、等しい角を表す弧を明確に入れる
    - 辺の長さや角度を入れる場合は、問題を解くために必要なものだけにする
    - ラベル位置は `at (2,0)` のようにできるだけ座標を直接指定し、`($(A)!0.5!(B)$)` のような中点計算は使わない
@@ -91,8 +93,8 @@
 \coordinate (D) at (4,2);
 \coordinate (E) at (2.7,0);
 \coordinate (F) at (5.3,0);
-\draw (A)--(B)--(C)--cycle;
-\draw (D)--(E)--(F)--cycle;
+\draw (A)--(B)--(C)-- cycle;
+\draw (D)--(E)--(F)-- cycle;
 \node[above] at (A) {$A$};
 \node[below left] at (B) {$B$};
 \node[below right] at (C) {$C$};
@@ -156,8 +158,8 @@ $A$ は $D$、$B$ は $E$、$C$ は $F$ に対応します。
 \coordinate (D) at (4,2.1);
 \coordinate (E) at (2.6,0);
 \coordinate (F) at (5.4,0);
-\draw (A)--(B)--(C)--cycle;
-\draw (D)--(E)--(F)--cycle;
+\draw (A)--(B)--(C)-- cycle;
+\draw (D)--(E)--(F)-- cycle;
 \node[above] at (A) {$A$};
 \node[below left] at (B) {$B$};
 \node[below right] at (C) {$C$};
@@ -214,8 +216,8 @@ $\angle E$ は、辺 $DE$ と辺 $EF$ にはさまれた角です。
 \coordinate (D) at (4,2);
 \coordinate (E) at (2.5,0);
 \coordinate (F) at (5.5,0);
-\draw (A)--(B)--(C)--cycle;
-\draw (D)--(E)--(F)--cycle;
+\draw (A)--(B)--(C)-- cycle;
+\draw (D)--(E)--(F)-- cycle;
 \node[above] at (A) {$A$};
 \node[below left] at (B) {$B$};
 \node[below right] at (C) {$C$};

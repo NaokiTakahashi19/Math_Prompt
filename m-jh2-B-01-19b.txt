@@ -24,6 +24,8 @@
 2. **表・図・グラフ**
    - 表は `array` または `tabular` を用い、対応する $x$ と $y$ の値が見やすい形にする
    - グラフは必ず `\begin{tikzpicture} ... \end{tikzpicture}` で描く
+   - 各問題で `【図】` と書いた直後に、実際の `\begin{tikzpicture} ... \end{tikzpicture}` のコードを必ず出力する
+   - `【図】` だけで終わらせたり、`[図]`、`（図省略）`、`図を入れる` などのプレースホルダで代用したりしない
    - 座標軸、目盛り、点、折れ線や直線を入れる
    - グラフを読み取る問題では、横軸・縦軸が何を表すかを明記する
    - 必要に応じて、読み取る点や区間が分かるように補助線を入れる
@@ -146,7 +148,7 @@ x=10
 【図】
 \begin{tikzpicture}[scale=0.12, line cap=round, line join=round]
 \draw[step=10, gray!30, very thin] (0,0) grid (80,60);
-\draw[->] (0,0)--(84,0) node[right] {$x\,(\mathrm{分})$};
+\draw[->] (0,0)--(84,0) node[right] {$x\,(\mathrm{min})$};
 \draw[->] (0,0)--(0,64) node[above] {$y\,(\mathrm{km})$};
 \foreach \x in {20,40,60,80} \node[below] at (\x,0) {$\x$};
 \foreach \y/\label in {20/2,40/4,60/6} \node[left] at (0,\y) {$\label$};
@@ -224,7 +226,7 @@ y=\frac{1}{10}x-2
 【図】
 \begin{tikzpicture}[scale=0.35, line cap=round, line join=round]
 \draw[step=1, gray!30, very thin] (0,0) grid (16,14);
-\draw[->] (0,0)--(17,0) node[right] {$x\,(\mathrm{分})$};
+\draw[->] (0,0)--(17,0) node[right] {$x\,(\mathrm{min})$};
 \draw[->] (0,0)--(0,15) node[above] {$y\,(\mathrm{L})$};
 \foreach \x in {2,4,6,8,10,12,14,16} \node[below] at (\x,0) {$\x$};
 \foreach \y/\label in {3/30,6/60,9/90,12/120} \node[left] at (0,\y) {$\label$};

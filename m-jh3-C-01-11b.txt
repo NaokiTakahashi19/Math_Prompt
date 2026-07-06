@@ -21,6 +21,8 @@
    - **行末**：`■問題1`/`【解答】`/`【解説】` の行末には**半角スペース2つ**（改行扱い）
 2. **図形・TikZルール**
    - 図は必ず `\begin{tikzpicture} ... \end{tikzpicture}` で描く
+   - 各問題で `【図】` と書いた直後に、実際の `\begin{tikzpicture} ... \end{tikzpicture}` のコードを必ず出力する
+   - `【図】` だけで終わらせたり、`[図]`、`（図省略）`、`図を入れる` などのプレースホルダで代用したりしない
    - 頂点名、辺の長さ、$x$ の位置、角の二等分線を示す印を入れる
    - 角の二等分線の印は、頂点 $A$ の近くに左右2つの同じ印で示す
    - 辺の長さ、点名、$x$ の文字が重ならないようにする
@@ -80,7 +82,7 @@
 \coordinate (B) at (-2.6,0);
 \coordinate (C) at (2.2,0);
 \coordinate (D) at (0.2,0);
-\draw (A)--(B)--(C)--cycle;
+\draw (A)--(B)--(C)-- cycle;
 \draw (A)--(D);
 \node[above] at (A) {$A$};
 \node[below left] at (B) {$B$};
@@ -165,7 +167,7 @@ $AB$ と $BD$、$AC$ と $DC$ が対応します。
 \coordinate (B) at (-2.3,0);
 \coordinate (C) at (2.7,0);
 \coordinate (D) at (-0.3,0);
-\draw (A)--(B)--(C)--cycle;
+\draw (A)--(B)--(C)-- cycle;
 \draw (A)--(D);
 \node[above] at (A) {$A$};
 \node[below left] at (B) {$B$};
@@ -253,7 +255,7 @@ x=9
 \coordinate (B) at (-2.4,0);
 \coordinate (C) at (2.4,0);
 \coordinate (D) at (0,0);
-\draw (A)--(B)--(C)--cycle;
+\draw (A)--(B)--(C)-- cycle;
 \draw (A)--(D);
 \node[above] at (A) {$A$};
 \node[below left] at (B) {$B$};

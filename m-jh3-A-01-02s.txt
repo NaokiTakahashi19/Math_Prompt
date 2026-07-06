@@ -77,23 +77,19 @@ $-6xy$ の逆数は $-\frac{1}{6xy}$ である。
 =(12x^3y-18x^2y^2+6xy)\times\left(-\frac{1}{6xy}\right)
 \]
 
-**ステップ2：** 各項を $-6xy$ でわる
-
-\[
-\frac{12x^3y}{-6xy}+\frac{-18x^2y^2}{-6xy}+\frac{6xy}{-6xy}
-\]
-
-**ステップ3：** 約分して計算する
+**ステップ2：** 等号でつないで計算する
 
 \[
 \begin{aligned}
-\frac{12x^3y}{-6xy}&=-2x^2\\
-\frac{-18x^2y^2}{-6xy}&=3xy\\
-\frac{6xy}{-6xy}&=-1
+(12x^3y-18x^2y^2+6xy)\div(-6xy)
+&=(12x^3y-18x^2y^2+6xy)\times\left(-\frac{1}{6xy}\right)\\
+&=12x^3y\times\left(-\frac{1}{6xy}\right)-18x^2y^2\times\left(-\frac{1}{6xy}\right)+6xy\times\left(-\frac{1}{6xy}\right)\\
+&=\frac{12x^3y}{-6xy}+\frac{-18x^2y^2}{-6xy}+\frac{6xy}{-6xy}\\
+&=-2x^2+3xy-1
 \end{aligned}
 \]
 
-**ステップ4：** 答えを書く
+**ステップ3：** 答えを書く
 
 \[
 -2x^2+3xy-1
@@ -112,19 +108,25 @@ $-6xy$ の逆数は $-\frac{1}{6xy}$ である。
 \]
 
 【解説】
-**ステップ1：** 各項を $5ab$ でわる
+**ステップ1：** 除法を乗法になおす
+
+わり算は、わる数の逆数をかける形に直すことができる。
+$5ab$ の逆数は $\frac{1}{5ab}$ である。
 
 \[
-\frac{15a^3b^2}{5ab}-\frac{10a^2b}{5ab}+\frac{5ab}{5ab}
+(15a^3b^2-10a^2b+5ab)\div5ab
+=(15a^3b^2-10a^2b+5ab)\times\frac{1}{5ab}
 \]
 
-**ステップ2：** 係数と文字を約分する
+**ステップ2：** 等号でつないで計算する
 
 \[
 \begin{aligned}
-\frac{15a^3b^2}{5ab}&=3a^2b\\
-\frac{10a^2b}{5ab}&=2a\\
-\frac{5ab}{5ab}&=1
+(15a^3b^2-10a^2b+5ab)\div5ab
+&=(15a^3b^2-10a^2b+5ab)\times\frac{1}{5ab}\\
+&=15a^3b^2\times\frac{1}{5ab}-10a^2b\times\frac{1}{5ab}+5ab\times\frac{1}{5ab}\\
+&=\frac{15a^3b^2}{5ab}-\frac{10a^2b}{5ab}+\frac{5ab}{5ab}\\
+&=3a^2b-2a+1
 \end{aligned}
 \]
 

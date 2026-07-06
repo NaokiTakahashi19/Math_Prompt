@@ -22,6 +22,8 @@
    - **行末**：`■問題1`/`【解答】`/`【解説】` の行末には**半角スペース2つ**（改行扱い）
 2. **図形・TikZルール**
    - 図を使う場合は必ず `\begin{tikzpicture} ... \end{tikzpicture}` で描く
+   - 各問題で `【図】` と書いた直後に、実際の `\begin{tikzpicture} ... \end{tikzpicture}` のコードを必ず出力する
+   - `【図】` だけで終わらせたり、`[図]`、`（図省略）`、`図を入れる` などのプレースホルダで代用したりしない
    - 相似な図形は、対応する辺や相似比が読み取れるようにする
    - 三角形の中に平行線を入れる場合は、$DE \parallel BC$ などの条件が分かるようにする
    - 図は白黒で、線は太すぎず、点名・長さ・面積の表示が重ならないようにする
@@ -187,8 +189,8 @@ $G$ の面積 $60\text{ cm}^2$ が、面積比の $4$ にあたります。
 \fill (O2) circle (1.5pt);
 \draw (O1)--++(0:1.2);
 \draw (O2)--++(0:1.8);
-\node at (0,-1.55) {半径 $2\text{ cm}$};
-\node at (4,-2.15) {半径 $3\text{ cm}$};
+\node at (0,-1.55) {$r=2\mathrm{cm}$};
+\node at (4,-2.15) {$r=3\mathrm{cm}$};
 \end{tikzpicture}
 
 【解答】
@@ -241,7 +243,7 @@ m^2:n^2
 \coordinate (C) at (2.8,0);
 \coordinate (D) at (-2.1,1);
 \coordinate (E) at (2.1,1);
-\draw (A)--(B)--(C)--cycle;
+\draw (A)--(B)--(C)-- cycle;
 \draw (D)--(E);
 \node[above] at (A) {$A$};
 \node[below left] at (B) {$B$};

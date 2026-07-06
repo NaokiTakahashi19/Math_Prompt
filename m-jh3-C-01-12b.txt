@@ -23,6 +23,8 @@
    - **行末**：`■問題1`/`【解答】`/`【解説】` の行末には**半角スペース2つ**（改行扱い）
 2. **図形・TikZルール**
    - 図は必ず `\begin{tikzpicture} ... \end{tikzpicture}` で描く
+   - 各問題で `【図】` と書いた直後に、実際の `\begin{tikzpicture} ... \end{tikzpicture}` のコードを必ず出力する
+   - `【図】` だけで終わらせたり、`[図]`、`（図省略）`、`図を入れる` などのプレースホルダで代用したりしない
    - 実際の位置関係を表す図と、縮図を表す図を必要に応じて分けて描く
    - 点名 $A,B,C$ と縮図上の点名 $A',B',C'$ を明確に区別する
    - 測れる長さ、測りたい長さ、角度、縮尺が読み取れるようにする
@@ -97,7 +99,7 @@ AC=20\text{ m},\quad BC=15\text{ m},\quad \angle ACB=60^\circ
 \node[right] at (1.35,-0.05) {$15\text{ m}$};
 \draw (C)+(55:0.48) arc (55:120:0.48);
 \node at (0, -0.85) {$60^\circ$};
-\node at (0,1.95) {求めたい距離};
+\node at (0,1.95) {$x$};
 \end{tikzpicture}
 
 【解答】
@@ -154,13 +156,13 @@ A'B'=3.6\text{ cm}
 \coordinate (B) at (0,0);
 \coordinate (A) at (0,2.3);
 \coordinate (C) at (3.5,0);
-\draw (A)--(B)--(C)--cycle;
+\draw (A)--(B)--(C)-- cycle;
 \draw (B)--++(0.25,0)--++(0,0.25)--++(-0.25,0);
 \node[above] at (A) {$A$};
 \node[below left] at (B) {$B$};
 \node[below right] at (C) {$C$};
 \node[below] at (1.75,-0.15) {$24\text{ m}$};
-\node[left] at (-0.15,1.15) {高さ};
+\node[left] at (-0.15,1.15) {$h$};
 \draw (C)+(180:0.55) arc (180:145:0.55);
 \node at (2.75,0.35) {$38^\circ$};
 \end{tikzpicture}

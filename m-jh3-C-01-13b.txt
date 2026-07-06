@@ -23,6 +23,8 @@
    - **行末**：`■問題1`/`【解答】`/`【解説】` の行末には**半角スペース2つ**（改行扱い）
 2. **図形・TikZルール**
    - 図は必ず `\begin{tikzpicture} ... \end{tikzpicture}` で描く
+   - 各問題で `【図】` と書いた直後に、実際の `\begin{tikzpicture} ... \end{tikzpicture}` のコードを必ず出力する
+   - `【図】` だけで終わらせたり、`[図]`、`（図省略）`、`図を入れる` などのプレースホルダで代用したりしない
    - 相似な三角形や多角形を並べて描き、対応関係が分かるようにする
    - 多角形を三角形に分ける図では、対応する三角形に $P,Q,R$ や $P',Q',R'$ などの記号を入れる
    - 高さや底辺を使って面積比を説明する場合は、底辺・高さが対応していることが分かる図にする
@@ -91,8 +93,8 @@ $\triangle ABC \sim \triangle A'B'C'$ で、その相似比は
 \coordinate (Ap) at (5,2.8);
 \coordinate (Bp) at (2.9,0);
 \coordinate (Cp) at (6.7,0);
-\draw (A)--(B)--(C)--cycle;
-\draw (Ap)--(Bp)--(Cp)--cycle;
+\draw (A)--(B)--(C)-- cycle;
+\draw (Ap)--(Bp)--(Cp)-- cycle;
 \node[above] at (A) {$A$};
 \node[below left] at (B) {$B$};
 \node[below right] at (C) {$C$};
@@ -170,8 +172,8 @@ P:Q=3:5
 \coordinate (H) at (3.7,-1.45);
 \coordinate (I) at (6.1,-1.15);
 \coordinate (J) at (6.55,1.1);
-\draw (A)--(B)--(C)--(D)--(E)--cycle;
-\draw (F)--(G)--(H)--(I)--(J)--cycle;
+\draw (A)--(B)--(C)--(D)--(E)-- cycle;
+\draw (F)--(G)--(H)--(I)--(J)-- cycle;
 \node at (-0.65,0.15) {$P$};
 \node at (4.75,0.15) {$Q$};
 \node at (-0.70,-1.35) {$27\text{ cm}^2$};
@@ -232,25 +234,25 @@ P:Q=2:3
 \coordinate (C) at (-1.1,-1.0);
 \coordinate (D) at (0.5,-0.8);
 \coordinate (E) at (0.8,0.7);
-\draw (A)--(B)--(C)--(D)--(E)--cycle;
+\draw (A)--(B)--(C)--(D)--(E)-- cycle;
 \draw (A)--(C);
 \draw (A)--(D);
 \node at (-1.25,0.30) {$4a$};
 \node at (-0.55,-0.35) {$5a$};
 \node at (0.15,0.20) {$6a$};
-\node at (-0.70,-1.45) {五角形 $P$};
+\node at (-0.70,-1.45) {$P$};
 \coordinate (Ap) at (4.2,2.2);
 \coordinate (Bp) at (2.7,0.1);
 \coordinate (Cp) at (4.05,-1.7);
 \coordinate (Dp) at (6.45,-1.4);
 \coordinate (Ep) at (6.9,0.85);
-\draw (Ap)--(Bp)--(Cp)--(Dp)--(Ep)--cycle;
+\draw (Ap)--(Bp)--(Cp)--(Dp)--(Ep)-- cycle;
 \draw (Ap)--(Cp);
 \draw (Ap)--(Dp);
 \node at (3.75,0.25) {$P'$};
 \node at (4.75,-0.75) {$Q'$};
 \node at (5.65,0.15) {$R'$};
-\node at (4.90,-2.20) {五角形 $Q$};
+\node at (4.90,-2.20) {$Q$};
 \end{tikzpicture}
 
 【解答】

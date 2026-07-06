@@ -395,6 +395,7 @@
     <section id="results-panel" class="panel">
       <div class="output-actions">
         <button id="download-txt-btn" type="button" disabled>テキスト出力</button>
+        <button id="download-problem-word-btn" type="button" disabled>問題のみWord出力</button>
         <button id="download-word-btn" type="button" disabled>Word出力</button>
         <button id="print-pdf-btn" type="button" disabled>PDF出力</button>
       </div>
@@ -802,6 +803,7 @@
       resultsPanel.classList.add('active');
       const hasResults = state.results.length > 0;
       document.getElementById('download-txt-btn').disabled = !hasResults;
+      document.getElementById('download-problem-word-btn').disabled = !hasResults;
       document.getElementById('download-word-btn').disabled = !hasResults;
       document.getElementById('print-pdf-btn').disabled = !hasResults;
 
@@ -864,6 +866,14 @@
           content
         ].join('\n');
       }).join('\n\n---\n\n');
+    }
+
+    function problemOnlyContent(content) {
+      const source = String(content || '').replace(/\r\n/g, '\n');
+      const answerHeading = /(?:^|\n)\s*(?:#{1,4}\s*)?(?:■\s*)?(?:【\s*(?:解答|答え|答|解説)\s*】|\[\s*(?:解答|答え|答|解説)\s*\]|(?:模範)?解答|答え|答|解説)\s*(?:\n|$)/;
+      const match = source.match(answerHeading);
+      const problem = match ? source.slice(0, match.index).trim() : source.trim();
+      return problem || source.trim();
     }
 
     async function generateAll() {
@@ -1600,7 +1610,7 @@
       return paragraphs;
     }
 
-    async function previewToDocxParagraphs(result) {
+    async function previewToDocxParagraphs(result, options = {}) {
       const { Paragraph, TextRun, HeadingLevel } = window.docx;
       const paragraphs = [
         new Paragraph({
@@ -1614,11 +1624,12 @@
         })
       ];
 
-      paragraphs.push(...await rawTextToDocxParagraphs(result.content || ''));
+      const content = options.problemOnly ? problemOnlyContent(result.content || '') : result.content || '';
+      paragraphs.push(...await rawTextToDocxParagraphs(content));
       return paragraphs;
     }
 
-    async function downloadWord() {
+    async function downloadWord(options = {}) {
       await syncEditedResultsToPreview();
       await waitForRenderedPreviews();
       if (!await waitForDocxReady()) {
@@ -1630,7 +1641,7 @@
       const children = [];
       for (const result of state.results) {
         if (children.length) children.push(new Paragraph({ children: [new PageBreak()] }));
-        children.push(...await previewToDocxParagraphs(result));
+        children.push(...await previewToDocxParagraphs(result, options));
       }
 
       const doc = new Document({
@@ -1644,7 +1655,8 @@
         }]
       });
       const blob = await Packer.toBlob(doc);
-      downloadBlob('generated-questions.docx', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document', blob);
+      const fileName = options.problemOnly ? 'generated-questions-problems.docx' : 'generated-questions.docx';
+      downloadBlob(fileName, 'application/vnd.openxmlformats-officedocument.wordprocessingml.document', blob);
     }
 
     async function syncEditedResultsToPreview() {
@@ -1736,7 +1748,8 @@
     countEl.addEventListener('change', renderConditionRows);
     generateBtn.addEventListener('click', generateAll);
     document.getElementById('download-txt-btn').addEventListener('click', downloadText);
-    document.getElementById('download-word-btn').addEventListener('click', downloadWord);
+    document.getElementById('download-problem-word-btn').addEventListener('click', () => downloadWord({ problemOnly: true }));
+    document.getElementById('download-word-btn').addEventListener('click', () => downloadWord());
     document.getElementById('print-pdf-btn').addEventListener('click', printPdf);
 
     window.addEventListener('DOMContentLoaded', async () => {

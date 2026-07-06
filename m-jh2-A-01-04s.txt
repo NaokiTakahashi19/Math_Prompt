@@ -82,17 +82,20 @@ ax+bx=(a+b)x
 
 **ステップ2：** 項を同類項ごとに並びかえる
 \[
-= \hlblue{3x^2}-\hlblue{7x^2}-\hlpink{2x}+\hlpink{9x}+\bbox[2px,lightyellow]{5}-\bbox[2px,lightyellow]{4}
+\begin{aligned}
+3x^2 - 2x + 5 - 7x^2 + 9x - 4
+&=\hlblue{3x^2}-\hlblue{7x^2}-\hlpink{2x}+\hlpink{9x}+\bbox[2px,lightyellow]{5}-\bbox[2px,lightyellow]{4}
+\end{aligned}
 \]
 
-**ステップ3：** 同類項を共通因数でくくってまとめる
+**ステップ3：** 等号でつないで同類項をまとめる
 \[
-=(3-7)x^2+(-2+9)x+(5-4)
-\]
-
-**ステップ4：** 計算する
-\[
-= -4x^2 + 7x + 1
+\begin{aligned}
+3x^2 - 2x + 5 - 7x^2 + 9x - 4
+&=\hlblue{3x^2}-\hlblue{7x^2}-\hlpink{2x}+\hlpink{9x}+\bbox[2px,lightyellow]{5}-\bbox[2px,lightyellow]{4}\\
+&=(3-7)x^2+(-2+9)x+(5-4)\\
+&=-4x^2+7x+1
+\end{aligned}
 \]
 
 **ポイント：**  
@@ -125,25 +128,20 @@ ax+bx=(a+b)x
 
 **ステップ2：** 項を同類項ごとに並びかえる
 \[
-= \hlblue{\frac{1}{2}a}+\hlblue{\frac{5}{6}a}-\hlpink{\frac{3}{4}b}+\hlpink{\frac{1}{4}b}
+\begin{aligned}
+\frac{1}{2}a - \frac{3}{4}b + \frac{5}{6}a + \frac{1}{4}b
+&=\hlblue{\frac{1}{2}a}+\hlblue{\frac{5}{6}a}-\hlpink{\frac{3}{4}b}+\hlpink{\frac{1}{4}b}
+\end{aligned}
 \]
 
-**ステップ3：** 同類項を共通因数でくくってまとめる
+**ステップ3：** 等号でつないで同類項をまとめる
 \[
-= \left(\frac{1}{2}+\frac{5}{6}\right)a+\left(-\frac{3}{4}+\frac{1}{4}\right)b
-\]
-
-**ステップ4：** 係数を計算する
-\[
-\frac{1}{2}+\frac{5}{6}=\frac{3}{6}+\frac{5}{6}=\frac{8}{6}=\frac{4}{3}
-\]
-\[
--\frac{3}{4}+\frac{1}{4}=-\frac{2}{4}=-\frac{1}{2}
-\]
-
-**ステップ5：** 答えを書く
-\[
-\frac{4}{3}a-\frac{1}{2}b
+\begin{aligned}
+\frac{1}{2}a - \frac{3}{4}b + \frac{5}{6}a + \frac{1}{4}b
+&=\left(\frac{1}{2}+\frac{5}{6}\right)a+\left(-\frac{3}{4}+\frac{1}{4}\right)b\\
+&=\left(\frac{3}{6}+\frac{5}{6}\right)a+\left(-\frac{2}{4}\right)b\\
+&=\frac{4}{3}a-\frac{1}{2}b
+\end{aligned}
 \]
 
 以上、生成例

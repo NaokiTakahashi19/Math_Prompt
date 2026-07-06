@@ -22,6 +22,8 @@
    - **行末**：`■問題1`/`【解答】`/`【解説】` の行末には**半角スペース2つ**（改行扱い）
 2. **図形・TikZルール**
    - 図は必ず `\begin{tikzpicture} ... \end{tikzpicture}` で描く
+   - 各問題で `【図】` と書いた直後に、実際の `\begin{tikzpicture} ... \end{tikzpicture}` のコードを必ず出力する
+   - `【図】` だけで終わらせたり、`[図]`、`（図省略）`、`図を入れる` などのプレースホルダで代用したりしない
    - 問題図と作図後の図を必要に応じて分けて示す
    - 作図に使う弧は薄い線または点線で描く
    - 完成した角の二等分線や求める点は、ほかの補助線より目立つようにする
@@ -39,6 +41,7 @@
      - $C,D$ を中心として同じ半径の弧をかき、その交点を $E$ とする
      - 頂点と $E$ を結ぶ
      - 頂点と $E$ を結んだ半直線が角の二等分線になる
+   - 解説の各ステップでは、必要に応じて「【手順図】」を入れ、弧や交点がどの段階で作られるかを図で示す
    - 三角形の問題では、どの角の二等分線を作図するのかを最初に確認する
    - 「2辺までの距離が等しい」という条件は、角の二等分線に言いかえる
    - 最後に、作図した点や線が条件を満たす理由を短く確認する
@@ -140,6 +143,24 @@ $\angle AOB$ の二等分線を作図しなさい。
 
 点 $O$ を中心として弧をかき、角の2辺 $OA,OB$ との交点を $C,D$ とします。
 
+【手順図】
+\begin{tikzpicture}[scale=0.9, line cap=round, line join=round]
+\coordinate (O) at (0,0);
+\coordinate (A) at (3.0,1.8);
+\coordinate (B) at (3.4,0);
+\coordinate (C) at (1.72,1.03);
+\coordinate (D) at (2.0,0);
+\draw[thick] (O)--(A);
+\draw[thick] (O)--(B);
+\draw[dashed, gray] (2,0) arc (0:31:2.0);
+\fill (O) circle (1.5pt);
+\fill (C) circle (1.4pt);
+\fill (D) circle (1.4pt);
+\node[left] at (O) {$O$};
+\node[above] at (C) {$C$};
+\node[below] at (D) {$D$};
+\end{tikzpicture}
+
 **ステップ2：点 $C,D$ を中心に弧をかく**
 
 点 $C$ と点 $D$ をそれぞれ中心として、同じ半径の弧をかきます。
@@ -148,11 +169,58 @@ $\angle AOB$ の二等分線を作図しなさい。
 
 2つの弧の交点を $E$ とします。
 
+【手順図】
+\begin{tikzpicture}[scale=0.9, line cap=round, line join=round]
+\coordinate (O) at (0,0);
+\coordinate (A) at (3.0,1.8);
+\coordinate (B) at (3.4,0);
+\coordinate (C) at (1.72,1.03);
+\coordinate (D) at (2.0,0);
+\coordinate (E) at (2.7,0.55);
+\draw[thick] (O)--(A);
+\draw[thick] (O)--(B);
+\draw[dashed, gray] (2,0) arc (0:31:2.0);
+\draw[dashed, gray] (C) circle (1.1);
+\draw[dashed, gray] (D) circle (1.1);
+\fill (O) circle (1.5pt);
+\fill (C) circle (1.4pt);
+\fill (D) circle (1.4pt);
+\fill (E) circle (1.5pt);
+\node[left] at (O) {$O$};
+\node[above] at (C) {$C$};
+\node[below] at (D) {$D$};
+\node[above right] at (E) {$E$};
+\end{tikzpicture}
+
 **ステップ3：頂点と交点を結ぶ**
 
 定規で半直線 $OE$ をひきます。
 
 この半直線 $OE$ が、$\angle AOB$ の二等分線です。
+
+【手順図】
+\begin{tikzpicture}[scale=0.9, line cap=round, line join=round]
+\coordinate (O) at (0,0);
+\coordinate (A) at (3.0,1.8);
+\coordinate (B) at (3.4,0);
+\coordinate (C) at (1.72,1.03);
+\coordinate (D) at (2.0,0);
+\coordinate (E) at (2.7,0.55);
+\draw[thick] (O)--(A);
+\draw[thick] (O)--(B);
+\draw[dashed, gray] (2,0) arc (0:31:2.0);
+\draw[dashed, gray] (C) circle (1.1);
+\draw[dashed, gray] (D) circle (1.1);
+\draw[very thick] (O)--(3.2,0.65);
+\fill (O) circle (1.5pt);
+\fill (C) circle (1.4pt);
+\fill (D) circle (1.4pt);
+\fill (E) circle (1.5pt);
+\node[left] at (O) {$O$};
+\node[above] at (C) {$C$};
+\node[below] at (D) {$D$};
+\node[above right] at (E) {$E$};
+\end{tikzpicture}
 
 **コツ**
 
@@ -168,7 +236,7 @@ $\angle AOB$ の二等分線を作図しなさい。
 \coordinate (A) at (0.4,3.0);
 \coordinate (B) at (-2.3,0);
 \coordinate (C) at (2.5,0);
-\draw[thick] (A)--(B)--(C)--cycle;
+\draw[thick] (A)--(B)--(C)-- cycle;
 \fill (A) circle (1.5pt);
 \fill (B) circle (1.5pt);
 \fill (C) circle (1.5pt);
@@ -189,7 +257,7 @@ $\angle ABC$ の二等分線を作図し、その二等分線と辺 $AC$ の交�
 \coordinate (E) at (-0.8,0);
 \coordinate (F) at (-0.15,1.15);
 \coordinate (P) at (1.36,1.63);
-\draw[thick] (A)--(B)--(C)--cycle;
+\draw[thick] (A)--(B)--(C)-- cycle;
 \draw[dashed, gray] (B) circle (2.0);
 \draw[dashed, gray] (D) circle (1.35);
 \draw[dashed, gray] (E) circle (1.35);
@@ -239,7 +307,7 @@ $\angle B$ の二等分線なので、頂点 $B$ から出る半直線を作図�
 \coordinate (A) at (0,3.0);
 \coordinate (B) at (-2.4,0);
 \coordinate (C) at (2.4,0);
-\draw[thick] (A)--(B)--(C)--cycle;
+\draw[thick] (A)--(B)--(C)-- cycle;
 \fill (A) circle (1.5pt);
 \fill (B) circle (1.5pt);
 \fill (C) circle (1.5pt);
@@ -260,7 +328,7 @@ $\angle A$ の二等分線を作図し、その二等分線と辺 $BC$ の交点
 \coordinate (E) at (0.9,1.9);
 \coordinate (F) at (0,1.25);
 \coordinate (P) at (0,0);
-\draw[thick] (A)--(B)--(C)--cycle;
+\draw[thick] (A)--(B)--(C)-- cycle;
 \draw[dashed, gray] (A) circle (1.4);
 \draw[dashed, gray] (D) circle (1.05);
 \draw[dashed, gray] (E) circle (1.05);
