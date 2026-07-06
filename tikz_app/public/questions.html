@@ -1108,6 +1108,21 @@
       return bytes;
     }
 
+    function docxImageRunFromPng(png, maxWidth = 520) {
+      const { ImageRun } = window.docx;
+      const width = Math.max(8, Math.round(png.width || 320));
+      const height = Math.max(8, Math.round(png.height || 80));
+      const scale = Math.min(1, maxWidth / width);
+      return new ImageRun({
+        data: base64ToUint8Array(png.base64),
+        type: 'png',
+        transformation: {
+          width: Math.round(width * scale),
+          height: Math.round(height * scale)
+        }
+      });
+    }
+
     function normalizeTextForDocx(text) {
       return String(text || '').replace(/\s+/g, ' ');
     }
@@ -1375,13 +1390,7 @@
 
       if (tag === 'svg') {
         const png = await svgToPngBase64(node);
-        return [new ImageRun({
-          data: base64ToUint8Array(png.base64),
-          transformation: {
-            width: Math.max(8, Math.round(png.width)),
-            height: Math.max(8, Math.round(png.height))
-          }
-        })];
+        return [docxImageRunFromPng(png)];
       }
 
       if (tag === 'img') {
@@ -1391,6 +1400,7 @@
           const height = Number(node.getAttribute('height')) || 40;
           return [new ImageRun({
             data: base64ToUint8Array(src.split(',')[1]),
+            type: 'png',
             transformation: { width, height }
           })];
         }
@@ -1442,34 +1452,71 @@
       return paragraphs;
     }
 
-    function rawTextToDocxParagraphs(content) {
+    async function tikzToDocxParagraph(code) {
+      const { Paragraph, TextRun, AlignmentType } = window.docx;
+      try {
+        const response = await fetch('/render', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ tikz: tikzQuoteShim(code) })
+        });
+        if (!response.ok) throw new Error('TikZ render failed');
+        const data = await response.json();
+        const doc = new DOMParser().parseFromString(data.svg || '', 'image/svg+xml');
+        const svg = doc.querySelector('svg');
+        if (!svg) throw new Error('TikZ render did not return SVG');
+        const png = await svgToPngBase64(svg);
+        return new Paragraph({
+          children: [docxImageRunFromPng(png)],
+          alignment: AlignmentType.CENTER,
+          spacing: { before: 80, after: 180 }
+        });
+      } catch (err) {
+        console.error('Failed to render TikZ for Word export:', err);
+        return new Paragraph({
+          children: [new TextRun({ text: '【図のレンダリングに失敗しました】', bold: true, color: 'D32F2F' })],
+          spacing: { before: 80, after: 120 }
+        });
+      }
+    }
+
+    async function rawTextToDocxParagraphs(content) {
       const { Paragraph, TextRun, AlignmentType } = window.docx;
       const paragraphs = [];
-      const blocks = splitDisplayMathBlocks(content || '');
+      const segments = splitIntoSegments(content || '');
 
-      for (const block of blocks) {
-        if (block.type === 'math') {
-          paragraphs.push(new Paragraph({
-            children: [mathComponent(block.content)],
-            alignment: AlignmentType.CENTER,
-            spacing: { after: 140 }
-          }));
+      for (const segment of segments) {
+        if (segment.type === 'tikz') {
+          paragraphs.push(await tikzToDocxParagraph(segment.code));
           continue;
         }
 
-        const lines = block.content.split(/\r?\n/);
-        for (const line of lines) {
-          const rawLine = line.trim();
-          if (!rawLine) continue;
+        const blocks = splitDisplayMathBlocks(segment.content || '');
 
-          const bold = /^(\*\*.*\*\*|■|【|ステップ|間違えやすいポイント)/.test(rawLine);
-          const runs = parseInlineMathToDocxRuns(rawLine, { bold });
-          if (!runs.length) runs.push(new TextRun(''));
+        for (const block of blocks) {
+          if (block.type === 'math') {
+            paragraphs.push(new Paragraph({
+              children: [mathComponent(block.content)],
+              alignment: AlignmentType.CENTER,
+              spacing: { after: 140 }
+            }));
+            continue;
+          }
 
-          paragraphs.push(new Paragraph({
-            children: runs,
-            spacing: { after: bold ? 120 : 100 }
-          }));
+          const lines = block.content.split(/\r?\n/);
+          for (const line of lines) {
+            const rawLine = line.trim();
+            if (!rawLine) continue;
+
+            const bold = /^(\*\*.*\*\*|■|【|ステップ|間違えやすいポイント)/.test(rawLine);
+            const runs = parseInlineMathToDocxRuns(rawLine, { bold });
+            if (!runs.length) runs.push(new TextRun(''));
+
+            paragraphs.push(new Paragraph({
+              children: runs,
+              spacing: { after: bold ? 120 : 100 }
+            }));
+          }
         }
       }
 
@@ -1493,7 +1540,7 @@
         })
       ];
 
-      paragraphs.push(...rawTextToDocxParagraphs(result.content || ''));
+      paragraphs.push(...await rawTextToDocxParagraphs(result.content || ''));
       return paragraphs;
     }
 
