@@ -139,6 +139,18 @@ function questionFileBase(promptFileName) {
   return promptFileName.replace(/\.txt$/i, '');
 }
 
+function questionSourceStem(fileName) {
+  const stem = questionFileBase(path.basename(fileName || ''));
+  const match = stem.match(/^(m-jh[123]-[A-Z]-\d{2}-\d{2}[A-Za-z]*)(?:ｰ|-)(\d+)$/);
+  return match ? match[1] : stem;
+}
+
+function learningItemKey(fileName) {
+  const stem = questionSourceStem(fileName);
+  const match = stem.match(/^(m-jh[123]-[A-Z]-\d{2}-\d{2})[A-Za-z]*$/);
+  return match ? match[1] : stem;
+}
+
 async function nextQuestionIndex(promptFileName) {
   await fs.mkdir(mathQuestionDir, { recursive: true });
 
@@ -285,6 +297,10 @@ app.use(express.static(publicDir));
 
 app.get('/questions', (req, res) => {
   res.sendFile(path.join(publicDir, 'questions.html'));
+});
+
+app.get('/question-browser', (req, res) => {
+  res.sendFile(path.join(publicDir, 'question-browser.html'));
 });
 
 // Expose the fonts.css file and associated fonts from node-tikzjax so that
@@ -450,22 +466,37 @@ app.get('/generate-jobs/:id', (req, res) => {
 app.get('/question-files', async (req, res) => {
   try {
     const sourceFile = validatePromptFileName(req.query.sourceFile);
-    const sourceBase = sourceFile ? questionFileBase(sourceFile) : '';
+    const showAll = req.query.all === '1' || req.query.all === 'true';
+    const sourceKey = sourceFile ? learningItemKey(sourceFile) : '';
     await fs.mkdir(mathQuestionDir, { recursive: true });
     const entries = await fs.readdir(mathQuestionDir, { withFileTypes: true });
-    const files = entries
+    const matchingEntries = entries
       .filter(entry => entry.isFile() && entry.name.toLowerCase().endsWith('.txt'))
       .filter(entry => {
-        if (!sourceBase) return false;
-        return entry.name.startsWith(`${sourceBase}${questionFileSeparator}`) || entry.name.startsWith(`${sourceBase}-`);
-      })
-      .map(entry => ({
-        name: entry.name,
-        label: entry.name.replace(/\.txt$/i, '')
-      }))
-      .sort((a, b) => b.name.localeCompare(a.name, 'ja', { numeric: true }));
+        if (showAll) return true;
+        if (!sourceKey) return false;
+        return learningItemKey(entry.name) === sourceKey;
+      });
 
-    res.json({ directory: mathQuestionDir, sourceFile, files });
+    const files = await Promise.all(matchingEntries.map(async entry => {
+      const filePath = path.join(mathQuestionDir, entry.name);
+      const stat = await fs.stat(filePath);
+      return {
+        name: entry.name,
+        label: entry.name.replace(/\.txt$/i, ''),
+        sourceStem: questionSourceStem(entry.name),
+        learningItemKey: learningItemKey(entry.name),
+        updatedAt: stat.mtime.toISOString(),
+        size: stat.size
+      };
+    }));
+
+    files.sort((a, b) => {
+      if (showAll) return new Date(b.updatedAt) - new Date(a.updatedAt) || b.name.localeCompare(a.name, 'ja', { numeric: true });
+      return b.name.localeCompare(a.name, 'ja', { numeric: true });
+    });
+
+    res.json({ directory: mathQuestionDir, sourceFile, learningItemKey: sourceKey, files });
   } catch (err) {
     console.error('Failed to list Math_Question files:', err);
     res.status(500).json({ error: 'Failed to list question files.' });

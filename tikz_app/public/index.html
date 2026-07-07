@@ -234,6 +234,8 @@
       <p>左側に入力し「レンダリング」を押すと右側に表示します（Markdown / TeX / TikZ / graf）。</p>
     </div>
     <div class="header-actions">
+      <a href="/question-browser">作問結果ブラウザ</a>
+      <a href="/questions">問題生成</a>
       <input id="api-key-input" type="password" placeholder="OpenAI APIキー" autocomplete="off" />
       <button id="api-key-btn" type="button">APIキー保存</button>
     </div>
@@ -1327,7 +1329,7 @@ for (const seg of segments) {
       if (!items.length) {
         const option = document.createElement('option');
         option.value = '';
-        option.textContent = currentPromptFileName() ? 'この単元の作問結果なし' : '単元を選択してください';
+        option.textContent = currentPromptFileName() ? 'この学習項目の作問結果なし' : '学習項目を選択してください';
         selectEl.appendChild(option);
         return;
       }

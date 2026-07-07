@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>作問結果ブラウザ</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f6f7f9;
+      --panel: #fff;
+      --line: #d8dde5;
+      --text: #17202a;
+      --muted: #5c6673;
+      --accent: #1967d2;
+      --danger: #b3261e;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      height: 100vh;
+      display: grid;
+      grid-template-rows: auto 1fr;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Arial, "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
+      font-size: 14px;
+    }
+
+    header {
+      background: var(--panel);
+      border-bottom: 1px solid var(--line);
+      padding: 12px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    h1 {
+      margin: 0 0 3px;
+      font-size: 21px;
+      line-height: 1.25;
+    }
+
+    header p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    nav {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    a,
+    button {
+      min-height: 34px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: #fff;
+      color: var(--text);
+      padding: 6px 12px;
+      font: inherit;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    button.primary {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #fff;
+      font-weight: 700;
+    }
+
+    input,
+    select {
+      min-height: 34px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: #fff;
+      color: var(--text);
+      padding: 6px 8px;
+      font: inherit;
+    }
+
+    main {
+      min-height: 0;
+      display: grid;
+      grid-template-columns: minmax(320px, 430px) 1fr;
+    }
+
+    aside {
+      min-width: 0;
+      border-right: 1px solid var(--line);
+      background: var(--panel);
+      display: grid;
+      grid-template-rows: auto auto 1fr;
+    }
+
+    .filters {
+      padding: 12px;
+      border-bottom: 1px solid var(--line);
+      display: grid;
+      gap: 8px;
+    }
+
+    .filter-row {
+      display: flex;
+      gap: 8px;
+    }
+
+    .filter-row input {
+      flex: 1;
+      min-width: 0;
+    }
+
+    #summary {
+      padding: 8px 12px;
+      color: var(--muted);
+      border-bottom: 1px solid var(--line);
+      font-size: 13px;
+    }
+
+    #file-list {
+      min-height: 0;
+      overflow: auto;
+    }
+
+    .file-button {
+      width: 100%;
+      border: 0;
+      border-bottom: 1px solid var(--line);
+      border-radius: 0;
+      text-align: left;
+      display: grid;
+      gap: 4px;
+      padding: 10px 12px;
+      min-height: 58px;
+    }
+
+    .file-button:hover,
+    .file-button.active {
+      background: #eef4ff;
+    }
+
+    .file-name {
+      font-weight: 700;
+      overflow-wrap: anywhere;
+    }
+
+    .file-meta {
+      color: var(--muted);
+      font-size: 12px;
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    section.viewer {
+      min-width: 0;
+      min-height: 0;
+      display: grid;
+      grid-template-rows: auto 1fr;
+    }
+
+    .viewer-head {
+      background: var(--panel);
+      border-bottom: 1px solid var(--line);
+      padding: 10px 14px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    #selected-title {
+      font-weight: 700;
+      overflow-wrap: anywhere;
+    }
+
+    #status {
+      color: var(--muted);
+      font-size: 13px;
+      min-height: 18px;
+    }
+
+    #status.error { color: var(--danger); }
+
+    #output {
+      min-height: 0;
+      overflow: auto;
+      padding: 18px;
+      background: #fff;
+      line-height: 1.8;
+    }
+
+    .empty {
+      color: var(--muted);
+    }
+
+    .segment > svg {
+      display: block;
+      max-width: 100%;
+      height: auto;
+      margin: 12px auto;
+    }
+
+    mjx-container[jax="SVG"][display="true"] {
+      display: block;
+      text-align: center;
+      margin: 1em 0;
+    }
+
+    mjx-container[jax="SVG"]:not([display="true"]) {
+      display: inline-block;
+      vertical-align: -0.2em;
+      margin: 0 .1em;
+    }
+
+    @media (max-width: 840px) {
+      body { height: auto; min-height: 100vh; }
+      main { grid-template-columns: 1fr; }
+      aside { border-right: 0; border-bottom: 1px solid var(--line); max-height: 52vh; }
+      section.viewer { min-height: 70vh; }
+    }
+  </style>
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['\\[', '\\]'], ['$$', '$$']],
+        processEscapes: true
+      },
+      svg: { fontCache: 'global' }
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" async></script>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/dompurify/dist/purify.min.js" defer></script>
+</head>
+<body>
+  <header>
+    <div>
+      <h1>作問結果ブラウザ</h1>
+      <p>Math_Question フォルダ内の生成結果をすばやく確認できます。</p>
+    </div>
+    <nav>
+      <a href="/">編集画面</a>
+      <a href="/questions">問題生成</a>
+    </nav>
+  </header>
+
+  <main>
+    <aside>
+      <div class="filters">
+        <div class="filter-row">
+          <input id="search-input" type="search" placeholder="ファイル名・学習項目で検索" />
+          <button id="refresh-btn" type="button">更新</button>
+        </div>
+        <select id="item-filter">
+          <option value="">すべての学習項目</option>
+        </select>
+      </div>
+      <div id="summary">読み込み中...</div>
+      <div id="file-list"></div>
+    </aside>
+
+    <section class="viewer">
+      <div class="viewer-head">
+        <div>
+          <div id="selected-title">未選択</div>
+          <div id="status"></div>
+        </div>
+        <button id="copy-name-btn" type="button" disabled>ファイル名コピー</button>
+      </div>
+      <div id="output"><p class="empty">左の一覧から作問結果を選択してください。</p></div>
+    </section>
+  </main>
+
+  <script>
+    const state = {
+      files: [],
+      filtered: [],
+      selectedName: ''
+    };
+
+    const fileListEl = document.getElementById('file-list');
+    const summaryEl = document.getElementById('summary');
+    const outputEl = document.getElementById('output');
+    const statusEl = document.getElementById('status');
+    const titleEl = document.getElementById('selected-title');
+    const searchInput = document.getElementById('search-input');
+    const itemFilter = document.getElementById('item-filter');
+    const copyNameBtn = document.getElementById('copy-name-btn');
+
+    function escapeForHtml(value) {
+      return String(value ?? '')
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;');
+    }
+
+    function formatDate(value) {
+      if (!value) return '';
+      const date = new Date(value);
+      if (Number.isNaN(date.getTime())) return '';
+      return date.toLocaleString('ja-JP', { month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit' });
+    }
+
+    async function fetchJson(url) {
+      const response = await fetch(url);
+      const data = await response.json().catch(() => ({}));
+      if (!response.ok) throw new Error(data.error || '読み込みに失敗しました');
+      return data;
+    }
+
+    function splitIntoSegments(text) {
+      const segments = [];
+      let pos = 0;
+      while (pos < text.length) {
+        const pTikz = text.indexOf('\\begin{tikzpicture}', pos);
+        if (pTikz === -1) break;
+        if (pTikz > pos) segments.push({ type: 'text', content: text.slice(pos, pTikz) });
+        const endIndex = text.indexOf('\\end{tikzpicture}', pTikz);
+        if (endIndex === -1) {
+          segments.push({ type: 'text', content: text.slice(pTikz) });
+          pos = text.length;
+          break;
+        }
+        segments.push({ type: 'tikz', code: text.slice(pTikz, endIndex + '\\end{tikzpicture}'.length) });
+        pos = endIndex + '\\end{tikzpicture}'.length;
+      }
+      if (pos < text.length) segments.push({ type: 'text', content: text.slice(pos) });
+      return segments;
+    }
+
+    function tikzQuoteShim(code) {
+      code = code.replace(/\\usetikzlibrary\{([^}]*)\}/g, (match, inner) => {
+        if (!/\bquotes\b/.test(inner)) return match;
+        const rest = inner.split(',').map(part => part.trim()).filter(part => part && part !== 'quotes');
+        return rest.length ? `\\usetikzlibrary{${rest.join(',')}}` : '% quotes removed';
+      });
+
+      const re = /(--|to)\s*\[\s*(?:"([^"]+)"|'([^']+)')\s*((?:\s*,\s*[^,\]\r\n]+)*)\s*\]/g;
+      return code.replace(re, (match, connector, dquoted, squoted, optRaw) => {
+        const label = (dquoted ?? squoted ?? '').replace(/\\/g, '\\\\');
+        let opts = (optRaw || '').trim().replace(/^\s*,/, '');
+        const hasPos = /(?:^|,)\s*(pos\s*=|near\s*(?:start|end)|midway)\b/.test(opts);
+        if (!hasPos) opts = opts ? `midway, ${opts}` : 'midway';
+        const hasSide = /\b(above|below|left|right)\b/.test(opts);
+        const hasAutoOrSwap = /\b(auto|swap)\b/.test(opts);
+        if (!hasSide && !hasAutoOrSwap) opts = `${opts}, auto`;
+        return `${connector} node[${opts}] {${label}}`;
+      });
+    }
+
+    async function waitForMathJaxReady(timeoutMs = 5000) {
+      const startedAt = Date.now();
+      while (!(window.MathJax && typeof MathJax.typesetPromise === 'function')) {
+        if (Date.now() - startedAt > timeoutMs) return false;
+        await new Promise(resolve => setTimeout(resolve, 100));
+      }
+      return true;
+    }
+
+    async function renderContent(content) {
+      if (window.marked?.setOptions) {
+        marked.setOptions({ gfm: true, breaks: true });
+      }
+
+      function renderMarkdownWithMath(raw) {
+        if (!window.marked || typeof marked.parse !== 'function') {
+          return escapeForHtml(raw).replace(/\n/g, '<br>');
+        }
+
+        function parseMarkdownPreservingInlineMath(text) {
+          const inlineMath = [];
+          const tokenized = text.replace(/\\\([\s\S]*?\\\)/g, match => {
+            const token = `MATHINLINEPLACEHOLDER${inlineMath.length}X`;
+            inlineMath.push({ token, math: match });
+            return token;
+          });
+
+          let parsed = marked.parse(tokenized);
+          if (window.DOMPurify?.sanitize) parsed = DOMPurify.sanitize(parsed);
+
+          for (const item of inlineMath) {
+            parsed = parsed.replaceAll(item.token, `<span>${escapeForHtml(item.math)}</span>`);
+          }
+          return parsed;
+        }
+
+        const mathRegex = /\\\[[\s\S]*?\\\]|\$\$[\s\S]*?\$\$/g;
+        let htmlSegment = '';
+        let lastIndex = 0;
+        let match;
+
+        while ((match = mathRegex.exec(raw)) !== null) {
+          const beforeMath = raw.slice(lastIndex, match.index);
+          if (beforeMath) {
+            htmlSegment += parseMarkdownPreservingInlineMath(beforeMath);
+          }
+
+          htmlSegment += `<div>${escapeForHtml(match[0])}</div>`;
+          lastIndex = mathRegex.lastIndex;
+        }
+
+        const rest = raw.slice(lastIndex);
+        if (rest) {
+          htmlSegment += parseMarkdownPreservingInlineMath(rest);
+        }
+
+        return htmlSegment;
+      }
+
+      const segments = splitIntoSegments(content || '');
+      const tikzPieces = [];
+      for (const segment of segments) {
+        if (segment.type !== 'tikz') continue;
+        try {
+          const response = await fetch('/render', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ tikz: tikzQuoteShim(segment.code) })
+          });
+          if (!response.ok) throw new Error('TikZ render failed');
+          const data = await response.json();
+          tikzPieces.push(data.svg || '<p style="color:red">TikZ レンダリング失敗</p>');
+        } catch (err) {
+          console.error(err);
+          tikzPieces.push(`<pre>${escapeForHtml(segment.code)}</pre>`);
+        }
+      }
+
+      let tikzIndex = 0;
+      let html = '';
+      for (const segment of segments) {
+        if (segment.type === 'tikz') {
+          html += `<div class="segment">${tikzPieces[tikzIndex++] || ''}</div>`;
+          continue;
+        }
+
+        const raw = segment.content || '';
+        html += `<div class="segment">${renderMarkdownWithMath(raw)}</div>`;
+      }
+
+      outputEl.innerHTML = html || '<p class="empty">内容がありません。</p>';
+      if (await waitForMathJaxReady()) {
+        await MathJax.typesetPromise([outputEl]);
+      }
+    }
+
+    function populateItemFilter() {
+      const selected = itemFilter.value;
+      const keys = Array.from(new Set(state.files.map(file => file.learningItemKey).filter(Boolean))).sort((a, b) => a.localeCompare(b, 'ja', { numeric: true }));
+      itemFilter.innerHTML = '<option value="">すべての学習項目</option>';
+      for (const key of keys) {
+        const option = document.createElement('option');
+        option.value = key;
+        option.textContent = key;
+        itemFilter.appendChild(option);
+      }
+      if (selected && keys.includes(selected)) itemFilter.value = selected;
+    }
+
+    function applyFilters() {
+      const query = searchInput.value.trim().toLowerCase();
+      const itemKey = itemFilter.value;
+      state.filtered = state.files.filter(file => {
+        if (itemKey && file.learningItemKey !== itemKey) return false;
+        if (!query) return true;
+        return [file.name, file.label, file.sourceStem, file.learningItemKey].join(' ').toLowerCase().includes(query);
+      });
+      renderFileList();
+    }
+
+    function renderFileList() {
+      summaryEl.textContent = `${state.filtered.length} / ${state.files.length} 件`;
+      if (!state.filtered.length) {
+        fileListEl.innerHTML = '<p class="empty" style="padding:12px;">該当する作問結果がありません。</p>';
+        return;
+      }
+
+      fileListEl.innerHTML = '';
+      for (const file of state.filtered) {
+        const button = document.createElement('button');
+        button.type = 'button';
+        button.className = `file-button${file.name === state.selectedName ? ' active' : ''}`;
+        button.innerHTML = `
+          <span class="file-name">${escapeForHtml(file.label || file.name)}</span>
+          <span class="file-meta">
+            <span>${escapeForHtml(file.learningItemKey || '')}</span>
+            <span>${formatDate(file.updatedAt)}</span>
+            <span>${Math.max(1, Math.ceil((file.size || 0) / 1024))}KB</span>
+          </span>
+        `;
+        button.addEventListener('click', () => loadQuestion(file.name));
+        fileListEl.appendChild(button);
+      }
+    }
+
+    async function loadFiles() {
+      statusEl.textContent = '一覧を読み込み中...';
+      try {
+        const data = await fetchJson('/question-files?all=1');
+        state.files = Array.isArray(data.files) ? data.files : [];
+        populateItemFilter();
+        applyFilters();
+        statusEl.textContent = `保存先: ${data.directory || ''}`;
+        if (!state.selectedName && state.files[0]) {
+          await loadQuestion(state.files[0].name);
+        }
+      } catch (err) {
+        console.error(err);
+        statusEl.textContent = err.message;
+        statusEl.className = 'error';
+      }
+    }
+
+    async function loadQuestion(name) {
+      if (!name) return;
+      state.selectedName = name;
+      renderFileList();
+      titleEl.textContent = name;
+      copyNameBtn.disabled = false;
+      statusEl.className = '';
+      statusEl.textContent = '読み込み中...';
+      outputEl.innerHTML = '<p class="empty">レンダリング中...</p>';
+
+      try {
+        const data = await fetchJson(`/question-files/${encodeURIComponent(name)}`);
+        await renderContent(data.content || '');
+        statusEl.textContent = `${name} を表示中`;
+      } catch (err) {
+        console.error(err);
+        statusEl.textContent = err.message;
+        statusEl.className = 'error';
+        outputEl.innerHTML = `<p style="color:red">${escapeForHtml(err.message)}</p>`;
+      }
+    }
+
+    document.getElementById('refresh-btn').addEventListener('click', loadFiles);
+    searchInput.addEventListener('input', applyFilters);
+    itemFilter.addEventListener('change', applyFilters);
+    copyNameBtn.addEventListener('click', async () => {
+      if (!state.selectedName) return;
+      await navigator.clipboard.writeText(state.selectedName);
+      statusEl.textContent = 'ファイル名をコピーしました';
+    });
+
+    window.addEventListener('DOMContentLoaded', loadFiles);
+  </script>
+</body>
+</html>
