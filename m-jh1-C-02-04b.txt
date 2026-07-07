@@ -75,34 +75,81 @@
 ## 生成例
 
 ■問題1
-下の直方体で、面 $ABCD$ と面 $EFGH$ の位置関係を答えなさい。
+下の図で、平面 $P$ と平面 $Q$ の位置関係を答えなさい。
 
 【図】
-\begin{tikzpicture}[scale=0.85, line cap=round, line join=round]
-\coordinate (A) at (0,2);
-\coordinate (B) at (2.4,2);
-\coordinate (C) at (2.4,0);
-\coordinate (D) at (0,0);
-\coordinate (E) at (0.8,2.75);
-\coordinate (F) at (3.2,2.75);
-\coordinate (G) at (3.2,0.75);
-\coordinate (H) at (0.8,0.75);
-\fill[blue!8] (A)--(B)--(C)--(D)-- cycle;
-\fill[yellow!18] (E)--(F)--(G)--(H)-- cycle;
-\draw (A)--(B)--(C)--(D)-- cycle;
-\draw (E)--(F)--(G)--(H)-- cycle;
-\draw (A)--(E);
-\draw (B)--(F);
-\draw (C)--(G);
-\draw[dashed] (D)--(H);
-\node[left] at (A) {$A$};
-\node[right] at (B) {$B$};
-\node[right] at (C) {$C$};
-\node[left] at (D) {$D$};
-\node[above] at (E) {$E$};
-\node[above] at (F) {$F$};
-\node[right] at (G) {$G$};
-\node[left] at (H) {$H$};
+\begin{tikzpicture}[scale=0.9, line cap=round, line join=round]
+\coordinate (A) at (-2.4,0);
+\coordinate (B) at (2.7,0);
+\coordinate (C) at (3.3,0.9);
+\coordinate (D) at (-1.8,0.9);
+\coordinate (E) at (-1.8,-0.55);
+\coordinate (F) at (1.7,0.25);
+\coordinate (G) at (2.45,1.45);
+\coordinate (H) at (-1.05,0.65);
+\fill[orange!35, opacity=0.65] (A)--(B)--(C)--(D)-- cycle;
+\fill[blue!22, opacity=0.55] (E)--(F)--(G)--(H)-- cycle;
+\draw[orange!80!black] (A)--(B)--(C)--(D)-- cycle;
+\draw[blue!70!black] (E)--(F)--(G)--(H)-- cycle;
+\draw[very thick] (-0.75,0.35)--(1.45,0.85);
+\node[below right] at (1.05,0.75) {$l$};
+\node[left] at (-2.2,0.32) {$P$};
+\node[above] at (2.25,1.25) {$Q$};
+\end{tikzpicture}
+
+【解答】
+\[
+\text{交わる}
+\]
+
+【解説】
+**ポイント整理：2平面の位置関係**
+
+2つの平面の位置関係には、主に次の3つがあります。
+
+- 交わる
+- 平行である
+- 垂直である
+
+2つの平面が交わるとき、その交わりは1本の直線になります。
+
+**ステップ1：2つの平面が重なる部分を見る**
+
+図では、平面 $P$ と平面 $Q$ が黒い太線 $l$ で重なっています。
+この黒い太線 $l$ が、2つの平面の交線です。
+
+**ステップ2：位置関係を答える**
+
+1本の直線で重なっているので、平面 $P$ と平面 $Q$ は
+\[
+\text{交わる}
+\]
+といえます。
+
+**間違えやすいポイント**
+
+2つの平面が交わるとき、交わりは点ではなく直線になります。
+
+
+■問題2
+下の図で、平面 $P$ と平面 $Q$ の位置関係を答えなさい。
+
+【図】
+\begin{tikzpicture}[scale=0.9, line cap=round, line join=round]
+\coordinate (A) at (-2.3,0);
+\coordinate (B) at (2.7,0);
+\coordinate (C) at (3.25,0.85);
+\coordinate (D) at (-1.75,0.85);
+\coordinate (E) at (-1.85,1.35);
+\coordinate (F) at (3.15,1.35);
+\coordinate (G) at (3.7,2.2);
+\coordinate (H) at (-1.3,2.2);
+\fill[orange!35, opacity=0.65] (A)--(B)--(C)--(D)-- cycle;
+\fill[blue!22, opacity=0.55] (E)--(F)--(G)--(H)-- cycle;
+\draw[orange!80!black] (A)--(B)--(C)--(D)-- cycle;
+\draw[blue!70!black] (E)--(F)--(G)--(H)-- cycle;
+\node[left] at (-2.1,0.35) {$P$};
+\node[left] at (-1.7,1.7) {$Q$};
 \end{tikzpicture}
 
 【解答】
@@ -111,31 +158,77 @@
 \]
 
 【解説】
-**ポイント整理：2平面の位置関係**
+**ステップ1：2つの平面が交わるかを見る**
 
-2つの平面の位置関係は、主に次のように考えます。
+平面 $P$ と平面 $Q$ は、同じ向きに広がっていて、交わっていません。
 
-- 交わる
-- 平行である
-- 垂直である
+**ステップ2：位置関係を答える**
 
 2つの平面が交わらないとき、2平面は平行であるといいます。
-
-**ステップ1：2つの面の場所を見る**
-
-面 $ABCD$ と面 $EFGH$ は、直方体の向かい合う面です。
-
-**ステップ2：交わるかを考える**
-
-向かい合う面は、どこまで広げても交わりません。
-したがって、面 $ABCD$ と面 $EFGH$ は
+したがって、平面 $P$ と平面 $Q$ は
 \[
 \text{平行である}
 \]
 といえます。
 
+**コツ**
 
-■問題2
+同じ向きの2枚の平面が、どこまで広げても交わらないときは平行です。
+
+
+■問題3
+下の図で、平面 $P$ と平面 $Q$ の位置関係を答えなさい。
+
+【図】
+\begin{tikzpicture}[scale=0.9, line cap=round, line join=round]
+\coordinate (A) at (-2.4,0);
+\coordinate (B) at (2.7,0);
+\coordinate (C) at (3.25,0.85);
+\coordinate (D) at (-1.85,0.85);
+\coordinate (E) at (-0.35,-0.35);
+\coordinate (F) at (1.35,0.15);
+\coordinate (G) at (1.35,2.9);
+\coordinate (H) at (-0.35,2.4);
+\fill[orange!35, opacity=0.65] (A)--(B)--(C)--(D)-- cycle;
+\fill[blue!22, opacity=0.55] (E)--(F)--(G)--(H)-- cycle;
+\draw[orange!80!black] (A)--(B)--(C)--(D)-- cycle;
+\draw[blue!70!black] (E)--(F)--(G)--(H)-- cycle;
+\draw[very thick] (-0.35,0.22)--(1.35,0.72);
+\node[below right] at (1.0,0.68) {$l$};
+\draw (0.15,0.37)--(0.15,0.72)--(0.45,0.82);
+\node[left] at (-2.1,0.35) {$P$};
+\node[above] at (0.55,2.65) {$Q$};
+\end{tikzpicture}
+
+【解答】
+\[
+\text{垂直である}
+\]
+
+【解説】
+**ステップ1：2つの平面が交わるところを見る**
+
+平面 $P$ と平面 $Q$ は、黒い太線 $l$ で交わっています。
+この直線 $l$ が、2つの平面の交線です。
+
+**ステップ2：直角に交わっていることを確認する**
+
+図では、平面 $Q$ が平面 $P$ に対して立ち上がるように交わっています。
+直角の印があるので、2つの平面は直角に交わっています。
+
+したがって、平面 $P$ と平面 $Q$ は
+\[
+\text{垂直である}
+\]
+といえます。
+
+**間違えやすいポイント**
+
+垂直な2平面も「交わる」平面です。
+ただし、直角に交わっているので、位置関係としては「垂直である」と答えます。
+
+
+■問題4
 下の直方体で、面 $ABCD$ と面 $BCGF$ の位置関係を答えなさい。
 
 【図】
@@ -148,8 +241,8 @@
 \coordinate (F) at (3.2,2.75);
 \coordinate (G) at (3.2,0.75);
 \coordinate (H) at (0.8,0.75);
-\fill[blue!8] (A)--(B)--(C)--(D)-- cycle;
-\fill[yellow!18] (B)--(F)--(G)--(C)-- cycle;
+\fill[orange!35, opacity=0.65] (A)--(B)--(C)--(D)-- cycle;
+\fill[blue!22, opacity=0.55] (B)--(F)--(G)--(C)-- cycle;
 \draw (A)--(B)--(C)--(D)-- cycle;
 \draw (E)--(F)--(G)--(H)-- cycle;
 \draw (A)--(E);
@@ -176,7 +269,6 @@
 **ステップ1：2つの面が交わるところを見る**
 
 面 $ABCD$ と面 $BCGF$ は、辺 $BC$ で交わっています。
-2つの平面が交わるとき、その交わりは直線になります。
 
 **ステップ2：直方体の隣り合う面であることを確認する**
 
@@ -189,97 +281,9 @@
 \]
 といえます。
 
-**間違えやすいポイント**
-
-垂直な2平面も、交わっています。
-ただ「交わる」と答えるだけでなく、直角に交わる場合は「垂直である」と答えると、より正確です。
-
-
-■問題3
-下の図で、平面 $P$ と平面 $Q$ の位置関係を答えなさい。
-
-【図】
-\begin{tikzpicture}[scale=0.9, line cap=round, line join=round]
-\coordinate (A) at (-2,0);
-\coordinate (B) at (2.2,0);
-\coordinate (C) at (3,1.15);
-\coordinate (D) at (-1.2,1.15);
-\coordinate (E) at (-0.8,-0.4);
-\coordinate (F) at (1.6,1.95);
-\coordinate (G) at (2.45,1.35);
-\coordinate (H) at (0.05,-0.95);
-\fill[blue!10] (A)--(B)--(C)--(D)-- cycle;
-\fill[yellow!18, opacity=0.9] (E)--(F)--(G)--(H)-- cycle;
-\draw (A)--(B)--(C)--(D)-- cycle;
-\draw (E)--(F)--(G)--(H)-- cycle;
-\draw[very thick] (-0.15,0)--(1.75,1.15);
-\node at (-1.55,0.35) {$P$};
-\node at (1.65,1.55) {$Q$};
-\end{tikzpicture}
-
-【解答】
-\[
-\text{交わる}
-\]
-
-【解説】
-**ステップ1：2つの平面が重なる部分を見る**
-
-平面 $P$ と平面 $Q$ は、1本の直線で交わっています。
-
-**ステップ2：位置関係を答える**
-
-2つの平面が交わるとき、その交わりは直線になります。
-したがって、平面 $P$ と平面 $Q$ は
-\[
-\text{交わる}
-\]
-といえます。
-
-
-■問題4
-下の図で、平面 $P$ と平面 $Q$ の位置関係を答えなさい。
-
-【図】
-\begin{tikzpicture}[scale=0.9, line cap=round, line join=round]
-\coordinate (A) at (-2,0);
-\coordinate (B) at (2.2,0);
-\coordinate (C) at (3,1.15);
-\coordinate (D) at (-1.2,1.15);
-\coordinate (E) at (-1.55,0.95);
-\coordinate (F) at (2.65,0.95);
-\coordinate (G) at (3.45,2.10);
-\coordinate (H) at (-0.35,2.10);
-\fill[blue!10] (A)--(B)--(C)--(D)-- cycle;
-\fill[yellow!18] (E)--(F)--(G)--(H)-- cycle;
-\draw (A)--(B)--(C)--(D)-- cycle;
-\draw (E)--(F)--(G)--(H)-- cycle;
-\node at (-1.55,0.35) {$P$};
-\node at (-0.8,1.55) {$Q$};
-\end{tikzpicture}
-
-【解答】
-\[
-\text{平行である}
-\]
-
-【解説】
-**ステップ1：2つの平面が交わるかを見る**
-
-平面 $P$ と平面 $Q$ は、同じ向きに広がっていて、交わっていません。
-
-**ステップ2：位置関係を答える**
-
-2つの平面が交わらないとき、2平面は平行です。
-したがって、平面 $P$ と平面 $Q$ は
-\[
-\text{平行である}
-\]
-といえます。
-
 **コツ**
 
-2平面の関係を考えるときは、まず「交わるかどうか」を見ます。
-交わらなければ平行、交わる場合は交わり方を見て、垂直かどうかを判断します。
+直方体では、向かい合う面は平行、隣り合う面は垂直です。
+平面だけの図で考えたあと、立体の面にも同じ考え方を使うと判断しやすくなります。
 
 以上、生成例
