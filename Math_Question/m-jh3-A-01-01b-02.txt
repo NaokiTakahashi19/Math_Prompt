@@ -1,0 +1,36 @@
+3-A-01-01
+多項式の計算 ― 単項式と多項式の乗法
+□基本問題
+
+■問題1
+次の計算をしなさい。
+\[
+(a - 4b + 2) \times (-5a)
+\]
+
+【解答】
+\[
+-5a^2 + 20ab - 10a
+\]
+
+【解説】
+**ステップ1：** 分配法則を使って展開する
+
+\[
+\begin{aligned}
+(\hlblue{a-4b+2})\times(\hlpink{-5a})
+&= \hlblue{a}\times(\hlpink{-5a})+\hlblue{(-4b)}\times(\hlpink{-5a})+\hlblue{2}\times(\hlpink{-5a})
+\end{aligned}
+\]
+
+**ステップ2：** 計算する
+
+\[
+\begin{aligned}
+&= -5a^2 + 20ab - 10a
+\end{aligned}
+\]
+
+**間違えやすいポイント**
+
+$-5a$ をかけるので、符号に注意します。特に、$(-4b)\times(-5a)$ は正の項になります。
