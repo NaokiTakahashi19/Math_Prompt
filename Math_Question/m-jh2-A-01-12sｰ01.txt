@@ -1,0 +1,57 @@
+■問題
+次の計算をしなさい。
+\[
+18x^2y \div (-6xy) \times 4y
+\]
+
+【解答】  
+\[
+-12xy
+\]
+
+【解説】  
+**ステップ1：考え方を確認する**
+乗法と除法が混じっている式は、一度まとめて分数の形にすると計算しやすい。  
+かける単項式は分子に、わる単項式は分母に置く。
+
+\[
+18x^2y \div (-6xy) \times 4y
+= \frac{18x^2y \times 4y}{-6xy}
+\]
+
+**ステップ2：係数と文字を分けて書く**
+指数のある文字は、同じ文字のかけ算として考える。
+
+\[
+\frac{18x^2y \times 4y}{-6xy}
+= \frac{18\times x\times x\times y\times 4\times y}{-6\times x\times y}
+\]
+
+**ステップ3：分子と分母で同じものを約分する**
+分子と分母に共通する $x$ と $y$ を約分する。
+
+\[
+\frac{18\times x\times x\times y\times 4\times y}{-6\times x\times y}
+= \frac{18\times x\times 4\times y}{-6}
+\]
+
+**ステップ4：等号でつないで計算する**
+\[
+\begin{aligned}
+18x^2y \div (-6xy) \times 4y
+&= \frac{18x^2y \times 4y}{-6xy}\\
+&= \frac{18\times x\times x\times y\times 4\times y}{-6\times x\times y}\\
+&= \frac{18\times x\times 4\times y}{-6}\\
+&= -12xy
+\end{aligned}
+\]
+
+**ステップ5：答えを確認する**
+わる単項式が $-6xy$ なので、分母に負の数がある。そのため、答えの符号は負になる。  
+また、$x^2 \div x=x$、$y\times y \div y=y$ だから、文字部分は $xy$ となる。よって答えは
+
+\[
+-12xy
+\]
+
+である。

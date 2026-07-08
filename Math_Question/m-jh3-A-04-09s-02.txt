@@ -1,17 +1,97 @@
-3-A-04-09
-平方根 ― 分母の有理化
-□標準問題
-
-■問題1
-次の数の分母を有理化しなさい。
+■問題
+次の分母を有理化しなさい。
 \[
-\frac{4}{\sqrt7}
+\frac{2\sqrt{3}}{\sqrt{6}+\sqrt{2}}
 \]
 
-【解答】
+【解答】  
 \[
-\frac{4\sqrt7}{7}
+\frac{3\sqrt{2}-\sqrt{6}}{2}
 \]
 
-【解説】
-分母と分子に $\sqrt7$ をかけます。
+【解説】  
+**ステップ1：分母を有理化する考え方を確認する**
+
+分母が $\sqrt{6}+\sqrt{2}$ のように根号を含む和になっているときは、同じ数の差である $\sqrt{6}-\sqrt{2}$ を分母と分子にかける。
+
+これは、
+\[
+(a+b)(a-b)=a^2-b^2
+\]
+を使って、分母の根号をなくすためである。
+
+**ステップ2：分母と分子に $\sqrt{6}-\sqrt{2}$ をかける**
+
+\[
+\begin{aligned}
+\frac{2\sqrt{3}}{\sqrt{6}+\sqrt{2}}
+&= \frac{2\sqrt{3}\times(\sqrt{6}-\sqrt{2})}{(\sqrt{6}+\sqrt{2})\times(\sqrt{6}-\sqrt{2})}
+\end{aligned}
+\]
+
+**ステップ3：分母を計算する**
+
+\[
+\begin{aligned}
+(\sqrt{6}+\sqrt{2})\times(\sqrt{6}-\sqrt{2})
+&= (\sqrt{6})^2-(\sqrt{2})^2\\
+&= 6-2\\
+&= 4
+\end{aligned}
+\]
+
+よって、
+\[
+\begin{aligned}
+\frac{2\sqrt{3}\times(\sqrt{6}-\sqrt{2})}{(\sqrt{6}+\sqrt{2})\times(\sqrt{6}-\sqrt{2})}
+&= \frac{2\sqrt{3}\times(\sqrt{6}-\sqrt{2})}{4}
+\end{aligned}
+\]
+
+**ステップ4：分子を計算する**
+
+\[
+\begin{aligned}
+2\sqrt{3}\times(\sqrt{6}-\sqrt{2})
+&= 2\sqrt{3}\times\sqrt{6}-2\sqrt{3}\times\sqrt{2}\\
+&= 2\sqrt{18}-2\sqrt{6}\\
+&= 2\sqrt{9\times2}-2\sqrt{6}\\
+&= 2\times3\sqrt{2}-2\sqrt{6}\\
+&= 6\sqrt{2}-2\sqrt{6}
+\end{aligned}
+\]
+
+したがって、
+\[
+\begin{aligned}
+\frac{2\sqrt{3}}{\sqrt{6}+\sqrt{2}}
+&= \frac{6\sqrt{2}-2\sqrt{6}}{4}
+\end{aligned}
+\]
+
+**ステップ5：約分する**
+
+分子と分母に共通な因数 $2$ があるので約分する。
+
+\[
+\begin{aligned}
+\frac{6\sqrt{2}-2\sqrt{6}}{4}
+&= \frac{2(3\sqrt{2}-\sqrt{6})}{4}\\
+&= \frac{3\sqrt{2}-\sqrt{6}}{2}
+\end{aligned}
+\]
+
+**ステップ6：答えを確認する**
+
+分母は $2$ となり、根号がなくなっているので有理化できている。
+
+\[
+\frac{3\sqrt{2}-\sqrt{6}}{2}
+\]
+
+が答えである。
+
+**間違えやすいポイント**
+
+分母が $\sqrt{6}+\sqrt{2}$ のとき、同じ $\sqrt{6}+\sqrt{2}$ をかけても根号はなくならない。  
+和の形の分母では、符号を変えた $\sqrt{6}-\sqrt{2}$ をかけるのがコツである。

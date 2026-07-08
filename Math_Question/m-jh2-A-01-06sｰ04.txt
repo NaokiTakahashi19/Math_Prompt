@@ -1,0 +1,45 @@
+■問題
+次の計算をしなさい。
+\[
+-\frac{7}{9}(18x-27y+36)
+\]
+
+【解答】  
+\[
+-14x+21y-28
+\]
+
+【解説】  
+**ステップ1：分配法則の考え方を確認する**
+かける数と、かっこの中の各項を確認する。
+\[
+\hlblue{\left(-\frac{7}{9}\right)}(\hlpink{18x}+\hlpink{(-27y)}+\hlpink{36})
+\]
+分配法則より、かっこの中のそれぞれの項に $\hlblue{\left(-\frac{7}{9}\right)}$ をかける。
+\[
+= \hlblue{\left(-\frac{7}{9}\right)}\times\hlpink{18x}
++\hlblue{\left(-\frac{7}{9}\right)}\times\hlpink{(-27y)}
++\hlblue{\left(-\frac{7}{9}\right)}\times\hlpink{36}
+\]
+
+**ステップ2：符号と約分に注意して計算する**
+\[
+\begin{aligned}
+-\frac{7}{9}(18x-27y+36)
+&=\hlblue{\left(-\frac{7}{9}\right)}\times\hlpink{18x}
++\hlblue{\left(-\frac{7}{9}\right)}\times\hlpink{(-27y)}
++\hlblue{\left(-\frac{7}{9}\right)}\times\hlpink{36}\\
+&=-\frac{7\times18}{9}x+\frac{7\times27}{9}y-\frac{7\times36}{9}\\
+&=-14x+21y-28
+\end{aligned}
+\]
+
+**ステップ3：答えを確認する**
+各項に同じ数 $-\frac{7}{9}$ をかけているかを確認する。
+\[
+18x\rightarrow -14x,\quad -27y\rightarrow +21y,\quad 36\rightarrow -28
+\]
+特に、$-\frac{7}{9}\times(-27y)$ は負の数どうしの積なので正になり、$+21y$ となる。
+
+**ポイント：**  
+分数を分配するときは、$18,27,36$ と $9$ を先に約分すると計算しやすい。負の分数をかけるときは、各項の符号がどう変わるかを必ず確認する。

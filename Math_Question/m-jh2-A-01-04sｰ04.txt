@@ -1,0 +1,60 @@
+■問題
+次の式の同類項をまとめなさい。
+\[
+6x^2y - 4xy^2 + 3x^2y + 7xy - 5xy^2 - 2xy + y
+\]
+
+【解答】  
+\[
+9x^2y - 9xy^2 + 5xy + y
+\]
+
+【解説】  
+文字の部分が同じ項を同類項という。
+同類項は、文字の部分はそのままにして、係数だけを計算してまとめる。
+同類項は、共通因数でくくって1つの項にまとめることができる。
+\[
+ax+bx=(a+b)x
+\]
+
+**ステップ1：同類項どうしを確認する**
+\[
+\hlblue{6x^2y}-\hlpink{4xy^2}+\hlblue{3x^2y}+\hlgreen{7xy}-\hlpink{5xy^2}-\hlgreen{2xy}+\bbox[2px,lightyellow]{y}
+\]
+
+**ステップ2：項を同類項ごとに並びかえる**
+\[
+\begin{aligned}
+6x^2y - 4xy^2 + 3x^2y + 7xy - 5xy^2 - 2xy + y
+&=\hlblue{6x^2y}+\hlblue{3x^2y}-\hlpink{4xy^2}-\hlpink{5xy^2}+\hlgreen{7xy}-\hlgreen{2xy}+\bbox[2px,lightyellow]{y}
+\end{aligned}
+\]
+
+**ステップ3：係数だけを計算してまとめる**
+\[
+\begin{aligned}
+6x^2y - 4xy^2 + 3x^2y + 7xy - 5xy^2 - 2xy + y
+&=\left(6+3\right)x^2y+\left(-4-5\right)xy^2+\left(7-2\right)xy+y\\
+&=9x^2y-9xy^2+5xy+y
+\end{aligned}
+\]
+
+**ステップ4：答えを確認する**
+\[
+6x^2y+3x^2y=(6+3)x^2y=9x^2y
+\]
+\[
+-4xy^2-5xy^2=(-4-5)xy^2=-9xy^2
+\]
+\[
+7xy-2xy=(7-2)xy=5xy
+\]
+したがって、答えは
+\[
+9x^2y - 9xy^2 + 5xy + y
+\]
+となる。
+
+**ポイント：**  
+$x^2y$ と $xy^2$ は、使われている文字は同じでも指数が違うので同類項ではない。  
+また、$xy$ と $y$ も文字の部分が違うため同類項ではない。文字の種類と指数が完全に同じ項だけをまとめることができる。

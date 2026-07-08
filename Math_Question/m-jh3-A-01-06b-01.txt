@@ -1,20 +1,54 @@
-3-A-01-06
-多項式の計算 ― (x + a)^2の展開
-□基本問題
-
-■問題1
+■問題
 次の式を展開しなさい。
 \[
-(x+3)^2
+\left(x + \frac{5}{2}\right)^2
 \]
 
-【解答】
+【解答】  
 \[
-x^2+6x+9
+x^2 + 5x + \frac{25}{4}
 \]
 
-【解説】
-$(x+a)^2=x^2+2ax+a^2$ を使います。
+【解説】  
+**ステップ1：乗法の公式の形を確認する**
+$\left(x + \hlblue{\frac{5}{2}}\right)^2$ は、$(x+a)^2$ の形である。  
+4つの乗法の公式のうち、次の公式を使う。
+
+**乗法の公式：**
 \[
-(x+3)^2=x^2+2\times3x+3^2=x^2+6x+9
+(x+a)^2=x^2+2ax+a^2
 \]
+
+**ステップ2：乗法の公式にあてはめる**
+ここでは、$a=\hlblue{\frac{5}{2}}$ である。
+
+\[
+\begin{aligned}
+\left(x+\hlblue{\frac{5}{2}}\right)^2
+&= x^2 + 2 \times \hlblue{\frac{5}{2}} \times x + \left(\hlblue{\frac{5}{2}}\right)^2
+\end{aligned}
+\]
+
+**ステップ3：計算する**
+\[
+\begin{aligned}
+x^2 + 2 \times \frac{5}{2} \times x + \left(\frac{5}{2}\right)^2
+&= x^2 + 5x + \frac{25}{4}
+\end{aligned}
+\]
+
+**ステップ4：答えを確認する**
+中央の項は、$2 \times \frac{5}{2} \times x = 5x$ となる。  
+最後の項は、$\left(\frac{5}{2}\right)^2=\frac{25}{4}$ となる。
+
+したがって、
+\[
+\left(x + \frac{5}{2}\right)^2 = x^2 + 5x + \frac{25}{4}
+\]
+である。
+
+**間違えやすいポイント：**
+\[
+\left(\frac{5}{2}\right)^2=\frac{25}{4}
+\]
+であり、$\frac{10}{4}$ などにしないように注意する。

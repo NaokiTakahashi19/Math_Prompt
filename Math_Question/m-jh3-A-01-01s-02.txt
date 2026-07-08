@@ -1,23 +1,59 @@
-3-A-01-01
-多項式の計算 ― 単項式と多項式の乗法
-□標準問題
-
-■問題1
+■問題
 次の計算をしなさい。
 \[
-(2x+3y-5)\times 4x
+-\frac{2}{3}m^2n(6m^2-9mn+12n^2)
 \]
 
-【解答】
+【解答】  
 \[
-8x^2+12xy-20x
+-4m^4n+6m^3n^2-8m^2n^3
 \]
 
-【解説】
-$4x$ をそれぞれの項にかけます。
+【解説】  
+**ステップ1：考え方を確認する**
+
+単項式と多項式の積は、分配法則を使って、多項式の各項に単項式をかける。
+
 \[
 \begin{aligned}
-(2x+3y-5)\times4x&=2x\times4x+3y\times4x+(-5)\times4x\\
-&=8x^2+12xy-20x
+\hlpink{-\frac{2}{3}m^2n}(\hlblue{6m^2-9mn+12n^2})
+&=\hlpink{-\frac{2}{3}m^2n}\times\hlblue{6m^2}
++\hlpink{-\frac{2}{3}m^2n}\times\hlblue{(-9mn)}
++\hlpink{-\frac{2}{3}m^2n}\times\hlblue{12n^2}
 \end{aligned}
 \]
+
+**ステップ2：係数と文字をそれぞれ計算する**
+
+\[
+\begin{aligned}
+-\frac{2}{3}m^2n(6m^2-9mn+12n^2)
+&=-\frac{2}{3}m^2n\times 6m^2
++\left(-\frac{2}{3}m^2n\right)\times (-9mn)
++\left(-\frac{2}{3}m^2n\right)\times 12n^2\\
+&=-4m^{2+2}n+6m^{2+1}n^{1+1}-8m^2n^{1+2}\\
+&=-4m^4n+6m^3n^2-8m^2n^3
+\end{aligned}
+\]
+
+**ステップ3：間違えやすいポイントを確認する**
+
+第2項は
+\[
+\left(-\frac{2}{3}m^2n\right)\times (-9mn)
+\]
+で、負の数どうしの積なので正になる。
+
+また、文字の指数はかけ算のときに足すため、
+\[
+m^2\times m=m^3,\qquad n\times n=n^2
+\]
+となる。
+
+**ステップ4：答えを確認する**
+
+各項に正しく分配すると、
+\[
+-4m^4n+6m^3n^2-8m^2n^3
+\]
+となる。

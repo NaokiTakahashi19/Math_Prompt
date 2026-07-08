@@ -1,0 +1,52 @@
+■問題
+次の計算をしなさい。
+\[
+15a^2 \div 5a \times 2b
+\]
+
+【解答】  
+\[
+6ab
+\]
+
+【解説】  
+**ステップ1：考え方を確認する**
+乗法と除法が混じった式では、かける単項式は分子に、わる単項式は分母に置いて、分数の形にまとめると計算しやすい。
+
+\[
+15a^2 \div 5a \times 2b
+=\frac{15a^2\times2b}{5a}
+\]
+
+**ステップ2：係数と文字をかけ算の形に分ける**
+約分しやすいように、係数と文字を分けて書く。
+
+\[
+\frac{15a^2\times2b}{5a}
+=\frac{15\times\hlblue{a}\times a\times2\times b}{5\times\hlblue{a}}
+\]
+
+**ステップ3：分子と分母で同じものを約分する**
+分子と分母に同じ $\hlblue{a}$ があるので約分できる。
+
+\[
+\frac{15\times\hlblue{a}\times a\times2\times b}{5\times\hlblue{a}}
+=\frac{15\times a\times2\times b}{5}
+\]
+
+**ステップ4：式全体を等号でつないで計算する**
+\[
+\begin{aligned}
+15a^2 \div 5a \times 2b
+&=\frac{15a^2\times2b}{5a}\\
+&=\frac{15\times\hlblue{a}\times a\times2\times b}{5\times\hlblue{a}}\\
+&=\frac{15\times a\times2\times b}{5}\\
+&=3\times a\times2\times b\\
+&=6ab
+\end{aligned}
+\]
+
+**ステップ5：答えを確認する**
+係数は $15\div5\times2=6$、文字は $a^2\div a=a$、さらに $b$ がかかるので、結果は $6ab$ となる。
+
+したがって、答えは $6ab$ である。

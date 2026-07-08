@@ -1,24 +1,63 @@
-3-A-01-03
-多項式の計算 ― 多項式と多項式の乗法（展開）
-□基本問題
+■問題
 
-■問題1
 次の式を展開しなさい。
 \[
-(2x+1)(x+4)
+(u - 6)\times(v + 5)
 \]
 
-【解答】
+【解答】  
 \[
-2x^2+9x+4
+uv + 5u - 6v - 30
 \]
 
-【解説】
-それぞれの項をかけ合わせます。
+【解説】  
+**ステップ1：考え方を確認する**
+\[
+(u - 6)\times(v + 5)
+\]
+は，多項式と多項式のかけ算である。まず，\(\hlblue{(v + 5)}\) をひとまとまりの文字 \(M\) とおいて考える。
+
 \[
 \begin{aligned}
-(2x+1)(x+4)&=2x\times x+2x\times4+1\times x+1\times4\\
-&=2x^2+8x+x+4\\
-&=2x^2+9x+4
+\hlpink{(u - 6)}\times\hlblue{(v + 5)}
+&= \hlpink{(u - 6)}\times\hlblue{M}
 \end{aligned}
 \]
+
+**ステップ2：分配法則を使って展開する**
+\[
+\begin{aligned}
+\hlpink{(u - 6)}\times\hlblue{M}
+&= \hlpink{u}\times\hlblue{M}+\hlpink{(-6)}\times\hlblue{M}
+\end{aligned}
+\]
+
+**ステップ3：\(M\) を \((v + 5)\) に戻す**
+\[
+\begin{aligned}
+\hlpink{u}\times\hlblue{M}+\hlpink{(-6)}\times\hlblue{M}
+&= \hlpink{u}\times\hlblue{(v + 5)}+\hlpink{(-6)}\times\hlblue{(v + 5)}
+\end{aligned}
+\]
+
+**ステップ4：もう一度分配法則を使ってかっこをはずす**
+\[
+\begin{aligned}
+\hlpink{u}\times\hlblue{(v + 5)}+\hlpink{(-6)}\times\hlblue{(v + 5)}
+&= u\times v+u\times 5+(-6)\times v+(-6)\times 5\\
+&= uv+5u-6v-30
+\end{aligned}
+\]
+
+**ステップ5：答えを確認する**
+4つの積は，
+\[
+u\times v,\quad u\times 5,\quad (-6)\times v,\quad (-6)\times 5
+\]
+である。特に，\((-6)\times 5=-30\) となるので，最後の項の符号に注意する。
+
+したがって，答えは
+\[
+uv+5u-6v-30
+\]
+となる。

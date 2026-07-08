@@ -1,13 +1,68 @@
-# 生成問題
-使用プロンプト: m-jh1-A-01-14b.txt
-学習項目: 1-A-01-14 乗法と除法 ― 逆数を使った除法 □基本問題
-
-■問題2  
-次の計算をしなさい。
-\[(-12)\div\frac{3}{5}\]
+■問題
+除法を乗法に直して次の計算をしなさい。
+\[
+\frac{5}{12} \div \bigl(-\frac{25}{18}\bigr) \times \bigl(-\frac{4}{3}\bigr)
+\]
 
 【解答】  
-\[-20\]
+\[
+\frac{2}{5}
+\]
 
 【解説】  
-$\frac{3}{5}$ でわることは $\frac{5}{3}$ をかけることです。$(-12)\times\frac{5}{3}=-20$ です。
+逆数とは、かけると積が $1$ になる数のことである。  
+除法は、わる数の逆数をかける乗法に直して計算する。  
+負の数でわるときは、逆数にしても符号が負のままであることに注意する。
+
+\[
+\begin{aligned}
+\hlblue{(+)} \times \hlblue{(+)} &\rightarrow +\\
+\hlpink{(-)} \times \hlpink{(-)} &\rightarrow +
+\end{aligned}
+\]
+
+**ステップ1：考え方を確認する**
+\[
+\frac{5}{12} \div \bigl(-\frac{25}{18}\bigr) \times \bigl(-\frac{4}{3}\bigr)
+\]
+この式では、$\bigl(-\frac{25}{18}\bigr)$ でわっている。  
+したがって、$\bigl(-\frac{25}{18}\bigr)$ の逆数である $\bigl(-\frac{18}{25}\bigr)$ をかける形に直す。
+
+**ステップ2：除法を逆数を使った乗法に直す**
+\[
+\begin{aligned}
+\frac{5}{12} \div \bigl(-\frac{25}{18}\bigr) \times \bigl(-\frac{4}{3}\bigr)
+&= \frac{5}{12} \times \bigl(-\frac{18}{25}\bigr) \times \bigl(-\frac{4}{3}\bigr)
+\end{aligned}
+\]
+
+**ステップ3：符号を確認する**
+\[
+\begin{aligned}
+\frac{5}{12} \times \bigl(-\frac{18}{25}\bigr) \times \bigl(-\frac{4}{3}\bigr)
+&= +\left(\frac{5}{12} \times \frac{18}{25} \times \frac{4}{3}\right)
+\end{aligned}
+\]
+負の数が $2$ 個あるので、積の符号は正になる。
+
+**ステップ4：分数のかけ算として計算する**
+\[
+\begin{aligned}
++\left(\frac{5}{12} \times \frac{18}{25} \times \frac{4}{3}\right)
+&= \frac{5 \times 18 \times 4}{12 \times 25 \times 3}\\
+&= \frac{1 \times 3 \times 4}{2 \times 5 \times 3}\\
+&= \frac{12}{30}\\
+&= \frac{2}{5}
+\end{aligned}
+\]
+
+**ステップ5：答えを確認する**
+答えは正の数で、約分もできている。  
+したがって、求める値は
+\[
+\frac{2}{5}
+\]
+である。
+
+間違えやすいポイントは、$\bigl(-\frac{25}{18}\bigr)$ の逆数を $\frac{18}{25}$ としてしまうことである。  
+負の数の逆数は、符号も含めて入れ替えるので $\bigl(-\frac{18}{25}\bigr)$ となる。

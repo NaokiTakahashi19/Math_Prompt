@@ -1,0 +1,60 @@
+■問題
+次の計算をしなさい。
+\[
+-21x^4y^2 \div \left(-\frac{3}{7}x^2y\right)
+\]
+
+【解答】  
+\[
+49x^2y
+\]
+
+【解説】  
+**ステップ1：考え方を確認する**
+単項式のわり算では、わる数の逆数をかけると考える。  
+分数でわるときは、分母と分子を入れかえた数をかける。
+
+今回は $-\frac{3}{7}x^2y$ でわるので、逆数にして $-\frac{7}{3x^2y}$ をかける。
+
+**ステップ2：除法を乗法にかえる**
+\[
+-21x^4y^2 \div \left(-\frac{3}{7}x^2y\right)
+=
+-21x^4y^2 \times \left(-\frac{7}{3x^2y}\right)
+\]
+
+**ステップ3：係数と文字を分けて約分する**
+\[
+\begin{aligned}
+-21x^4y^2 \times \left(-\frac{7}{3x^2y}\right)
+&=\frac{(-21)\times x\times x\times \hlblue{x}\times \hlpink{x}\times y\times \hlgreen{y}\times(-7)}
+{3\times \hlblue{x}\times \hlpink{x}\times \hlgreen{y}}\\
+&=\frac{(-21)\times x\times x\times y\times(-7)}{3}
+\end{aligned}
+\]
+
+分子と分母に同じ文字があるので、$\hlblue{x}$，$\hlpink{x}$，$\hlgreen{y}$ をそれぞれ約分できる。
+
+**ステップ4：計算して答えを求める**
+\[
+\begin{aligned}
+-21x^4y^2 \div \left(-\frac{3}{7}x^2y\right)
+&=-21x^4y^2 \times \left(-\frac{7}{3x^2y}\right)\\
+&=\frac{(-21)\times x\times x\times x\times x\times y\times y\times(-7)}
+{3\times x\times x\times y}\\
+&=\frac{147x^2y}{3}\\
+&=49x^2y
+\end{aligned}
+\]
+
+**ステップ5：答えを確認する**
+符号は、負の数を負の数でわっているので正になる。  
+文字は $x^4 \div x^2=x^2$，$y^2 \div y=y$ となる。  
+したがって、答えは
+\[
+49x^2y
+\]
+である。
+
+**ポイント：**  
+分数を含む単項式でわるときは、分母と分子を入れかえた逆数をかける。係数だけでなく、文字の $x^2y$ も分母に入ることに注意する。

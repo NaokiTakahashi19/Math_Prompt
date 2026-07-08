@@ -1,0 +1,70 @@
+■問題
+次の計算をしなさい。
+\[
+-\frac{9}{10}x^3y^2 \div \left(\frac{3}{5}xy\right)
+\]
+
+【解答】  
+\[
+-\frac{3}{2}x^2y
+\]
+
+【解説】  
+**ステップ1：考え方を確認する**
+単項式のわり算では、わる数の逆数をかけると考える。  
+分数でわるときは、分母と分子を入れかえた数をかける。  
+\[
+\frac{3}{5}xy=\frac{3xy}{5}
+\]
+なので、これでわることは
+\[
+\frac{5}{3xy}
+\]
+をかけることと同じである。
+
+**ステップ2：除法を乗法にかえる**
+\[
+-\frac{9}{10}x^3y^2 \div \left(\frac{3}{5}xy\right)
+=
+-\frac{9}{10}x^3y^2 \times \frac{5}{3xy}
+\]
+
+**ステップ3：大きな分数にして約分する**
+係数と文字をそれぞれ分けて、同じ文字を約分する。
+\[
+\begin{aligned}
+-\frac{9}{10}x^3y^2 \times \frac{5}{3xy}
+&=\frac{-9\times 5\times x\times x\times \hlblue{x}\times y\times \hlpink{y}}{10\times 3\times \hlblue{x}\times \hlpink{y}}\\
+&=\frac{-9\times 5\times x\times x\times y}{10\times 3}
+\end{aligned}
+\]
+
+**ステップ4：係数を計算してまとめる**
+\[
+\begin{aligned}
+-\frac{9}{10}x^3y^2 \div \left(\frac{3}{5}xy\right)
+&=-\frac{9}{10}x^3y^2 \times \frac{5}{3xy}\\
+&=\frac{-9\times 5\times x\times x\times \hlblue{x}\times y\times \hlpink{y}}{10\times 3\times \hlblue{x}\times \hlpink{y}}\\
+&=\frac{-9\times 5\times x\times x\times y}{10\times 3}\\
+&=-\frac{45}{30}x^2y\\
+&=-\frac{3}{2}x^2y
+\end{aligned}
+\]
+
+**ステップ5：答えを確認する**
+求めた答えに、わる数をかけると元の式のわられる数に戻るかを確認する。
+\[
+\begin{aligned}
+-\frac{3}{2}x^2y \times \frac{3}{5}xy
+&=-\frac{9}{10}x^3y^2
+\end{aligned}
+\]
+元のわられる数と一致するので、答えは
+\[
+-\frac{3}{2}x^2y
+\]
+である。
+
+**ポイント：**  
+分数でわるときは、分母と分子を入れかえてかける。  
+また、係数だけでなく、文字の $x$ や $y$ も分子と分母で同じものを約分してからまとめるとミスを減らせる。

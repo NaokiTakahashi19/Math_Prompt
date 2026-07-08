@@ -1,23 +1,62 @@
-3-A-01-02
-多項式の計算 ― 多項式を単項式でわる除法
-□基本問題
+■問題
 
-■問題1
 次の計算をしなさい。
 \[
-(15a^2b+10ab-5ab^2)\div(-5ab)
+(6x^2y-9xy)\div \frac{3}{2}xy
 \]
 
-【解答】
+【解答】  
 \[
--3a-2+b
+4x-6
 \]
 
-【解説】
-各項を $-5ab$ でわります。符号に注意します。
+【解説】  
+**ステップ1：考え方を確認する**
+多項式を単項式でわるときは、多項式の各項をその単項式でわればよい。  
+また、分数でわるときは、分母と分子を入れかえた逆数をかける形に直す。
+
+**ステップ2：除法を乗法になおす**
+わる数は $\frac{3}{2}xy=\frac{3xy}{2}$ である。  
+したがって、その逆数は $\frac{2}{3xy}$ である。
 \[
 \begin{aligned}
-&15a^2b\div(-5ab)+10ab\div(-5ab)-5ab^2\div(-5ab)\\
-&=-3a-2+b
+\hlblue{(6x^2y-9xy)}\div \hlpink{\frac{3}{2}xy}
+&= \hlblue{(6x^2y-9xy)}\times \hlpink{\frac{2}{3xy}}
 \end{aligned}
 \]
+
+**ステップ3：分配法則を利用してかっこをはずす**
+\[
+\begin{aligned}
+&= \hlblue{6x^2y}\times \hlpink{\frac{2}{3xy}}
+-\hlblue{9xy}\times \hlpink{\frac{2}{3xy}}
+\end{aligned}
+\]
+
+**ステップ4：各項を約分して計算する**
+数の部分と文字の部分に分けて約分する。  
+$x^2\div x=x$、$y\div y=1$ である。
+\[
+\begin{aligned}
+&= \frac{6x^2y\times 2}{3xy}-\frac{9xy\times 2}{3xy}\\
+&= \frac{12x^2y}{3xy}-\frac{18xy}{3xy}\\
+&= 4\times \frac{x^2}{x}\times \frac{y}{y}
+-6\times \frac{x}{x}\times \frac{y}{y}\\
+&= 4x-6
+\end{aligned}
+\]
+
+**ステップ5：答えを確認する**
+求めた答え $4x-6$ に、わる数 $\frac{3}{2}xy$ をかけて元の多項式に戻るか確認する。
+\[
+\begin{aligned}
+(4x-6)\times \frac{3}{2}xy
+&= 4x\times \frac{3}{2}xy-6\times \frac{3}{2}xy\\
+&= 6x^2y-9xy
+\end{aligned}
+\]
+元の多項式 $6x^2y-9xy$ に戻るので、答えは
+\[
+4x-6
+\]
+である。

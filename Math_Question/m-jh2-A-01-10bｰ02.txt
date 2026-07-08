@@ -1,0 +1,48 @@
+■問題
+次の計算をしなさい。
+\[
+-\frac{2}{3}m \times 9m
+\]
+
+【解答】  
+\[
+-6m^2
+\]
+
+【解説】  
+**ステップ1：単項式を、係数と文字の積として見る**
+単項式は、「係数」と「文字の部分」に分けて考える。
+\[
+\begin{aligned}
+-\frac{2}{3}m &= -\frac{2}{3}\times m\\
+9m &= 9\times m
+\end{aligned}
+\]
+\[
+\hlblue{-\frac{2}{3}m}\times\hlpink{9m}
+\]
+\[
+= \hlblue{-\frac{2}{3}\times m}\times\hlpink{9\times m}
+\]
+
+**ステップ2：係数どうし、文字どうしが並ぶように順番を変える**
+\[
+= -\frac{2}{3}\times 9 \times m \times m
+\]
+係数は $-\frac{2}{3}\times 9$、文字は $m\times m$ と分けて計算するのがコツである。
+
+**ステップ3：等号でつないで計算する**
+\[
+\begin{aligned}
+-\frac{2}{3}m\times9m
+&=\hlblue{-\frac{2}{3}\times m}\times\hlpink{9\times m}\\
+&=-\frac{2}{3}\times9\times m\times m\\
+&=-6m^2
+\end{aligned}
+\]
+
+**ステップ4：答えを確認する**
+係数は、負の数と正の数の積なので負になる。
+また、同じ文字の積は $m\times m=m^2$ と表す。
+
+間違えやすいポイントは、$m\times m$ を $2m$ としないことである。同じ文字をかけると指数を使って $m^2$ と表す。

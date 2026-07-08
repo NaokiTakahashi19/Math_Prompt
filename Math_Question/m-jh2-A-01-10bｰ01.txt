@@ -1,0 +1,52 @@
+■問題
+次の計算をしなさい。
+\[
+4m \times (-7mn)
+\]
+
+【解答】  
+\[
+-28m^2n
+\]
+
+【解説】  
+**ステップ1：単項式を、係数と文字の積として見る**
+単項式は、「係数」と「文字の部分」に分けて考える。
+\[
+\begin{aligned}
+4m &= 4\times m\\
+-7mn &= (-7)\times m\times n
+\end{aligned}
+\]
+\[
+\hlblue{4m}\times\hlpink{(-7mn)}
+\]
+\[
+= \hlblue{4\times m}\times\hlpink{(-7)\times m\times n}
+\]
+
+**ステップ2：係数どうし、文字どうしが並ぶように順番を変える**
+かけ算では順番を入れかえてもよいので、係数どうし、同じ文字どうしをまとめる。
+\[
+=4\times(-7)\times m\times m\times n
+\]
+
+**ステップ3：等号でつないで計算する**
+同じ文字の積は指数を使って表す。
+\[
+\begin{aligned}
+4m\times(-7mn)
+&=\hlblue{4\times m}\times\hlpink{(-7)\times m\times n}\\
+&=4\times(-7)\times m\times m\times n\\
+&=-28m^2n
+\end{aligned}
+\]
+
+**ステップ4：答えを確認する**
+係数は $4\times(-7)=-28$、文字は $m\times m\times n=m^2n$ となる。したがって、答えは
+\[
+-28m^2n
+\]
+である。
+
+間違えやすいポイントは、$m\times m$ を $2m$ としないことである。同じ文字をかけるときは、$m\times m=m^2$ と指数で表す。

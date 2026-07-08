@@ -1,0 +1,60 @@
+■問題
+次の計算をしなさい。
+\[
+-\frac{2}{3}x^2 \times 9xy
+\]
+
+【解答】  
+\[
+-6x^3y
+\]
+
+【解説】  
+**ステップ1：単項式を、係数と文字の積として見る**
+単項式は、「係数」と「文字の部分」に分けて考える。
+\[
+\begin{aligned}
+-\frac{2}{3}x^2 &= -\frac{2}{3}\times x^2\\
+9xy &= 9\times x\times y
+\end{aligned}
+\]
+\[
+\hlblue{-\frac{2}{3}x^2}\times\hlpink{9xy}
+\]
+\[
+= \hlblue{-\frac{2}{3}\times x^2}\times\hlpink{9\times x\times y}
+\]
+
+**ステップ2：係数どうし、文字どうしが並ぶように順番を変える**
+係数は係数どうし、同じ文字は同じ文字どうしでまとめる。
+\[
+= -\frac{2}{3}\times 9 \times x^2 \times x \times y
+\]
+
+**ステップ3：等号でつないで計算する**
+\[
+\begin{aligned}
+-\frac{2}{3}x^2\times9xy
+&=\hlblue{-\frac{2}{3}\times x^2}\times\hlpink{9\times x\times y}\\
+&=-\frac{2}{3}\times9\times x^2\times x\times y\\
+&=-6\times x^3\times y\\
+&=-6x^3y
+\end{aligned}
+\]
+
+**ステップ4：答えを確認する**
+係数は
+\[
+-\frac{2}{3}\times9=-6
+\]
+である。また、文字の部分は
+\[
+x^2\times x=x^3
+\]
+となり、$y$ はそのまま残る。したがって、答えは
+\[
+-6x^3y
+\]
+である。
+
+**間違えやすいポイント：** $x^2\times x$ を $x^2$ のままにしないことが大切である。同じ文字をかけると指数が増えるので、$x^2\times x=x^3$ となる。

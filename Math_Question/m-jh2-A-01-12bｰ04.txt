@@ -1,0 +1,44 @@
+■問題
+次の計算をしなさい。
+\[
+20ab^2 \div 5b \times 3a
+\]
+
+【解答】  
+\[
+12a^2b
+\]
+
+【解説】  
+**ステップ1：考え方を確認する**
+乗法と除法が混じる単項式の計算では、かける単項式は分子に、わる単項式は分母に置く。
+\[
+=\frac{20ab^2\times3a}{5b}
+\]
+
+**ステップ2：係数と文字をかけ算の形に分ける**
+約分しやすいように、係数と文字を分けて書く。
+\[
+=\frac{20\times a\times \hlblue{b}\times b\times3\times a}{5\times \hlblue{b}}
+\]
+
+**ステップ3：分子と分母で同じものを約分する**
+分子と分母に同じ $b$ があるので約分できる。
+\[
+=\frac{20\times a\times b\times3\times a}{5}
+\]
+
+**ステップ4：等号でつないで計算する**
+\[
+\begin{aligned}
+20ab^2 \div 5b \times 3a
+&=\frac{20ab^2\times3a}{5b}\\
+&=\frac{20\times a\times \hlblue{b}\times b\times3\times a}{5\times \hlblue{b}}\\
+&=\frac{20\times a\times b\times3\times a}{5}\\
+&=12a^2b
+\end{aligned}
+\]
+
+**ステップ5：答えを確認する**
+係数は $20\times3\div5=12$、文字は $a\times a=a^2$、$b^2\div b=b$ となる。  
+したがって、答えは $12a^2b$ である。

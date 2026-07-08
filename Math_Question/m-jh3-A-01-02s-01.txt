@@ -1,23 +1,63 @@
-3-A-01-02
-多項式の計算 ― 多項式を単項式でわる除法
-□標準問題
-
-■問題1
+■問題
 次の計算をしなさい。
 \[
-(12x^2y-18xy^2)\div 6xy
+(6x^3y-9x^2y^2+3xy)\div\left(-\frac{3}{2}xy\right)
 \]
 
-【解答】
+【解答】  
 \[
-2x-3y
+-4x^2+6xy-2
 \]
 
-【解説】
-多項式の各項を $6xy$ でわります。
+【解説】  
+**ステップ1：考え方を確認する**
+
+多項式を単項式でわるときは、それぞれの項を単項式でわればよい。
+
+また、わり算は、わる数の逆数をかける形に直すことができる。  
+今回は $-\frac{3}{2}xy$ でわるので、逆数は $-\frac{2}{3xy}$ である。
+
+\[
+(6x^3y-9x^2y^2+3xy)\div\left(-\frac{3}{2}xy\right)
+=(6x^3y-9x^2y^2+3xy)\times\left(-\frac{2}{3xy}\right)
+\]
+
+**ステップ2：式を等号でつないで計算する**
+
 \[
 \begin{aligned}
-(12x^2y-18xy^2)\div6xy&=12x^2y\div6xy-18xy^2\div6xy\\
-&=2x-3y
+(6x^3y-9x^2y^2+3xy)\div\left(-\frac{3}{2}xy\right)
+&=(6x^3y-9x^2y^2+3xy)\times\left(-\frac{2}{3xy}\right)\\
+&=6x^3y\times\left(-\frac{2}{3xy}\right)-9x^2y^2\times\left(-\frac{2}{3xy}\right)+3xy\times\left(-\frac{2}{3xy}\right)\\
+&=\frac{6x^3y\times(-2)}{3xy}+\frac{-9x^2y^2\times(-2)}{3xy}+\frac{3xy\times(-2)}{3xy}\\
+&=-4x^2+6xy-2
 \end{aligned}
 \]
+
+**ステップ3：間違えやすいポイントを確認する**
+
+$-\frac{3}{2}xy$ でわるときは、$-\frac{2}{3xy}$ をかける。  
+分数でわるときは、分母と分子を入れかえた数をかけることが大切である。
+
+特に、わる数が負の数なので、符号に注意する。  
+負の数でわるため、各項の符号はすべて反対になる。
+
+**ステップ4：答えを確認する**
+
+求めた式に、もとのわる数 $-\frac{3}{2}xy$ をかけて確認する。
+
+\[
+\begin{aligned}
+(-4x^2+6xy-2)\times\left(-\frac{3}{2}xy\right)
+&=(-4x^2)\times\left(-\frac{3}{2}xy\right)+6xy\times\left(-\frac{3}{2}xy\right)-2\times\left(-\frac{3}{2}xy\right)\\
+&=6x^3y-9x^2y^2+3xy
+\end{aligned}
+\]
+
+もとの多項式に戻るので、答えは
+
+\[
+-4x^2+6xy-2
+\]
+
+となる。

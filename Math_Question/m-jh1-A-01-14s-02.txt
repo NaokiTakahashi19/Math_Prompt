@@ -1,13 +1,56 @@
-# 生成問題
-使用プロンプト: m-jh1-A-01-14s.txt
-学習項目: 1-A-01-14 乗法と除法 ― 逆数を使った除法 □標準問題
-
-■問題2  
-次の計算をしなさい。
-\[(-12)\div\frac{3}{5}\]
+■問題
+除法を乗法に直して次の計算をしなさい。
+\[
+\left(-\frac{8}{15}\right)\div\frac{4}{9}\div\left(-\frac{6}{25}\right)
+\]
 
 【解答】  
-\[-20\]
+\[
+5
+\]
 
 【解説】  
-$\frac{3}{5}$ でわることは $\frac{5}{3}$ をかけることです。$(-12)\times\frac{5}{3}=-20$ です。
+**ステップ1：考え方を確認する**
+除法は、わる数の逆数をかける乗法に直して計算する。  
+この問題では除法が2つあるので、どちらも逆数をかける形に直す。
+
+**ステップ2：除法を逆数を使って乗法に直す**
+\[
+\begin{aligned}
+\left(-\frac{8}{15}\right)\div\frac{4}{9}\div\left(-\frac{6}{25}\right)
+&=\left(-\frac{8}{15}\right)\times\frac{9}{4}\times\left(-\frac{25}{6}\right)
+\end{aligned}
+\]
+
+**ステップ3：符号を確認する**
+負の数は $\left(-\frac{8}{15}\right)$ と $\left(-\frac{25}{6}\right)$ の2個である。  
+負の数が2個なので、答えの符号は正となる。
+
+\[
+\begin{aligned}
+\left(-\frac{8}{15}\right)\times\frac{9}{4}\times\left(-\frac{25}{6}\right)
+&=+\left(\frac{8}{15}\times\frac{9}{4}\times\frac{25}{6}\right)
+\end{aligned}
+\]
+
+**ステップ4：約分して計算する**
+\[
+\begin{aligned}
+\frac{8}{15}\times\frac{9}{4}\times\frac{25}{6}
+&=\frac{8\times9\times25}{15\times4\times6}\\
+&=\frac{2\times9\times25}{15\times1\times6}\\
+&=\frac{2\times3\times25}{15\times1\times2}\\
+&=\frac{3\times25}{15}\\
+&=\frac{75}{15}\\
+&=5
+\end{aligned}
+\]
+
+**ステップ5：答えを確認する**
+途中で負の数が2個あったので、答えは正の数になる。計算結果も正の $5$ であるから、符号も合っている。  
+
+間違えやすいポイントは、$\div\left(-\frac{6}{25}\right)$ を $\times\left(-\frac{25}{6}\right)$ に直すことである。分子と分母を入れかえることを忘れないようにする。したがって、答えは
+\[
+5
+\]
+となる。

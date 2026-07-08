@@ -1,17 +1,70 @@
-3-A-04-07
-平方根 ― 平方根の積と商
-□標準問題
-
-■問題1
+■問題
 次の計算をしなさい。
 \[
-\sqrt6\times\sqrt{15}
+2\sqrt{27}\times\sqrt{10}\div\sqrt{6}
 \]
 
-【解答】
+【解答】  
 \[
-3\sqrt{10}
+6\sqrt{5}
 \]
 
-【解説】
-$\sqrt6\times\sqrt{15}=\sqrt{90}=3\sqrt{10}$ です。
+【解説】  
+**ステップ1：考え方を確認する**
+
+平方根の積と商では、次の公式を使う。
+\[
+\sqrt{a}\times\sqrt{b}=\sqrt{ab}
+\]
+\[
+\frac{\sqrt{a}}{\sqrt{b}}=\sqrt{\frac{a}{b}}
+\]
+
+この問題では、係数の $2$ はそのままにして、根号の中をまとめて計算する。
+
+**ステップ2：式を分数の形に直す**
+
+\[
+\begin{aligned}
+2\sqrt{27}\times\sqrt{10}\div\sqrt{6}
+&=2\times\frac{\sqrt{27}\times\sqrt{10}}{\sqrt{6}}
+\end{aligned}
+\]
+
+**ステップ3：平方根の積と商の公式を使う**
+
+\[
+\begin{aligned}
+2\times\frac{\sqrt{27}\times\sqrt{10}}{\sqrt{6}}
+&=2\times\frac{\sqrt{27\times 10}}{\sqrt{6}}\\
+&=2\times\sqrt{\frac{27\times 10}{6}}\\
+&=2\times\sqrt{\frac{270}{6}}\\
+&=2\times\sqrt{45}
+\end{aligned}
+\]
+
+**ステップ4：根号の中を簡単にする**
+
+\[
+45=9\times 5
+\]
+なので、
+\[
+\begin{aligned}
+2\times\sqrt{45}
+&=2\times\sqrt{9\times 5}\\
+&=2\times 3\sqrt{5}\\
+&=6\sqrt{5}
+\end{aligned}
+\]
+
+**ステップ5：答えを確認する**
+
+根号の中の $5$ はこれ以上簡単にできないので、答えは
+\[
+6\sqrt{5}
+\]
+となる。
+
+**間違えやすいポイント：**  
+$\sqrt{45}$ のまま終わらず、$45=9\times5$ として $\sqrt{9}$ を根号の外に出すことが大切である。

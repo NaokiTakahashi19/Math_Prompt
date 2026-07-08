@@ -1,0 +1,60 @@
+■問題
+次の計算をしなさい。
+\[
+(21p - 14q + 35) \div \left(-\frac{7}{2}\right)
+\]
+
+【解答】  
+\[
+-6p + 4q - 10
+\]
+
+【解説】  
+**ステップ1：考え方を確認する**
+分数でわることは、その分数の逆数（分母と分子を入れかえた数）をかけることと同じである。
+
+$-\frac{7}{2}$ の逆数は $-\frac{2}{7}$ である。負の分数でわるので、逆数にしても符号は負のままである。
+\[
+\begin{aligned}
+(21p - 14q + 35) \div \left(-\frac{7}{2}\right)
+&=(21p - 14q + 35)\times\left(-\frac{2}{7}\right)
+\end{aligned}
+\]
+
+**ステップ2：分配法則でかっこの中の各項にかける**
+まず、もとの式で、かける数と、かっこの中の各項を確認する。
+\[
+(\hlpink{21p}+\hlpink{(-14q)}+\hlpink{35})\times\hlblue{\left(-\frac{2}{7}\right)}
+\]
+
+かっこの中のそれぞれの項に、$\hlblue{-\frac{2}{7}}$ をかける。
+\[
+= \hlpink{21p}\times\hlblue{\left(-\frac{2}{7}\right)}
++\hlpink{(-14q)}\times\hlblue{\left(-\frac{2}{7}\right)}
++\hlpink{35}\times\hlblue{\left(-\frac{2}{7}\right)}
+\]
+
+**ステップ3：式を等号でつないで計算する**
+\[
+\begin{aligned}
+(21p - 14q + 35) \div \left(-\frac{7}{2}\right)
+&=(21p - 14q + 35)\times\left(-\frac{2}{7}\right)\\
+&=21p\times\left(-\frac{2}{7}\right)+(-14q)\times\left(-\frac{2}{7}\right)+35\times\left(-\frac{2}{7}\right)\\
+&=-6p+4q-10
+\end{aligned}
+\]
+
+**ステップ4：答えを確認する**
+求めた答え $-6p+4q-10$ に、わる数 $\left(-\frac{7}{2}\right)$ をかけると、もとの多項式にもどるかを確認する。
+\[
+\begin{aligned}
+(-6p+4q-10)\times\left(-\frac{7}{2}\right)
+&=(-6p)\times\left(-\frac{7}{2}\right)+4q\times\left(-\frac{7}{2}\right)+(-10)\times\left(-\frac{7}{2}\right)\\
+&=21p-14q+35
+\end{aligned}
+\]
+もとの多項式と一致するので、答えは正しいと確認できる。
+
+**ポイント：**  
+分数でわるときは、必ず逆数をかける形に直す。  
+また、負の分数でわるときは、逆数に直したあとも符号が負であることに注意する。

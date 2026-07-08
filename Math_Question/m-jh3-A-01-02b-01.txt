@@ -1,23 +1,74 @@
-3-A-01-02
-多項式の計算 ― 多項式を単項式でわる除法
-□基本問題
+■問題
 
-■問題1
 次の計算をしなさい。
 \[
-(12x^2y-18xy^2)\div 6xy
+(5m^2n-10mn^2)\div \frac{5}{2}mn
 \]
 
-【解答】
+【解答】  
 \[
-2x-3y
+2m-4n
 \]
 
-【解説】
-多項式の各項を $6xy$ でわります。
+【解説】  
+**ステップ1：考え方を確認する**
+多項式を単項式でわるときは、わり算を「逆数をかける」形に直す。
+分数でわるときは、分母と分子を入れかえた数をかけることに注意する。
+
+\[
+\frac{5}{2}mn=\frac{5mn}{2}
+\]
+
+だから、逆数は
+
+\[
+\frac{2}{5mn}
+\]
+
+である。
+
+**ステップ2：除法を乗法になおす**
 \[
 \begin{aligned}
-(12x^2y-18xy^2)\div6xy&=12x^2y\div6xy-18xy^2\div6xy\\
-&=2x-3y
+\hlblue{(5m^2n-10mn^2)}\div \hlpink{\frac{5}{2}mn}
+&=\hlblue{(5m^2n-10mn^2)}\times \hlpink{\frac{2}{5mn}}
 \end{aligned}
 \]
+
+**ステップ3：分配法則を利用してかっこをはずす**
+\[
+\begin{aligned}
+&=\hlblue{5m^2n}\times \hlpink{\frac{2}{5mn}}
+-\hlblue{10mn^2}\times \hlpink{\frac{2}{5mn}}
+\end{aligned}
+\]
+
+**ステップ4：各項を約分して計算する**
+\[
+\begin{aligned}
+&=\frac{5m^2n\times 2}{5mn}-\frac{10mn^2\times 2}{5mn}\\
+&=\frac{10m^2n}{5mn}-\frac{20mn^2}{5mn}\\
+&=2\times \frac{m^2}{m}\times \frac{n}{n}
+-4\times \frac{m}{m}\times \frac{n^2}{n}\\
+&=2m-4n
+\end{aligned}
+\]
+
+**ステップ5：答えを確認する**
+求めた答えに、わる数をかけて元の多項式に戻るか確認する。
+
+\[
+\begin{aligned}
+(2m-4n)\times \frac{5}{2}mn
+&=2m\times \frac{5}{2}mn-4n\times \frac{5}{2}mn\\
+&=5m^2n-10mn^2
+\end{aligned}
+\]
+
+元の多項式に戻るので、答えは
+
+\[
+2m-4n
+\]
+
+である。

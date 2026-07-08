@@ -1,0 +1,60 @@
+■問題
+次の計算をしなさい。
+\[
+-18a^2b \div \frac{3ab}{2}
+\]
+
+【解答】  
+\[
+-12a
+\]
+
+【解説】  
+**ステップ1：考え方を確認する**
+単項式のわり算では、わる数の逆数をかけると考える。  
+分数でわるときは、分母と分子を入れかえた数をかける。
+
+今回は $\frac{3ab}{2}$ でわるので、$\frac{3ab}{2}$ の逆数 $\frac{2}{3ab}$ をかける。
+
+**ステップ2：除法を乗法にかえる**
+\[
+\begin{aligned}
+-18a^2b \div \frac{3ab}{2}
+&= -18a^2b \times \frac{2}{3ab}
+\end{aligned}
+\]
+
+**ステップ3：大きな分数にして、係数と文字を分ける**
+\[
+\begin{aligned}
+-18a^2b \times \frac{2}{3ab}
+&= \frac{-18 \times a \times a \times b \times 2}{3 \times a \times b}
+\end{aligned}
+\]
+
+**ステップ4：分子と分母の同じ文字を消す**
+分子と分母に同じ $a$ と $b$ があるので、それぞれ消す。  
+ただし、分子には $a$ が2個あり、分母には $a$ が1個あるので、$a$ は1個残る。
+
+\[
+\begin{aligned}
+\frac{-18 \times \hlblue{a} \times a \times \hlblue{b} \times 2}{3 \times \hlblue{a} \times \hlblue{b}}
+&= \frac{-18 \times a \times 2}{3}
+\end{aligned}
+\]
+
+**ステップ5：係数を計算してまとめる**
+\[
+\begin{aligned}
+\frac{-18 \times a \times 2}{3}
+&= \frac{-36a}{3} \\
+&= -12a
+\end{aligned}
+\]
+
+**間違えやすいポイント：** $\frac{3ab}{2}$ でわるとき、$\frac{2}{3ab}$ をかける。$\frac{3ab}{2}$ をそのままかけないように注意する。  
+したがって、答えは
+\[
+-12a
+\]
+である。

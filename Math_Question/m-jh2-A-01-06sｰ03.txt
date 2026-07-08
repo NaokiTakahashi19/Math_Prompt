@@ -1,0 +1,46 @@
+■問題
+次の計算をしなさい。
+\[
+-\frac{5}{6}(12x-18y-24)
+\]
+
+【解答】  
+\[
+-10x+15y+20
+\]
+
+【解説】  
+**ステップ1：分配法則の考え方を確認する**
+もとの式で、かける数と、かっこの中の各項を確認する。
+\[
+\hlblue{\left(-\frac{5}{6}\right)}(\hlpink{12x}+\hlpink{(-18y)}+\hlpink{(-24)})
+\]
+かっこの中のそれぞれの項に、$\hlblue{-\frac{5}{6}}$ をかける。
+\[
+= \hlblue{\left(-\frac{5}{6}\right)}\times\hlpink{12x}
++\hlblue{\left(-\frac{5}{6}\right)}\times\hlpink{(-18y)}
++\hlblue{\left(-\frac{5}{6}\right)}\times\hlpink{(-24)}
+\]
+
+**ステップ2：約分と符号に注意して計算する**
+\[
+\begin{aligned}
+-\frac{5}{6}(12x-18y-24)
+&=\hlblue{\left(-\frac{5}{6}\right)}\times\hlpink{12x}
++\hlblue{\left(-\frac{5}{6}\right)}\times\hlpink{(-18y)}
++\hlblue{\left(-\frac{5}{6}\right)}\times\hlpink{(-24)}\\
+&=-\frac{5\times 12}{6}x+\frac{5\times 18}{6}y+\frac{5\times 24}{6}\\
+&=-10x+15y+20
+\end{aligned}
+\]
+
+**ステップ3：答えを確認する**
+$-\frac{5}{6}$ は負の数なので、正の項 $12x$ にかけると負になり、負の項 $-18y$ や $-24$ にかけると正になる。
+したがって、
+\[
+-10x+15y+20
+\]
+となる。
+
+**ポイント：**  
+分数を分配するときは、先に $12\div6$，$18\div6$，$24\div6$ のように約分を考えると計算しやすい。負の数をかけるときは、符号が変わる項と変わらない項を確認することが大切である。

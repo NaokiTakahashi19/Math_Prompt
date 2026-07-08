@@ -1,0 +1,62 @@
+■問題
+次の計算をしなさい。
+\[
+-18a^3b^2 \div 6ab
+\]
+
+【解答】  
+\[
+-3a^2b
+\]
+
+【解説】  
+**ステップ1：考え方を確認する**
+
+単項式のわり算では、わる数の逆数をかけると考える。  
+$6ab$ でわることは、$\frac{1}{6ab}$ をかけることと同じである。
+
+**ステップ2：除法を分数の形にする**
+
+\[
+\begin{aligned}
+-18a^3b^2 \div 6ab
+&= \frac{-18a^3b^2}{6ab}
+\end{aligned}
+\]
+
+**ステップ3：係数と文字をかけ算の形に分ける**
+
+\[
+\begin{aligned}
+\frac{-18a^3b^2}{6ab}
+&= \frac{-18\times \hlblue{a}\times a\times a\times \hlblue{b}\times b}{6\times \hlblue{a}\times \hlblue{b}}
+\end{aligned}
+\]
+
+分子と分母に同じ $\hlblue{a}$ と $\hlblue{b}$ があるので、それぞれ約分できる。
+
+**ステップ4：約分して残った部分をまとめる**
+
+\[
+\begin{aligned}
+\frac{-18\times a\times a\times a\times b\times b}{6\times a\times b}
+&= \frac{-18\times a\times a\times b}{6} \\
+&= -3\times a^2\times b \\
+&= -3a^2b
+\end{aligned}
+\]
+
+**ステップ5：答えを確認する**
+
+$-3a^2b$ にわる数の $6ab$ をかけると、
+\[
+-3a^2b \times 6ab = -18a^3b^2
+\]
+となり、もとのわられる数と一致する。したがって答えは
+\[
+-3a^2b
+\]
+である。
+
+**間違えやすいポイント：**  
+$a^3 \div a = a^2$、$b^2 \div b = b$ となる。文字がすべて消えるわけではないことに注意する。

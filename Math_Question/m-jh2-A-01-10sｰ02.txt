@@ -1,0 +1,57 @@
+■問題
+次の計算をしなさい。
+\[
+-\frac{5}{6}m^2n \times 12mn^3
+\]
+
+【解答】  
+\[
+-10m^3n^4
+\]
+
+【解説】  
+**ステップ1：単項式を、係数と文字の積として見る**
+単項式のかけ算では、係数どうし、同じ文字どうしに分けて考える。
+\[
+\begin{aligned}
+-\frac{5}{6}m^2n &= -\frac{5}{6}\times m\times m\times n\\
+12mn^3 &= 12\times m\times n\times n\times n
+\end{aligned}
+\]
+
+\[
+\hlblue{-\frac{5}{6}m^2n}\times\hlpink{12mn^3}
+\]
+\[
+= \hlblue{-\frac{5}{6}\times m\times m\times n}\times\hlpink{12\times m\times n\times n\times n}
+\]
+
+**ステップ2：係数どうし、同じ文字どうしが並ぶように順番を変える**
+かけ算では順番を入れかえてもよいので、係数、$m$、$n$ に分けて並べる。
+\[
+-\frac{5}{6}\times 12\times m\times m\times m\times n\times n\times n\times n
+\]
+
+**ステップ3：等号でつないで計算する**
+\[
+\begin{aligned}
+-\frac{5}{6}m^2n\times 12mn^3
+&=\hlblue{-\frac{5}{6}\times m\times m\times n}\times\hlpink{12\times m\times n\times n\times n}\\
+&=-\frac{5}{6}\times 12\times m\times m\times m\times n\times n\times n\times n\\
+&=-10m^3n^4
+\end{aligned}
+\]
+
+**ステップ4：答えを確認する**
+係数は、
+\[
+-\frac{5}{6}\times 12=-10
+\]
+となる。文字は、$m$ が3個、$n$ が4個あるので、$m^3n^4$ である。
+
+**間違えやすいポイント：**  
+$-\frac{5}{6}\times 12$ の符号に注意する。負の数と正の数の積なので、係数は負になる。したがって、答えは
+\[
+-10m^3n^4
+\]
+である。

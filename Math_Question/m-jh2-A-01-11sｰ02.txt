@@ -1,0 +1,59 @@
+■問題
+次の計算をしなさい。
+\[
+-45p^4q^3 \div \left(\frac{9}{10}p^2q\right)
+\]
+
+【解答】  
+\[
+-50p^2q^2
+\]
+
+【解説】  
+**ステップ1：考え方を確認する**
+単項式のわり算では、わる数の逆数をかけると考える。  
+$\frac{9}{10}p^2q$ でわるので、分母と分子を入れかえた
+\[
+\frac{10}{9p^2q}
+\]
+をかける。
+
+**ステップ2：除法を乗法にかえる**
+\[
+-45p^4q^3 \div \left(\frac{9}{10}p^2q\right)
+= -45p^4q^3 \times \frac{10}{9p^2q}
+\]
+
+**ステップ3：係数と文字を分けて約分する**
+\[
+\begin{aligned}
+-45p^4q^3 \times \frac{10}{9p^2q}
+&= \frac{-45 \times p\times p\times \hlblue{p}\times \hlblue{p}\times q\times q\times \hlpink{q}\times 10}{9\times \hlblue{p}\times \hlblue{p}\times \hlpink{q}}\\
+&= \frac{-45 \times p\times p\times q\times q\times 10}{9}
+\end{aligned}
+\]
+分子と分母に同じ $\hlblue{p}$ が2個、$\hlpink{q}$ が1個あるので消すことができる。
+
+**ステップ4：係数を計算して答えを求める**
+\[
+\begin{aligned}
+-45p^4q^3 \div \left(\frac{9}{10}p^2q\right)
+&= -45p^4q^3 \times \frac{10}{9p^2q}\\
+&= \frac{-45 \times p\times p\times \hlblue{p}\times \hlblue{p}\times q\times q\times \hlpink{q}\times 10}{9\times \hlblue{p}\times \hlblue{p}\times \hlpink{q}}\\
+&= \frac{-45 \times p\times p\times q\times q\times 10}{9}\\
+&= -5 \times 10 \times p^2q^2\\
+&= -50p^2q^2
+\end{aligned}
+\]
+
+**ステップ5：答えを確認する**
+符号は、負の数を正の数でわっているので負になる。  
+文字は $p^4 \div p^2=p^2$、$q^3 \div q=q^2$ となる。  
+したがって、答えは
+\[
+-50p^2q^2
+\]
+である。
+
+**ポイント：**  
+分数でわるときは、わる数の分母と分子を入れかえてかける。文字も分母に入るので、同じ文字を約分してから係数を計算すると間違えにくい。

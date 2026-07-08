@@ -1,20 +1,62 @@
-3-A-01-06
-多項式の計算 ― (x + a)^2の展開
-□標準問題
-
-■問題1
+■問題
 次の式を展開しなさい。
 \[
-(x+6)^2
+\left(\frac{3}{2}x+4\right)^2
 \]
 
-【解答】
+【解答】  
 \[
-x^2+12x+36
+\frac{9}{4}x^2+12x+16
 \]
 
-【解説】
-$(x+a)^2=x^2+2ax+a^2$ を使います。
+【解説】  
+**ステップ1：乗法の公式の形を確認する**
 \[
-(x+6)^2=x^2+2\times6x+6^2=x^2+12x+36
+\left(\hlblue{\frac{3}{2}x}+\hlpink{4}\right)^2
 \]
+は、$(A+B)^2$ の形である。  
+$x$ の係数が1でないので、$\frac{3}{2}x$ をひとまとまりの $A$、$4$ を $B$ と見る。
+
+**乗法の公式：**
+\[
+(A+B)^2=A^2+2AB+B^2
+\]
+
+**ステップ2：乗法の公式にあてはめる**
+\[
+\begin{aligned}
+\left(\hlblue{\frac{3}{2}x}+\hlpink{4}\right)^2
+&= \left(\hlblue{\frac{3}{2}x}\right)^2
+ +2 \times \hlblue{\frac{3}{2}x} \times \hlpink{4}
+ +\hlpink{4}^2
+\end{aligned}
+\]
+
+**ステップ3：それぞれの項を計算する**
+\[
+\begin{aligned}
+\left(\frac{3}{2}x+4\right)^2
+&= \left(\frac{3}{2}x\right)^2
+ +2 \times \frac{3}{2}x \times 4
+ +4^2\\
+&= \frac{9}{4}x^2
+ +12x
+ +16\\
+&= \frac{9}{4}x^2+12x+16
+\end{aligned}
+\]
+
+**ステップ4：答えを確認する**
+真ん中の項は、$2 \times \frac{3}{2}x \times 4$ で求める。  
+\[
+2 \times \frac{3}{2}x \times 4=12x
+\]
+となるので、真ん中の項は $12x$ である。
+
+**ポイント：**  
+$\left(\frac{3}{2}x\right)^2$ は、係数と文字の両方を2乗する。  
+したがって、
+\[
+\left(\frac{3}{2}x\right)^2=\frac{9}{4}x^2
+\]
+となる。$\frac{3}{2}x^2$ としないように注意する。

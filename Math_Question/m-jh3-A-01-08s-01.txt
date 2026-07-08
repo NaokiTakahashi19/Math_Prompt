@@ -1,20 +1,69 @@
-3-A-01-08
-多項式の計算 ― (a + b)(a -b)の展開
-□標準問題
-
-■問題1
+■問題
 次の式を展開しなさい。
 \[
-(x+5)(x-5)
+\left(\frac{3}{4}x+5y\right)\left(\frac{3}{4}x-5y\right)
 \]
 
-【解答】
+【解答】  
 \[
-x^2-25
+\frac{9}{16}x^2-25y^2
 \]
 
-【解説】
-$(A+B)(A-B)=A^2-B^2$ を使います。
+【解説】  
+**ステップ1：乗法の公式の形を確認する**
 \[
-(x+5)(x-5)=x^2-5^2=x^2-25
+\left(\hlblue{\frac{3}{4}x}\bbox[2px,lightyellow]{+}\hlpink{5y}\right)
+\left(\hlblue{\frac{3}{4}x}\bbox[2px,lightyellow]{-}\hlpink{5y}\right)
 \]
+は、$(\hlblue{a}\bbox[2px,lightyellow]{+}\hlpink{b})(\hlblue{a}\bbox[2px,lightyellow]{-}\hlpink{b})$ の形である。
+
+この式では、乗法の公式のうち、次の公式が使える。
+
+**乗法の公式：**
+\[
+(a+b)(a-b)=a^2-b^2
+\]
+
+ここでは、$\frac{3}{4}x$ 全体を $a$、$5y$ 全体を $b$ と見る。
+
+**ステップ2：公式にあてはめる**
+\[
+\begin{aligned}
+\left(\hlblue{\frac{3}{4}x}+\hlpink{5y}\right)
+\left(\hlblue{\frac{3}{4}x}-\hlpink{5y}\right)
+&= \hlblue{\left(\frac{3}{4}x\right)}^2-\hlpink{(5y)}^2
+\end{aligned}
+\]
+
+**ステップ3：それぞれを2乗して計算する**
+\[
+\begin{aligned}
+\left(\frac{3}{4}x\right)^2-(5y)^2
+&= \left(\frac{3}{4}\right)^2x^2-25y^2\\
+&= \frac{9}{16}x^2-25y^2
+\end{aligned}
+\]
+
+したがって、
+\[
+\frac{9}{16}x^2-25y^2
+\]
+となる。
+
+**ステップ4：答えを確認する**
+分配法則で展開しても、真ん中の項が打ち消し合うことを確認できる。
+\[
+\begin{aligned}
+\left(\frac{3}{4}x+5y\right)\left(\frac{3}{4}x-5y\right)
+&= \left(\frac{3}{4}x\right)^2-\left(\frac{3}{4}x\right)(5y)+(5y)\left(\frac{3}{4}x\right)-(5y)^2\\
+&= \frac{9}{16}x^2-\frac{15}{4}xy+\frac{15}{4}xy-25y^2\\
+&= \frac{9}{16}x^2-25y^2
+\end{aligned}
+\]
+
+**ポイント：**  
+$\frac{3}{4}x$ は係数だけでなく、$x$ も含めてひとまとまりとして2乗する。  
+\[
+\left(\frac{3}{4}x\right)^2=\frac{9}{16}x^2
+\]
+であり、$\frac{3}{4}x^2$ としないように注意する。
