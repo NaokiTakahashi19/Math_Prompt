@@ -341,7 +341,12 @@
         inlineMath: [['$', '$']],
         displayMath: [['\\[','\\]'], ['$$','$$']],
         processEscapes: true,
-        processEnvironments: true
+        processEnvironments: true,
+        macros: {
+          hlblue: ['\\bbox[2px,lightskyblue]{#1}', 1],
+          hlpink: ['\\bbox[2px,lightpink]{#1}', 1],
+          hlgreen: ['\\bbox[2px,lightgreen]{#1}', 1]
+        }
       },
       svg: { fontCache: 'global' },
       options: { skipHtmlTags: ['script','noscript','style','textarea','pre'] }
@@ -1463,6 +1468,71 @@
       return blocks;
     }
 
+    function splitTeXRowCells(row) {
+      const cells = [];
+      let depth = 0;
+      let start = 0;
+      for (let i = 0; i < row.length; i++) {
+        const char = row[i];
+        if (char === '\\') {
+          i++;
+          continue;
+        }
+        if (char === '{') depth++;
+        if (char === '}') depth = Math.max(0, depth - 1);
+        if (char === '&' && depth === 0) {
+          cells.push(row.slice(start, i).trim());
+          start = i + 1;
+        }
+      }
+      cells.push(row.slice(start).trim());
+      return cells;
+    }
+
+    function parseArrayTable(tex) {
+      const source = String(tex || '').trim();
+      const match = source.match(/^\\begin\{array\}\{([^}]*)\}([\s\S]*?)\\end\{array\}$/);
+      if (!match) return null;
+
+      const columns = match[1].replace(/\|/g, '').replace(/[^clr]/g, '').length || 1;
+      const body = match[2]
+        .replace(/\\hline/g, '')
+        .split(/\\\\/)
+        .map(row => row.trim())
+        .filter(Boolean);
+
+      const rows = body.map(row => {
+        const cells = splitTeXRowCells(row);
+        while (cells.length < columns) cells.push('');
+        return cells.slice(0, columns);
+      }).filter(row => row.some(cell => cell.trim()));
+
+      return rows.length ? { columns, rows } : null;
+    }
+
+    function arrayTableToDocxTable(tex) {
+      const parsed = parseArrayTable(tex);
+      if (!parsed) return null;
+
+      const { Table, TableRow, TableCell, Paragraph, WidthType, AlignmentType } = window.docx;
+      const columnWidth = Math.floor(100 / parsed.columns);
+      return new Table({
+        width: { size: 100, type: WidthType.PERCENTAGE },
+        rows: parsed.rows.map(row => new TableRow({
+          children: row.map(cell => new TableCell({
+            width: { size: columnWidth, type: WidthType.PERCENTAGE },
+            margins: { top: 80, bottom: 80, left: 100, right: 100 },
+            children: [
+              new Paragraph({
+                children: [mathComponent(cell || ' ')],
+                alignment: AlignmentType.CENTER
+              })
+            ]
+          }))
+        }))
+      });
+    }
+
     async function nodeToDocxRuns(node, inherited = {}) {
       const { TextRun, ImageRun } = window.docx;
 
@@ -1583,6 +1653,12 @@
 
         for (const block of blocks) {
           if (block.type === 'math') {
+            const table = arrayTableToDocxTable(block.content);
+            if (table) {
+              paragraphs.push(table);
+              continue;
+            }
+
             paragraphs.push(new Paragraph({
               children: [mathComponent(block.content)],
               alignment: AlignmentType.CENTER,

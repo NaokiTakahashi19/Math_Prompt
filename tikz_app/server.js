@@ -13,7 +13,7 @@ const mathPromptDir = process.env.MATH_PROMPT_DIR
   ? path.resolve(process.env.MATH_PROMPT_DIR)
   : path.resolve(__dirname, '..');
 const mathQuestionDir = path.join(mathPromptDir, 'Math_Question');
-const questionFileSeparator = 'ｰ';
+const questionFileSeparator = '-';
 const defaultOpenAIModel = 'gpt-5.5';
 const generationJobs = new Map();
 
@@ -191,7 +191,15 @@ async function createQuestionWithOpenAI({ apiKey, prompt, questionNumber, totalC
       instructions: [
         'あなたは日本の中学校数学教材を作る編集者です。',
         '入力された作問用プロンプトに厳密に従って、問題、解答、解説を1問分だけ作成してください。',
+        'アダプティブドリル用なので、1つの出力ファイルには独立した単問を1問だけ書いてください。問題文の中に「(1)(2)(3)」「①②③」「ア・イ・ウ」などの小問を入れないでください。',
+        '作問用プロンプトの生成例が複数小問形式でも、そのまま踏襲せず、その中から1つの問いに絞るか、1つの問いとして完結する形に直してください。',
+        '問題見出しは「■問題」とし、「■問題1」「■問題2」のような問題番号は付けないでください。',
         '出力には作問用プロンプトの本文やメタ説明を繰り返さず、教材として保存できる完成稿だけを書いてください。',
+        '【解説】は必ずステップ形式で書いてください。見出しは「**ステップ1：考え方を確認する**」「**ステップ2：式を使って解く**」のように、ステップ番号と見出し全体を太字にし、見出し行の末尾に句点「。」は付けないでください。',
+        'どれだけ基本的な問題でも、【解説】を1文だけで済ませず、少なくとも「考え方を確認する」「式や条件を使って解く」「答えを確認する」の流れが見えるようにしてください。',
+        '計算問題では、問題の式から始めて、途中式を省略せず、等号で式を連続的に変形していく形を優先してください。',
+        '表を使う場合は、空白だけで並べず、Markdown表またはLaTeXのarray/tabularを使って、行と列が崩れない形にしてください。',
+        '作問用プロンプト内の生成例にステップ構成、ハイライト、表、図、検算、ポイント整理がある場合は、その表現方針を新しい問題にも反映してください。',
         '解説の文体は常体に統一してください。',
         '文末は「〜する」「〜である」「〜となる」「〜できる」「〜を求める」のように書き、「〜します」「〜です」「〜になります」などの敬体は使わないでください。',
         '同じ解説内で常体と敬体を混在させないでください。'
@@ -491,10 +499,7 @@ app.get('/question-files', async (req, res) => {
       };
     }));
 
-    files.sort((a, b) => {
-      if (showAll) return new Date(b.updatedAt) - new Date(a.updatedAt) || b.name.localeCompare(a.name, 'ja', { numeric: true });
-      return b.name.localeCompare(a.name, 'ja', { numeric: true });
-    });
+    files.sort((a, b) => a.name.localeCompare(b.name, 'ja', { numeric: true }));
 
     res.json({ directory: mathQuestionDir, sourceFile, learningItemKey: sourceKey, files });
   } catch (err) {
@@ -515,6 +520,59 @@ app.get('/question-files/:name', async (req, res) => {
     res.json({ name: fileName, content });
   } catch (err) {
     console.error('Failed to read Math_Question file:', err);
+    res.status(404).json({ error: 'Question file not found.' });
+  }
+});
+
+app.patch('/question-files/:name', async (req, res) => {
+  const fileName = validatePromptFileName(req.params.name);
+  const newFileName = validatePromptFileName(req.body?.newName);
+
+  if (!fileName || !newFileName) {
+    return res.status(400).json({ error: 'Invalid file name.' });
+  }
+
+  if (fileName === newFileName) {
+    return res.json({ renamed: false, name: fileName, newName: newFileName });
+  }
+
+  const oldPath = path.join(mathQuestionDir, fileName);
+  const newPath = path.join(mathQuestionDir, newFileName);
+
+  try {
+    await fs.access(oldPath);
+  } catch {
+    return res.status(404).json({ error: 'Question file not found.' });
+  }
+
+  try {
+    await fs.access(newPath);
+    return res.status(409).json({ error: '同じ名前の作問結果がすでにあります。' });
+  } catch {
+    // Destination does not exist, so it is safe to rename.
+  }
+
+  try {
+    await fs.rename(oldPath, newPath);
+    res.json({ renamed: true, name: fileName, newName: newFileName });
+  } catch (err) {
+    console.error('Failed to rename Math_Question file:', err);
+    res.status(500).json({ error: 'Failed to rename question file.' });
+  }
+});
+
+app.delete('/question-files/:name', async (req, res) => {
+  const fileName = validatePromptFileName(req.params.name);
+
+  if (!fileName) {
+    return res.status(400).json({ error: 'Invalid file name.' });
+  }
+
+  try {
+    await fs.unlink(path.join(mathQuestionDir, fileName));
+    res.json({ deleted: true, name: fileName });
+  } catch (err) {
+    console.error('Failed to delete Math_Question file:', err);
     res.status(404).json({ error: 'Question file not found.' });
   }
 });

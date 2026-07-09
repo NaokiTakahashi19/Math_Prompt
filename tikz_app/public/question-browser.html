@@ -82,6 +82,16 @@
       font-weight: 700;
     }
 
+    button.danger {
+      border-color: #d93025;
+      color: #b3261e;
+      font-weight: 700;
+    }
+
+    button.danger:hover:not(:disabled) {
+      background: #fce8e6;
+    }
+
     input,
     select {
       min-height: 34px;
@@ -187,6 +197,13 @@
       gap: 12px;
     }
 
+    .viewer-actions {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
     #selected-title {
       font-weight: 700;
       overflow-wrap: anywhere;
@@ -241,12 +258,21 @@
   </style>
   <script>
     window.MathJax = {
+      loader: { load: ['[tex]/bbox'] },
       tex: {
+        packages: {'[+]': ['bbox']},
         inlineMath: [['$', '$'], ['\\(', '\\)']],
         displayMath: [['\\[', '\\]'], ['$$', '$$']],
-        processEscapes: true
+        processEscapes: true,
+        processEnvironments: true,
+        macros: {
+          hlblue: ['\\bbox[2px,lightskyblue]{#1}', 1],
+          hlpink: ['\\bbox[2px,lightpink]{#1}', 1],
+          hlgreen: ['\\bbox[2px,lightgreen]{#1}', 1]
+        }
       },
-      svg: { fontCache: 'global' }
+      svg: { fontCache: 'global' },
+      options: { skipHtmlTags: ['script','noscript','style','textarea','pre'] }
     };
   </script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" async></script>
@@ -286,7 +312,11 @@
           <div id="selected-title">未選択</div>
           <div id="status"></div>
         </div>
-        <button id="copy-name-btn" type="button" disabled>ファイル名コピー</button>
+        <div class="viewer-actions">
+          <button id="copy-name-btn" type="button" disabled>ファイル名コピー</button>
+          <button id="rename-file-btn" type="button" disabled>リネーム</button>
+          <button id="delete-file-btn" class="danger" type="button" disabled>削除</button>
+        </div>
       </div>
       <div id="output"><p class="empty">左の一覧から作問結果を選択してください。</p></div>
     </section>
@@ -307,6 +337,9 @@
     const searchInput = document.getElementById('search-input');
     const itemFilter = document.getElementById('item-filter');
     const copyNameBtn = document.getElementById('copy-name-btn');
+    const renameFileBtn = document.getElementById('rename-file-btn');
+    const deleteFileBtn = document.getElementById('delete-file-btn');
+    let keyboardNavigationToken = 0;
 
     function escapeForHtml(value) {
       return String(value ?? '')
@@ -324,8 +357,24 @@
       return date.toLocaleString('ja-JP', { month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit' });
     }
 
-    async function fetchJson(url) {
-      const response = await fetch(url);
+    function questionFileBase(fileName) {
+      return String(fileName || '').replace(/\.txt$/i, '');
+    }
+
+    function sourceStemFromQuestionFileName(fileName) {
+      const stem = questionFileBase(fileName.split('/').pop());
+      const match = stem.match(/^(m-jh[123]-[A-Z]-\d{2}-\d{2}[A-Za-z]*)(?:ｰ|-)(\d+)$/);
+      return match ? match[1] : stem;
+    }
+
+    function learningItemKeyFromQuestionFileName(fileName) {
+      const stem = sourceStemFromQuestionFileName(fileName);
+      const match = stem.match(/^(m-jh[123]-[A-Z]-\d{2}-\d{2})[A-Za-z]*$/);
+      return match ? match[1] : stem;
+    }
+
+    async function fetchJson(url, options) {
+      const response = await fetch(url, options);
       const data = await response.json().catch(() => ({}));
       if (!response.ok) throw new Error(data.error || '読み込みに失敗しました');
       return data;
@@ -516,6 +565,54 @@
       }
     }
 
+    function selectedFileIndex() {
+      return state.filtered.findIndex(file => file.name === state.selectedName);
+    }
+
+    function focusSelectedFile() {
+      const selectedButton = fileListEl.querySelector('.file-button.active');
+      if (!selectedButton) return;
+      selectedButton.focus({ preventScroll: true });
+      selectedButton.scrollIntoView({ block: 'nearest' });
+    }
+
+    async function moveSelection(delta) {
+      if (!state.filtered.length) return;
+
+      const currentIndex = selectedFileIndex();
+      const fallbackIndex = delta > 0 ? -1 : state.filtered.length;
+      const nextIndex = Math.min(
+        state.filtered.length - 1,
+        Math.max(0, (currentIndex === -1 ? fallbackIndex : currentIndex) + delta)
+      );
+      const nextFile = state.filtered[nextIndex];
+      if (!nextFile || nextFile.name === state.selectedName) {
+        focusSelectedFile();
+        return;
+      }
+
+      const token = ++keyboardNavigationToken;
+      await loadQuestion(nextFile.name);
+      if (token === keyboardNavigationToken) focusSelectedFile();
+    }
+
+    function isTypingTarget(target) {
+      return ['INPUT', 'TEXTAREA', 'SELECT'].includes(target?.tagName || '') || target?.isContentEditable;
+    }
+
+    function handleKeyboardNavigation(event) {
+      if (event.defaultPrevented || event.altKey || event.ctrlKey || event.metaKey) return;
+      if (isTypingTarget(event.target)) return;
+
+      if (event.key === 'ArrowDown') {
+        event.preventDefault();
+        moveSelection(1);
+      } else if (event.key === 'ArrowUp') {
+        event.preventDefault();
+        moveSelection(-1);
+      }
+    }
+
     async function loadFiles() {
       statusEl.textContent = '一覧を読み込み中...';
       try {
@@ -540,6 +637,8 @@
       renderFileList();
       titleEl.textContent = name;
       copyNameBtn.disabled = false;
+      renameFileBtn.disabled = false;
+      deleteFileBtn.disabled = false;
       statusEl.className = '';
       statusEl.textContent = '読み込み中...';
       outputEl.innerHTML = '<p class="empty">レンダリング中...</p>';
@@ -556,6 +655,102 @@
       }
     }
 
+    function normalizeQuestionFileName(name) {
+      const trimmed = String(name || '').trim();
+      if (!trimmed) return '';
+      return /\.txt$/i.test(trimmed) ? trimmed : `${trimmed}.txt`;
+    }
+
+    async function renameSelectedQuestion() {
+      const name = state.selectedName;
+      if (!name) return;
+
+      const input = window.prompt('新しいファイル名を入力してください。', name);
+      if (input === null) return;
+
+      const newName = normalizeQuestionFileName(input);
+      if (!newName || newName === name) return;
+
+      renameFileBtn.disabled = true;
+      deleteFileBtn.disabled = true;
+      copyNameBtn.disabled = true;
+      statusEl.className = '';
+      statusEl.textContent = 'リネーム中...';
+
+      try {
+        const data = await fetchJson(`/question-files/${encodeURIComponent(name)}`, {
+          method: 'PATCH',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ newName })
+        });
+        const renamedName = data.newName || newName;
+        const current = state.files.find(file => file.name === name);
+        if (current) {
+          current.name = renamedName;
+          current.label = renamedName.replace(/\.txt$/i, '');
+          current.sourceStem = sourceStemFromQuestionFileName(renamedName);
+          current.learningItemKey = learningItemKeyFromQuestionFileName(renamedName);
+        }
+        state.selectedName = renamedName;
+        state.files.sort((a, b) => a.name.localeCompare(b.name, 'ja', { numeric: true }));
+        populateItemFilter();
+        applyFilters();
+        await loadQuestion(renamedName);
+        statusEl.textContent = `${name} を ${renamedName} に変更しました`;
+        focusSelectedFile();
+      } catch (err) {
+        console.error(err);
+        statusEl.textContent = err.message;
+        statusEl.className = 'error';
+        copyNameBtn.disabled = false;
+        renameFileBtn.disabled = false;
+        deleteFileBtn.disabled = false;
+      }
+    }
+
+    async function deleteSelectedQuestion() {
+      const name = state.selectedName;
+      if (!name) return;
+
+      const confirmed = window.confirm(`${name}\n\nこの作問結果を削除します。元に戻せません。`);
+      if (!confirmed) return;
+
+      deleteFileBtn.disabled = true;
+      copyNameBtn.disabled = true;
+      renameFileBtn.disabled = true;
+      statusEl.className = '';
+      statusEl.textContent = '削除中...';
+
+      try {
+        const currentFilteredIndex = state.filtered.findIndex(file => file.name === name);
+        await fetchJson(`/question-files/${encodeURIComponent(name)}`, { method: 'DELETE' });
+        state.files = state.files.filter(file => file.name !== name);
+        state.selectedName = '';
+        titleEl.textContent = '未選択';
+        outputEl.innerHTML = '<p class="empty">削除しました。左の一覧から作問結果を選択してください。</p>';
+        populateItemFilter();
+        applyFilters();
+
+        const nextFile = state.filtered[Math.min(Math.max(currentFilteredIndex, 0), state.filtered.length - 1)];
+        if (nextFile) {
+          await loadQuestion(nextFile.name);
+          statusEl.textContent = `${name} を削除しました`;
+        } else {
+          copyNameBtn.disabled = true;
+          renameFileBtn.disabled = true;
+          deleteFileBtn.disabled = true;
+          statusEl.textContent = `${name} を削除しました`;
+        }
+      } catch (err) {
+        console.error(err);
+        statusEl.textContent = err.message;
+        statusEl.className = 'error';
+        copyNameBtn.disabled = false;
+        renameFileBtn.disabled = false;
+        deleteFileBtn.disabled = false;
+      }
+    }
+
     document.getElementById('refresh-btn').addEventListener('click', loadFiles);
     searchInput.addEventListener('input', applyFilters);
     itemFilter.addEventListener('change', applyFilters);
@@ -564,6 +759,9 @@
       await navigator.clipboard.writeText(state.selectedName);
       statusEl.textContent = 'ファイル名をコピーしました';
     });
+    renameFileBtn.addEventListener('click', renameSelectedQuestion);
+    deleteFileBtn.addEventListener('click', deleteSelectedQuestion);
+    document.addEventListener('keydown', handleKeyboardNavigation);
 
     window.addEventListener('DOMContentLoaded', loadFiles);
   </script>
