@@ -13,11 +13,16 @@
 ## 要件
 1. **問題形式**
    - 定期テストや入試を意識した形式
+   - 各問題の問題文には、必ず `【図】` と `\begin{tikzpicture} ... \end{tikzpicture}` を入れる。図がない問題は出力しない
+   - 問題文の図では、点の初期位置、動く向き、辺の長さ、直角などの位置関係が分かるようにする
+   - 「下の図」と書く場合は、その直後に必ずTikZの図を置く。文章だけで図を省略したり、「図は省略」と書いたりしない
    - **順序**：問題 → 【解答】 → 【解説】
    - **見出し**：問題は「■問題1」のように通常表記、解答・解説は【】を用いる
    - **行末**：`■問題1`/`【解答】`/`【解説】` の行末には**半角スペース2つ**（改行扱い）
 2. **解答・解説**
    - ***ステップバイステップ*** で分かりやすく
+   - 解説にも、各問題ごとに必ず `【図】` と `\begin{tikzpicture} ... \end{tikzpicture}` を入れ、$x$ 秒後や $x$ cm 動いた後の長さを図の中に示す
+   - 解説の図では、問題文の図に加えて、$AP=x$、$AQ=6-x$、$BQ=2x$ など、立式に使う長さを図の中に補う
    - 「間違えやすいポイント」や「コツ」を補足
    - 必要に応じて「別解」や「ポイント整理」を提示
 3. **数式ルール**
@@ -54,10 +59,45 @@
    - 動点の問題では、点が動いた距離や時間を $x$ とおき、それぞれの線分の長さを式で表す
    - 三角形の面積は、底辺と高さがどの線分になるかを確認してから式を立てる
    - 解が複数出た場合は、点が辺の上にある範囲に入っているかを確認する
+   - 問題文の図では答えが分かる位置に点を固定しない。解説の図で、文字で表した長さを補う
+   - 問題文の図と解説の図は、どちらも省略せずに入れる。問題文の図は「状況把握用」、解説の図は「立式用」として役割を分ける
+   - TikZでは、点名、辺の長さ、動く向きの矢印、直角マークを必要に応じて入れ、動点の位置関係が読み取れる図にする
+   - 点名や長さの文字は、辺・矢印・点と重ならない位置に置く。特に縦の辺上を動く点のラベルは、移動矢印や長さの表示と同じ側に置かず、少し離す
+   - $10-2x$、$6-x$ のような「残りの長さ」は、辺に直接文字を置くだけにせず、点から外側へ補助線を引き出し、`<->` の寸法線で「どこからどこまでの長さか」が分かるように示す
    
+   - 誤りやすいポイントは、単元に合わせて「符号」「公式の形」「同類項」「根号の外し方」「条件の読み落とし」などから1〜2点に絞って明示する
+   - 解を求めたあと、元の方程式や問題文の条件に戻って確認する。条件に合わない解がある場合は、理由を添えて除く
+
 ## 生成例  
 ■問題1  
 辺の長さが $6\mathrm{cm}$ の正方形ABCDがあります。頂点Aから頂点Bに向かって点Pが移動しており、頂点Dから頂点Aに向かって点Qが点Pと同じ速さで移動しています。$\triangle APQ$ の面積が $3\mathrm{cm}^2$ になるのは、点Pが何 $\mathrm{cm}$ 動いたときか求めなさい。
+
+【図】
+\begin{tikzpicture}[scale=0.72, line cap=round, line join=round]
+\coordinate (A) at (0,6);
+\coordinate (B) at (6,6);
+\coordinate (C) at (6,0);
+\coordinate (D) at (0,0);
+\coordinate (P0) at (0.9,6);
+\coordinate (Q0) at (0,0.9);
+\draw[thick] (A)--(B)--(C)--(D)--cycle;
+\draw[->] (0.8,6.35)--(2.4,6.35);
+\draw[->] (-0.35,0.8)--(-0.35,2.4);
+\fill (A) circle (1.5pt);
+\fill (B) circle (1.5pt);
+\fill (C) circle (1.5pt);
+\fill (D) circle (1.5pt);
+\fill (P0) circle (1.5pt);
+\fill (Q0) circle (1.5pt);
+\node[above left] at (A) {$A$};
+\node[above right] at (B) {$B$};
+\node[below right] at (C) {$C$};
+\node[below left] at (D) {$D$};
+\node[above] at (P0) {$P$};
+\node[right] at (Q0) {$Q$};
+\node[above] at (3,6.05) {$6\mathrm{cm}$};
+\node[left] at (-0.05,3) {$6\mathrm{cm}$};
+\end{tikzpicture}
 
 【解答】  
 \[
@@ -65,6 +105,39 @@
 \]
 
 【解説】  
+【図】
+\begin{tikzpicture}[scale=0.72, line cap=round, line join=round]
+\coordinate (A) at (0,6);
+\coordinate (B) at (6,6);
+\coordinate (C) at (6,0);
+\coordinate (D) at (0,0);
+\coordinate (P) at (3.3,6);
+\coordinate (Q) at (0,2.7);
+\draw[thick] (A)--(B)--(C)--(D)--cycle;
+\draw[thick] (A)--(P)--(Q)--cycle;
+\fill (A) circle (1.5pt);
+\fill (B) circle (1.5pt);
+\fill (C) circle (1.5pt);
+\fill (D) circle (1.5pt);
+\fill (P) circle (1.5pt);
+\fill (Q) circle (1.5pt);
+\node[above left] at (A) {$A$};
+\node[above right] at (B) {$B$};
+\node[below right] at (C) {$C$};
+\node[below left] at (D) {$D$};
+\node[above] at (P) {$P$};
+\node[right] at (Q) {$Q$};
+\node[above] at ($(A)!0.5!(P)$) {$x$};
+\draw[dashed] (D)--(-0.55,0);
+\draw[dashed] (Q)--(-0.55,2.7);
+\draw[dashed] (A)--(-0.55,6);
+\draw[<->] (-0.75,0)--(-0.75,2.7);
+\draw[<->] (-0.75,2.7)--(-0.75,6);
+\node[left] at (-0.75,1.35) {$x$};
+\node[left] at (-0.75,4.35) {$6-x$};
+\draw (A)--++(0.35,0)--++(0,-0.35)--++(-0.35,0);
+\end{tikzpicture}
+
 **ステップ1：** 点Pが動いた距離を文字でおく
 点Pが $x\mathrm{cm}$ 動いたとします。
 
@@ -145,12 +218,67 @@ $3-\sqrt{3}$ も $3+\sqrt{3}$ もこの範囲に入るので、どちらも条�
 ■問題2  
 $AC=5\mathrm{cm}$、$AB=10\mathrm{cm}$、$\angle CAB=90^\circ$ の直角三角形があります。点Pは、Aから線分AC上をCまで1秒間に $1\mathrm{cm}$ の速さで動きます。点Qは、点Pと同時に点Bから線分BA上をAまで1秒間に $2\mathrm{cm}$ の速さで動きます。$\triangle APQ$ の面積が $4\mathrm{cm}^2$ になるのは、点P、Qが動き始めてから何秒後かを求めなさい。
 
+【図】
+\begin{tikzpicture}[scale=0.72, line cap=round, line join=round]
+\coordinate (A) at (0,0);
+\coordinate (C) at (5,0);
+\coordinate (B) at (0,10);
+\coordinate (P0) at (0.8,0);
+\coordinate (Q0) at (0,8.9);
+\draw[thick] (A)--(B)--(C)--cycle;
+\draw[->] (0.7,-0.35)--(2.0,-0.35);
+\draw[->] (-0.35,8.8)--(-0.35,7.0);
+\fill (A) circle (1.5pt);
+\fill (B) circle (1.5pt);
+\fill (C) circle (1.5pt);
+\fill (P0) circle (1.5pt);
+\fill (Q0) circle (1.5pt);
+\node[below left] at (A) {$A$};
+\node[above] at (B) {$B$};
+\node[below] at (C) {$C$};
+\node[below] at (P0) {$P$};
+\node[right] at (Q0) {$Q$};
+\node[below] at (2.5,0) {$5\mathrm{cm}$};
+\node[left] at (0,5) {$10\mathrm{cm}$};
+\draw (A)--++(0.35,0)--++(0,0.35)--++(-0.35,0);
+\end{tikzpicture}
+
 【解答】  
 \[
 1\text{秒後},\ 4\text{秒後}
 \]
 
 【解説】  
+【図】
+\begin{tikzpicture}[scale=0.72, line cap=round, line join=round]
+\coordinate (A) at (0,0);
+\coordinate (C) at (5,0);
+\coordinate (B) at (0,10);
+\coordinate (P) at (3.0,0);
+\coordinate (Q) at (0,4.0);
+\draw[thick] (A)--(B)--(C)--cycle;
+\draw[thick] (A)--(P)--(Q)--cycle;
+\fill (A) circle (1.5pt);
+\fill (B) circle (1.5pt);
+\fill (C) circle (1.5pt);
+\fill (P) circle (1.5pt);
+\fill (Q) circle (1.5pt);
+\node[below left] at (A) {$A$};
+\node[above] at (B) {$B$};
+\node[below] at (C) {$C$};
+\node[below] at (P) {$P$};
+\node[right] at (Q) {$Q$};
+\node[below] at ($(A)!0.5!(P)$) {$x$};
+\draw[dashed] (B)--(-0.55,10);
+\draw[dashed] (Q)--(-0.55,4.0);
+\draw[dashed] (A)--(-0.55,0);
+\draw[<->] (-0.75,10)--(-0.75,4.0);
+\draw[<->] (-0.75,4.0)--(-0.75,0);
+\node[left] at (-0.75,7.0) {$2x$};
+\node[left] at (-0.75,2.0) {$10-2x$};
+\draw (A)--++(0.35,0)--++(0,0.35)--++(-0.35,0);
+\end{tikzpicture}
+
 **ステップ1：** 動き始めてからの時間を文字でおく
 動き始めてから $x$ 秒後とします。
 

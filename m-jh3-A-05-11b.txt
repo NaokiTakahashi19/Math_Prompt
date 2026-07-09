@@ -13,11 +13,16 @@
 ## 要件
 1. **問題形式**
    - 定期テストや入試を意識した形式
+   - 各問題の問題文には、必ず `【図】` と `\begin{tikzpicture} ... \end{tikzpicture}` を入れる。図がない問題は出力しない
+   - 問題文の図では、点の初期位置、動く向き、辺の長さ、直角などの位置関係が分かるようにする
+   - 「下の図」と書く場合は、その直後に必ずTikZの図を置く。文章だけで図を省略したり、「図は省略」と書いたりしない
    - **順序**：問題 → 【解答】 → 【解説】
    - **見出し**：問題は「■問題1」のように通常表記、解答・解説は【】を用いる
    - **行末**：`■問題1`/`【解答】`/`【解説】` の行末には**半角スペース2つ**（改行扱い）
 2. **解答・解説**
    - ***ステップバイステップ*** で分かりやすく
+   - 解説にも、各問題ごとに必ず `【図】` と `\begin{tikzpicture} ... \end{tikzpicture}` を入れ、$t$ 秒後や $x$ cm 動いた後の長さを図の中に示す
+   - 解説の図では、問題文の図に加えて、$AP=t$、$AQ=2t$、$6-x$ など、立式に使う長さを図の中に補う
    - 「間違えやすいポイント」や「コツ」を補足
    - 必要に応じて「別解」や「ポイント整理」を提示
 3. **数式ルール**
@@ -54,10 +59,44 @@
    - 動点の問題では、点が動いた距離や時間を $x$ とおき、それぞれの線分の長さを式で表す
    - 三角形の面積は、底辺と高さがどの線分になるかを確認してから式を立てる
    - 解が複数出た場合は、点が辺の上にある範囲に入っているかを確認する
+   - 問題文の図では答えが分かる位置に点を固定しない。解説の図で、文字で表した長さを補う
+   - 問題文の図と解説の図は、どちらも省略せずに入れる。問題文の図は「状況把握用」、解説の図は「立式用」として役割を分ける
+   - TikZでは、点名、辺の長さ、動く向きの矢印、直角マークを必要に応じて入れ、動点の位置関係が読み取れる図にする
+   - 点名や長さの文字は、辺・矢印・点と重ならない位置に置く。特に縦の辺上を動く点のラベルは、移動矢印と同じ側に置かず、必要に応じて `right=2pt` や `left=6pt` のように少し離す
    
+   - 解説の冒頭で、使用する公式・性質・考え方を「ポイント整理」として示し、その公式・性質を使う理由を1文で説明する
+   - 各ステップでは、なぜその変形・分類・立式ができるのかを、直前の式や問題文の条件に結びつけて説明する
+   - 解を求めたあと、元の方程式や問題文の条件に戻って確認する。条件に合わない解がある場合は、理由を添えて除く
+
 ## 生成例
 ■問題1  
-点PはAからBへ、点QはAからDへ、それぞれ毎秒 $1\mathrm{cm}$ の速さで動きます。$\angle DAB=90^\circ$ とします。$t$ 秒後に $\triangle APQ$ の面積が $8\mathrm{cm}^2$ になるのは何秒後か求めなさい。
+下の図のように、$AB=6\mathrm{cm}$、$AD=6\mathrm{cm}$、$\angle DAB=90^\circ$ とします。点PはAからBへ、点QはAからDへ、それぞれ毎秒 $1\mathrm{cm}$ の速さで動きます。$t$ 秒後に $\triangle APQ$ の面積が $8\mathrm{cm}^2$ になるのは何秒後か求めなさい。
+
+【図】
+\begin{tikzpicture}[scale=0.75, line cap=round, line join=round]
+\coordinate (A) at (0,0);
+\coordinate (B) at (6,0);
+\coordinate (D) at (0,6);
+\coordinate (P0) at (0.9,0);
+\coordinate (Q0) at (0,0.9);
+\draw[thick] (A)--(B);
+\draw[thick] (A)--(D);
+\draw[->] (0.8,-0.35)--(2.3,-0.35);
+\draw[->] (-0.35,0.8)--(-0.35,2.3);
+\fill (A) circle (1.5pt);
+\fill (B) circle (1.5pt);
+\fill (D) circle (1.5pt);
+\fill (P0) circle (1.5pt);
+\fill (Q0) circle (1.5pt);
+\node[below left] at (A) {$A$};
+\node[below] at (B) {$B$};
+\node[left] at (D) {$D$};
+\node[below] at (P0) {$P$};
+\node[right=2pt] at (Q0) {$Q$};
+\node[below] at (3,-0.05) {$6\mathrm{cm}$};
+\node[left] at (-0.05,3) {$6\mathrm{cm}$};
+\draw (A)--++(0.35,0)--++(0,0.35)--++(-0.35,0);
+\end{tikzpicture}
 
 【解答】  
 \[
@@ -65,6 +104,31 @@
 \]
 
 【解説】  
+【図】
+\begin{tikzpicture}[scale=0.75, line cap=round, line join=round]
+\coordinate (A) at (0,0);
+\coordinate (B) at (6,0);
+\coordinate (D) at (0,6);
+\coordinate (P) at (3.4,0);
+\coordinate (Q) at (0,3.4);
+\draw[thick] (A)--(B);
+\draw[thick] (A)--(D);
+\draw[thick] (P)--(Q);
+\fill (A) circle (1.5pt);
+\fill (B) circle (1.5pt);
+\fill (D) circle (1.5pt);
+\fill (P) circle (1.5pt);
+\fill (Q) circle (1.5pt);
+\node[below left] at (A) {$A$};
+\node[below] at (B) {$B$};
+\node[left] at (D) {$D$};
+\node[below] at (P) {$P$};
+\node[right=2pt] at (Q) {$Q$};
+\node[below] at ($(A)!0.5!(P)$) {$t$};
+\node[left] at ($(A)!0.5!(Q)$) {$t$};
+\draw (A)--++(0.35,0)--++(0,0.35)--++(-0.35,0);
+\end{tikzpicture}
+
 **ステップ1：** $t$ 秒後の長さを表す
 
 点Pも点Qも毎秒 $1\mathrm{cm}$ で動くので、
@@ -111,7 +175,33 @@ t=4
 となります。
 
 ■問題2  
-点PはAからBへ毎秒 $1\mathrm{cm}$、点QはAからDへ毎秒 $2\mathrm{cm}$ の速さで動きます。$\angle DAB=90^\circ$ とします。$t$ 秒後に $\triangle APQ$ の面積が $9\mathrm{cm}^2$ になるのは何秒後か求めなさい。
+下の図のように、$AB=6\mathrm{cm}$、$AD=8\mathrm{cm}$、$\angle DAB=90^\circ$ とします。点PはAからBへ毎秒 $1\mathrm{cm}$、点QはAからDへ毎秒 $2\mathrm{cm}$ の速さで動きます。$t$ 秒後に $\triangle APQ$ の面積が $9\mathrm{cm}^2$ になるのは何秒後か求めなさい。
+
+【図】
+\begin{tikzpicture}[scale=0.7, line cap=round, line join=round]
+\coordinate (A) at (0,0);
+\coordinate (B) at (6,0);
+\coordinate (D) at (0,8);
+\coordinate (P0) at (0.9,0);
+\coordinate (Q0) at (0,1.2);
+\draw[thick] (A)--(B);
+\draw[thick] (A)--(D);
+\draw[->] (0.8,-0.35)--(2.3,-0.35);
+\draw[->] (-0.35,0.8)--(-0.35,2.5);
+\fill (A) circle (1.5pt);
+\fill (B) circle (1.5pt);
+\fill (D) circle (1.5pt);
+\fill (P0) circle (1.5pt);
+\fill (Q0) circle (1.5pt);
+\node[below left] at (A) {$A$};
+\node[below] at (B) {$B$};
+\node[left] at (D) {$D$};
+\node[below] at (P0) {$P$};
+\node[right=2pt] at (Q0) {$Q$};
+\node[below] at (3,-0.05) {$6\mathrm{cm}$};
+\node[left] at (-0.05,4) {$8\mathrm{cm}$};
+\draw (A)--++(0.35,0)--++(0,0.35)--++(-0.35,0);
+\end{tikzpicture}
 
 【解答】  
 \[
@@ -119,6 +209,31 @@ t=4
 \]
 
 【解説】  
+【図】
+\begin{tikzpicture}[scale=0.7, line cap=round, line join=round]
+\coordinate (A) at (0,0);
+\coordinate (B) at (6,0);
+\coordinate (D) at (0,8);
+\coordinate (P) at (3.2,0);
+\coordinate (Q) at (0,6.4);
+\draw[thick] (A)--(B);
+\draw[thick] (A)--(D);
+\draw[thick] (P)--(Q);
+\fill (A) circle (1.5pt);
+\fill (B) circle (1.5pt);
+\fill (D) circle (1.5pt);
+\fill (P) circle (1.5pt);
+\fill (Q) circle (1.5pt);
+\node[below left] at (A) {$A$};
+\node[below] at (B) {$B$};
+\node[left] at (D) {$D$};
+\node[below] at (P) {$P$};
+\node[right=2pt] at (Q) {$Q$};
+\node[below] at ($(A)!0.5!(P)$) {$t$};
+\node[left] at ($(A)!0.5!(Q)$) {$2t$};
+\draw (A)--++(0.35,0)--++(0,0.35)--++(-0.35,0);
+\end{tikzpicture}
+
 **ステップ1：** $t$ 秒後の長さを表す
 
 \[

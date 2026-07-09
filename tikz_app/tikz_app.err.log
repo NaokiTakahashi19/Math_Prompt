@@ -1,0 +1,28 @@
+Failed to generate questions: Error: Incorrect API key provided: GitHub. You can find your API key at https://platform.openai.com/account/api-keys.
+    at createQuestionWithOpenAI (/Users/naoki_takahashi/Documents/GitHub/Math_Prompt/tikz_app/server.js:213:11)
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at async runGenerationJob (/Users/naoki_takahashi/Documents/GitHub/Math_Prompt/tikz_app/server.js:257:23)
+TikZ conversion failed: Error: TeX engine render failed. Set `options.showConsole` to `true` to see logs.
+    at tex (/Users/naoki_takahashi/Documents/GitHub/Math_Prompt/tikz_app/node_modules/node-tikzjax/dist/bootstrap.js:103:15)
+    at async tex2svg (/Users/naoki_takahashi/Documents/GitHub/Math_Prompt/tikz_app/node_modules/node-tikzjax/dist/index.js:26:17)
+    at async /Users/naoki_takahashi/Documents/GitHub/Math_Prompt/tikz_app/server.js:550:17
+TikZ conversion failed: Error: TeX engine render failed. Set `options.showConsole` to `true` to see logs.
+    at tex (/Users/naoki_takahashi/Documents/GitHub/Math_Prompt/tikz_app/node_modules/node-tikzjax/dist/bootstrap.js:103:15)
+    at async tex2svg (/Users/naoki_takahashi/Documents/GitHub/Math_Prompt/tikz_app/node_modules/node-tikzjax/dist/index.js:26:17)
+    at async /Users/naoki_takahashi/Documents/GitHub/Math_Prompt/tikz_app/server.js:550:17
+TikZ conversion failed: Error: TeX engine render failed. Set `options.showConsole` to `true` to see logs.
+    at tex (/Users/naoki_takahashi/Documents/GitHub/Math_Prompt/tikz_app/node_modules/node-tikzjax/dist/bootstrap.js:103:15)
+    at async tex2svg (/Users/naoki_takahashi/Documents/GitHub/Math_Prompt/tikz_app/node_modules/node-tikzjax/dist/index.js:26:17)
+    at async /Users/naoki_takahashi/Documents/GitHub/Math_Prompt/tikz_app/server.js:550:17
+TikZ conversion failed: Error: TeX engine render failed. Set `options.showConsole` to `true` to see logs.
+    at tex (/Users/naoki_takahashi/Documents/GitHub/Math_Prompt/tikz_app/node_modules/node-tikzjax/dist/bootstrap.js:103:15)
+    at async tex2svg (/Users/naoki_takahashi/Documents/GitHub/Math_Prompt/tikz_app/node_modules/node-tikzjax/dist/index.js:26:17)
+    at async /Users/naoki_takahashi/Documents/GitHub/Math_Prompt/tikz_app/server.js:550:17
+TikZ conversion failed: Error: TeX engine render failed. Set `options.showConsole` to `true` to see logs.
+    at tex (/Users/naoki_takahashi/Documents/GitHub/Math_Prompt/tikz_app/node_modules/node-tikzjax/dist/bootstrap.js:103:15)
+    at async tex2svg (/Users/naoki_takahashi/Documents/GitHub/Math_Prompt/tikz_app/node_modules/node-tikzjax/dist/index.js:26:17)
+    at async /Users/naoki_takahashi/Documents/GitHub/Math_Prompt/tikz_app/server.js:550:17
+TikZ conversion failed: Error: TeX engine render failed. Set `options.showConsole` to `true` to see logs.
+    at tex (/Users/naoki_takahashi/Documents/GitHub/Math_Prompt/tikz_app/node_modules/node-tikzjax/dist/bootstrap.js:103:15)
+    at async tex2svg (/Users/naoki_takahashi/Documents/GitHub/Math_Prompt/tikz_app/node_modules/node-tikzjax/dist/index.js:26:17)
+    at async /Users/naoki_takahashi/Documents/GitHub/Math_Prompt/tikz_app/server.js:550:17

@@ -13,11 +13,13 @@
 ## 要件
 1. **問題形式**
    - 定期テストや入試を意識した形式
+   - 問題文には、必ず `【図】` と `\begin{tikzpicture} ... \end{tikzpicture}` を入れ、縦・横・高さなどの対応が分かるようにする
    - **順序**：問題 → 【解答】 → 【解説】
    - **見出し**：問題は「■問題1」のように通常表記、解答・解説は【】を用いる
    - **行末**：`■問題1`/`【解答】`/`【解説】` の行末には**半角スペース2つ**（改行扱い）
 2. **解答・解説**
    - ***ステップバイステップ*** で分かりやすく
+   - 解説にも、必要に応じて `【図】` と `\begin{tikzpicture} ... \end{tikzpicture}` を入れ、式に使う長さや面積を図の中に示す
    - 「間違えやすいポイント」や「コツ」を補足
    - 必要に応じて「別解」や「ポイント整理」を提示
 3. **数式ルール**
@@ -54,10 +56,19 @@
    - 図形の問題では、求めたい長さを $x$ とおき、縦・横・高さ・面積・体積を式で表す
    - 長さは正の数であり、図形として成り立つ範囲にあるかを最後に確認する
    - 面積や体積の公式を使う前に、どの部分の長さを表しているかを説明する
+   - 問題文の図では、与えられた長さや文字だけを示し、答えになる長さを先に数値で示さない
    
 ## 生成例
 ■問題1  
 縦が $x\mathrm{cm}$、横が $(x+2)\mathrm{cm}$ の長方形があります。面積が $24\mathrm{cm}^2$ のとき、縦の長さを求めなさい。
+
+【図】
+\begin{tikzpicture}[scale=0.75, line cap=round, line join=round]
+\draw[thick] (0,0) rectangle (4.5,2.8);
+\node[below] at (2.25,0) {$(x+2)\mathrm{cm}$};
+\node[left] at (0,1.4) {$x\mathrm{cm}$};
+\node at (2.25,1.4) {$24\mathrm{cm}^2$};
+\end{tikzpicture}
 
 【解答】  
 \[
@@ -65,6 +76,14 @@
 \]
 
 【解説】  
+【図】
+\begin{tikzpicture}[scale=0.75, line cap=round, line join=round]
+\draw[thick] (0,0) rectangle (4.5,2.8);
+\node[below] at (2.25,0) {横：$(x+2)\mathrm{cm}$};
+\node[left] at (0,1.4) {縦：$x\mathrm{cm}$};
+\node at (2.25,1.4) {面積：$24\mathrm{cm}^2$};
+\end{tikzpicture}
+
 **ステップ1：** 面積の式を立てる
 
 長方形の面積は、
@@ -107,12 +126,28 @@ x=-6,\ 4
 ■問題2  
 短い辺が $x\mathrm{cm}$、長い辺が $(x+3)\mathrm{cm}$ の長方形があります。面積が $40\mathrm{cm}^2$ のとき、短い辺の長さを求めなさい。
 
+【図】
+\begin{tikzpicture}[scale=0.75, line cap=round, line join=round]
+\draw[thick] (0,0) rectangle (5.0,2.5);
+\node[below] at (2.5,0) {$(x+3)\mathrm{cm}$};
+\node[left] at (0,1.25) {$x\mathrm{cm}$};
+\node at (2.5,1.25) {$40\mathrm{cm}^2$};
+\end{tikzpicture}
+
 【解答】  
 \[
 5\mathrm{cm}
 \]
 
 【解説】  
+【図】
+\begin{tikzpicture}[scale=0.75, line cap=round, line join=round]
+\draw[thick] (0,0) rectangle (5.0,2.5);
+\node[below] at (2.5,0) {長い辺：$(x+3)\mathrm{cm}$};
+\node[left] at (0,1.25) {短い辺：$x\mathrm{cm}$};
+\node at (2.5,1.25) {面積：$40\mathrm{cm}^2$};
+\end{tikzpicture}
+
 **ステップ1：** 面積の式を立てる
 
 \[
@@ -148,12 +183,28 @@ x=-8,\ 5
 ■問題3  
 1辺が $x\mathrm{cm}$ の正方形があります。面積が $49\mathrm{cm}^2$ のとき、1辺の長さを求めなさい。
 
+【図】
+\begin{tikzpicture}[scale=0.75, line cap=round, line join=round]
+\draw[thick] (0,0) rectangle (3.2,3.2);
+\node[below] at (1.6,0) {$x\mathrm{cm}$};
+\node[left] at (0,1.6) {$x\mathrm{cm}$};
+\node at (1.6,1.6) {$49\mathrm{cm}^2$};
+\end{tikzpicture}
+
 【解答】  
 \[
 7\mathrm{cm}
 \]
 
 【解説】  
+【図】
+\begin{tikzpicture}[scale=0.75, line cap=round, line join=round]
+\draw[thick] (0,0) rectangle (3.2,3.2);
+\node[below] at (1.6,0) {1辺：$x\mathrm{cm}$};
+\node[left] at (0,1.6) {1辺：$x\mathrm{cm}$};
+\node at (1.6,1.6) {面積：$49\mathrm{cm}^2$};
+\end{tikzpicture}
+
 **ステップ1：** 面積の式を立てる
 
 正方形の面積は、
