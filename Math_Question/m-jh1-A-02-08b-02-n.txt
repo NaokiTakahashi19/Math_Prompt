@@ -1,0 +1,59 @@
+■問題
+ 次の計算をしなさい。
+\[
+(6a - 9) \div \left(-\frac{3}{2}\right)
+\]
+
+【解答】  
+\[
+-4a + 6
+\]
+
+【解説】  
+**ステップ1：考え方を確認する**
+1次式を数で割るときは、まず除法を乗法に直す。分数で割るときは、逆数をかける。
+
+\[
+(6a - 9) \div \hlblue{\left(-\frac{3}{2}\right)}
+= (6a - 9) \times \hlblue{\left(-\frac{2}{3}\right)}
+\]
+
+**ステップ2：分配法則を使って各項にかける**
+かっこの外の数 $\hlblue{-\frac{2}{3}}$ を、かっこの中の $6a$ と $-9$ の両方にかける。
+
+\[
+\begin{aligned}
+(6a - 9) \times \hlblue{\left(-\frac{2}{3}\right)}
+&= 6a \times \hlblue{\left(-\frac{2}{3}\right)} - 9 \times \hlblue{\left(-\frac{2}{3}\right)}
+\end{aligned}
+\]
+
+**ステップ3：それぞれの項を計算する**
+文字のある項では、数の部分を先に計算する。
+
+\[
+\begin{aligned}
+6a \times \left(-\frac{2}{3}\right) - 9 \times \left(-\frac{2}{3}\right)
+&= 6 \times \left(-\frac{2}{3}\right) \times a - 9 \times \left(-\frac{2}{3}\right) \\
+&= -4a - (-6) \\
+&= -4a + 6
+\end{aligned}
+\]
+
+**ステップ4：答えを確認する**
+負の分数で割るときは、逆数にするだけでなく符号もそのまま考えることが大切である。
+
+\[
+-\frac{3}{2} \text{ の逆数は } -\frac{2}{3}
+\]
+
+したがって、答えは
+
+\[
+-4a + 6
+\]
+
+である。
+
+**確認ポイント**
+分数でわるときは、その分数の逆数をかける形に直してから計算します。

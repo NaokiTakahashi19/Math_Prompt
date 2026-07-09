@@ -1,47 +1,42 @@
 ■問題
 次の計算をしなさい。
 \[
--3mn(2m-5n+4)
+(-2u+5v-7)\times 3u
 \]
 
 【解答】  
 \[
--6m^2n+15mn^2-12mn
+-6u^2+15uv-21u
 \]
 
 【解説】  
 **ステップ1：考え方を確認する**
-単項式と多項式のかけ算では、分配法則を使って、外の単項式をかっこの中のすべての項にかける。
-
-\[
-\hlpink{-3mn}(\hlblue{2m-5n+4})
-\]
+単項式 $3u$ を，多項式 $-2u+5v-7$ の各項にそれぞれかける。  
+特に，$-7\times 3u$ のように，負の数をかける部分の符号に注意する。
 
 **ステップ2：分配法則を使って展開する**
 \[
 \begin{aligned}
-\hlpink{-3mn}(\hlblue{2m-5n+4})
-&= \hlpink{-3mn}\times\hlblue{2m}
-  +\hlpink{-3mn}\times\hlblue{(-5n)}
-  +\hlpink{-3mn}\times\hlblue{4}
+(\hlblue{-2u+5v-7})\times \hlpink{3u}
+&= \hlblue{(-2u)}\times \hlpink{3u}
+ + \hlblue{5v}\times \hlpink{3u}
+ + \hlblue{(-7)}\times \hlpink{3u}
 \end{aligned}
 \]
 
-**ステップ3：それぞれの項を計算する**
+**ステップ3：各項を計算する**
 \[
 \begin{aligned}
--3mn(2m-5n+4)
-&= (-3mn)\times 2m+(-3mn)\times(-5n)+(-3mn)\times 4\\
-&= -6m^2n+15mn^2-12mn
+(\hlblue{-2u+5v-7})\times \hlpink{3u}
+&= (-2u)\times 3u+5v\times 3u+(-7)\times 3u\\
+&= -6u^2+15uv-21u
 \end{aligned}
 \]
 
 **ステップ4：答えを確認する**
-$-3mn$ と $-5n$ の積は、負の数どうしの積なので正になり、$+15mn^2$ となる。  
-符号を間違えやすいので、各項ごとに「係数」「文字」「符号」を分けて確認するとよい。
-
-したがって、答えは
+$-2u$ に $3u$ をかけると $-6u^2$，$5v$ に $3u$ をかけると $15uv$，$-7$ に $3u$ をかけると $-21u$ となる。  
+すべての項に $3u$ をかけているので，答えは
 \[
--6m^2n+15mn^2-12mn
+-6u^2+15uv-21u
 \]
 である。

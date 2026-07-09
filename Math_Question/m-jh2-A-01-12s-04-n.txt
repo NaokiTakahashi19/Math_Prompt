@@ -1,0 +1,62 @@
+■問題
+次の計算をしなさい。
+\[
+18a^3b^2 \div 6ab \times 2b
+\]
+
+【解答】  
+\[
+6a^2b^2
+\]
+
+【解説】  
+**ステップ1：考え方を確認する**
+乗法と除法が混じっている式では、かける単項式は分子に、わる単項式は分母に置いて、分数の形にまとめる。
+\[
+18a^3b^2 \div 6ab \times 2b
+=
+\frac{18a^3b^2 \times 2b}{6ab}
+\]
+
+**ステップ2：係数と文字を分けて書く**
+指数がある文字は、同じ文字のかけ算として考える。
+\[
+\frac{18a^3b^2 \times 2b}{6ab}
+=
+\frac{18\times a\times a\times a\times b\times b\times 2\times b}{6\times a\times b}
+\]
+
+**ステップ3：分子と分母で同じものを約分する**
+分子と分母に共通している $6$，$a$，$b$ を約分する。
+\[
+\frac{18\times a\times a\times a\times b\times b\times 2\times b}{6\times a\times b}
+=
+\frac{3\times a\times a\times b\times 2\times b}{1}
+\]
+
+**ステップ4：等号でつないで計算する**
+\[
+\begin{aligned}
+18a^3b^2 \div 6ab \times 2b
+&=\frac{18a^3b^2 \times 2b}{6ab}\\
+&=\frac{18\times a\times a\times a\times b\times b\times 2\times b}{6\times a\times b}\\
+&=3\times a\times a\times b\times 2\times b\\
+&=6a^2b^2
+\end{aligned}
+\]
+
+**ステップ5：答えを確認する**
+係数は $18\div6\times2=6$ である。文字は、$a^3\div a=a^2$，$b^2\div b\times b=b^2$ となる。よって、答えは
+\[
+6a^2b^2
+\]
+である。
+
+**間違えやすいポイント**
+\[
+18a^3b^2 \div 6ab \times 2b
+\]
+では、$6ab$ だけが分母に入り、$2b$ は分子に入る。したがって、$\times 2b$ まで分母に入れないように注意する。
+
+**根拠・判断の確認**
+ここで使った判断は、乗法と除法を1つの分数にまとめることです。かける単項式は分子に、わる単項式は分母に置き、共通する因数を約分します。標準問題では、約分後に残った文字の指数も確認します。

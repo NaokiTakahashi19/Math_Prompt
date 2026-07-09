@@ -1,6 +1,39 @@
 ■問題
 $AB=12\mathrm{cm}$、$AC=8\mathrm{cm}$、$\angle BAC=90^\circ$ の直角三角形ABCがあります。点Pは、点Bから線分BA上をAまで1秒間に $2\mathrm{cm}$ の速さで動きます。点Qは、点Cから線分CA上をAまで1秒間に $1\mathrm{cm}$ の速さで動きます。2点P、Qが同時に動き始めるとき、$\triangle APQ$ の面積が $18\mathrm{cm}^2$ になるのは、動き始めてから何秒後か求めなさい。
 
+【図】
+\begin{tikzpicture}[scale=0.72, line cap=round, line join=round]
+\coordinate (A) at (0,0);
+\coordinate (B) at (0,-6);
+\coordinate (C) at (4,0);
+\coordinate (P) at (0,-3.7);
+\coordinate (Q) at (2.5,0);
+\fill[blue!10] (A)--(P)--(Q)--cycle;
+\draw[thick] (A)--(B)--(C)--cycle;
+\draw[thick, blue!70!black] (A)--(P)--(Q)--cycle;
+\draw (0,-0.38)--(0.38,-0.38)--(0.38,0);
+\draw[->, thick, red!70!black] (-0.45,-5.6)--(-0.45,-0.35);
+\draw[->, thick, red!70!black] (3.7,0.45)--(0.35,0.45);
+\draw[dashed] (P)--(Q);
+\fill (A) circle (1.5pt);
+\fill (B) circle (1.5pt);
+\fill (C) circle (1.5pt);
+\fill (P) circle (1.5pt);
+\fill (Q) circle (1.5pt);
+\node[above left] at (A) {$A$};
+\node[below left] at (B) {$B$};
+\node[above right] at (C) {$C$};
+\node[left] at (P) {$P$};
+\node[above] at (Q) {$Q$};
+\node[left] at (-0.48,-3) {$12\,\mathrm{cm}$};
+\node[above] at (2,0.88) {$8\,\mathrm{cm}$};
+\node[left] at (0,-1.85) {$AP=12-2x$};
+\node[left] at (0,-4.9) {$BP=2x$};
+\node[above] at (1.25,0) {$AQ=8-x$};
+\node[above] at (3.2,0) {$CQ=x$};
+\node at (0.85,-1.55) {$\triangle APQ$};
+\end{tikzpicture}
+
 【解答】  
 \[
 7-\sqrt{19}\text{秒後}

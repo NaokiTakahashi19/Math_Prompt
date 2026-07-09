@@ -1,0 +1,54 @@
+■問題
+次の式を展開しなさい。
+\[
+\left(4x-\frac{3}{2}\right)^2
+\]
+
+【解答】  
+\[
+16x^2-12x+\frac{9}{4}
+\]
+
+【解説】  
+**ステップ1：使う公式と置き換える部分を確認する**
+\[
+(M-N)^2=M^2-2MN+N^2
+\]
+を使う。
+\[
+\left(\hlblue{4x}-\hlpink{\frac{3}{2}}\right)^2
+\]
+は、$(M-N)^2$ の形である。ここでは、
+\[
+M=\hlblue{4x},\quad N=\hlpink{\frac{3}{2}}
+\]
+と見る。
+
+**ステップ2：公式にあてはめる**
+\[
+\begin{aligned}
+\left(\hlblue{4x}-\hlpink{\frac{3}{2}}\right)^2
+&=(\hlblue{4x})^2-2\times\hlblue{4x}\times\hlpink{\frac{3}{2}}+\left(\hlpink{\frac{3}{2}}\right)^2
+\end{aligned}
+\]
+中項は $-2MN$ になるため、符号はマイナスである。また、最後の $N^2$ は2乗なので正になる。
+
+**ステップ3：計算する**
+\[
+\begin{aligned}
+\left(4x-\frac{3}{2}\right)^2
+&=(4x)^2-2\times4x\times\frac{3}{2}+\left(\frac{3}{2}\right)^2\\
+&=16x^2-8x\times\frac{3}{2}+\frac{9}{4}\\
+&=16x^2-12x+\frac{9}{4}
+\end{aligned}
+\]
+
+**ステップ4：答えを確認する**
+中項が $-12x$、最後の項が正の $\frac{9}{4}$ になっているので、
+\[
+16x^2-12x+\frac{9}{4}
+\]
+が答えである。
+
+**間違えやすいポイント**
+$(4x)^2=16x^2$、$\left(\frac32\right)^2=\frac94$ と、係数と文字をそれぞれ2乗します。

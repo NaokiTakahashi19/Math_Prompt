@@ -1,0 +1,95 @@
+■問題
+次の計算をしなさい。
+\[
+\left(-\frac{5}{6}m^2n^3\right)\times 12mn^2
+\]
+
+【解答】  
+\[
+-10m^3n^5
+\]
+
+【解説】  
+**ステップ1：単項式を係数と文字の部分に分ける**
+単項式の乗法では、係数どうし、同じ文字どうしを分けて考える。
+\[
+\begin{aligned}
+-\frac{5}{6}m^2n^3
+&= -\frac{5}{6}\times m\times m\times n\times n\times n\\
+12mn^2
+&= 12\times m\times n\times n
+\end{aligned}
+\]
+\[
+\hlblue{\left(-\frac{5}{6}m^2n^3\right)}\times\hlpink{12mn^2}
+\]
+\[
+=
+\hlblue{\left(-\frac{5}{6}\times m\times m\times n\times n\times n\right)}
+\times
+\hlpink{\left(12\times m\times n\times n\right)}
+\]
+
+**ステップ2：係数どうし、同じ文字どうしが並ぶようにする**
+かけ算は順番を入れかえてもよいので、係数、$m$、$n$ に分けて並べる。
+\[
+\begin{aligned}
+\left(-\frac{5}{6}m^2n^3\right)\times 12mn^2
+&=
+\left(-\frac{5}{6}\times m\times m\times n\times n\times n\right)
+\times
+\left(12\times m\times n\times n\right)\\
+&=
+-\frac{5}{6}\times 12
+\times m\times m\times m
+\times n\times n\times n\times n\times n
+\end{aligned}
+\]
+
+**ステップ3：係数と文字をそれぞれ計算する**
+係数は
+\[
+-\frac{5}{6}\times 12=-10
+\]
+である。
+
+文字は、$m$ が3個、$n$ が5個あるので、
+\[
+m\times m\times m=m^3,\qquad
+n\times n\times n\times n\times n=n^5
+\]
+となる。
+
+したがって、
+\[
+\begin{aligned}
+\left(-\frac{5}{6}m^2n^3\right)\times 12mn^2
+&=
+-\frac{5}{6}\times 12
+\times m\times m\times m
+\times n\times n\times n\times n\times n\\
+&=-10m^3n^5
+\end{aligned}
+\]
+
+**ステップ4：答えを確認する**
+符号は、負の数と正の数の積なので負になる。  
+また、指数は同じ文字どうしで足し合わせるので、
+\[
+m^2\times m=m^3,\qquad n^3\times n^2=n^5
+\]
+となる。よって答えは
+\[
+-10m^3n^5
+\]
+である。
+
+**ポイント：**  
+分数の係数があるときは、先に約分を考えると計算しやすい。
+\[
+-\frac{5}{6}\times 12=-5\times 2=-10
+\]
+文字の指数は、$m$ と $n$ を混ぜずに、それぞれ同じ文字どうしで計算する。
+
+**確認ポイント**
+乗法では交換法則・結合法則を使えるので、約分しやすい順に並べても答えは変わりません。
