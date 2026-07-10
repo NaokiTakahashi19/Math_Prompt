@@ -1,0 +1,60 @@
+■問題  
+$0^\circ\mathrm{C}$ を基準にして、水温が基準より $7^\circ\mathrm{C}$ 低いことを、正負の符号を使って表しなさい。
+
+【解答】  
+\[
+-7^\circ\mathrm{C}
+\]
+
+【解説】  
+**ステップ1：考え方を確認する**  
+$0^\circ\mathrm{C}$ を基準にするので、$0^\circ\mathrm{C}$ を $0$ の位置と見る。
+
+基準より高い温度は「$+$」、基準より低い温度は「$-$」で表す。
+
+**ステップ2：条件を使って解く**  
+水温は基準より $7^\circ\mathrm{C}$ 低いので、負の符号をつける。
+
+\[
+\begin{aligned}
+0^\circ\mathrm{C} - 7^\circ\mathrm{C}
+&= -7^\circ\mathrm{C}
+\end{aligned}
+\]
+
+したがって、水温は
+
+\[
+-7^\circ\mathrm{C}
+\]
+
+と表せる。
+
+**ステップ3：答えを確認する**  
+「低い」という言葉につられて、数だけ $7^\circ\mathrm{C}$ と書かないように注意する。基準より低い量は負の数で表すので、答えは
+
+\[
+-7^\circ\mathrm{C}
+\]
+
+である。
+
+**ポイント整理：正負の符号で温度差を表す**  
+
+\[
+\begin{array}{|c|c|}
+\hline
+\text{確認すること} & \text{この問題での見方} \\
+\hline
+\text{基準} & 0^\circ\mathrm{C} \\
+\hline
+\text{基準より高い} & + \\
+\hline
+\text{基準より低い} & - \\
+\hline
+\text{表す量} & 7^\circ\mathrm{C}\text{低い} \\
+\hline
+\end{array}
+\]
+
+今回は基準より $7^\circ\mathrm{C}$ 低いので、符号は「$-$」となる。
