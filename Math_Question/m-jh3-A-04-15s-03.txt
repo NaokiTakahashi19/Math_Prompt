@@ -1,0 +1,87 @@
+■問題  
+次の計算をしなさい。
+\[
+\left(3\sqrt{2}-4\right)\left(3\sqrt{2}+5\right)
+\]
+
+【解答】  
+\[
+3\sqrt{2}-2
+\]
+
+【解説】  
+**ステップ1：考え方を確認する**
+
+式の形は、同じ部分 $3\sqrt{2}$ をもつ積である。
+
+\[
+\left(3\sqrt{2}-4\right)\left(3\sqrt{2}+5\right)
+\]
+
+これは、乗法の公式
+
+\[
+(x+a)(x+b)=x^2+(a+b)x+ab
+\]
+
+を使う形である。この問題では、
+
+\[
+x=3\sqrt{2},\quad a=-4,\quad b=5
+\]
+
+と見る。
+
+**ステップ2：公式にあてはめて計算する**
+
+\[
+\begin{aligned}
+\left(3\sqrt{2}-4\right)\left(3\sqrt{2}+5\right)
+&=\left(3\sqrt{2}\right)^2+\left(-4+5\right)\times 3\sqrt{2}+(-4)\times 5
+\end{aligned}
+\]
+
+**ステップ3：根号をふくむ部分を計算する**
+
+\[
+\begin{aligned}
+\left(3\sqrt{2}\right)^2
+&=3^2\times \left(\sqrt{2}\right)^2\\
+&=9\times 2\\
+&=18
+\end{aligned}
+\]
+
+また、
+
+\[
+\begin{aligned}
+\left(-4+5\right)\times 3\sqrt{2}
+&=1\times 3\sqrt{2}\\
+&=3\sqrt{2}
+\end{aligned}
+\]
+
+\[
+(-4)\times 5=-20
+\]
+
+**ステップ4：全体を整理する**
+
+\[
+\begin{aligned}
+\left(3\sqrt{2}-4\right)\left(3\sqrt{2}+5\right)
+&=18+3\sqrt{2}-20\\
+&=3\sqrt{2}-2
+\end{aligned}
+\]
+
+**ステップ5：答えを確認する**
+
+\[
+3\sqrt{2}-2
+\]
+
+が答えである。
+
+間違えやすいポイントは、$a=-4$ と見るところである。符号を落として $a=4$ とすると、真ん中の項や最後の積の符号が誤りになる。また、$\left(3\sqrt{2}\right)^2$ は $3^2\times 2$ となり、$6$ ではなく $18$ となる。

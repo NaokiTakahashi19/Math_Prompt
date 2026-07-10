@@ -2,39 +2,46 @@
 長方形ABCDがあり、$AB=12\mathrm{cm}$、$BC=8\mathrm{cm}$ です。点PはAからBに向かって、1秒間に $2\mathrm{cm}$ の速さで動きます。点QはCからBに向かって、1秒間に $1\mathrm{cm}$ の速さで動きます。2点が同時に動き始めるとき、$\triangle PBQ$ の面積が $15\mathrm{cm}^2$ になるのは、動き始めてから何秒後か求めなさい。
 
 【図】
-\begin{tikzpicture}[scale=0.72, line cap=round, line join=round]
-\coordinate (A) at (0,0);
-\coordinate (B) at (0,-6);
-\coordinate (C) at (4,-6);
-\coordinate (D) at (4,0);
-\coordinate (P) at (0,-3.7);
-\coordinate (Q) at (2.4,-6);
-\fill[blue!10] (P)--(B)--(Q)--cycle;
+\begin{tikzpicture}[scale=0.66, line cap=round, line join=round]
+\coordinate (A) at (0,6);
+\coordinate (B) at (0,0);
+\coordinate (C) at (8,0);
+\coordinate (D) at (8,6);
+\coordinate (P) at (0,3.3);
+\coordinate (Q) at (5.1,0);
+
+\fill[blue!12] (P)--(B)--(Q)--cycle;
 \draw[thick] (A)--(B)--(C)--(D)--cycle;
 \draw[thick, blue!70!black] (P)--(B)--(Q)--cycle;
-\draw (0,-5.62)--(0.38,-5.62)--(0.38,-6);
-\draw[->, thick, red!70!black] (-0.45,-0.4)--(-0.45,-5.55);
-\draw[->, thick, red!70!black] (3.7,-6.45)--(0.35,-6.45);
-\draw[dashed] (P)--(Q);
-\fill (A) circle (1.5pt);
-\fill (B) circle (1.5pt);
-\fill (C) circle (1.5pt);
-\fill (D) circle (1.5pt);
-\fill (P) circle (1.5pt);
-\fill (Q) circle (1.5pt);
+\draw[blue!70!black] (0,0.38)--(0.38,0.38)--(0.38,0);
+
+\draw[dashed, gray] (-0.2,6)--(-1.28,6);
+\draw[dashed, gray] (-0.2,0)--(-1.28,0);
+\draw[<->, gray] (-1.12,6)--(-1.12,0);
+\node[fill=white, inner sep=1.5pt] at (-1.72,3) {$12\,\mathrm{cm}$};
+
+\draw[dashed, gray] (0,-0.22)--(0,-1.12);
+\draw[dashed, gray] (8,-0.22)--(8,-1.12);
+\draw[<->, gray] (0,-0.95)--(8,-0.95);
+\node[fill=white, inner sep=1.5pt] at (4,-1.28) {$8\,\mathrm{cm}$};
+
+\draw[->, thick, red!70!black] (0.32,5.5)--(0.32,3.65);
+\node[fill=white, inner sep=1pt] at (0.72,4.58) {$2x$};
+\draw[->, thick, red!70!black] (7.45,0.35)--(5.55,0.35);
+\node[fill=white, inner sep=1pt] at (6.5,0.72) {$x$};
+
+\fill (A) circle (1.7pt);
+\fill (B) circle (1.7pt);
+\fill (C) circle (1.7pt);
+\fill (D) circle (1.7pt);
+\fill (P) circle (1.7pt);
+\fill (Q) circle (1.7pt);
 \node[above left] at (A) {$A$};
 \node[below left] at (B) {$B$};
 \node[below right] at (C) {$C$};
 \node[above right] at (D) {$D$};
 \node[left] at (P) {$P$};
-\node[below] at (Q) {$Q$};
-\node[left] at (-0.48,-3) {$12\,\mathrm{cm}$};
-\node[below] at (2,-6.88) {$8\,\mathrm{cm}$};
-\node[left] at (0,-1.85) {$AP=2x$};
-\node[left] at (0,-4.9) {$PB=12-2x$};
-\node[below] at (1.2,-6) {$BQ=8-x$};
-\node[below] at (3.2,-6) {$CQ=x$};
-\node at (0.85,-5.25) {$\triangle PBQ$};
+\node[above right] at (Q) {$Q$};
 \end{tikzpicture}
 
 【解答】  
@@ -71,9 +78,9 @@ BQ=8-x
 となる。
 
 **ステップ2：三角形の面積を式にする**
-長方形の隣り合う辺は垂直なので、$PB$ と $BQ$ は垂直である。
+求める三角形は $\triangle PBQ$ である。長方形の隣り合う辺は垂直なので、$\angle PBQ=90^\circ$ である。
 
-したがって、$\triangle PBQ$ の面積は
+したがって、$\triangle PBQ$ の面積は、長さ $PB$ と長さ $BQ$ を使って
 \[
 \frac{1}{2}\times PB\times BQ
 \]
@@ -87,8 +94,16 @@ BQ=8-x
 
 **ステップ3：2次方程式を作る**
 \[
+\frac{1}{2}(12-2x)(8-x)=15
+\]
+
+ここで、
+\[
+\frac{1}{2}(12-2x)=6-x
+\]
+なので、
+\[
 \begin{aligned}
-\frac{1}{2}(12-2x)(8-x)&=15\\
 (6-x)(8-x)&=15\\
 48-14x+x^2&=15\\
 x^2-14x+33&=0
@@ -149,3 +164,6 @@ x=11
 である。
 
 **ポイント：** $AP=2x$ だが、三角形の底辺に使うのは $PB$ であるため、$PB=12-2x$ とする。動点の問題では、求めたい三角形の辺が「進んだ距離」なのか「残りの距離」なのかを必ず確認する。
+
+**間違えやすいポイント**
+面積の式に使う長さが、動いた長さなのか残りの長さなのかを図で確認してから代入します。

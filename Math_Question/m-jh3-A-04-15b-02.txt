@@ -1,75 +1,64 @@
-■問題
+■問題  
 次の計算をしなさい。
 \[
-\left(2\sqrt{3}+5\right)\left(2\sqrt{3}-5\right)
+\left(\sqrt{10}+\sqrt{2}\right)\left(\sqrt{10}-\sqrt{2}\right)
 \]
 
 【解答】  
 \[
--13
+8
 \]
 
 【解説】  
-**ステップ1：使う乗法の公式を確認する**
+**ステップ1：考え方を確認する**
 
-式は「同じ項どうしに、$+5$ と $-5$ がついている形」である。  
-したがって、乗法の公式
+式が「同じものの和」と「同じものの差」の積になっているので、次の乗法の公式を使う。
 \[
 (x+a)(x-a)=x^2-a^2
 \]
-を使う。
+この問題では、$x=\sqrt{10}$、$a=\sqrt{2}$ と見る。
 
-この問題では、$x=2\sqrt{3}$、$a=5$ と見る。
-
-**ステップ2：公式にあてはめる**
+**ステップ2：公式にあてはめて解く**
 
 \[
 \begin{aligned}
-\left(2\sqrt{3}+5\right)\left(2\sqrt{3}-5\right)
-&= \left(2\sqrt{3}\right)^2-5^2
+\left(\sqrt{10}+\sqrt{2}\right)\left(\sqrt{10}-\sqrt{2}\right)
+&=\left(\sqrt{10}\right)^2-\left(\sqrt{2}\right)^2
 \end{aligned}
 \]
 
-**ステップ3：それぞれの項を計算する**
+**ステップ3：根号をふくむ部分を計算する**
+
+根号どうしの乗法は、根号の中をかける。
+\[
+\begin{aligned}
+\left(\sqrt{10}\right)^2
+&=\sqrt{10}\times\sqrt{10} \\
+&=\sqrt{100} \\
+&=10
+\end{aligned}
+\]
+\[
+\begin{aligned}
+\left(\sqrt{2}\right)^2
+&=\sqrt{2}\times\sqrt{2} \\
+&=\sqrt{4} \\
+&=2
+\end{aligned}
+\]
+根号の中が $100=10^2$、$4=2^2$ のように2乗で表せるので、根号をはずすことができる。
+
+**ステップ4：答えを確認する**
 
 \[
 \begin{aligned}
-\left(2\sqrt{3}\right)^2
-&= 2^2\times\left(\sqrt{3}\right)^2 \\
-&= 4\times 3 \\
-&= 12
+\left(\sqrt{10}\right)^2-\left(\sqrt{2}\right)^2
+&=10-2 \\
+&=8
 \end{aligned}
 \]
-
-また、
+したがって、答えは
 \[
-5^2=25
-\]
-である。
-
-根号をふくむ項では、$\left(\sqrt{3}\right)^2=3$ となることを使う。  
-根号の中が同じ数の2乗の形になると、根号をはずして計算できる。
-
-**ステップ4：整理する**
-
-\[
-\begin{aligned}
-\left(2\sqrt{3}\right)^2-5^2
-&= 12-25 \\
-&= -13
-\end{aligned}
-\]
-
-**ステップ5：答えを確認する**
-
-\[
-\left(2\sqrt{3}+5\right)\left(2\sqrt{3}-5\right)
-\]
-は和と差の積なので、途中の項は打ち消し合う。  
-間違えやすいポイントは、$\left(2\sqrt{3}\right)^2$ を $2\times 3=6$ としないことである。正しくは、係数の $2$ も2乗して $12$ となる。
-
-よって、答えは
-\[
--13
+8
 \]
 である。

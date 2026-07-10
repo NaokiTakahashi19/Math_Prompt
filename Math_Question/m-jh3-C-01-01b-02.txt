@@ -1,14 +1,109 @@
-3-C-01-01
-相似 ― 相似な図形と性質
-□基本問題
+■問題  
+下の図で、四角形 $EFGH$ は四角形 $ABCD$ を $\frac{1}{2}$ に縮小した図形である。対応する辺の長さの比、対応する角の大きさの関係、四角形 $ABCD$ と四角形 $EFGH$ の相似比を、記号を使って表しなさい。
 
-■問題1
-相似な図形で、対応する辺の長さの比が $3:4$ です。小さい図形の周の長さが18cmのとき、大きい図形の周の長さを求めなさい。
+【図】
+\begin{tikzpicture}[scale=0.55, line cap=round, line join=round]
+\draw[step=1, gray!45, very thin] (0,-1) grid (17,7);
 
-【解答】
+\coordinate (A) at (1,6);
+\coordinate (B) at (1,0);
+\coordinate (C) at (7,0);
+\coordinate (D) at (9,4);
+
+\coordinate (E) at (12,3);
+\coordinate (F) at (12,0);
+\coordinate (G) at (15,0);
+\coordinate (H) at (16,2);
+
+\draw[thick] (A)--(B)--(C)--(D)--cycle;
+\draw[thick] (E)--(F)--(G)--(H)--cycle;
+
+\node[above left] at (A) {$A$};
+\node[below left] at (B) {$B$};
+\node[below] at (C) {$C$};
+\node[above right] at (D) {$D$};
+
+\node[above left] at (E) {$E$};
+\node[below left] at (F) {$F$};
+\node[below] at (G) {$G$};
+\node[above right] at (H) {$H$};
+\end{tikzpicture}
+
+【解答】  
+対応する辺の長さの比は、
 \[
-24\text{ cm}
+AB:EF=BC:FG=CD:GH=DA:HE=2:1
 \]
 
-【解説】
-周の長さの比も相似比と同じ $3:4$ です。$18\times\frac43=24$ です。
+対応する角の大きさの関係は、
+\[
+\angle A=\angle E,\quad \angle B=\angle F,\quad \angle C=\angle G,\quad \angle D=\angle H
+\]
+
+四角形 $ABCD$ と四角形 $EFGH$ の相似比は、
+\[
+2:1
+\]
+
+【解説】  
+**ポイント整理：相似な図形の性質**  
+相似な図形では、対応する辺の長さの比はすべて等しい。  
+相似な図形では、対応する角の大きさはそれぞれ等しい。  
+対応する辺の長さの比を相似比という。
+
+**ステップ1：対応する頂点を確認する**  
+四角形 $EFGH$ は四角形 $ABCD$ を $\frac{1}{2}$ に縮小した図形である。
+
+対応する頂点は、順に
+\[
+A\leftrightarrow E,\quad B\leftrightarrow F,\quad C\leftrightarrow G,\quad D\leftrightarrow H
+\]
+である。
+
+**ステップ2：対応する辺の比を確認する**  
+対応する辺は、
+\[
+AB\leftrightarrow EF,\quad BC\leftrightarrow FG,\quad CD\leftrightarrow GH,\quad DA\leftrightarrow HE
+\]
+である。
+
+四角形 $EFGH$ は四角形 $ABCD$ を $\frac{1}{2}$ に縮小した図形なので、四角形 $ABCD$ の辺の長さを基準にすると、対応する辺の比は
+\[
+AB:EF=2:1
+\]
+となる。
+
+したがって、すべての対応する辺について、
+\[
+AB:EF=BC:FG=CD:GH=DA:HE=2:1
+\]
+である。
+
+**ステップ3：対応する角の大きさを確認する**  
+縮小しても、角の大きさは変わらない。  
+よって、対応する角の大きさはそれぞれ等しく、
+\[
+\angle A=\angle E,\quad \angle B=\angle F,\quad \angle C=\angle G,\quad \angle D=\angle H
+\]
+となる。
+
+**ステップ4：相似比を確認する**  
+相似比は、対応する辺の長さの比で表す。  
+四角形 $ABCD$ と四角形 $EFGH$ の順に比を書くので、
+\[
+AB:EF=2:1
+\]
+より、相似比は
+\[
+2:1
+\]
+である。
+
+**ステップ5：答えを確認する**  
+長さは縮小の倍率によって変わるが、角の大きさは変わらない。  
+間違えやすい点は、四角形 $EFGH$ が $\frac{1}{2}$ に縮小されているからといって、相似比を必ず $1:2$ と書くわけではないことである。  
+今回は「四角形 $ABCD$ と四角形 $EFGH$ の相似比」なので、順番に注意して
+\[
+2:1
+\]
+と表す。

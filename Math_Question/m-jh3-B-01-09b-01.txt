@@ -1,14 +1,244 @@
-3-B-01-09
-２次関数の利用 ― 図形と関数
-□基本問題
+■問題  
+図[1]のように、直角をはさむ2辺がそれぞれ $10\,\mathrm{cm}$ の直角二等辺三角形 $ABC$ と、同じ大きさの直角二等辺三角形 $DEF$ が、直線 $\ell$ 上に並んでいる。三角形 $ABC$ を固定し、三角形 $DEF$ を矢印の方向に平行移動させる。
 
-■問題1
-重なった部分の面積が $y=\frac12x^2$ cm$^2$ で表されます。$x=6$ のときの面積を求めなさい。
+図[2]のように、点 $F$ が辺 $BC$ 上にあるとき、$BF=x\,\mathrm{cm}$、2つの三角形の重なった部分の面積を $y\,\mathrm{cm^2}$ とする。ただし、$0\le x\le 10$ とする。このとき、$y$ を $x$ の式で表し、変域内のグラフを考えて、$x=6$ のときの重なった部分の面積と、重なった部分の面積が三角形 $DEF$ 全体の面積の半分になるときの $x$ の値を求めなさい。
 
-【解答】
+【図】
+\begin{tikzpicture}[scale=0.55, line cap=round, line join=round]
+\draw[->] (-0.8,0)--(19.5,0) node[right] {$\ell$};
+
+\node at (4.2,5.9) {図[1]};
+\coordinate (E1) at (0,0);
+\coordinate (F1) at (5,0);
+\coordinate (D1) at (0,5);
+\coordinate (B1) at (7,0);
+\coordinate (C1) at (12,0);
+\coordinate (A1) at (7,5);
+
+\draw (D1)--(E1)--(F1)--cycle;
+\draw (A1)--(B1)--(C1)--cycle;
+\draw (E1)--++(0.35,0)--++(0,0.35)--++(-0.35,0);
+\draw (B1)--++(0.35,0)--++(0,0.35)--++(-0.35,0);
+\draw[->] (4.3,2.6)--(5.8,2.6);
+
+\node[above] at (D1) {$D$};
+\node[below] at (E1) {$E$};
+\node[below] at (F1) {$F$};
+\node[above] at (A1) {$A$};
+\node[below] at (B1) {$B$};
+\node[below] at (C1) {$C$};
+\node[below] at (2.5,-0.35) {$10\,\mathrm{cm}$};
+\node[below] at (9.5,-0.35) {$10\,\mathrm{cm}$};
+
+\node at (15.2,5.9) {図[2]};
+\coordinate (E2) at (10,0);
+\coordinate (F2) at (15,0);
+\coordinate (D2) at (10,5);
+\coordinate (B2) at (12,0);
+\coordinate (C2) at (17,0);
+\coordinate (A2) at (12,5);
+\coordinate (P2) at (12,3);
+
+\draw (D2)--(E2)--(F2)--cycle;
+\draw (A2)--(B2)--(C2)--cycle;
+\fill[gray!20] (B2)--(F2)--(P2)--cycle;
+\draw[thick] (B2)--(F2)--(P2)--cycle;
+\draw (E2)--++(0.35,0)--++(0,0.35)--++(-0.35,0);
+\draw (B2)--++(0.35,0)--++(0,0.35)--++(-0.35,0);
+
+\node[above] at (D2) {$D$};
+\node[below] at (E2) {$E$};
+\node[below] at (F2) {$F$};
+\node[above] at (A2) {$A$};
+\node[below] at (B2) {$B$};
+\node[below] at (C2) {$C$};
+\node[left] at (P2) {$P$};
+\node[below] at (13.5,-0.35) {$x\,\mathrm{cm}$};
+\node[right] at (12.4,1.4) {$y\,\mathrm{cm^2}$};
+\end{tikzpicture}
+
+【解答】  
 \[
-18\text{ cm}^2
+y=\frac{1}{2}x^2 \quad \left(0\le x\le 10\right)
 \]
 
-【解説】
-$y=\frac12\times6^2=18$ です。
+グラフは、$0\le x\le 10$ の範囲での $y=\frac{1}{2}x^2$ の一部である。
+
+【図】
+\begin{tikzpicture}[xscale=0.65, yscale=0.12, line cap=round, line join=round]
+\draw[->] (0,0)--(11,0) node[right] {$x(\mathrm{cm})$};
+\draw[->] (0,0)--(0,56) node[above] {$y(\mathrm{cm^2})$};
+
+\foreach \x in {0,2,4,6,8,10}{
+  \draw (\x,0)--(\x,-1.2);
+  \node[below] at (\x,-1.2) {$\x$};
+}
+\foreach \y in {0,10,20,30,40,50}{
+  \draw (0,\y)--(-0.25,\y);
+  \node[left] at (-0.25,\y) {$\y$};
+}
+
+\draw[domain=0:10, smooth, variable=\x, thick] plot ({\x},{0.5*\x*\x});
+\fill (0,0) circle (2pt);
+\fill (10,50) circle (2pt);
+\node[right] at (6.2,25) {$y=\frac{1}{2}x^2$};
+\node[below left] at (0,0) {$O$};
+\end{tikzpicture}
+
+$x=6$ のとき、
+\[
+18\,\mathrm{cm^2}
+\]
+
+重なった部分の面積が三角形 $DEF$ 全体の面積の半分になるとき、
+\[
+x=5\sqrt{2}
+\]
+
+【解説】  
+図形の面積が変化するとき、面積を文字で表すと関数として考えられる。今回のように、三角形を平行移動させると重なった部分の長さ $x$ が変わり、それにともなって面積 $y$ も変わる。
+
+**ステップ1：重なった部分の形を確認する**  
+図[2]で、重なった部分は三角形 $BFP$ である。辺 $BF$ は直線 $\ell$ 上にあり、辺 $BP$ は固定された三角形 $ABC$ の辺 $AB$ 上にあるので、$\angle FBP=90^\circ$ である。
+
+また、三角形 $DEF$ は直角二等辺三角形なので、斜辺 $DF$ は直線 $\ell$ に対して $45^\circ$ の傾きをもつ。そのため、横の長さ $BF$ と縦の長さ $BP$ は等しくなる。
+
+したがって、重なった部分の三角形 $BFP$ は直角二等辺三角形であり、直角をはさむ2辺の長さはどちらも
+\[
+x\,\mathrm{cm}
+\]
+である。
+
+**ステップ2：面積の公式から $y$ を $x$ の式で表す**  
+直角二等辺三角形 $BFP$ の直角をはさむ2辺は、どちらも $x\,\mathrm{cm}$ である。三角形の面積の公式を使うと、
+\[
+\begin{aligned}
+y&=\frac{1}{2}\times x\times x\\
+&=\frac{1}{2}x^2
+\end{aligned}
+\]
+となる。
+
+よって、
+\[
+y=\frac{1}{2}x^2
+\]
+である。
+
+**ステップ3：変域を確認する**  
+$x$ は $BF$ の長さである。点 $F$ が点 $B$ にあるとき、重なりはなく、
+\[
+x=0
+\]
+である。
+
+点 $F$ が点 $C$ にあるとき、$BF$ は最大になり、
+\[
+x=10
+\]
+である。
+
+したがって、変域は
+\[
+0\le x\le 10
+\]
+である。
+
+**ステップ4：グラフを確認する**  
+$x$ と $y$ の関係は
+\[
+y=\frac{1}{2}x^2
+\]
+である。ただし、図形の場面では $x$ は $0$ から $10$ までしか動かないため、グラフも
+\[
+0\le x\le 10
+\]
+の範囲だけを考える。
+
+代表的な値を表にすると、次のようになる。
+
+\[
+\begin{array}{c|cccccc}
+x&0&2&4&6&8&10\\
+\hline
+y&0&2&8&18&32&50
+\end{array}
+\]
+
+この点をなめらかに結ぶと、変域内の放物線の一部になる。
+
+**ステップ5：$x=6$ のときの面積を求める**  
+式
+\[
+y=\frac{1}{2}x^2
+\]
+に $x=6$ を代入する。
+
+\[
+\begin{aligned}
+y&=\frac{1}{2}\times 6^2\\
+&=\frac{1}{2}\times 36\\
+&=18
+\end{aligned}
+\]
+
+したがって、$x=6$ のときの重なった部分の面積は
+\[
+18\,\mathrm{cm^2}
+\]
+である。
+
+**ステップ6：三角形全体の半分の面積から $x$ を求める**  
+まず、三角形 $DEF$ 全体の面積を求める。直角をはさむ2辺はどちらも $10\,\mathrm{cm}$ なので、
+\[
+\begin{aligned}
+\text{三角形 }DEF\text{ の面積}
+&=\frac{1}{2}\times 10\times 10\\
+&=50
+\end{aligned}
+\]
+である。
+
+その半分は、
+\[
+50\div 2=25
+\]
+である。
+
+重なった部分の面積が $25\,\mathrm{cm^2}$ になればよいので、
+\[
+\frac{1}{2}x^2=25
+\]
+を解く。
+
+\[
+\begin{aligned}
+\frac{1}{2}x^2&=25\\
+x^2&=50\\
+x&=\sqrt{50}\\
+x&=5\sqrt{2}
+\end{aligned}
+\]
+
+$x$ は長さなので正の値をとる。よって、
+\[
+x=5\sqrt{2}
+\]
+である。
+
+**ステップ7：間違えやすいポイントを確認する**  
+重なった部分の直角をはさむ2辺は、どちらも $x$ である。したがって面積は
+\[
+x^2
+\]
+ではなく、
+\[
+\frac{1}{2}x^2
+\]
+である。
+
+また、グラフは $y=\frac{1}{2}x^2$ 全体ではなく、図形の動きに合わせて
+\[
+0\le x\le 10
+\]
+の部分だけを考えることがコツである。

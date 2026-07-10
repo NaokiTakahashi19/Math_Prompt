@@ -2,6 +2,49 @@
 
 長方形 $ABCD$ があり、$AB=8\mathrm{cm}$、$AD=10\mathrm{cm}$ とします。点PはAからBへ、点QはDからAへ、それぞれ毎秒 $1\mathrm{cm}$ の速さで同時に動き始めます。点PがBに着くまでの間に、$\triangle APQ$ の面積が $12\mathrm{cm}^2$ になるのは、動き始めてから何秒後か求めなさい。
 
+【図】
+\begin{tikzpicture}[scale=0.64, line cap=round, line join=round]
+\coordinate (A) at (0,4);
+\coordinate (B) at (0,0);
+\coordinate (C) at (5,0);
+\coordinate (D) at (5,4);
+\coordinate (P) at (0,1.75);
+\coordinate (Q) at (3.1,4);
+
+\fill[blue!10] (A)--(P)--(Q)--cycle;
+\draw[thick] (A)--(B)--(C)--(D)--cycle;
+\draw[thick, blue!70!black] (A)--(P)--(Q)--cycle;
+\draw[blue!70!black] (0,3.65)--(0.35,3.65)--(0.35,4);
+
+\draw[dashed, gray] (-0.2,4)--(-1.05,4);
+\draw[dashed, gray] (-0.2,0)--(-1.05,0);
+\draw[<->, gray] (-0.9,4)--(-0.9,0);
+\node[fill=white, inner sep=1.5pt] at (-1.45,2) {$8\,\mathrm{cm}$};
+
+\draw[dashed, gray] (0,4.2)--(0,4.9);
+\draw[dashed, gray] (5,4.2)--(5,4.9);
+\draw[<->, gray] (0,4.72)--(5,4.72);
+\node[fill=white, inner sep=1.5pt] at (2.5,5.04) {$10\,\mathrm{cm}$};
+
+\draw[->, thick, red!70!black] (0.35,3.7)--(0.35,2.1);
+\node[fill=white, inner sep=1pt] at (0.72,2.9) {$t$};
+\draw[->, thick, red!70!black] (4.65,4.35)--(3.45,4.35);
+\node[fill=white, inner sep=1pt] at (4.05,4.68) {$t$};
+
+\fill (A) circle (1.6pt);
+\fill (B) circle (1.6pt);
+\fill (C) circle (1.6pt);
+\fill (D) circle (1.6pt);
+\fill (P) circle (1.6pt);
+\fill (Q) circle (1.6pt);
+\node[above left] at (A) {$A$};
+\node[below left] at (B) {$B$};
+\node[below right] at (C) {$C$};
+\node[above right] at (D) {$D$};
+\node[left] at (P) {$P$};
+\node[below right] at (Q) {$Q$};
+\end{tikzpicture}
+
 【解答】  
 
 \[
@@ -93,3 +136,6 @@ t=4,\ 6
 AQ=10-t
 \]
 である。どの点からどの点まで動いているかを確認して、必要な線分の長さを表すことが大切である。
+
+**解の確認・条件の吟味**
+求めた時間は、点が辺上にある範囲に入っているかを確認します。範囲外の値は、方程式の解であっても問題の答えにはできません。

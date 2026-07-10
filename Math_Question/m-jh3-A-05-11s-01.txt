@@ -11,10 +11,23 @@ $AB=12\mathrm{cm}$、$AC=8\mathrm{cm}$、$\angle BAC=90^\circ$ の直角三角�
 \fill[blue!10] (A)--(P)--(Q)--cycle;
 \draw[thick] (A)--(B)--(C)--cycle;
 \draw[thick, blue!70!black] (A)--(P)--(Q)--cycle;
-\draw (0,-0.38)--(0.38,-0.38)--(0.38,0);
-\draw[->, thick, red!70!black] (-0.45,-5.6)--(-0.45,-0.35);
-\draw[->, thick, red!70!black] (3.7,0.45)--(0.35,0.45);
-\draw[dashed] (P)--(Q);
+\draw[blue!70!black] (0,-0.38)--(0.38,-0.38)--(0.38,0);
+
+\draw[dashed, gray] (-0.2,0)--(-0.95,0);
+\draw[dashed, gray] (-0.2,-6)--(-0.95,-6);
+\draw[<->, gray] (-0.82,0)--(-0.82,-6);
+\node[fill=white, inner sep=1.5pt] at (-1.45,-3) {$12\,\mathrm{cm}$};
+
+\draw[dashed, gray] (0,0.2)--(0,0.9);
+\draw[dashed, gray] (4,0.2)--(4,0.9);
+\draw[<->, gray] (0,0.75)--(4,0.75);
+\node[fill=white, inner sep=1.5pt] at (2,1.08) {$8\,\mathrm{cm}$};
+
+\draw[->, thick, red!70!black] (-0.35,-5.45)--(-0.35,-4.0);
+\node[fill=white, inner sep=1pt] at (-0.72,-4.72) {$2x$};
+\draw[->, thick, red!70!black] (3.7,0.35)--(2.85,0.35);
+\node[fill=white, inner sep=1pt] at (3.25,0.68) {$x$};
+
 \fill (A) circle (1.5pt);
 \fill (B) circle (1.5pt);
 \fill (C) circle (1.5pt);
@@ -24,14 +37,7 @@ $AB=12\mathrm{cm}$、$AC=8\mathrm{cm}$、$\angle BAC=90^\circ$ の直角三角�
 \node[below left] at (B) {$B$};
 \node[above right] at (C) {$C$};
 \node[left] at (P) {$P$};
-\node[above] at (Q) {$Q$};
-\node[left] at (-0.48,-3) {$12\,\mathrm{cm}$};
-\node[above] at (2,0.88) {$8\,\mathrm{cm}$};
-\node[left] at (0,-1.85) {$AP=12-2x$};
-\node[left] at (0,-4.9) {$BP=2x$};
-\node[above] at (1.25,0) {$AQ=8-x$};
-\node[above] at (3.2,0) {$CQ=x$};
-\node at (0.85,-1.55) {$\triangle APQ$};
+\node[above right] at (Q) {$Q$};
 \end{tikzpicture}
 
 【解答】  
@@ -154,3 +160,6 @@ x=7-\sqrt{19},\ 7+\sqrt{19}
 である。
 
 **ポイント：** 点P、QはどちらもAに向かって動くため、$AP$ や $AQ$ は「動いた距離」ではなく「残りの長さ」で表す。方程式の解が2つ出ても、点が辺上にある時間の範囲に入るか必ず確認する。
+
+**間違えやすいポイント**
+動点の問題では、式で求めた時間が点の動く範囲内にあるかを必ず確認します。

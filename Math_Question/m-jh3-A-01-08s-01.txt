@@ -1,69 +1,56 @@
-■問題
+■問題  
 次の式を展開しなさい。
 \[
-\left(\frac{3}{4}x+5y\right)\left(\frac{3}{4}x-5y\right)
+\left(6p+\frac{5}{2}q\right)\left(6p-\frac{5}{2}q\right)
 \]
 
 【解答】  
 \[
-\frac{9}{16}x^2-25y^2
+36p^2-\frac{25}{4}q^2
 \]
 
 【解説】  
-**ステップ1：乗法の公式の形を確認する**
+**ステップ1：考え方を確認する**  
+この式は、同じ項 $6p$ と $\frac{5}{2}q$ があり、符号だけが $+$ と $-$ で反対になっている形である。
+
 \[
-\left(\hlblue{\frac{3}{4}x}\bbox[2px,lightyellow]{+}\hlpink{5y}\right)
-\left(\hlblue{\frac{3}{4}x}\bbox[2px,lightyellow]{-}\hlpink{5y}\right)
+\left(6p+\frac{5}{2}q\right)\left(6p-\frac{5}{2}q\right)
 \]
-は、$(\hlblue{a}\bbox[2px,lightyellow]{+}\hlpink{b})(\hlblue{a}\bbox[2px,lightyellow]{-}\hlpink{b})$ の形である。
 
-この式では、乗法の公式のうち、次の公式が使える。
+これは、乗法の公式のうち、次の形にあてはまる。
 
-**乗法の公式：**
 \[
 (a+b)(a-b)=a^2-b^2
 \]
 
-ここでは、$\frac{3}{4}x$ 全体を $a$、$5y$ 全体を $b$ と見る。
+ここでは、$a=6p$、$b=\frac{5}{2}q$ と見る。  
+$\frac{5}{2}q$ は、分数をふくむが、ひとまとまりとして考えることが大切である。
 
-**ステップ2：公式にあてはめる**
+**ステップ2：式や条件を使って解く**  
+公式にあてはめて、「前の2乗 − 後ろの2乗」にする。
+
 \[
 \begin{aligned}
-\left(\hlblue{\frac{3}{4}x}+\hlpink{5y}\right)
-\left(\hlblue{\frac{3}{4}x}-\hlpink{5y}\right)
-&= \hlblue{\left(\frac{3}{4}x\right)}^2-\hlpink{(5y)}^2
+\left(6p+\frac{5}{2}q\right)\left(6p-\frac{5}{2}q\right)
+&=(6p)^2-\left(\frac{5}{2}q\right)^2 \\
+&=6^2\times p^2-\left(\frac{5}{2}\right)^2\times q^2 \\
+&=36p^2-\frac{25}{4}q^2
 \end{aligned}
 \]
 
-**ステップ3：それぞれを2乗して計算する**
+**ステップ3：答えを確認する**  
+展開結果は、
+
 \[
-\begin{aligned}
-\left(\frac{3}{4}x\right)^2-(5y)^2
-&= \left(\frac{3}{4}\right)^2x^2-25y^2\\
-&= \frac{9}{16}x^2-25y^2
-\end{aligned}
+36p^2-\frac{25}{4}q^2
 \]
 
-したがって、
-\[
-\frac{9}{16}x^2-25y^2
-\]
-となる。
+となる。  
+この公式では、真ん中の項が打ち消し合うため、$pq$ の項は残らない。
 
-**ステップ4：答えを確認する**
-分配法則で展開しても、真ん中の項が打ち消し合うことを確認できる。
+**間違えやすいポイント**  
 \[
-\begin{aligned}
-\left(\frac{3}{4}x+5y\right)\left(\frac{3}{4}x-5y\right)
-&= \left(\frac{3}{4}x\right)^2-\left(\frac{3}{4}x\right)(5y)+(5y)\left(\frac{3}{4}x\right)-(5y)^2\\
-&= \frac{9}{16}x^2-\frac{15}{4}xy+\frac{15}{4}xy-25y^2\\
-&= \frac{9}{16}x^2-25y^2
-\end{aligned}
+\left(\frac{5}{2}q\right)^2=\frac{25}{4}q^2
 \]
-
-**ポイント：**  
-$\frac{3}{4}x$ は係数だけでなく、$x$ も含めてひとまとまりとして2乗する。  
-\[
-\left(\frac{3}{4}x\right)^2=\frac{9}{16}x^2
-\]
-であり、$\frac{3}{4}x^2$ としないように注意する。
+である。  
+$\frac{5}{2}q^2$ や $\frac{10}{4}q^2$ としないように注意する。

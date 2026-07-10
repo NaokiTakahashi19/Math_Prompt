@@ -1,97 +1,108 @@
-■問題
+■問題  
 次の計算をしなさい。
 \[
-\sqrt{48}+\frac{5}{\sqrt{3}}-\frac{14}{\sqrt{12}}
+\sqrt{112}-\frac{15}{\sqrt{7}}+\frac{6}{\sqrt{28}}
 \]
 
 【解答】  
 \[
-\frac{10\sqrt{3}}{3}
+\frac{16\sqrt{7}}{7}
 \]
 
 【解説】  
 **ステップ1：考え方を確認する**
 
-分母に根号がある項は、先に分母を有理化する。  
-また、根号の中の数を簡単にして、同じ根号の形にそろえられるかを確認する。
+根号をふくむ式の加法・減法では、根号の中を同じ形にそろえることが大切である。  
+また、分母に根号がある項は、先に分母を有理化する。
 
-今回の式では、
-\[
-\sqrt{48},\quad \frac{5}{\sqrt{3}},\quad \frac{14}{\sqrt{12}}
-\]
-をそれぞれ $\sqrt{3}$ をふくむ形に直すことを考える。
+この式では、最終的に $\sqrt{7}$ の形にそろえることを考える。
 
-**ステップ2：$\sqrt{48}$ を簡単にする**
+**ステップ2：$\sqrt{112}$ を簡単にする**
 
-\[
-48=16\times 3,\quad 16=4^2
-\]
-であるから、
-\[
-\sqrt{48}
-= \sqrt{16\times 3}
-= \sqrt{4^2\times 3}
-= 4\sqrt{3}
-\]
-
-**ステップ3：$\frac{5}{\sqrt{3}}$ を有理化する**
-
-\[
-\frac{5}{\sqrt{3}}
-= \frac{5\times \sqrt{3}}{\sqrt{3}\times \sqrt{3}}
-= \frac{5\sqrt{3}}{3}
-\]
-
-**ステップ4：$\frac{14}{\sqrt{12}}$ を有理化する**
-
-\[
-\frac{14}{\sqrt{12}}
-= \frac{14\times \sqrt{12}}{\sqrt{12}\times \sqrt{12}}
-= \frac{14\sqrt{12}}{12}
-\]
-
-ここで、
-\[
-\sqrt{12}
-= \sqrt{4\times 3}
-= 2\sqrt{3}
-\]
-なので、
-\[
-\frac{14\sqrt{12}}{12}
-= \frac{14\times 2\sqrt{3}}{12}
-= \frac{28\sqrt{3}}{12}
-= \frac{7\sqrt{3}}{3}
-\]
-
-**ステップ5：もとの式に代入する**
-
-\[
-\sqrt{48}+\frac{5}{\sqrt{3}}-\frac{14}{\sqrt{12}}
-= 4\sqrt{3}+\frac{5\sqrt{3}}{3}-\frac{7\sqrt{3}}{3}
-\]
-
-**ステップ6：係数を分数でそろえて計算する**
-
-\[
-4\sqrt{3}
-= \frac{12\sqrt{3}}{3}
-\]
-であるから、
 \[
 \begin{aligned}
-4\sqrt{3}+\frac{5\sqrt{3}}{3}-\frac{7\sqrt{3}}{3}
-&= \frac{12\sqrt{3}}{3}+\frac{5\sqrt{3}}{3}-\frac{7\sqrt{3}}{3} \\
-&= \frac{(12+5-7)\sqrt{3}}{3} \\
-&= \frac{10\sqrt{3}}{3}
+\sqrt{112}
+&= \sqrt{16 \times 7} \\
+&= \sqrt{4^2 \times 7} \\
+&= 4\sqrt{7}
 \end{aligned}
 \]
 
-**ステップ7：答えを確認する**
+**ステップ3：分母に根号がある項を有理化する**
 
-すべての項が $\sqrt{3}$ の形にそろっているので、係数だけを計算できる。  
-分母に根号も残っていないため、答えは
+まず、$\frac{15}{\sqrt{7}}$ を有理化する。
+
 \[
-\frac{10\sqrt{3}}{3}
+\begin{aligned}
+\frac{15}{\sqrt{7}}
+&= \frac{15 \times \sqrt{7}}{\sqrt{7} \times \sqrt{7}} \\
+&= \frac{15\sqrt{7}}{7}
+\end{aligned}
 \]
+
+次に、$\frac{6}{\sqrt{28}}$ を有理化する。
+
+\[
+\begin{aligned}
+\frac{6}{\sqrt{28}}
+&= \frac{6 \times \sqrt{28}}{\sqrt{28} \times \sqrt{28}} \\
+&= \frac{6\sqrt{28}}{28} \\
+&= \frac{3\sqrt{28}}{14}
+\end{aligned}
+\]
+
+ここで、
+
+\[
+\sqrt{28}=\sqrt{4 \times 7}=2\sqrt{7}
+\]
+
+だから、
+
+\[
+\begin{aligned}
+\frac{3\sqrt{28}}{14}
+&= \frac{3 \times 2\sqrt{7}}{14} \\
+&= \frac{6\sqrt{7}}{14} \\
+&= \frac{3\sqrt{7}}{7}
+\end{aligned}
+\]
+
+**ステップ4：もとの式に戻して計算する**
+
+\[
+\begin{aligned}
+\sqrt{112}-\frac{15}{\sqrt{7}}+\frac{6}{\sqrt{28}}
+&= 4\sqrt{7}-\frac{15\sqrt{7}}{7}+\frac{3\sqrt{7}}{7}
+\end{aligned}
+\]
+
+$4\sqrt{7}$ を分母が $7$ の形にそろえる。
+
+\[
+4\sqrt{7}=\frac{28\sqrt{7}}{7}
+\]
+
+したがって、
+
+\[
+\begin{aligned}
+4\sqrt{7}-\frac{15\sqrt{7}}{7}+\frac{3\sqrt{7}}{7}
+&= \frac{28\sqrt{7}}{7}-\frac{15\sqrt{7}}{7}+\frac{3\sqrt{7}}{7} \\
+&= \frac{(28-15+3)\sqrt{7}}{7} \\
+&= \frac{16\sqrt{7}}{7}
+\end{aligned}
+\]
+
+**ステップ5：答えを確認する**
+
+根号の中はすべて $\sqrt{7}$ にそろっているため、係数だけを計算できる。  
+特に、$-\frac{15}{\sqrt{7}}$ のマイナスを落とさないことが間違えやすいポイントである。
+
+よって、答えは
+
+\[
+\frac{16\sqrt{7}}{7}
+\]
+
 である。

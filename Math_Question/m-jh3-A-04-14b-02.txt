@@ -1,80 +1,80 @@
-■問題
+■問題  
 次の計算をしなさい。
 \[
-\sqrt{5}\left(\sqrt{20}-3\right)
+\sqrt{7}\left(\sqrt{28}+2\right)
 \]
 
 【解答】  
 \[
-10-3\sqrt{5}
+14+2\sqrt{7}
 \]
 
 【解説】  
-**ステップ1：分配法則を確認する**
+**ステップ1：ポイント整理と考え方を確認する**
+
+使う性質は次の2つである。
 
 \[
-a(b-c)=ab-ac
+a(b+c)=ab+ac
 \]
+
+\[
+\sqrt{a}\times \sqrt{b}=\sqrt{ab}
+\]
+
+かっこの外にある $\sqrt{7}$ を、かっこの中の $\sqrt{28}$ と $2$ の両方にかけるため、分配法則を使う。
+
+**ステップ2：分配法則を使って式を展開する**
+
+\[
+\begin{aligned}
+\sqrt{7}\left(\sqrt{28}+2\right)
+&= \sqrt{7}\times \sqrt{28}+\sqrt{7}\times 2
+\end{aligned}
+\]
+
+かっこの中の一方だけにかけるのではなく、$\sqrt{28}$ と $2$ の両方にかけることが大切である。
+
+**ステップ3：それぞれの項を計算する**
+
+まず、根号どうしの積を計算する。
+
+\[
+\begin{aligned}
+\sqrt{7}\times \sqrt{28}
+&= \sqrt{7\times 28}\\
+&= \sqrt{196}\\
+&= \sqrt{14^2}\\
+&= 14
+\end{aligned}
+\]
+
+$\sqrt{196}$ は、$196=14^2$ であるため、根号をはずして $14$ となる。
+
+次に、残りの項を計算する。
+
+\[
+\sqrt{7}\times 2=2\sqrt{7}
+\]
+
+**ステップ4：式全体を整理する**
+
+\[
+\begin{aligned}
+\sqrt{7}\left(\sqrt{28}+2\right)
+&= \sqrt{7}\times \sqrt{28}+\sqrt{7}\times 2\\
+&= 14+2\sqrt{7}
+\end{aligned}
+\]
+
+**ステップ5：答えを確認する**
+
+$14$ は整数の項、$2\sqrt{7}$ は平方根をふくむ項であり、これ以上まとめることはできない。
+
+したがって、答えは
+
+\[
+14+2\sqrt{7}
+\]
+
 である。
-かっこの外の数を、かっこの中の各項にかける。
-
-今回の式では、かっこの外の $\sqrt{5}$ を、かっこの中の $\sqrt{20}$ と $3$ の両方にかける。
-
-**ステップ2：$\hlblue{\sqrt{5}}$ をかっこの中の各項にかける**
-
-\[
-\begin{aligned}
-\hlblue{\sqrt{5}}\left(\hlpink{\sqrt{20}}-\hlpink{3}\right)
-&= \hlblue{\sqrt{5}}\times\hlpink{\sqrt{20}}-\hlblue{\sqrt{5}}\times\hlpink{3}
-\end{aligned}
-\]
-
-マイナスの符号もそのまま残すことに注意する。
-
-**ステップ3：根号どうしの積を計算する**
-
-\[
-\begin{aligned}
-\sqrt{5}\times\sqrt{20}
-&= \sqrt{5\times 20}\\
-&= \sqrt{100}\\
-&= 10
-\end{aligned}
-\]
-
-$100=10^2$ なので、$\sqrt{100}=10$ と根号をはずすことができる。
-
-**ステップ4：数と根号の積を計算する**
-
-\[
-\sqrt{5}\times 3=3\sqrt{5}
-\]
-
-したがって、もとの式の第2項は
-
-\[
--\sqrt{5}\times 3=-3\sqrt{5}
-\]
-
-となる。
-
-**ステップ5：全体を整理して答えを確認する**
-
-\[
-\begin{aligned}
-\sqrt{5}\left(\sqrt{20}-3\right)
-&= \sqrt{5}\times\sqrt{20}-\sqrt{5}\times 3\\
-&= \sqrt{100}-3\sqrt{5}\\
-&= 10-3\sqrt{5}
-\end{aligned}
-\]
-
-よって、答えは
-
-\[
-10-3\sqrt{5}
-\]
-
-である。
-
-**間違えやすいポイント：** $\sqrt{5}\times\sqrt{20}$ は、$\sqrt{25}$ ではなく $\sqrt{5\times 20}=\sqrt{100}$ と計算する。根号どうしの乗法では、根号の中をかけることがコツである。

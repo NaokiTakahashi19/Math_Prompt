@@ -1,63 +1,76 @@
-■問題
+■問題  
 次の計算をしなさい。
 \[
-(6x^3y-9x^2y^2+3xy)\div\left(-\frac{3}{2}xy\right)
+(18p^3q^2-12p^2q+30pq^3)\div(-6pq)
 \]
 
 【解答】  
 \[
--4x^2+6xy-2
+-3p^2q+2p-5q^2
 \]
 
 【解説】  
 **ステップ1：考え方を確認する**
 
-多項式を単項式でわるときは、それぞれの項を単項式でわればよい。
+多項式を単項式でわるときは、各項をその単項式でわればよい。  
+また、わり算は「わる数の逆数をかける」形に直すことができる。
 
-また、わり算は、わる数の逆数をかける形に直すことができる。  
-今回は $-\frac{3}{2}xy$ でわるので、逆数は $-\frac{2}{3xy}$ である。
-
+今回のわる数は $-6pq$ なので、その逆数は
 \[
-(6x^3y-9x^2y^2+3xy)\div\left(-\frac{3}{2}xy\right)
-=(6x^3y-9x^2y^2+3xy)\times\left(-\frac{2}{3xy}\right)
+-\frac{1}{6pq}
 \]
+である。
 
-**ステップ2：式を等号でつないで計算する**
+したがって、
+\[
+(18p^3q^2-12p^2q+30pq^3)\div(-6pq)
+=(18p^3q^2-12p^2q+30pq^3)\times\left(-\frac{1}{6pq}\right)
+\]
+と直せる。
+
+**ステップ2：式を使って解く**
 
 \[
 \begin{aligned}
-(6x^3y-9x^2y^2+3xy)\div\left(-\frac{3}{2}xy\right)
-&=(6x^3y-9x^2y^2+3xy)\times\left(-\frac{2}{3xy}\right)\\
-&=6x^3y\times\left(-\frac{2}{3xy}\right)-9x^2y^2\times\left(-\frac{2}{3xy}\right)+3xy\times\left(-\frac{2}{3xy}\right)\\
-&=\frac{6x^3y\times(-2)}{3xy}+\frac{-9x^2y^2\times(-2)}{3xy}+\frac{3xy\times(-2)}{3xy}\\
-&=-4x^2+6xy-2
+(18p^3q^2-12p^2q+30pq^3)\div(-6pq)
+&=(18p^3q^2-12p^2q+30pq^3)\times\left(-\frac{1}{6pq}\right)\\
+&=18p^3q^2\times\left(-\frac{1}{6pq}\right)-12p^2q\times\left(-\frac{1}{6pq}\right)+30pq^3\times\left(-\frac{1}{6pq}\right)\\
+&=\frac{18p^3q^2}{-6pq}+\frac{-12p^2q}{-6pq}+\frac{30pq^3}{-6pq}\\
+&=-3p^2q+2p-5q^2
 \end{aligned}
 \]
 
 **ステップ3：間違えやすいポイントを確認する**
 
-$-\frac{3}{2}xy$ でわるときは、$-\frac{2}{3xy}$ をかける。  
-分数でわるときは、分母と分子を入れかえた数をかけることが大切である。
+第2項は
+\[
+-12p^2q\div(-6pq)
+\]
+であり、負の数を負の数でわるので正になる。  
+そのため、
+\[
+\frac{-12p^2q}{-6pq}=2p
+\]
+となる。
 
-特に、わる数が負の数なので、符号に注意する。  
-負の数でわるため、各項の符号はすべて反対になる。
+符号を見落とすと $-2p$ としてしまいやすいので注意する。
 
 **ステップ4：答えを確認する**
 
-求めた式に、もとのわる数 $-\frac{3}{2}xy$ をかけて確認する。
-
+各項を $-6pq$ でわると、
 \[
-\begin{aligned}
-(-4x^2+6xy-2)\times\left(-\frac{3}{2}xy\right)
-&=(-4x^2)\times\left(-\frac{3}{2}xy\right)+6xy\times\left(-\frac{3}{2}xy\right)-2\times\left(-\frac{3}{2}xy\right)\\
-&=6x^3y-9x^2y^2+3xy
-\end{aligned}
+18p^3q^2\div(-6pq)=-3p^2q
 \]
-
-もとの多項式に戻るので、答えは
-
 \[
--4x^2+6xy-2
+-12p^2q\div(-6pq)=2p
 \]
-
+\[
+30pq^3\div(-6pq)=-5q^2
+\]
 となる。
+
+よって、答えは
+\[
+-3p^2q+2p-5q^2
+\]
+である。

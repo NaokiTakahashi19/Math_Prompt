@@ -1,69 +1,58 @@
-■問題
+■問題  
 次の計算をしなさい。
 \[
-5\sqrt{2}\div 3\sqrt{6}
+4\sqrt{3}\times 2\sqrt{5}\div \sqrt{7}
 \]
 
 【解答】  
 \[
-\frac{5\sqrt{3}}{9}
+\frac{8\sqrt{105}}{7}
 \]
 
 【解説】  
-**ステップ1：わり算を分数の形にする**
+**ステップ1：考え方を確認する**  
+根号を含む式の乗法では、係数どうし、根号の中どうしを分けて計算する。
 
+また、$\div \sqrt{7}$ は $\frac{1}{\sqrt{7}}$ をかけることと同じである。分母に根号が残る場合は、有理化する。
+
+**ステップ2：式を分数の形に直す**  
 \[
-5\sqrt{2}\div 3\sqrt{6}
-= \frac{5\sqrt{2}}{3\sqrt{6}}
+\begin{aligned}
+4\sqrt{3}\times 2\sqrt{5}\div \sqrt{7}
+&=4\sqrt{3}\times 2\sqrt{5}\times \frac{1}{\sqrt{7}}\\
+&=\frac{4\sqrt{3}\times 2\sqrt{5}}{\sqrt{7}}
+\end{aligned}
 \]
 
-**ステップ2：分母に根号があることを確認する**
-
+**ステップ3：係数どうし、根号どうしを計算する**  
 \[
-\frac{5\sqrt{2}}{3\sqrt{6}}
-\]
-は分母に$\sqrt{6}$があるので、このままでは答えとして不十分である。分母の根号をなくすために有理化する。
-
-**ステップ3：分母を有理化する**
-
-分母にある根号が$\sqrt{6}$なので、分母と分子に$\sqrt{6}$をかける。
-
-\[
-\frac{5\sqrt{2}}{3\sqrt{6}}
-= \frac{5\sqrt{2}\times \sqrt{6}}{3\sqrt{6}\times \sqrt{6}}
-= \frac{5\sqrt{12}}{3\times 6}
-= \frac{5\sqrt{12}}{18}
+\begin{aligned}
+\frac{4\sqrt{3}\times 2\sqrt{5}}{\sqrt{7}}
+&=\frac{4\times 2\times \sqrt{3}\times \sqrt{5}}{\sqrt{7}}\\
+&=\frac{8\sqrt{3\times 5}}{\sqrt{7}}\\
+&=\frac{8\sqrt{15}}{\sqrt{7}}
+\end{aligned}
 \]
 
-**ステップ4：根号の中を簡単にする**
+**ステップ4：分母を有理化する**  
+分母に $\sqrt{7}$ があるので、分母と分子に $\sqrt{7}$ をかける。
 
 \[
-12=4\times 3,\quad 4=2^2
-\]
-であるから、
-\[
-\frac{5\sqrt{12}}{18}
-= \frac{5\sqrt{4\times 3}}{18}
-= \frac{5\times 2\sqrt{3}}{18}
-= \frac{10\sqrt{3}}{18}
+\begin{aligned}
+\frac{8\sqrt{15}}{\sqrt{7}}
+&=\frac{8\sqrt{15}\times \sqrt{7}}{\sqrt{7}\times \sqrt{7}}\\
+&=\frac{8\sqrt{15\times 7}}{7}\\
+&=\frac{8\sqrt{105}}{7}
+\end{aligned}
 \]
 
-**ステップ5：分数を約分する**
-
-\[
-\frac{10\sqrt{3}}{18}
-= \frac{5\sqrt{3}}{9}
-\]
-
-**ステップ6：答えを確認する**
+**ステップ5：答えを確認する**  
+$105=3\times 5\times 7$ であり、根号の中に取り出せる平方数はない。したがって、答えは
 
 \[
-\frac{5\sqrt{3}}{9}
+\frac{8\sqrt{105}}{7}
 \]
-は分母に根号がなく、分数もこれ以上約分できないので、これが答えである。
 
-間違えやすいポイントは、分母の$3\sqrt{6}$全体に$\sqrt{6}$をかけるとき、
-\[
-3\sqrt{6}\times \sqrt{6}=3\times 6=18
-\]
-となることである。$3$を消してしまわないように注意する。
+である。
+
+間違えやすいポイントは、$\frac{8\sqrt{15}}{\sqrt{7}}$ のように分母に根号が残った形で終わらないことである。分母に根号があるときは、有理化して答える。

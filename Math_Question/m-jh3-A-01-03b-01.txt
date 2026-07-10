@@ -1,63 +1,70 @@
-■問題
+■問題  
 
 次の式を展開しなさい。
 \[
-(u - 6)\times(v + 5)
+(p - 6)(q + 5)
 \]
 
 【解答】  
+
 \[
-uv + 5u - 6v - 30
+pq + 5p - 6q - 30
 \]
 
 【解説】  
+
 **ステップ1：考え方を確認する**
-\[
-(u - 6)\times(v + 5)
-\]
-は，多項式と多項式のかけ算である。まず，\(\hlblue{(v + 5)}\) をひとまとまりの文字 \(M\) とおいて考える。
+
+多項式どうしのかけ算では、片方のかっこをひとまとまりの文字におきかえると考えやすい。  
+ここでは、$(q + 5)$ を $M$ とおく。
 
 \[
 \begin{aligned}
-\hlpink{(u - 6)}\times\hlblue{(v + 5)}
-&= \hlpink{(u - 6)}\times\hlblue{M}
+(p - 6)(q + 5)
+&= (p - 6)M
 \end{aligned}
 \]
 
 **ステップ2：分配法則を使って展開する**
+
+$(p - 6)M$ は、$p$ と $-6$ のそれぞれに $M$ をかける。
+
 \[
 \begin{aligned}
-\hlpink{(u - 6)}\times\hlblue{M}
-&= \hlpink{u}\times\hlblue{M}+\hlpink{(-6)}\times\hlblue{M}
+(p - 6)M
+&= p \times M + (-6) \times M
 \end{aligned}
 \]
 
-**ステップ3：\(M\) を \((v + 5)\) に戻す**
+**ステップ3：おきかえた文字をもとに戻す**
+
+$M = q + 5$ なので、$M$ を $(q + 5)$ に戻す。
+
 \[
 \begin{aligned}
-\hlpink{u}\times\hlblue{M}+\hlpink{(-6)}\times\hlblue{M}
-&= \hlpink{u}\times\hlblue{(v + 5)}+\hlpink{(-6)}\times\hlblue{(v + 5)}
+p \times M + (-6) \times M
+&= p(q + 5) + (-6)(q + 5)
 \end{aligned}
 \]
 
-**ステップ4：もう一度分配法則を使ってかっこをはずす**
+**ステップ4：さらに分配法則でかっこをはずす**
+
 \[
 \begin{aligned}
-\hlpink{u}\times\hlblue{(v + 5)}+\hlpink{(-6)}\times\hlblue{(v + 5)}
-&= u\times v+u\times 5+(-6)\times v+(-6)\times 5\\
-&= uv+5u-6v-30
+p(q + 5) + (-6)(q + 5)
+&= pq + 5p + (-6q) + (-30)\\
+&= pq + 5p - 6q - 30
 \end{aligned}
 \]
 
 **ステップ5：答えを確認する**
-4つの積は，
-\[
-u\times v,\quad u\times 5,\quad (-6)\times v,\quad (-6)\times 5
-\]
-である。特に，\((-6)\times 5=-30\) となるので，最後の項の符号に注意する。
 
-したがって，答えは
+$(p - 6)(q + 5)$ では、$p$ と $-6$ の両方を、$q$ と $5$ の両方にかける。  
+特に、$(-6) \times 5 = -30$ となる符号に注意する。  
+したがって、答えは
+
 \[
-uv+5u-6v-30
+pq + 5p - 6q - 30
 \]
+
 となる。

@@ -1,6 +1,21 @@
 ■問題
 直角三角形の直角をはさむ2つの辺の長さが、それぞれ $x\mathrm{cm}$、$(x+5)\mathrm{cm}$ です。この直角三角形の面積が $42\mathrm{cm}^2$ のとき、短い方の辺の長さを求めなさい。
 
+【図】
+\begin{tikzpicture}[scale=0.75, line cap=round, line join=round]
+\coordinate (A) at (0,0);
+\coordinate (B) at (5,0);
+\coordinate (C) at (0,3);
+\fill[blue!8] (A)--(B)--(C)--cycle;
+\draw[thick] (A)--(B)--(C)--cycle;
+\draw (0.35,0)--(0.35,0.35)--(0,0.35);
+\node[below] at (2.5,0) {$(x+5)\,\mathrm{cm}$};
+\node[left] at (0,1.5) {$x\,\mathrm{cm}$};
+\node[below left] at (A) {$A$};
+\node[below right] at (B) {$B$};
+\node[above left] at (C) {$C$};
+\end{tikzpicture}
+
 【解答】  
 \[
 7\mathrm{cm}
@@ -78,3 +93,6 @@ x=7
 となる。
 
 **間違えやすいポイント：** 直角三角形の面積では、$x(x+5)$ のあとに必ず $2$ で割る必要がある。割り忘れると、面積が長方形の面積になってしまう。
+
+**解の確認・条件の吟味**
+求めた解を辺の長さに戻して、長さが正であることと、面積や三平方の関係が問題文に合うことを確認します。

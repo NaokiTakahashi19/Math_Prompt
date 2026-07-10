@@ -1,74 +1,48 @@
-■問題
+■問題  
 
 次の計算をしなさい。
 \[
-(5m^2n-10mn^2)\div \frac{5}{2}mn
+(15x^2y-10xy^2+5xy)\div 5xy
 \]
 
 【解答】  
 \[
-2m-4n
+3x-2y+1
 \]
 
 【解説】  
-**ステップ1：考え方を確認する**
-多項式を単項式でわるときは、わり算を「逆数をかける」形に直す。
-分数でわるときは、分母と分子を入れかえた数をかけることに注意する。
+**ステップ1：考え方を確認する**  
+多項式を単項式でわるときは、各項をその単項式でわると考える。  
+また、わり算は、わる数の逆数をかける形に直すことができる。  
+$5xy$ の逆数は $\frac{1}{5xy}$ である。
 
-\[
-\frac{5}{2}mn=\frac{5mn}{2}
-\]
-
-だから、逆数は
-
-\[
-\frac{2}{5mn}
-\]
-
-である。
-
-**ステップ2：除法を乗法になおす**
+**ステップ2：式を使って解く**  
 \[
 \begin{aligned}
-\hlblue{(5m^2n-10mn^2)}\div \hlpink{\frac{5}{2}mn}
-&=\hlblue{(5m^2n-10mn^2)}\times \hlpink{\frac{2}{5mn}}
+(15x^2y-10xy^2+5xy)\div 5xy
+&=(15x^2y-10xy^2+5xy)\times \frac{1}{5xy}\\
+&=15x^2y\times \frac{1}{5xy}-10xy^2\times \frac{1}{5xy}+5xy\times \frac{1}{5xy}\\
+&=\frac{15x^2y}{5xy}-\frac{10xy^2}{5xy}+\frac{5xy}{5xy}\\
+&=3\times \frac{x^2}{x}\times \frac{y}{y}-2\times \frac{x}{x}\times \frac{y^2}{y}+1\\
+&=3x-2y+1
 \end{aligned}
 \]
 
-**ステップ3：分配法則を利用してかっこをはずす**
+**ステップ3：間違えやすいポイントを確認する**  
+$-10xy^2$ を $5xy$ でわる部分では、符号がマイナスのままになる。  
+したがって、中央の項は $+2y$ ではなく、$-2y$ となる。
+
+**ステップ4：答えを確認する**  
+求めた式 $3x-2y+1$ に $5xy$ をかけると、
 \[
 \begin{aligned}
-&=\hlblue{5m^2n}\times \hlpink{\frac{2}{5mn}}
--\hlblue{10mn^2}\times \hlpink{\frac{2}{5mn}}
+(3x-2y+1)\times 5xy
+&=15x^2y-10xy^2+5xy
 \end{aligned}
 \]
-
-**ステップ4：各項を約分して計算する**
+となり、もとの多項式と一致する。  
+よって、答えは
 \[
-\begin{aligned}
-&=\frac{5m^2n\times 2}{5mn}-\frac{10mn^2\times 2}{5mn}\\
-&=\frac{10m^2n}{5mn}-\frac{20mn^2}{5mn}\\
-&=2\times \frac{m^2}{m}\times \frac{n}{n}
--4\times \frac{m}{m}\times \frac{n^2}{n}\\
-&=2m-4n
-\end{aligned}
+3x-2y+1
 \]
-
-**ステップ5：答えを確認する**
-求めた答えに、わる数をかけて元の多項式に戻るか確認する。
-
-\[
-\begin{aligned}
-(2m-4n)\times \frac{5}{2}mn
-&=2m\times \frac{5}{2}mn-4n\times \frac{5}{2}mn\\
-&=5m^2n-10mn^2
-\end{aligned}
-\]
-
-元の多項式に戻るので、答えは
-
-\[
-2m-4n
-\]
-
 である。

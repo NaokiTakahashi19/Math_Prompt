@@ -1,59 +1,61 @@
-■問題
+■問題  
 次の計算をしなさい。
 \[
--\frac{2}{3}m^2n(6m^2-9mn+12n^2)
+-\frac{3}{4}mn(8m^2-12mn+4n^2)
 \]
 
 【解答】  
 \[
--4m^4n+6m^3n^2-8m^2n^3
+-6m^3n+9m^2n^2-3mn^3
 \]
 
 【解説】  
 **ステップ1：考え方を確認する**
 
-単項式と多項式の積は、分配法則を使って、多項式の各項に単項式をかける。
+単項式を多項式にかけるときは、分配法則を使って、かっこの中のすべての項に単項式をかける。
+
+\[
+-\frac{3}{4}mn(8m^2-12mn+4n^2)
+\]
+
+では、$-\frac{3}{4}mn$ を $8m^2$、$-12mn$、$4n^2$ のそれぞれにかける。
+
+**ステップ2：式を使って解く**
 
 \[
 \begin{aligned}
-\hlpink{-\frac{2}{3}m^2n}(\hlblue{6m^2-9mn+12n^2})
-&=\hlpink{-\frac{2}{3}m^2n}\times\hlblue{6m^2}
-+\hlpink{-\frac{2}{3}m^2n}\times\hlblue{(-9mn)}
-+\hlpink{-\frac{2}{3}m^2n}\times\hlblue{12n^2}
+-\frac{3}{4}mn(8m^2-12mn+4n^2)
+&=\left(-\frac{3}{4}mn\right)\times 8m^2
++\left(-\frac{3}{4}mn\right)\times (-12mn)
++\left(-\frac{3}{4}mn\right)\times 4n^2\\
+&=-6m^3n+9m^2n^2-3mn^3
 \end{aligned}
 \]
 
-**ステップ2：係数と文字をそれぞれ計算する**
+係数と文字は分けて考えるとよい。
 
 \[
-\begin{aligned}
--\frac{2}{3}m^2n(6m^2-9mn+12n^2)
-&=-\frac{2}{3}m^2n\times 6m^2
-+\left(-\frac{2}{3}m^2n\right)\times (-9mn)
-+\left(-\frac{2}{3}m^2n\right)\times 12n^2\\
-&=-4m^{2+2}n+6m^{2+1}n^{1+1}-8m^2n^{1+2}\\
-&=-4m^4n+6m^3n^2-8m^2n^3
-\end{aligned}
+\left(-\frac{3}{4}\right)\times 8=-6,\qquad
+\left(-\frac{3}{4}\right)\times (-12)=9,\qquad
+\left(-\frac{3}{4}\right)\times 4=-3
 \]
 
-**ステップ3：間違えやすいポイントを確認する**
+また、文字の指数は同じ文字どうしで足す。
 
-第2項は
 \[
-\left(-\frac{2}{3}m^2n\right)\times (-9mn)
+mn\times m^2=m^3n,\qquad
+mn\times mn=m^2n^2,\qquad
+mn\times n^2=mn^3
 \]
-で、負の数どうしの積なので正になる。
 
-また、文字の指数はかけ算のときに足すため、
+**ステップ3：答えを確認する**
+
+計算結果は
+
 \[
-m^2\times m=m^3,\qquad n\times n=n^2
+-6m^3n+9m^2n^2-3mn^3
 \]
+
 となる。
 
-**ステップ4：答えを確認する**
-
-各項に正しく分配すると、
-\[
--4m^4n+6m^3n^2-8m^2n^3
-\]
-となる。
+間違えやすいポイントは、$-12mn$ に負の数をかけるところである。負の数どうしの積は正になるため、真ん中の項は $+9m^2n^2$ となる。

@@ -1,64 +1,54 @@
-■問題
+■問題  
 次の計算をしなさい。
 \[
-5\sqrt{18}\div \left(2\sqrt{12}\right)
+\frac{3\sqrt{5}\times 2\sqrt{7}}{4\sqrt{6}}
 \]
 
 【解答】  
 \[
-\frac{5\sqrt{6}}{4}
+\frac{\sqrt{210}}{4}
 \]
 
 【解説】  
-**ステップ1：わり算を分数の形にして考える**
+**ステップ1：考え方を確認する**  
+係数を含む平方根の乗法では、係数どうし、根号どうしを分けて計算する。  
+また、分母に根号が残る場合は、有理化して答える。
 
-\[
-5\sqrt{18}\div \left(2\sqrt{12}\right)
-= \frac{5\sqrt{18}}{2\sqrt{12}}
-\]
-
-分母に根号を含む数があるので、最後は分母に根号が残らない形にする。
-
-**ステップ2：根号の中を簡単にする**
-
-\[
-18=9\times 2,\quad 12=4\times 3
-\]
-であるから、
+**ステップ2：分子を計算する**  
 \[
 \begin{aligned}
-\frac{5\sqrt{18}}{2\sqrt{12}}
-&= \frac{5\sqrt{9\times 2}}{2\sqrt{4\times 3}}\\
-&= \frac{5\times 3\sqrt{2}}{2\times 2\sqrt{3}}\\
-&= \frac{15\sqrt{2}}{4\sqrt{3}}
+\frac{3\sqrt{5}\times 2\sqrt{7}}{4\sqrt{6}}
+&= \frac{3\times 2\times \sqrt{5}\times \sqrt{7}}{4\sqrt{6}}\\
+&= \frac{6\sqrt{35}}{4\sqrt{6}}\\
+&= \frac{3\sqrt{35}}{2\sqrt{6}}
 \end{aligned}
 \]
 
-**ステップ3：分母を有理化する**
-
-分母に $\sqrt{3}$ が残っているので、分母と分子に $\sqrt{3}$ をかける。
+**ステップ3：分母を有理化する**  
+分母に $\sqrt{6}$ があるので、分母と分子に $\sqrt{6}$ をかける。
 
 \[
 \begin{aligned}
-\frac{15\sqrt{2}}{4\sqrt{3}}
-&= \frac{15\sqrt{2}\times \sqrt{3}}{4\sqrt{3}\times \sqrt{3}}\\
-&= \frac{15\sqrt{6}}{4\times 3}\\
-&= \frac{15\sqrt{6}}{12}\\
-&= \frac{5\sqrt{6}}{4}
+\frac{3\sqrt{35}}{2\sqrt{6}}
+&= \frac{3\sqrt{35}\times \sqrt{6}}{2\sqrt{6}\times \sqrt{6}}\\
+&= \frac{3\sqrt{210}}{2\times 6}\\
+&= \frac{3\sqrt{210}}{12}\\
+&= \frac{\sqrt{210}}{4}
 \end{aligned}
 \]
 
-**ステップ4：間違えやすいポイントを確認する**
+**ステップ4：答えを確認する**  
+$210=2\times 3\times 5\times 7$ であり、根号の中に取り出せる平方数はない。  
+したがって、答えは
 
 \[
-2\sqrt{12}=2\times 2\sqrt{3}=4\sqrt{3}
+\frac{\sqrt{210}}{4}
 \]
-である。外にある係数 $2$ を忘れて、$\sqrt{12}=2\sqrt{3}$ だけで計算しないように注意する。
 
-**ステップ5：答えを確認する**
+である。
 
-分母に根号は残っておらず、分数も約分できているので、
+**間違えやすいポイント**  
 \[
-\frac{5\sqrt{6}}{4}
+\frac{3\sqrt{35}}{2\sqrt{6}}
 \]
-が答えとなる。
+のように分母に根号が残った形で終わらないようにする。分母に根号があるときは、有理化して答える。
