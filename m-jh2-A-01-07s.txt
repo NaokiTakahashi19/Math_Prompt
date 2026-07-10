@@ -137,7 +137,7 @@ $-\frac{3}{2}$ の逆数は $-\frac{2}{3}$ である。
 +\hlpink{(-24)}\times\hlblue{\left(-\frac{2}{3}\right)}
 \]
 
-**ステップ3：** 等号でつないで約分して計算する
+**ステップ3：** 約分して計算する
 \[
 \begin{aligned}
 (-12a + 18b - 24) \div \left(-\frac{3}{2}\right)
