@@ -1,44 +1,66 @@
 ■問題  
-室温 $20^\circ\mathrm{C}$ を基準にして、ある部屋の室温 $16^\circ\mathrm{C}$ を正負の符号を使って基準との差で表しなさい。
+$500\mathrm{g}$ を基準にして、ある商品の重さ $472\mathrm{g}$ を正負の符号を使って表しなさい。
 
 【解答】  
 \[
--4^\circ\mathrm{C}
+-28\mathrm{g}
 \]
 
 【解説】  
 **ステップ1：考え方を確認する**  
-基準は $20^\circ\mathrm{C}$ である。  
-この基準を $0$ と考え、実際の室温 $16^\circ\mathrm{C}$ が基準より高いか低いかを調べる。
+基準は $500\mathrm{g}$ である。  
+基準より重いときは「$+$」、基準より軽いときは「$-$」をつけて表す。
 
 **ステップ2：式を使って解く**  
-基準との差は、実際の室温から基準の室温をひいて求める。
+商品の重さ $472\mathrm{g}$ と基準 $500\mathrm{g}$ の差を求める。
 
 \[
 \begin{aligned}
-16-20&=-4
+472\mathrm{g}-500\mathrm{g}
+&=-28\mathrm{g}
 \end{aligned}
 \]
 
-したがって、$16^\circ\mathrm{C}$ は基準の $20^\circ\mathrm{C}$ より $4^\circ\mathrm{C}$ 低い。
+基準の $500\mathrm{g}$ を $0$ の位置と見ると、$472\mathrm{g}$ は基準より $28\mathrm{g}$ 軽い位置にある。
+
+\[
+\begin{tikzpicture}[x=0.13cm,y=1cm,>=stealth]
+\draw[->,thick] (-35,0)--(15,0);
+\foreach \x/\label in {-28/{472\mathrm{g}},0/{500\mathrm{g}},10/{510\mathrm{g}}} {
+  \draw (\x,0.1)--(\x,-0.1);
+  \node[below] at (\x,-0.1) {$\label$};
+}
+\fill[pink] (-28,0) circle (2.5pt);
+\fill[black] (0,0) circle (2.5pt);
+\draw[<->,thick,pink] (-28,0.55)--(0,0.55) node[midway,above] {$28\mathrm{g}$};
+\end{tikzpicture}
+\]
 
 **ステップ3：答えを確認する**  
-基準より低い量は「$-$」で表す。  
+$472\mathrm{g}$ は $500\mathrm{g}$ より $28\mathrm{g}$ 軽いので、符号は「$-$」になる。
+
 よって、答えは
 
 \[
--4^\circ\mathrm{C}
+-28\mathrm{g}
 \]
 
-となる。
+である。
 
-**ポイント整理：符号の決め方**
+**ポイント整理：基準との差を正負の符号で表す**  
 
-| 確認すること | この問題での見方 |
-|---|---|
-| 基準 | $20^\circ\mathrm{C}$ |
-| 正の符号 | 基準より高いとき |
-| 負の符号 | 基準より低いとき |
-| 実際の室温 | $16^\circ\mathrm{C}$ |
-
-間違えやすいポイントは、室温そのものの $16^\circ\mathrm{C}$ を答えるのではなく、基準との差を答えることである。今回は基準より $4^\circ\mathrm{C}$ 低いので、$-4^\circ\mathrm{C}$ と表す。
+\[
+\begin{array}{|c|c|}
+\hline
+\text{確認すること} & \text{この問題での見方} \\
+\hline
+\text{基準} & 500\mathrm{g} \\
+\hline
+\text{正の向き} & \text{基準より重いときは }+ \\
+\hline
+\text{負の向き} & \text{基準より軽いときは }- \\
+\hline
+\text{表す量} & \text{基準より }28\mathrm{g}\text{ 軽い} \\
+\hline
+\end{array}
+\]
