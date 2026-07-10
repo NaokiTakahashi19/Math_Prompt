@@ -801,12 +801,19 @@
       const seen = new Map();
       for (const file of files) {
         const value = file[valueKey];
-        if (!value || seen.has(value)) continue;
-        seen.set(value, {
+        if (!value) continue;
+        const next = {
           value,
           label: file[labelKey] || value,
           sort: file[sortKey] || file[labelKey] || value
-        });
+        };
+        const current = seen.get(value);
+        if (
+          !current ||
+          String(next.sort).localeCompare(String(current.sort), 'ja', { numeric: true }) < 0
+        ) {
+          seen.set(value, next);
+        }
       }
       return Array.from(seen.values())
         .sort((a, b) => String(a.sort).localeCompare(String(b.sort), 'ja', { numeric: true }) || a.label.localeCompare(b.label, 'ja', { numeric: true }))
@@ -823,7 +830,7 @@
       populateSelect(areaFilter, 'すべての領域', uniqueOptions(gradeScoped, 'areaCode', 'areaLabel'), area);
 
       const areaScoped = areaFilter.value ? gradeScoped.filter(file => file.areaCode === areaFilter.value) : gradeScoped;
-      populateSelect(unitFilter, 'すべての単元', uniqueOptions(areaScoped, 'unit', 'unit', 'unitCode'), unit);
+      populateSelect(unitFilter, 'すべての単元', uniqueOptions(areaScoped, 'unit', 'unit', 'code'), unit);
 
       const unitScoped = unitFilter.value ? areaScoped.filter(file => file.unit === unitFilter.value) : areaScoped;
       populateSelect(itemFilter, 'すべての項目', uniqueOptions(unitScoped, 'item', 'item', 'itemCode'), item);
