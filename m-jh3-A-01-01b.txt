@@ -51,6 +51,7 @@
    - 問題は「■問題1」の形式，解答・解説は【】を使用
    - 難易度は「教科書の基本問題レベル」を基準
    - つまずきやすい箇所には補足解説を加える
+   - 基本問題では、かっこの中の多項式は2項を基本とする。3項の多項式を必ず出題する形にしない
    
 ## 生成例  
 ■問題1  
@@ -83,27 +84,27 @@
 ■問題2  
 次の計算をしなさい。
 \[
-(x - 2y +3) \times (-4x)
+(x - 2y) \times (-4x)
 \]
 
 【解答】  
 \[
--4x^2 + 8xy - 12x
+-4x^2 + 8xy
 \]
 
 【解説】  
 **ステップ1：** 分配法則を使って展開する
 \[
 \begin{aligned}
-(\hlblue{x-2y+3})\times(\hlpink{-4x})
-&= \hlblue{x}\times(\hlpink{-4x})+\hlblue{(-2y)}\times(\hlpink{-4x})+\hlblue{3}\times(\hlpink{-4x})
+(\hlblue{x-2y})\times(\hlpink{-4x})
+&= \hlblue{x}\times(\hlpink{-4x})+\hlblue{(-2y)}\times(\hlpink{-4x})
 \end{aligned}
 \]
 
 **ステップ2：** 計算する
 \[
 \begin{aligned}
-&= -4x^2 + 8xy -12x
+&= -4x^2 + 8xy
 \end{aligned}
 \]
 
