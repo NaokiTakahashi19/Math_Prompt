@@ -1171,8 +1171,8 @@
       return String(tex || '')
         .replace(/\\begin\{(?:aligned|align\*?|gathered|gather\*?)\}/g, '')
         .replace(/\\end\{(?:aligned|align\*?|gathered|gather\*?)\}/g, '')
-        .replace(/\\left/g, '')
-        .replace(/\\right/g, '')
+        .replace(/\\left\b/g, '')
+        .replace(/\\right\b/g, '')
         .replace(/\\tfrac/g, '\\frac')
         .replace(/\\dfrac/g, '\\frac')
         .replace(/\\,/g, ' ')
@@ -1186,14 +1186,23 @@
         times: '×',
         div: '÷',
         cdot: '⋅',
+        cdots: '⋯',
+        dots: '…',
+        ldots: '…',
+        vdots: '⋮',
+        ddots: '⋱',
         pm: '±',
         mp: '∓',
         quad: '  ',
         qquad: '    ',
         le: '≤',
         leq: '≤',
+        leqq: '≦',
+        leqslant: '≤',
         ge: '≥',
         geq: '≥',
+        geqq: '≧',
+        geqslant: '≥',
         neq: '≠',
         ne: '≠',
         lt: '<',
@@ -1208,6 +1217,9 @@
         cong: '≅',
         equiv: '≡',
         approx: '≈',
+        fallingdotseq: '≒',
+        risingdotseq: '≓',
+        simeq: '≃',
         propto: '∝',
         frown: '⌢',
         smile: '⌣',
@@ -1738,6 +1750,31 @@
       const fileName = options.problemOnly ? 'generated-questions-problems.docx' : 'generated-questions.docx';
       downloadBlob(fileName, 'application/vnd.openxmlformats-officedocument.wordprocessingml.document', blob);
     }
+
+    window.questionWordExport = {
+      async ready() {
+        return waitForDocxReady();
+      },
+      async buildDocxBlob(result, options = {}) {
+        if (!await waitForDocxReady()) {
+          throw new Error('Word出力ライブラリを読み込めませんでした');
+        }
+
+        const { Document, Packer } = window.docx;
+        const children = await previewToDocxParagraphs(result, options);
+        const doc = new Document({
+          sections: [{
+            properties: {
+              page: {
+                margin: { top: 900, right: 900, bottom: 900, left: 900 }
+              }
+            },
+            children
+          }]
+        });
+        return Packer.toBlob(doc);
+      }
+    };
 
     async function syncEditedResultsToPreview() {
       let changed = false;

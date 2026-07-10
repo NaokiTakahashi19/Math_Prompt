@@ -60,6 +60,7 @@
       display: flex;
       gap: 8px;
       flex-wrap: wrap;
+      align-items: center;
     }
 
     a,
@@ -217,12 +218,31 @@
 
     #status.error { color: var(--danger); }
 
+    #header-export-status {
+      color: var(--muted);
+      font-size: 13px;
+      min-width: 12em;
+    }
+
     #output {
       min-height: 0;
       overflow: auto;
       padding: 18px;
       background: #fff;
       line-height: 1.8;
+    }
+
+    #raw-editor {
+      width: 100%;
+      min-height: 100%;
+      border: 0;
+      outline: none;
+      resize: none;
+      padding: 18px;
+      background: #fff;
+      color: var(--text);
+      font: 14px/1.7 "Courier New", "Yu Gothic", monospace;
+      white-space: pre;
     }
 
     .empty {
@@ -288,6 +308,8 @@
     <nav>
       <a href="/">編集画面</a>
       <a href="/questions">問題生成</a>
+      <button id="export-visible-word-btn" type="button">表示中をWord出力</button>
+      <span id="header-export-status"></span>
     </nav>
   </header>
 
@@ -298,8 +320,20 @@
           <input id="search-input" type="search" placeholder="ファイル名・学習項目で検索" />
           <button id="refresh-btn" type="button">更新</button>
         </div>
+        <select id="grade-filter">
+          <option value="">すべての学年</option>
+          <option value="1">中1</option>
+          <option value="2">中2</option>
+          <option value="3">中3</option>
+        </select>
+        <select id="area-filter">
+          <option value="">すべての領域</option>
+        </select>
+        <select id="unit-filter">
+          <option value="">すべての単元</option>
+        </select>
         <select id="item-filter">
-          <option value="">すべての学習項目</option>
+          <option value="">すべての項目</option>
         </select>
       </div>
       <div id="summary">読み込み中...</div>
@@ -313,6 +347,9 @@
           <div id="status"></div>
         </div>
         <div class="viewer-actions">
+          <button id="edit-file-btn" type="button" disabled>編集</button>
+          <button id="save-edit-btn" class="primary" type="button" hidden>保存</button>
+          <button id="cancel-edit-btn" type="button" hidden>キャンセル</button>
           <button id="copy-name-btn" type="button" disabled>ファイル名コピー</button>
           <button id="rename-file-btn" type="button" disabled>リネーム</button>
           <button id="delete-file-btn" class="danger" type="button" disabled>削除</button>
@@ -326,7 +363,9 @@
     const state = {
       files: [],
       filtered: [],
-      selectedName: ''
+      selectedName: '',
+      selectedContent: '',
+      editing: false
     };
 
     const fileListEl = document.getElementById('file-list');
@@ -335,11 +374,21 @@
     const statusEl = document.getElementById('status');
     const titleEl = document.getElementById('selected-title');
     const searchInput = document.getElementById('search-input');
+    const gradeFilter = document.getElementById('grade-filter');
+    const areaFilter = document.getElementById('area-filter');
+    const unitFilter = document.getElementById('unit-filter');
     const itemFilter = document.getElementById('item-filter');
+    const editFileBtn = document.getElementById('edit-file-btn');
+    const saveEditBtn = document.getElementById('save-edit-btn');
+    const cancelEditBtn = document.getElementById('cancel-edit-btn');
     const copyNameBtn = document.getElementById('copy-name-btn');
     const renameFileBtn = document.getElementById('rename-file-btn');
     const deleteFileBtn = document.getElementById('delete-file-btn');
+    const exportVisibleWordBtn = document.getElementById('export-visible-word-btn');
+    const headerExportStatusEl = document.getElementById('header-export-status');
     let keyboardNavigationToken = 0;
+    let wordExportFramePromise = null;
+    let wordExportRunning = false;
 
     function escapeForHtml(value) {
       return String(value ?? '')
@@ -367,10 +416,69 @@
       return match ? match[1] : stem;
     }
 
+    function promptStemFromQuestionFileName(fileName) {
+      const stem = questionFileBase(String(fileName || '').split('/').pop());
+      const match = stem.match(/^(m-jh[123]-[A-Z]-\d{2}-\d{2}[A-Za-z]*)/);
+      return match ? match[1] : sourceStemFromQuestionFileName(fileName);
+    }
+
     function learningItemKeyFromQuestionFileName(fileName) {
       const stem = sourceStemFromQuestionFileName(fileName);
       const match = stem.match(/^(m-jh[123]-[A-Z]-\d{2}-\d{2})[A-Za-z]*$/);
       return match ? match[1] : stem;
+    }
+
+    function gradeFromQuestionFileName(fileName) {
+      return String(fileName || '').match(/m-jh([123])-/)?.[1] || '';
+    }
+
+    function splitPromptTitle(title) {
+      const parts = String(title || '').split(/\s*[―-]\s*/);
+      return {
+        unit: (parts[0] || '').trim(),
+        item: (parts.slice(1).join(' ― ') || '').trim()
+      };
+    }
+
+    function areaLabelFromCode(code) {
+      const areaCode = String(code || '').match(/^[123]-([A-Z])-/)?.[1] || '';
+      const labels = {
+        A: 'A 数と式',
+        B: 'B 図形',
+        C: 'C 関数',
+        D: 'D データの活用'
+      };
+      return { areaCode, areaLabel: labels[areaCode] || (areaCode ? `${areaCode} 領域` : '') };
+    }
+
+    function codeParts(code) {
+      const match = String(code || '').match(/^([123])-([A-Z])-(\d{2})-(\d{2})/);
+      return {
+        unitCode: match ? match[3] : '',
+        itemCode: match ? match[4] : ''
+      };
+    }
+
+    function buildPromptMetaByStem(promptFiles) {
+      const meta = new Map();
+      for (const prompt of promptFiles || []) {
+        const stem = questionFileBase(prompt.name);
+        const { unit, item } = splitPromptTitle(prompt.title);
+        const { areaCode, areaLabel } = areaLabelFromCode(prompt.code);
+        const { unitCode, itemCode } = codeParts(prompt.code);
+        meta.set(stem, {
+          code: prompt.code || '',
+          title: prompt.title || '',
+          level: prompt.level || '',
+          areaCode,
+          areaLabel,
+          unitCode,
+          itemCode,
+          unit,
+          item
+        });
+      }
+      return meta;
     }
 
     async function fetchJson(url, options) {
@@ -378,6 +486,166 @@
       const data = await response.json().catch(() => ({}));
       if (!response.ok) throw new Error(data.error || '読み込みに失敗しました');
       return data;
+    }
+
+    function setHeaderExportStatus(message, kind = '') {
+      headerExportStatusEl.textContent = message || '';
+      headerExportStatusEl.style.color = kind === 'error' ? 'var(--danger)' : kind === 'ok' ? '#137333' : 'var(--muted)';
+    }
+
+    function downloadBlob(fileName, mimeType, blob) {
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = fileName;
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+      URL.revokeObjectURL(url);
+    }
+
+    async function ensureWordExportFrame() {
+      if (wordExportFramePromise) return wordExportFramePromise;
+
+      wordExportFramePromise = new Promise((resolve, reject) => {
+        const iframe = document.createElement('iframe');
+        iframe.src = '/questions';
+        iframe.hidden = true;
+        iframe.style.display = 'none';
+        iframe.onload = async () => {
+          try {
+            const win = iframe.contentWindow;
+            const startedAt = Date.now();
+            while (!(win?.questionWordExport && typeof win.questionWordExport.buildDocxBlob === 'function')) {
+              if (Date.now() - startedAt > 10000) {
+                throw new Error('Word出力エンジンの読み込みがタイムアウトしました');
+              }
+              await new Promise(resolveWait => setTimeout(resolveWait, 100));
+            }
+            if (!await win.questionWordExport.ready()) {
+              throw new Error('Word出力ライブラリを読み込めませんでした');
+            }
+            resolve(win);
+          } catch (err) {
+            reject(err);
+          }
+        };
+        iframe.onerror = () => reject(new Error('Word出力エンジンを読み込めませんでした'));
+        document.body.appendChild(iframe);
+      });
+
+      return wordExportFramePromise;
+    }
+
+    function zipDateParts(date = new Date()) {
+      const time = (date.getHours() << 11) | (date.getMinutes() << 5) | Math.floor(date.getSeconds() / 2);
+      const dosDate = ((date.getFullYear() - 1980) << 9) | ((date.getMonth() + 1) << 5) | date.getDate();
+      return { time, date: dosDate };
+    }
+
+    let crcTable = null;
+    function crc32(bytes) {
+      if (!crcTable) {
+        crcTable = new Uint32Array(256);
+        for (let i = 0; i < 256; i++) {
+          let value = i;
+          for (let bit = 0; bit < 8; bit++) {
+            value = (value & 1) ? (0xedb88320 ^ (value >>> 1)) : (value >>> 1);
+          }
+          crcTable[i] = value >>> 0;
+        }
+      }
+
+      let crc = 0xffffffff;
+      for (const byte of bytes) {
+        crc = crcTable[(crc ^ byte) & 0xff] ^ (crc >>> 8);
+      }
+      return (crc ^ 0xffffffff) >>> 0;
+    }
+
+    function zipHeaderBytes(values) {
+      const bytes = [];
+      const u16 = value => {
+        bytes.push(value & 0xff, (value >>> 8) & 0xff);
+      };
+      const u32 = value => {
+        bytes.push(value & 0xff, (value >>> 8) & 0xff, (value >>> 16) & 0xff, (value >>> 24) & 0xff);
+      };
+
+      for (const item of values) {
+        if (item.type === 'u16') u16(item.value);
+        else if (item.type === 'u32') u32(item.value);
+        else bytes.push(...item);
+      }
+      return new Uint8Array(bytes);
+    }
+
+    async function createZipBlob(entries) {
+      const encoder = new TextEncoder();
+      const parts = [];
+      const centralParts = [];
+      const { time, date } = zipDateParts();
+      let offset = 0;
+
+      for (const entry of entries) {
+        const nameBytes = encoder.encode(entry.name);
+        const data = new Uint8Array(await entry.blob.arrayBuffer());
+        const crc = crc32(data);
+
+        const localHeader = zipHeaderBytes([
+          { type: 'u32', value: 0x04034b50 },
+          { type: 'u16', value: 20 },
+          { type: 'u16', value: 0 },
+          { type: 'u16', value: 0 },
+          { type: 'u16', value: time },
+          { type: 'u16', value: date },
+          { type: 'u32', value: crc },
+          { type: 'u32', value: data.byteLength },
+          { type: 'u32', value: data.byteLength },
+          { type: 'u16', value: nameBytes.byteLength },
+          { type: 'u16', value: 0 },
+          nameBytes
+        ]);
+        parts.push(localHeader, data);
+
+        const centralHeader = zipHeaderBytes([
+          { type: 'u32', value: 0x02014b50 },
+          { type: 'u16', value: 20 },
+          { type: 'u16', value: 20 },
+          { type: 'u16', value: 0 },
+          { type: 'u16', value: 0 },
+          { type: 'u16', value: time },
+          { type: 'u16', value: date },
+          { type: 'u32', value: crc },
+          { type: 'u32', value: data.byteLength },
+          { type: 'u32', value: data.byteLength },
+          { type: 'u16', value: nameBytes.byteLength },
+          { type: 'u16', value: 0 },
+          { type: 'u16', value: 0 },
+          { type: 'u16', value: 0 },
+          { type: 'u16', value: 0 },
+          { type: 'u32', value: 0 },
+          { type: 'u32', value: offset },
+          nameBytes
+        ]);
+        centralParts.push(centralHeader);
+        offset += localHeader.byteLength + data.byteLength;
+      }
+
+      const centralOffset = offset;
+      const centralSize = centralParts.reduce((sum, part) => sum + part.byteLength, 0);
+      const endRecord = zipHeaderBytes([
+        { type: 'u32', value: 0x06054b50 },
+        { type: 'u16', value: 0 },
+        { type: 'u16', value: 0 },
+        { type: 'u16', value: entries.length },
+        { type: 'u16', value: entries.length },
+        { type: 'u32', value: centralSize },
+        { type: 'u32', value: centralOffset },
+        { type: 'u16', value: 0 }
+      ]);
+
+      return new Blob([...parts, ...centralParts, endRecord], { type: 'application/zip' });
     }
 
     function splitIntoSegments(text) {
@@ -516,32 +784,71 @@
       }
     }
 
-    function populateItemFilter() {
-      const selected = itemFilter.value;
-      const keys = Array.from(new Set(state.files.map(file => file.learningItemKey).filter(Boolean))).sort((a, b) => a.localeCompare(b, 'ja', { numeric: true }));
-      itemFilter.innerHTML = '<option value="">すべての学習項目</option>';
-      for (const key of keys) {
+    function populateSelect(selectEl, defaultLabel, values, selectedValue) {
+      selectEl.innerHTML = `<option value="">${escapeForHtml(defaultLabel)}</option>`;
+      for (const value of values) {
         const option = document.createElement('option');
-        option.value = key;
-        option.textContent = key;
-        itemFilter.appendChild(option);
+        option.value = value.value;
+        option.textContent = value.label;
+        selectEl.appendChild(option);
       }
-      if (selected && keys.includes(selected)) itemFilter.value = selected;
+      if (selectedValue && values.some(value => value.value === selectedValue)) {
+        selectEl.value = selectedValue;
+      }
+    }
+
+    function uniqueOptions(files, valueKey, labelKey = valueKey, sortKey = labelKey) {
+      const seen = new Map();
+      for (const file of files) {
+        const value = file[valueKey];
+        if (!value || seen.has(value)) continue;
+        seen.set(value, {
+          value,
+          label: file[labelKey] || value,
+          sort: file[sortKey] || file[labelKey] || value
+        });
+      }
+      return Array.from(seen.values())
+        .sort((a, b) => String(a.sort).localeCompare(String(b.sort), 'ja', { numeric: true }) || a.label.localeCompare(b.label, 'ja', { numeric: true }))
+        .map(({ value, label }) => ({ value, label }));
+    }
+
+    function populateFilterOptions() {
+      const grade = gradeFilter.value;
+      const area = areaFilter.value;
+      const unit = unitFilter.value;
+      const item = itemFilter.value;
+
+      const gradeScoped = grade ? state.files.filter(file => file.grade === grade) : state.files;
+      populateSelect(areaFilter, 'すべての領域', uniqueOptions(gradeScoped, 'areaCode', 'areaLabel'), area);
+
+      const areaScoped = areaFilter.value ? gradeScoped.filter(file => file.areaCode === areaFilter.value) : gradeScoped;
+      populateSelect(unitFilter, 'すべての単元', uniqueOptions(areaScoped, 'unit', 'unit', 'unitCode'), unit);
+
+      const unitScoped = unitFilter.value ? areaScoped.filter(file => file.unit === unitFilter.value) : areaScoped;
+      populateSelect(itemFilter, 'すべての項目', uniqueOptions(unitScoped, 'item', 'item', 'itemCode'), item);
     }
 
     function applyFilters() {
       const query = searchInput.value.trim().toLowerCase();
-      const itemKey = itemFilter.value;
+      const grade = gradeFilter.value;
+      const area = areaFilter.value;
+      const unit = unitFilter.value;
+      const item = itemFilter.value;
       state.filtered = state.files.filter(file => {
-        if (itemKey && file.learningItemKey !== itemKey) return false;
+        if (grade && file.grade !== grade) return false;
+        if (area && file.areaCode !== area) return false;
+        if (unit && file.unit !== unit) return false;
+        if (item && file.item !== item) return false;
         if (!query) return true;
-        return [file.name, file.label, file.sourceStem, file.learningItemKey].join(' ').toLowerCase().includes(query);
+        return [file.name, file.label, file.sourceStem, file.learningItemKey, file.gradeLabel, file.areaLabel, file.unit, file.item].join(' ').toLowerCase().includes(query);
       });
       renderFileList();
     }
 
     function renderFileList() {
       summaryEl.textContent = `${state.filtered.length} / ${state.files.length} 件`;
+      const previousScrollTop = fileListEl.scrollTop;
       if (!state.filtered.length) {
         fileListEl.innerHTML = '<p class="empty" style="padding:12px;">該当する作問結果がありません。</p>';
         return;
@@ -551,17 +858,97 @@
       for (const file of state.filtered) {
         const button = document.createElement('button');
         button.type = 'button';
+        button.dataset.fileName = file.name;
         button.className = `file-button${file.name === state.selectedName ? ' active' : ''}`;
         button.innerHTML = `
           <span class="file-name">${escapeForHtml(file.label || file.name)}</span>
           <span class="file-meta">
-            <span>${escapeForHtml(file.learningItemKey || '')}</span>
+            <span>${escapeForHtml(file.gradeLabel || '')}</span>
+            <span>${escapeForHtml(file.areaLabel || '')}</span>
+            <span>${escapeForHtml(file.unit || file.learningItemKey || '')}</span>
+            <span>${escapeForHtml(file.item || '')}</span>
             <span>${formatDate(file.updatedAt)}</span>
             <span>${Math.max(1, Math.ceil((file.size || 0) / 1024))}KB</span>
           </span>
         `;
         button.addEventListener('click', () => loadQuestion(file.name));
         fileListEl.appendChild(button);
+      }
+      fileListEl.scrollTop = previousScrollTop;
+    }
+
+    function updateActiveFileButton() {
+      for (const button of fileListEl.querySelectorAll('.file-button')) {
+        button.classList.toggle('active', button.dataset.fileName === state.selectedName);
+      }
+    }
+
+    function setEditMode(editing) {
+      state.editing = editing;
+      editFileBtn.hidden = editing;
+      saveEditBtn.hidden = !editing;
+      cancelEditBtn.hidden = !editing;
+      copyNameBtn.disabled = editing || !state.selectedName;
+      renameFileBtn.disabled = editing || !state.selectedName;
+      deleteFileBtn.disabled = editing || !state.selectedName;
+    }
+
+    function showRawEditor() {
+      if (!state.selectedName) return;
+      setEditMode(true);
+      outputEl.innerHTML = '';
+      const textarea = document.createElement('textarea');
+      textarea.id = 'raw-editor';
+      textarea.spellcheck = false;
+      textarea.value = state.selectedContent || '';
+      outputEl.appendChild(textarea);
+      textarea.focus();
+      statusEl.className = '';
+      statusEl.textContent = `${state.selectedName} を編集中`;
+    }
+
+    async function cancelEdit() {
+      if (!state.editing) return;
+      setEditMode(false);
+      await renderContent(state.selectedContent || '');
+      statusEl.className = '';
+      statusEl.textContent = `${state.selectedName} を表示中`;
+    }
+
+    async function saveEditedQuestion() {
+      if (!state.editing || !state.selectedName) return;
+      const textarea = document.getElementById('raw-editor');
+      const content = textarea?.value ?? '';
+
+      saveEditBtn.disabled = true;
+      cancelEditBtn.disabled = true;
+      statusEl.className = '';
+      statusEl.textContent = '保存中...';
+
+      try {
+        const data = await fetchJson(`/question-files/${encodeURIComponent(state.selectedName)}`, {
+          method: 'PUT',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ content })
+        });
+        state.selectedContent = content;
+        const current = state.files.find(file => file.name === state.selectedName);
+        if (current) {
+          current.updatedAt = data.updatedAt || current.updatedAt;
+          current.size = data.size ?? current.size;
+        }
+        setEditMode(false);
+        saveEditBtn.disabled = false;
+        cancelEditBtn.disabled = false;
+        applyFilters();
+        await renderContent(content);
+        statusEl.textContent = `${state.selectedName} を保存しました`;
+      } catch (err) {
+        console.error(err);
+        statusEl.textContent = err.message;
+        statusEl.className = 'error';
+        saveEditBtn.disabled = false;
+        cancelEditBtn.disabled = false;
       }
     }
 
@@ -616,9 +1003,29 @@
     async function loadFiles() {
       statusEl.textContent = '一覧を読み込み中...';
       try {
-        const data = await fetchJson('/question-files?all=1');
-        state.files = Array.isArray(data.files) ? data.files : [];
-        populateItemFilter();
+        const [data, promptData] = await Promise.all([
+          fetchJson('/question-files?all=1'),
+          fetchJson('/prompt-files')
+        ]);
+        const promptMetaByStem = buildPromptMetaByStem(Array.isArray(promptData.files) ? promptData.files : []);
+        state.files = (Array.isArray(data.files) ? data.files : []).map(file => {
+          const grade = gradeFromQuestionFileName(file.name);
+          const promptStem = promptStemFromQuestionFileName(file.name);
+          const promptMeta = promptMetaByStem.get(promptStem) || {};
+          return {
+            ...file,
+            promptStem,
+            grade,
+            gradeLabel: grade ? `中${grade}` : '学年未設定',
+            areaCode: promptMeta.areaCode || '',
+            areaLabel: promptMeta.areaLabel || '',
+            unitCode: promptMeta.unitCode || '',
+            itemCode: promptMeta.itemCode || '',
+            unit: promptMeta.unit || '',
+            item: promptMeta.item || ''
+          };
+        });
+        populateFilterOptions();
         applyFilters();
         statusEl.textContent = `保存先: ${data.directory || ''}`;
         if (!state.selectedName && state.files[0]) {
@@ -633,9 +1040,16 @@
 
     async function loadQuestion(name) {
       if (!name) return;
+      if (state.editing) {
+        const discard = window.confirm('編集中の内容を破棄して別のファイルを読み込みますか？');
+        if (!discard) return;
+      }
       state.selectedName = name;
-      renderFileList();
+      state.selectedContent = '';
+      setEditMode(false);
+      updateActiveFileButton();
       titleEl.textContent = name;
+      editFileBtn.disabled = false;
       copyNameBtn.disabled = false;
       renameFileBtn.disabled = false;
       deleteFileBtn.disabled = false;
@@ -645,7 +1059,8 @@
 
       try {
         const data = await fetchJson(`/question-files/${encodeURIComponent(name)}`);
-        await renderContent(data.content || '');
+        state.selectedContent = data.content || '';
+        await renderContent(state.selectedContent);
         statusEl.textContent = `${name} を表示中`;
       } catch (err) {
         console.error(err);
@@ -690,10 +1105,13 @@
           current.label = renamedName.replace(/\.txt$/i, '');
           current.sourceStem = sourceStemFromQuestionFileName(renamedName);
           current.learningItemKey = learningItemKeyFromQuestionFileName(renamedName);
+          current.promptStem = promptStemFromQuestionFileName(renamedName);
+          current.grade = gradeFromQuestionFileName(renamedName);
+          current.gradeLabel = current.grade ? `中${current.grade}` : '学年未設定';
         }
         state.selectedName = renamedName;
         state.files.sort((a, b) => a.name.localeCompare(b.name, 'ja', { numeric: true }));
-        populateItemFilter();
+        populateFilterOptions();
         applyFilters();
         await loadQuestion(renamedName);
         statusEl.textContent = `${name} を ${renamedName} に変更しました`;
@@ -726,9 +1144,11 @@
         await fetchJson(`/question-files/${encodeURIComponent(name)}`, { method: 'DELETE' });
         state.files = state.files.filter(file => file.name !== name);
         state.selectedName = '';
+        state.selectedContent = '';
+        setEditMode(false);
         titleEl.textContent = '未選択';
         outputEl.innerHTML = '<p class="empty">削除しました。左の一覧から作問結果を選択してください。</p>';
-        populateItemFilter();
+        populateFilterOptions();
         applyFilters();
 
         const nextFile = state.filtered[Math.min(Math.max(currentFilteredIndex, 0), state.filtered.length - 1)];
@@ -736,6 +1156,7 @@
           await loadQuestion(nextFile.name);
           statusEl.textContent = `${name} を削除しました`;
         } else {
+          editFileBtn.disabled = true;
           copyNameBtn.disabled = true;
           renameFileBtn.disabled = true;
           deleteFileBtn.disabled = true;
@@ -751,9 +1172,76 @@
       }
     }
 
+    async function exportVisibleQuestionsToWord() {
+      if (wordExportRunning) return;
+
+      const targets = state.filtered.slice();
+      if (!targets.length) {
+        setHeaderExportStatus('表示中の問題がありません', 'error');
+        return;
+      }
+
+      if (!window.confirm(`左欄に表示されている ${targets.length} 件をWordファイルへ書き出し、ZIPでダウンロードします。よろしいですか？`)) {
+        return;
+      }
+
+      wordExportRunning = true;
+      exportVisibleWordBtn.disabled = true;
+      setHeaderExportStatus('Word出力エンジンを準備中...');
+
+      let savedCount = 0;
+
+      try {
+        const wordWin = await ensureWordExportFrame();
+        const zipEntries = [];
+        for (let i = 0; i < targets.length; i++) {
+          const file = targets[i];
+          setHeaderExportStatus(`${i + 1}/${targets.length} Word作成中: ${file.name}`);
+
+          const data = await fetchJson(`/question-files/${encodeURIComponent(file.name)}`);
+          const blob = await wordWin.questionWordExport.buildDocxBlob({
+            number: i + 1,
+            label: [file.areaLabel, file.unit, file.item].filter(Boolean).join('｜') || file.label || file.name,
+            fileName: file.name,
+            content: data.content || ''
+          });
+          const outName = file.name.replace(/\.txt$/i, '.docx');
+          zipEntries.push({ name: outName, blob });
+          savedCount++;
+        }
+
+        setHeaderExportStatus('ZIPを作成中...');
+        const zipBlob = await createZipBlob(zipEntries);
+        const stamp = new Date().toISOString().replace(/[:T]/g, '-').slice(0, 19);
+        downloadBlob(`question-browser-word-${targets.length}files-${stamp}.zip`, 'application/zip', zipBlob);
+        setHeaderExportStatus(`${savedCount}/${targets.length} 件のWordをZIPで出力しました`, 'ok');
+      } catch (err) {
+        console.error(err);
+        if (err?.name === 'AbortError') {
+          setHeaderExportStatus('Word出力をキャンセルしました');
+        } else {
+          setHeaderExportStatus(`${savedCount}/${targets.length} 件まで出力: ${err.message}`, 'error');
+        }
+      } finally {
+        wordExportRunning = false;
+        exportVisibleWordBtn.disabled = false;
+      }
+    }
+
     document.getElementById('refresh-btn').addEventListener('click', loadFiles);
     searchInput.addEventListener('input', applyFilters);
+    function handleFilterScopeChange() {
+      populateFilterOptions();
+      applyFilters();
+    }
+    gradeFilter.addEventListener('change', handleFilterScopeChange);
+    areaFilter.addEventListener('change', handleFilterScopeChange);
+    unitFilter.addEventListener('change', handleFilterScopeChange);
     itemFilter.addEventListener('change', applyFilters);
+    exportVisibleWordBtn.addEventListener('click', exportVisibleQuestionsToWord);
+    editFileBtn.addEventListener('click', showRawEditor);
+    saveEditBtn.addEventListener('click', saveEditedQuestion);
+    cancelEditBtn.addEventListener('click', cancelEdit);
     copyNameBtn.addEventListener('click', async () => {
       if (!state.selectedName) return;
       await navigator.clipboard.writeText(state.selectedName);

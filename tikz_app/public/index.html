@@ -105,6 +105,13 @@
       color: #555;
       font-size: 14px;
     }
+    .question-file-count {
+      color: #555;
+      font-size: 13px;
+      min-width: 3.5em;
+      text-align: right;
+      white-space: nowrap;
+    }
     .generated-question {
       border-bottom: 1px solid #ddd;
       margin-bottom: 18px;
@@ -283,6 +290,12 @@ $$
   <div class="actions">
     <span class="file-controls">
       <label for="prompt-file-select">Math_Prompt</label>
+      <select id="prompt-grade-filter" title="学年で絞り込み" aria-label="学年で絞り込み">
+        <option value="">全学年</option>
+        <option value="1">中1</option>
+        <option value="2">中2</option>
+        <option value="3">中3</option>
+      </select>
       <input id="prompt-file-filter" type="search" placeholder="項目名で検索" />
       <select id="prompt-file-select">
         <option value="">ファイル一覧を読み込み中...</option>
@@ -308,6 +321,7 @@ $$
       <select id="question-file-select">
         <option value="">未読込</option>
       </select>
+      <span id="question-file-count" class="question-file-count">0件</span>
       <button id="refresh-questions-btn" type="button">更新</button>
       <button id="load-question-btn" type="button">確認</button>
     </span>
@@ -1034,6 +1048,7 @@ for (const seg of segments) {
     let questionFileItems = [];
     let loadedPromptFileName = '';
     let promptHasUnsavedChanges = false;
+    const activeGenerationJobs = new Map();
     const apiKeyStorageKey = 'tikzAppOpenAIApiKey';
 
     function setPromptSaveState({ fileName = loadedPromptFileName, dirty = promptHasUnsavedChanges } = {}) {
@@ -1071,17 +1086,25 @@ for (const seg of segments) {
       updateApiKeyButtonState();
     }
 
+    function promptItemGrade(item) {
+      const codeGrade = String(item?.code || '').match(/^([123])-/)?.[1];
+      const fileGrade = String(item?.name || '').match(/m-jh([123])-/)?.[1];
+      return codeGrade || fileGrade || '';
+    }
+
     function normalizePromptFileItem(item) {
       if (typeof item === 'string') {
-        return { name: item, label: item, code: '', title: '', level: '' };
+        const normalized = { name: item, label: item, code: '', title: '', level: '' };
+        return { ...normalized, grade: promptItemGrade(normalized) };
       }
-      return {
+      const normalized = {
         name: item.name || '',
         label: item.label || item.name || '',
         code: item.code || '',
         title: item.title || '',
         level: item.level || ''
       };
+      return { ...normalized, grade: item.grade || promptItemGrade(normalized) };
     }
 
     function renderPromptFileOptions(items, selectedName = '') {
@@ -1109,22 +1132,25 @@ for (const seg of segments) {
       }
     }
 
-    function filterPromptFileOptions() {
+    function filteredPromptFileItems() {
       const filterEl = document.getElementById('prompt-file-filter');
+      const gradeEl = document.getElementById('prompt-grade-filter');
       const q = filterEl.value.trim().toLowerCase();
-      const selectedName = document.getElementById('prompt-file-select').value;
+      const grade = gradeEl.value;
 
-      if (!q) {
-        renderPromptFileOptions(promptFileItems, selectedName);
-        return;
-      }
-
-      const filtered = promptFileItems.filter(item => {
+      return promptFileItems.filter(item => {
+        if (grade && item.grade !== grade) return false;
+        if (!q) return true;
         const haystack = [item.label, item.name, item.code, item.title, item.level]
           .join(' ')
           .toLowerCase();
         return haystack.includes(q);
       });
+    }
+
+    function filterPromptFileOptions() {
+      const selectedName = document.getElementById('prompt-file-select').value;
+      const filtered = filteredPromptFileItems();
       renderPromptFileOptions(filtered, selectedName);
     }
 
@@ -1142,7 +1168,7 @@ for (const seg of segments) {
         if (!response.ok) throw new Error('ファイル一覧の取得に失敗しました');
         const data = await response.json();
         promptFileItems = (Array.isArray(data.files) ? data.files : []).map(normalizePromptFileItem);
-        renderPromptFileOptions(promptFileItems, selectedName);
+        renderPromptFileOptions(filteredPromptFileItems(), selectedName);
       } catch (err) {
         console.error(err);
         selectEl.innerHTML = '<option value="">一覧取得エラー</option>';
@@ -1228,20 +1254,37 @@ for (const seg of segments) {
       return `${m}:${s}`;
     }
 
-    function setGenerationProgress(job, startedAtMs) {
+    function renderGenerationProgress() {
       const box = document.getElementById('generation-progress');
       const bar = document.getElementById('generation-progress-bar');
       const text = document.getElementById('generation-progress-text');
-      const total = Math.max(1, Number(job.total || 1));
-      const completed = Math.max(0, Number(job.completed || 0));
-      const current = Math.max(completed, Number(job.current || 0));
-      const elapsed = startedAtMs ? formatElapsed(Date.now() - startedAtMs) : '00:00';
-      const updated = job.updatedAt ? new Date(job.updatedAt).toLocaleTimeString('ja-JP') : '-';
+      const entries = Array.from(activeGenerationJobs.values());
+
+      if (!entries.length) {
+        clearGenerationProgress();
+        return;
+      }
+
+      const total = entries.reduce((sum, entry) => sum + Math.max(1, Number(entry.job.total || 1)), 0);
+      const completed = entries.reduce((sum, entry) => sum + Math.max(0, Number(entry.job.completed || 0)), 0);
+      const running = entries.filter(entry => ['queued', 'running'].includes(entry.job.status)).length;
+      const failed = entries.filter(entry => entry.job.status === 'failed').length;
+      const latest = entries[entries.length - 1];
+      const elapsed = latest?.startedAtMs ? formatElapsed(Date.now() - latest.startedAtMs) : '00:00';
+      const updated = latest?.job.updatedAt ? new Date(latest.job.updatedAt).toLocaleTimeString('ja-JP') : '-';
+      const latestMessage = latest?.job.message || '作問中';
 
       box.classList.add('active');
       bar.max = total;
       bar.value = completed;
-      text.textContent = `${job.message || '作問中'} / 進捗 ${completed}/${total}問 / 現在 ${Math.min(current || 1, total)}問目 / 経過 ${elapsed} / 最終更新 ${updated}`;
+      text.textContent = `${latestMessage} / 実行中 ${running}件 / 進捗 ${completed}/${total}問${failed ? ` / 失敗 ${failed}件` : ''} / 最新ジョブ経過 ${elapsed} / 最終更新 ${updated}`;
+    }
+
+    function setGenerationProgress(job, startedAtMs) {
+      if (job?.id) {
+        activeGenerationJobs.set(job.id, { job, startedAtMs });
+      }
+      renderGenerationProgress();
     }
 
     function clearGenerationProgress() {
@@ -1272,11 +1315,12 @@ for (const seg of segments) {
       const inputEl = document.getElementById('tikz-input');
       const statusEl = document.getElementById('status');
       const countEl = document.getElementById('question-count-select');
-      const generateBtn = document.getElementById('generate-btn');
       const apiKey = getApiKey();
       const count = Number(countEl.value || 1);
+      const sourceFile = loadedPromptFileName;
+      let submittedJob = null;
 
-      if (!loadedPromptFileName) {
+      if (!sourceFile) {
         statusEl.textContent = '先に Math_Prompt のファイルを読み込んでください';
         return;
       }
@@ -1287,10 +1331,8 @@ for (const seg of segments) {
         return;
       }
 
-      generateBtn.disabled = true;
       const startedAtMs = Date.now();
-      clearGenerationProgress();
-      statusEl.textContent = `${count}問の作問ジョブを開始しています...`;
+      statusEl.textContent = `${count}問の作問ジョブを追加しています...`;
 
       try {
         const response = await fetch('/generate-questions', {
@@ -1299,38 +1341,42 @@ for (const seg of segments) {
           body: JSON.stringify({
             apiKey: getApiKey(),
             prompt: inputEl.value,
-            sourceFile: loadedPromptFileName,
+            sourceFile,
             count
           })
         });
         const data = await response.json().catch(() => ({}));
+        submittedJob = data;
         if (!response.ok) throw new Error(data.error || '作問に失敗しました');
 
         setGenerationProgress(data, startedAtMs);
-        statusEl.textContent = '作問中です。進捗を確認しています...';
+        statusEl.textContent = '作問ジョブを追加しました。続けて作問できます。';
 
         const completedJob = await waitForGenerationJob(data.id, startedAtMs);
         await showGeneratedQuestions(completedJob.files || [], completedJob.directory || '');
-        await loadQuestionFileList((completedJob.files || []).at(-1)?.name || '');
+        await loadQuestionFileList((completedJob.files || []).at(-1)?.name || '', sourceFile);
         statusEl.textContent = `${(completedJob.files || []).length}問を作成して保存しました`;
         setGenerationProgress(completedJob, startedAtMs);
       } catch (err) {
         console.error(err);
         statusEl.textContent = err.message;
+        if (submittedJob?.id) {
+          setGenerationProgress({ id: submittedJob.id, status: 'failed', error: err.message, message: err.message, total: count, completed: 0, updatedAt: new Date().toISOString() }, startedAtMs);
+        }
         document.getElementById('output').innerHTML = `<p style="color:red">${escapeForHtml(err.message)}</p>`;
-      } finally {
-        generateBtn.disabled = false;
       }
     }
 
     function renderQuestionFileOptions(items, selectedName = '') {
       const selectEl = document.getElementById('question-file-select');
+      const countEl = document.getElementById('question-file-count');
       selectEl.innerHTML = '';
+      if (countEl) countEl.textContent = `${items.length}件`;
 
       if (!items.length) {
         const option = document.createElement('option');
         option.value = '';
-        option.textContent = currentPromptFileName() ? 'この学習項目の作問結果なし' : '学習項目を選択してください';
+        option.textContent = currentPromptFileName() ? 'このプロンプトの作問結果なし' : '学習項目を選択してください';
         selectEl.appendChild(option);
         return;
       }
@@ -1405,6 +1451,7 @@ for (const seg of segments) {
       if (loadedPromptFileName) setPromptSaveState({ dirty: true });
     });
     document.getElementById('prompt-file-filter').addEventListener('input', filterPromptFileOptions);
+    document.getElementById('prompt-grade-filter').addEventListener('change', filterPromptFileOptions);
     document.getElementById('prompt-file-filter').addEventListener('keydown', event => {
       if (event.key === 'Enter') loadSelectedPromptFile();
     });

@@ -167,6 +167,26 @@ async function nextQuestionIndex(promptFileName) {
   return max + 1;
 }
 
+async function writeUniqueQuestionFile(promptFileName, content) {
+  let index = await nextQuestionIndex(promptFileName);
+
+  while (true) {
+    const outputName = `${questionFileBase(promptFileName)}${questionFileSeparator}${String(index).padStart(2, '0')}.txt`;
+    const outputPath = path.join(mathQuestionDir, outputName);
+
+    try {
+      await fs.writeFile(outputPath, content, { encoding: 'utf8', flag: 'wx' });
+      return outputName;
+    } catch (err) {
+      if (err && err.code === 'EEXIST') {
+        index += 1;
+        continue;
+      }
+      throw err;
+    }
+  }
+}
+
 function extractResponseText(responseData) {
   if (typeof responseData.output_text === 'string') return responseData.output_text;
 
@@ -252,8 +272,6 @@ async function runGenerationJob(job) {
       message: '保存先を確認しています'
     });
 
-    let index = await nextQuestionIndex(job.sourceFile);
-
     for (let i = 0; i < job.total; i++) {
       touchGenerationJob(job, {
         current: i + 1,
@@ -266,12 +284,8 @@ async function runGenerationJob(job) {
         questionNumber: i + 1,
         totalCount: job.total
       });
-      const outputName = `${questionFileBase(job.sourceFile)}${questionFileSeparator}${String(index).padStart(2, '0')}.txt`;
-      const outputPath = path.join(mathQuestionDir, outputName);
-
-      await fs.writeFile(outputPath, content, 'utf8');
+      const outputName = await writeUniqueQuestionFile(job.sourceFile, content);
       job.files.push({ name: outputName, content });
-      index += 1;
 
       touchGenerationJob(job, {
         completed: i + 1,
@@ -475,15 +489,15 @@ app.get('/question-files', async (req, res) => {
   try {
     const sourceFile = validatePromptFileName(req.query.sourceFile);
     const showAll = req.query.all === '1' || req.query.all === 'true';
-    const sourceKey = sourceFile ? learningItemKey(sourceFile) : '';
+    const sourceStem = sourceFile ? questionFileBase(sourceFile) : '';
     await fs.mkdir(mathQuestionDir, { recursive: true });
     const entries = await fs.readdir(mathQuestionDir, { withFileTypes: true });
     const matchingEntries = entries
       .filter(entry => entry.isFile() && entry.name.toLowerCase().endsWith('.txt'))
       .filter(entry => {
         if (showAll) return true;
-        if (!sourceKey) return false;
-        return learningItemKey(entry.name) === sourceKey;
+        if (!sourceStem) return false;
+        return questionSourceStem(entry.name) === sourceStem;
       });
 
     const files = await Promise.all(matchingEntries.map(async entry => {
@@ -501,7 +515,7 @@ app.get('/question-files', async (req, res) => {
 
     files.sort((a, b) => a.name.localeCompare(b.name, 'ja', { numeric: true }));
 
-    res.json({ directory: mathQuestionDir, sourceFile, learningItemKey: sourceKey, files });
+    res.json({ directory: mathQuestionDir, sourceFile, sourceStem, files });
   } catch (err) {
     console.error('Failed to list Math_Question files:', err);
     res.status(500).json({ error: 'Failed to list question files.' });
@@ -521,6 +535,33 @@ app.get('/question-files/:name', async (req, res) => {
   } catch (err) {
     console.error('Failed to read Math_Question file:', err);
     res.status(404).json({ error: 'Question file not found.' });
+  }
+});
+
+app.put('/question-files/:name', async (req, res) => {
+  const fileName = validatePromptFileName(req.params.name);
+  const content = req.body?.content;
+
+  if (!fileName) {
+    return res.status(400).json({ error: 'Invalid file name.' });
+  }
+
+  if (typeof content !== 'string') {
+    return res.status(400).json({ error: 'Invalid content.' });
+  }
+
+  try {
+    await fs.writeFile(path.join(mathQuestionDir, fileName), content, 'utf8');
+    const stat = await fs.stat(path.join(mathQuestionDir, fileName));
+    res.json({
+      saved: true,
+      name: fileName,
+      updatedAt: stat.mtime.toISOString(),
+      size: stat.size
+    });
+  } catch (err) {
+    console.error('Failed to save Math_Question file:', err);
+    res.status(500).json({ error: 'Failed to save question file.' });
   }
 });
 
