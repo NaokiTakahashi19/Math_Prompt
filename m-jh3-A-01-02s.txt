@@ -52,6 +52,7 @@
    - 難易度は「標準レベル（定期テスト中心レベル）」を基準
    - 除法を乗法になおす場面では、わる数の逆数をかけることを説明する
    - 分数でわるときは、分母と分子を入れかえた数をかけると説明する
+   - ステップ1で「割り算を逆数のかけ算になおす式」を示した場合、ステップ2では元の割り算の式も逆数をかける式も繰り返さず、最初の行を「各項に逆数をかけた式」から始める
    - つまずきやすい箇所には補足解説を加える
    
 ## 生成例
@@ -77,19 +78,24 @@ $-6xy$ の逆数は $-\frac{1}{6xy}$ である。
 =(12x^3y-18x^2y^2+6xy)\times\left(-\frac{1}{6xy}\right)
 \]
 
-**ステップ2：** 等号でつないで計算する
+**ステップ2：** 分配法則を使って展開する
 
 \[
 \begin{aligned}
-(12x^3y-18x^2y^2+6xy)\div(-6xy)
-&=(12x^3y-18x^2y^2+6xy)\times\left(-\frac{1}{6xy}\right)\\
 &=12x^3y\times\left(-\frac{1}{6xy}\right)-18x^2y^2\times\left(-\frac{1}{6xy}\right)+6xy\times\left(-\frac{1}{6xy}\right)\\
+\end{aligned}
+\]
+
+**ステップ3：** 計算する
+
+\[
+\begin{aligned}
 &=\frac{12x^3y}{-6xy}+\frac{-18x^2y^2}{-6xy}+\frac{6xy}{-6xy}\\
 &=-2x^2+3xy-1
 \end{aligned}
 \]
 
-**ステップ3：** 答えを書く
+**ステップ4：** 答えを書く
 
 \[
 -2x^2+3xy-1
@@ -118,13 +124,18 @@ $5ab$ の逆数は $\frac{1}{5ab}$ である。
 =(15a^3b^2-10a^2b+5ab)\times\frac{1}{5ab}
 \]
 
-**ステップ2：** 等号でつないで計算する
+**ステップ2：** 分配法則を使って展開する
 
 \[
 \begin{aligned}
-(15a^3b^2-10a^2b+5ab)\div5ab
-&=(15a^3b^2-10a^2b+5ab)\times\frac{1}{5ab}\\
-&=15a^3b^2\times\frac{1}{5ab}-10a^2b\times\frac{1}{5ab}+5ab\times\frac{1}{5ab}\\
+&=15a^3b^2\times\frac{1}{5ab}-10a^2b\times\frac{1}{5ab}+5ab\times\frac{1}{5ab}
+\end{aligned}
+\]
+
+**ステップ2：** 計算する
+
+\[
+\begin{aligned}
 &=\frac{15a^3b^2}{5ab}-\frac{10a^2b}{5ab}+\frac{5ab}{5ab}\\
 &=3a^2b-2a+1
 \end{aligned}

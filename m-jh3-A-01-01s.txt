@@ -74,12 +74,11 @@
 \end{aligned}
 \]
 
-**ステップ2：** 等号でつないで計算する
+**ステップ2：** 計算する
 
 \[
 \begin{aligned}
-\hlpink{-3x}(\hlblue{2x^2-5x+4})
-&=\hlpink{-3x}\times\hlblue{2x^2}+\hlpink{-3x}\times\hlblue{(-5x)}+\hlpink{-3x}\times\hlblue{4}\\
+\
 &=-6x^3+15x^2-12x
 \end{aligned}
 \]
@@ -112,12 +111,10 @@
 \end{aligned}
 \]
 
-**ステップ2：** 等号でつないで計算する
+**ステップ2：** 計算する
 
 \[
 \begin{aligned}
-\hlpink{2ab}(\hlblue{3a^2-4ab+5b^2})
-&=\hlpink{2ab}\times\hlblue{3a^2}+\hlpink{2ab}\times\hlblue{(-4ab)}+\hlpink{2ab}\times\hlblue{5b^2}\\
 &=6a^3b-8a^2b^2+10ab^3
 \end{aligned}
 \]
