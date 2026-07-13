@@ -830,7 +830,7 @@
       populateSelect(areaFilter, 'すべての領域', uniqueOptions(gradeScoped, 'areaCode', 'areaLabel'), area);
 
       const areaScoped = areaFilter.value ? gradeScoped.filter(file => file.areaCode === areaFilter.value) : gradeScoped;
-      populateSelect(unitFilter, 'すべての単元', uniqueOptions(areaScoped, 'unit', 'unit', 'code'), unit);
+      populateSelect(unitFilter, 'すべての単元', uniqueOptions(areaScoped, 'unit', 'unit', 'unitCode'), unit);
 
       const unitScoped = unitFilter.value ? areaScoped.filter(file => file.unit === unitFilter.value) : areaScoped;
       populateSelect(itemFilter, 'すべての項目', uniqueOptions(unitScoped, 'item', 'item', 'itemCode'), item);

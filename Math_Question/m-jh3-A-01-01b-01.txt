@@ -1,0 +1,36 @@
+■問題  
+次の計算をしなさい。
+\[
+3p(5p-2q)
+\]
+
+【解答】  
+\[
+15p^2-6pq
+\]
+
+【解説】  
+**ステップ1：考え方を確認する**  
+単項式と多項式の積は、分配法則を使って、かっこの中の各項に単項式をかける。
+
+**ステップ2：分配法則を使って展開する**  
+\[
+\begin{aligned}
+\hlpink{3p}(\hlblue{5p-2q})
+&= \hlpink{3p}\times\hlblue{5p}+\hlpink{3p}\times\hlblue{(-2q)}
+\end{aligned}
+\]
+
+**ステップ3：計算して答えを確認する**  
+\[
+\begin{aligned}
+\hlpink{3p}\times\hlblue{5p}+\hlpink{3p}\times\hlblue{(-2q)}
+&= 15p^2+(-6pq)\\
+&= 15p^2-6pq
+\end{aligned}
+\]
+よって、答えは
+\[
+15p^2-6pq
+\]
+である。

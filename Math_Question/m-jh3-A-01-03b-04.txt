@@ -1,0 +1,57 @@
+■問題  
+
+次の式を展開しなさい。
+\[
+(p + 6)(q - 5)
+\]
+
+【解答】  
+\[
+pq - 5p + 6q - 30
+\]
+
+【解説】  
+**ステップ1：多項式の1つを文字に置き換える**  
+\[
+\begin{aligned}
+\hlpink{(p + 6)}\hlblue{(q - 5)}
+&= \hlpink{(p + 6)}\hlblue{M}
+\end{aligned}
+\]
+ここでは、\(\hlblue{(q - 5)}\) を \(M\) とおく。
+
+**ステップ2：分配法則を使って展開する**  
+\[
+\begin{aligned}
+\hlpink{(p + 6)}\hlblue{M}
+&= \hlpink{p}\times \hlblue{M} + \hlpink{6}\times \hlblue{M}
+\end{aligned}
+\]
+
+**ステップ3：\(M\) を \((q - 5)\) に戻す**  
+\[
+\begin{aligned}
+\hlpink{p}\times \hlblue{M} + \hlpink{6}\times \hlblue{M}
+&= \hlpink{p}\times \hlblue{(q - 5)} + \hlpink{6}\times \hlblue{(q - 5)}
+\end{aligned}
+\]
+
+**ステップ4：もう一度分配法則を使って展開する**  
+\[
+\begin{aligned}
+p\times(q - 5) + 6\times(q - 5)
+&= p\times q + p\times(-5) + 6\times q + 6\times(-5)\\
+&= pq - 5p + 6q - 30
+\end{aligned}
+\]
+
+**ステップ5：答えを確認する**  
+\[
+(p + 6)(q - 5)
+\]
+では、\(p\times(-5)=-5p\)、\(6\times q=6q\)、\(6\times(-5)=-30\) となる。  
+したがって、展開した式は
+\[
+pq - 5p + 6q - 30
+\]
+である。

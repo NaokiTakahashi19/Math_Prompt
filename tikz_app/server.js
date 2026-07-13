@@ -13,6 +13,7 @@ const mathPromptDir = process.env.MATH_PROMPT_DIR
   ? path.resolve(process.env.MATH_PROMPT_DIR)
   : path.resolve(__dirname, '..');
 const mathQuestionDir = path.join(mathPromptDir, 'Math_Question');
+const appAddedGenerationPromptPath = path.join(mathPromptDir, 'app_added_generation_prompt_instructions.txt');
 const questionFileSeparator = '-';
 const defaultOpenAIModel = 'gpt-5.5';
 const generationJobs = new Map();
@@ -199,7 +200,16 @@ function extractResponseText(responseData) {
   return chunks.join('\n').trim();
 }
 
+async function readAppAddedGenerationInstructions() {
+  const instructions = (await fs.readFile(appAddedGenerationPromptPath, 'utf8')).trim();
+  if (!instructions) {
+    throw new Error(`${appAddedGenerationPromptPath} is empty.`);
+  }
+  return instructions;
+}
+
 async function createQuestionWithOpenAI({ apiKey, prompt, questionNumber, totalCount }) {
+  const appInstructions = await readAppAddedGenerationInstructions();
   const response = await fetch('https://api.openai.com/v1/responses', {
     method: 'POST',
     headers: {
@@ -208,22 +218,7 @@ async function createQuestionWithOpenAI({ apiKey, prompt, questionNumber, totalC
     },
     body: JSON.stringify({
       model: defaultOpenAIModel,
-      instructions: [
-        'あなたは日本の中学校数学教材を作る編集者です。',
-        '入力された作問用プロンプトに厳密に従って、問題、解答、解説を1問分だけ作成してください。',
-        'アダプティブドリル用なので、1つの出力ファイルには独立した単問を1問だけ書いてください。問題文の中に「(1)(2)(3)」「①②③」「ア・イ・ウ」などの小問を入れないでください。',
-        '作問用プロンプトの生成例が複数小問形式でも、そのまま踏襲せず、その中から1つの問いに絞るか、1つの問いとして完結する形に直してください。',
-        '問題見出しは「■問題」とし、「■問題1」「■問題2」のような問題番号は付けないでください。',
-        '出力には作問用プロンプトの本文やメタ説明を繰り返さず、教材として保存できる完成稿だけを書いてください。',
-        '計算問題では、問題の式から始めて、途中式を省略せず、等号で式を連続的に変形していく形を優先してください。',
-        '数式を段階的に変形するときは、同じ式を「前の行の右辺」と「次の行の左辺」に重複して書かないでください。悪い例は「A=B」「B=C」のように続ける形です。よい例は、最初の行だけ「A=B」と書き、2行目以降は「=C」「=D」のように左端を等号から始めて、変形後の式だけを続ける形です。ステップを分ける場合も、前ステップの右辺を次ステップの左辺として再掲せず、次ステップでは「= 変形後の式」から始めてください。',
-        '表を使う場合は、空白だけで並べず、Markdown表またはLaTeXのarray/tabularを使って、行と列が崩れない形にしてください。',
-        'TikZ図を出力する場合、TikZ内部のラベルに日本語を使わないでください。点名、長さ、角度、式などは A, B, P, x, 6\\,\\mathrm{cm}, 90^\\circ のような英数字・記号・数式で表し、日本語の説明はTikZ図の外の本文に書いてください。',
-        '作問用プロンプト内の生成例にステップ構成、ハイライト、表、図、検算、ポイント整理がある場合は、その表現方針を新しい問題にも反映してください。',
-        '作問用プロンプト内の生成例にステップ見出しがある場合、原則として見出し名、順序、粒度をそのまま踏襲してください。汎用的な「考え方を確認する」「式を使って解く」などへ勝手に置き換えず、新しい問題内容に合わない場合だけ必要最小限に調整してください。',
-        '解説の文体は常体に統一してください。',
-        '文末は「〜する」「〜である」「〜となる」「〜できる」「〜を求める」のように書き、「〜します」「〜です」「〜になります」などの敬体は使わないでください。'
-      ].join('\n'),
+      instructions: appInstructions,
       input: [
         prompt
       ].join('\n')
