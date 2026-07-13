@@ -27,6 +27,27 @@
       font-size: 22px;
       line-height: 1.2;
     }
+    .title-row {
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 4px;
+    }
+    .title-row h1 {
+      margin-bottom: 0;
+    }
+    .app-updated {
+      border: 1px solid #d8dde5;
+      border-radius: 999px;
+      background: #fff;
+      color: #5c6673;
+      font-size: 12px;
+      font-weight: 400;
+      line-height: 1.2;
+      padding: 2px 8px;
+      white-space: nowrap;
+    }
     header p {
       margin: 0;
     }
@@ -233,12 +254,16 @@
   <!-- TikZJax: /render 失敗時のフォールバック -->
   <link rel="stylesheet" href="https://tikzjax.com/v1/fonts.css">
   <script src="https://tikzjax.com/v1/tikzjax.js" defer></script>
+  <script src="/app-meta.js" defer></script>
 </head>
 
 <body>
   <header>
     <div>
-      <h1>中学数学作問ツール</h1>
+      <div class="title-row">
+        <h1>中学数学作問ツール</h1>
+        <span class="app-updated" data-app-updated>更新確認中</span>
+      </div>
       <p>左側に入力し「レンダリング」を押すと右側に表示します（Markdown / TeX / TikZ / graf）。</p>
     </div>
     <div class="header-actions">

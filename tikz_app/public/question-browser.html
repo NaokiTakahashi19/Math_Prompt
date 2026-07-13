@@ -51,6 +51,30 @@
       line-height: 1.25;
     }
 
+    .title-row {
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 3px;
+    }
+
+    .title-row h1 {
+      margin-bottom: 0;
+    }
+
+    .app-updated {
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: #fff;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 400;
+      line-height: 1.2;
+      padding: 2px 8px;
+      white-space: nowrap;
+    }
+
     header p {
       margin: 0;
       color: var(--muted);
@@ -298,11 +322,15 @@
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" async></script>
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/dompurify/dist/purify.min.js" defer></script>
+  <script src="/app-meta.js" defer></script>
 </head>
 <body>
   <header>
     <div>
-      <h1>作問結果ブラウザ</h1>
+      <div class="title-row">
+        <h1>作問結果ブラウザ</h1>
+        <span class="app-updated" data-app-updated>更新確認中</span>
+      </div>
       <p>Math_Question フォルダ内の生成結果をすばやく確認できます。</p>
     </div>
     <nav>
