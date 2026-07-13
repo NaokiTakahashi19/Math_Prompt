@@ -1,0 +1,64 @@
+■問題  
+
+次の式を展開しなさい。
+\[
+(2x - 5)(y + 4)
+\]
+
+【解答】  
+
+\[
+2xy + 8x - 5y - 20
+\]
+
+【解説】  
+
+**ステップ1：考え方を確認する**
+
+$(y + 4)$ を $M$ とおくと，次のように考えられる。
+\[
+\begin{aligned}
+\hlpink{(2x - 5)}\hlblue{(y + 4)}
+&= \hlpink{(2x - 5)}\hlblue{M}
+\end{aligned}
+\]
+
+**ステップ2：分配法則を使って展開する**
+
+$\hlpink{(2x - 5)}$ のそれぞれの項に，$\hlblue{M}$ をかける。
+\[
+\begin{aligned}
+\hlpink{(2x - 5)}\hlblue{M}
+&= \hlpink{2x}\hlblue{M} + \hlpink{(-5)}\hlblue{M}
+\end{aligned}
+\]
+
+**ステップ3：文字をもとの式に戻す**
+
+$M$ を $(y + 4)$ に戻す。
+\[
+\begin{aligned}
+\hlpink{2x}\hlblue{M} + \hlpink{(-5)}\hlblue{M}
+&= \hlpink{2x}\hlblue{(y + 4)} + \hlpink{(-5)}\hlblue{(y + 4)}
+\end{aligned}
+\]
+
+**ステップ4：さらに分配法則を使って計算する**
+
+それぞれのかっこの中に分配して計算する。
+\[
+\begin{aligned}
+\hlpink{2x}\hlblue{(y + 4)} + \hlpink{(-5)}\hlblue{(y + 4)}
+&= 2x \times y + 2x \times 4 + (-5) \times y + (-5) \times 4 \\
+&= 2xy + 8x - 5y - 20
+\end{aligned}
+\]
+
+**ステップ5：答えを確認する**
+
+$(-5) \times 4 = -20$ となるため，最後の項の符号は負になる。  
+したがって，展開した式は
+\[
+2xy + 8x - 5y - 20
+\]
+である。

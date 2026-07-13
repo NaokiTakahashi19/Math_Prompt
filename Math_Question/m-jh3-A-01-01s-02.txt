@@ -1,61 +1,44 @@
 ■問題  
 次の計算をしなさい。
 \[
--\frac{3}{4}mn(8m^2-12mn+4n^2)
+-4mn(2m^2-3mn-5n^2)
 \]
 
 【解答】  
 \[
--6m^3n+9m^2n^2-3mn^3
+-8m^3n+12m^2n^2+20mn^3
 \]
 
 【解説】  
 **ステップ1：考え方を確認する**
 
-単項式を多項式にかけるときは、分配法則を使って、かっこの中のすべての項に単項式をかける。
+単項式と多項式のかけ算では、分配法則を使い、単項式を多項式のすべての項にかける。特に、負の数どうしの積は正になることに注意する。
 
 \[
--\frac{3}{4}mn(8m^2-12mn+4n^2)
+\begin{aligned}
+\hlpink{-4mn}(\hlblue{2m^2-3mn-5n^2})
+&=\hlpink{-4mn}\times\hlblue{2m^2}
++\hlpink{-4mn}\times\hlblue{(-3mn)}
++\hlpink{-4mn}\times\hlblue{(-5n^2)}
+\end{aligned}
 \]
-
-では、$-\frac{3}{4}mn$ を $8m^2$、$-12mn$、$4n^2$ のそれぞれにかける。
 
 **ステップ2：式を使って解く**
 
 \[
 \begin{aligned}
--\frac{3}{4}mn(8m^2-12mn+4n^2)
-&=\left(-\frac{3}{4}mn\right)\times 8m^2
-+\left(-\frac{3}{4}mn\right)\times (-12mn)
-+\left(-\frac{3}{4}mn\right)\times 4n^2\\
-&=-6m^3n+9m^2n^2-3mn^3
+-4mn(2m^2-3mn-5n^2)
+&=(-4mn)\times 2m^2+(-4mn)\times(-3mn)+(-4mn)\times(-5n^2)\\
+&=-8m^3n+12m^2n^2+20mn^3
 \end{aligned}
-\]
-
-係数と文字は分けて考えるとよい。
-
-\[
-\left(-\frac{3}{4}\right)\times 8=-6,\qquad
-\left(-\frac{3}{4}\right)\times (-12)=9,\qquad
-\left(-\frac{3}{4}\right)\times 4=-3
-\]
-
-また、文字の指数は同じ文字どうしで足す。
-
-\[
-mn\times m^2=m^3n,\qquad
-mn\times mn=m^2n^2,\qquad
-mn\times n^2=mn^3
 \]
 
 **ステップ3：答えを確認する**
 
-計算結果は
+$-4mn$ と $2m^2$ の積は負、$-4mn$ と $-3mn$ の積は正、$-4mn$ と $-5n^2$ の積も正である。符号を確認すると、
 
 \[
--6m^3n+9m^2n^2-3mn^3
+-8m^3n+12m^2n^2+20mn^3
 \]
 
 となる。
-
-間違えやすいポイントは、$-12mn$ に負の数をかけるところである。負の数どうしの積は正になるため、真ん中の項は $+9m^2n^2$ となる。

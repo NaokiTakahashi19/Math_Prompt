@@ -1,0 +1,50 @@
+■問題  
+
+次の式を展開しなさい。
+\[
+(m + 6)(n - 5)
+\]
+
+【解答】  
+\[
+mn - 5m + 6n - 30
+\]
+
+【解説】  
+**ステップ1：考え方を確認する**  
+多項式どうしのかけ算では、一方のかっこをひとまとまりと見て、分配法則を使う。
+
+\[
+\begin{aligned}
+\hlpink{(m + 6)}\hlblue{(n - 5)} &= \hlpink{(m + 6)}\hlblue{M}
+\end{aligned}
+\]
+
+**ステップ2：分配法則を使って展開する**  
+\[
+\begin{aligned}
+\hlpink{(m + 6)}\hlblue{M}
+&= \hlpink{m}\hlblue{M} + \hlpink{6}\hlblue{M}
+\end{aligned}
+\]
+
+**ステップ3：文字に置き換えた部分を戻して計算する**  
+$M$ を $(n - 5)$ に戻す。
+
+\[
+\begin{aligned}
+\hlpink{m}\hlblue{M} + \hlpink{6}\hlblue{M}
+&= \hlpink{m}\hlblue{(n - 5)} + \hlpink{6}\hlblue{(n - 5)} \\
+&= mn - 5m + 6n - 30
+\end{aligned}
+\]
+
+**ステップ4：答えを確認する**  
+$6 \times (-5) = -30$ なので、最後の項の符号は負になる。  
+したがって、展開した式は
+
+\[
+mn - 5m + 6n - 30
+\]
+
+となる。
