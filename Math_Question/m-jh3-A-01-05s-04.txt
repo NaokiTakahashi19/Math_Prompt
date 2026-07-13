@@ -1,0 +1,39 @@
+■問題  
+次の式を展開しなさい。
+\[
+(x - 6)(x + 11)
+\]
+
+【解答】  
+\[
+x^2 + 5x - 66
+\]
+
+【解説】  
+**ステップ1：** 乗法の公式が使えないか検討する  
+$(\bbox[2px,lightgreen]{x} + \hlblue{(-6)})(\bbox[2px,lightgreen]{x} + \hlpink{11})$ は、$(\bbox[2px,lightgreen]{x} + \hlblue{a})(\bbox[2px,lightgreen]{x} + \hlpink{b})$ の形である。  
+この式では、乗法の公式のうち、次の公式が使える。
+
+**乗法の公式：**
+\[
+(x+a)(x+b)=x^2+(a+b)x+ab
+\]
+
+**ステップ2：** 乗法の公式にあてはめる  
+\[
+\begin{aligned}
+(x+\hlblue{(-6)})(x+\hlpink{11})
+&= x^2 + \left(\hlblue{(-6)} + \hlpink{11}\right)x + \hlblue{(-6)} \times \hlpink{11}
+\end{aligned}
+\]
+
+**ステップ3：** 整理する  
+\[
+\begin{aligned}
+&= x^2 + 5x - 66
+\end{aligned}
+\]
+
+**ポイント：**  
+$(x+a)(x+b)$ では、$x$ の係数は $a+b$、定数項は $ab$ になる。  
+符号が異なるときは、$(-6)+11=5$ なので $x$ の係数は $+5$、$(-6)\times 11=-66$ なので定数項は $-66$ になる。

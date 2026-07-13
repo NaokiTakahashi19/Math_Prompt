@@ -1,58 +1,39 @@
 ■問題  
 次の式を展開しなさい。
 \[
-\left(\frac{3}{4}y+7z\right)\left(\frac{3}{4}y-7z\right)
+\left(5x+\frac{2}{3}\right)\left(5x-\frac{2}{3}\right)
 \]
 
 【解答】  
 \[
-\frac{9}{16}y^2-49z^2
+25x^2-\frac{4}{9}
 \]
 
 【解説】  
-**ステップ1：考え方を確認する**  
-\[
-\left(\frac{3}{4}y+7z\right)\left(\frac{3}{4}y-7z\right)
-\]
-は、前のまとまりが同じで、後ろのまとまりの符号だけが $+$ と $-$ で反対になっている形である。
+**ステップ1：** 乗法の公式が使えないか検討する
+$\left(\hlblue{5x}\bbox[2px,lightyellow]{+}\hlpink{\frac{2}{3}}\right)\left(\hlblue{5x}\bbox[2px,lightyellow]{-}\hlpink{\frac{2}{3}}\right)$ は、$(\hlblue{a}\bbox[2px,lightyellow]{+}\hlpink{b})(\hlblue{a}\bbox[2px,lightyellow]{-}\hlpink{b})$ の形である。
+この式では、乗法の公式のうち、次の公式が使える。
 
-したがって、4つの乗法の公式のうち、次の公式を使う。
-
+**乗法の公式：**
 \[
 (a+b)(a-b)=a^2-b^2
 \]
 
-この問題では、
-\[
-a=\frac{3}{4}y,\quad b=7z
-\]
-と見る。
-
-**ステップ2：式を使って解く**  
+**ステップ2：** 乗法の公式にあてはめる
 \[
 \begin{aligned}
-\left(\frac{3}{4}y+7z\right)\left(\frac{3}{4}y-7z\right)
-&=\left(\frac{3}{4}y\right)^2-(7z)^2\\
-&=\left(\frac{3}{4}\right)^2 \times y^2-7^2 \times z^2\\
-&=\frac{9}{16}y^2-49z^2
+\left(\hlblue{5x}+\hlpink{\frac{2}{3}}\right)\left(\hlblue{5x}-\hlpink{\frac{2}{3}}\right)
+&= \hlblue{(5x)}^2-\hlpink{\left(\frac{2}{3}\right)}^2
 \end{aligned}
 \]
 
-**ステップ3：答えを確認する**  
-公式 $(a+b)(a-b)=a^2-b^2$ では、積は「前のまとまりの2乗 − 後ろのまとまりの2乗」となる。
-
-よって、
+**ステップ3：** 整理する
 \[
-\left(\frac{3}{4}y+7z\right)\left(\frac{3}{4}y-7z\right)
-=\frac{9}{16}y^2-49z^2
-\]
-である。
-
-**間違えやすいポイント**  
-$\frac{3}{4}y$ 全体を1つのまとまりとして2乗することが大切である。
-
-\[
-\left(\frac{3}{4}y\right)^2=\frac{9}{16}y^2
+\begin{aligned}
+&= 25x^2-\frac{4}{9}
+\end{aligned}
 \]
 
-$\frac{3}{4}y^2$ としないように注意する。
+**ポイント：**  
+$5x$ 全体をひとまとまりとして2乗する。
+$(5x)^2=25x^2$ であり、また $\left(\frac{2}{3}\right)^2=\frac{4}{9}$ である。

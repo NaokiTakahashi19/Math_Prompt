@@ -1,35 +1,35 @@
 ■問題  
 次の式を展開しなさい。
 \[
-(y + 5)(y - 5)
+(x + 4)(x + 7)
 \]
 
 【解答】  
 \[
-y^2 - 25
+x^2 +11x + 28
 \]
 
 【解説】  
 **ステップ1：** 乗法の公式が使えないか検討する  
-$(\hlblue{y}\bbox[2px,lightyellow]{+}\hlpink{5})(\hlblue{y}\bbox[2px,lightyellow]{-}\hlpink{5})$ は、$(\hlblue{a}\bbox[2px,lightyellow]{+}\hlpink{b})(\hlblue{a}\bbox[2px,lightyellow]{-}\hlpink{b})$ の形である。  
+$(\bbox[2px,lightgreen]{x} + \hlblue{4})(\bbox[2px,lightgreen]{x} + \hlpink{7})$ は、$(\bbox[2px,lightgreen]{x} + \hlblue{a})(\bbox[2px,lightgreen]{x} + \hlpink{b})$ の形である。  
 この式では、乗法の公式のうち、次の公式が使える。
 
 **乗法の公式：**
 \[
-(a+b)(a-b)=a^2-b^2
+(x+a)(x+b)=x^2+(a+b)x+ab
 \]
 
 **ステップ2：** 乗法の公式にあてはめる  
 \[
 \begin{aligned}
-(\hlblue{y}+\hlpink{5})(\hlblue{y}-\hlpink{5})
-&= \hlblue{y}^2 - \hlpink{5}^2
+(x+\hlblue{4})(x+\hlpink{7})
+&= x^2 + (\hlblue{4} + \hlpink{7})x + \hlblue{4} \times \hlpink{7}
 \end{aligned}
 \]
 
 **ステップ3：** 整理する  
 \[
 \begin{aligned}
-&= y^2 - 25
+&= x^2 +11x + 28
 \end{aligned}
 \]

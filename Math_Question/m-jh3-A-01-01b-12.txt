@@ -1,28 +1,26 @@
 ■問題  
 次の計算をしなさい。
 \[
--4xy(3x^2-2xy+5y^2)
+(-3x)\times(2x - 5y)
 \]
 
 【解答】  
 \[
--12x^3y+8x^2y^2-20xy^3
+-6x^2 + 15xy
 \]
 
 【解説】  
 **ステップ1：** 分配法則を使って展開する
-
 \[
 \begin{aligned}
-\hlpink{-4xy}(\hlblue{3x^2-2xy+5y^2})
-&=\hlpink{-4xy}\times\hlblue{3x^2}+\hlpink{-4xy}\times\hlblue{(-2xy)}+\hlpink{-4xy}\times\hlblue{5y^2}
+(\hlpink{-3x})\times(\hlblue{2x-5y})
+&= \hlpink{-3x}\times\hlblue{2x}+\hlpink{-3x}\times\hlblue{(-5y)}
 \end{aligned}
 \]
 
 **ステップ2：** 計算する
-
 \[
 \begin{aligned}
-&=-12x^3y+8x^2y^2-20xy^3
+&= -6x^2 + 15xy
 \end{aligned}
 \]

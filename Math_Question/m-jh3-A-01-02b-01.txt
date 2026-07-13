@@ -2,47 +2,39 @@
 
 次の計算をしなさい。
 \[
-(15x^2y-10xy^2+5xy)\div 5xy
+(8y^2 - 12y) \div 4
 \]
 
 【解答】  
+
 \[
-3x-2y+1
+2y^2 - 3y
 \]
 
 【解説】  
-**ステップ1：考え方を確認する**  
-多項式を単項式でわるときは、各項をその単項式でわると考える。  
-また、わり算は、わる数の逆数をかける形に直すことができる。  
-$5xy$ の逆数は $\frac{1}{5xy}$ である。
 
-**ステップ2：式を使って解く**  
+**ステップ1：** 除法を乗法になおす
+わり算は、わる数の逆数をかける形に直すことができる。
+$4$ は $\frac{4}{1}$ と考えるので、逆数は $\frac{1}{4}$ である。
 \[
 \begin{aligned}
-(15x^2y-10xy^2+5xy)\div 5xy
-&=(15x^2y-10xy^2+5xy)\times \frac{1}{5xy}\\
-&=15x^2y\times \frac{1}{5xy}-10xy^2\times \frac{1}{5xy}+5xy\times \frac{1}{5xy}\\
-&=\frac{15x^2y}{5xy}-\frac{10xy^2}{5xy}+\frac{5xy}{5xy}\\
-&=3\times \frac{x^2}{x}\times \frac{y}{y}-2\times \frac{x}{x}\times \frac{y^2}{y}+1\\
-&=3x-2y+1
+\hlblue{(8y^2-12y)}\div 4
+&= \hlblue{(8y^2 - 12y)} \times \hlpink{\frac{1}{4}}
 \end{aligned}
 \]
 
-**ステップ3：間違えやすいポイントを確認する**  
-$-10xy^2$ を $5xy$ でわる部分では、符号がマイナスのままになる。  
-したがって、中央の項は $+2y$ ではなく、$-2y$ となる。
-
-**ステップ4：答えを確認する**  
-求めた式 $3x-2y+1$ に $5xy$ をかけると、
+**ステップ2：** 分配法則を使って展開する
 \[
 \begin{aligned}
-(3x-2y+1)\times 5xy
-&=15x^2y-10xy^2+5xy
+&= \hlblue{8y^2} \times \hlpink{\frac{1}{4}} + \hlblue{(-12y)} \times \hlpink{\frac{1}{4}}
 \end{aligned}
 \]
-となり、もとの多項式と一致する。  
-よって、答えは
+
+**ステップ3：** 計算をする
+
 \[
-3x-2y+1
+\begin{aligned}
+&= \frac{8y^2}{4}+\frac{-12y}{4}\\
+&= 2y^2-3y
+\end{aligned}
 \]
-である。

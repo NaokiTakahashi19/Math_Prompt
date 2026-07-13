@@ -1,35 +1,28 @@
 ■問題  
 次の計算をしなさい。
 \[
--2pq(3p^2-4pq-5q^2)
+-3ab(4a^2-5ab+2b^2)
 \]
 
 【解答】  
 \[
--6p^3q+8p^2q^2+10pq^3
+-12a^3b+15a^2b^2-6ab^3
 \]
 
 【解説】  
-**ステップ1：考え方を確認する**
-
-単項式と多項式の積は、分配法則を使って、単項式を多項式の各項にそれぞれかける。特に、符号の変化に注意する。
-
-**ステップ2：式を使って解く**
+**ステップ1：** 分配法則を使って展開する
 
 \[
 \begin{aligned}
-\hlpink{-2pq}(\hlblue{3p^2-4pq-5q^2})
-&=\hlpink{-2pq}\times\hlblue{3p^2}
-+\hlpink{-2pq}\times\hlblue{(-4pq)}
-+\hlpink{-2pq}\times\hlblue{(-5q^2)}\\
-&=-6p^3q+8p^2q^2+10pq^3
+\hlpink{-3ab}(\hlblue{4a^2-5ab+2b^2})
+&=\hlpink{-3ab}\times\hlblue{4a^2}+\hlpink{-3ab}\times\hlblue{(-5ab)}+\hlpink{-3ab}\times\hlblue{2b^2}
 \end{aligned}
 \]
 
-**ステップ3：答えを確認する**
+**ステップ2：** 計算する
 
-第1項は負の数と正の数の積なので負、第2項と第3項は負の数どうしの積なので正になる。文字の指数も、同じ文字どうしで足されているため、
 \[
--6p^3q+8p^2q^2+10pq^3
+\begin{aligned}
+&=-12a^3b+15a^2b^2-6ab^3
+\end{aligned}
 \]
-が答えである。

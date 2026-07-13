@@ -1,35 +1,35 @@
 ■問題  
 次の式を展開しなさい。
 \[
-(x + 4)(x + 6)
+(x + 5)^2
 \]
 
 【解答】  
 \[
-x^2 +10x + 24
+x^2 + 10x + 25
 \]
 
 【解説】  
 **ステップ1：** 乗法の公式が使えないか検討する
-$(\bbox[2px,lightgreen]{x} + \hlblue{4})(\bbox[2px,lightgreen]{x} + \hlpink{6})$ は、$(\bbox[2px,lightgreen]{x} + \hlblue{a})(\bbox[2px,lightgreen]{x} + \hlpink{b})$ の形である。
+$(x + \hlblue{5})^2$ は、$(x + a)^2$ の形である。
 この式では、乗法の公式のうち、次の公式が使える。
 
 **乗法の公式：**
 \[
-(x+a)(x+b)=x^2+(a+b)x+ab
+(x+a)^2=x^2+2ax+a^2
 \]
 
 **ステップ2：** 乗法の公式にあてはめる
 \[
 \begin{aligned}
-(x+\hlblue{4})(x+\hlpink{6})
-&= x^2 + (\hlblue{4} + \hlpink{6})x + \hlblue{4} \times \hlpink{6}
+(x+\hlblue{5})^2
+&= x^2 +2 \times \hlblue{5} \times x + \hlblue{5}^2
 \end{aligned}
 \]
 
 **ステップ3：** 整理する
 \[
 \begin{aligned}
-&= x^2 +10x + 24
+&= x^2 + 10x + 25
 \end{aligned}
 \]

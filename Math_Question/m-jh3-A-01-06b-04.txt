@@ -1,35 +1,37 @@
 ■問題  
 次の式を展開しなさい。
 \[
-(y + 5)(y - 5)
+(x + 4)^2
 \]
 
 【解答】  
 \[
-y^2 - 25
+x^2 + 8x + 16
 \]
 
 【解説】  
 **ステップ1：** 乗法の公式が使えないか検討する  
-$(\hlblue{y}\bbox[2px,lightyellow]{+}\hlpink{5})(\hlblue{y}\bbox[2px,lightyellow]{-}\hlpink{5})$ は、$(\hlblue{a}\bbox[2px,lightyellow]{+}\hlpink{b})(\hlblue{a}\bbox[2px,lightyellow]{-}\hlpink{b})$ の形である。  
+$(x + \hlblue{4})^2$ は、$(x + a)^2$ の形である。  
 この式では、乗法の公式のうち、次の公式が使える。
 
 **乗法の公式：**
 \[
-(a+b)(a-b)=a^2-b^2
+(x+a)^2=x^2+2ax+a^2
 \]
 
 **ステップ2：** 乗法の公式にあてはめる  
 \[
 \begin{aligned}
-(\hlblue{y}+\hlpink{5})(\hlblue{y}-\hlpink{5})
-&= \hlblue{y}^2 - \hlpink{5}^2
+(x+\hlblue{4})^2
+&= x^2 +2 \times \hlblue{4} \times x + \hlblue{4}^2
 \end{aligned}
 \]
 
 **ステップ3：** 整理する  
 \[
 \begin{aligned}
-&= y^2 - 25
+&= x^2 + 8x + 16
 \end{aligned}
 \]
+
+$2 \times 4 \times x=8x$、$4^2=16$ となるため、答えは $x^2+8x+16$ である。

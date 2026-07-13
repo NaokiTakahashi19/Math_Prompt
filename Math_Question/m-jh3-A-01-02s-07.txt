@@ -1,0 +1,38 @@
+■問題  
+次の計算をしなさい。
+\[
+(18x^3y^2-12x^2y+6xy)\div(-6xy)
+\]
+
+【解答】  
+\[
+-3x^2y+2x-1
+\]
+
+【解説】  
+**ステップ1：** 除法を乗法になおす
+
+わり算は、わる数の逆数をかける形に直すことができる。
+$-6xy$ の逆数は $-\frac{1}{6xy}$ である。
+
+\[
+(18x^3y^2-12x^2y+6xy)\div(-6xy)
+=(18x^3y^2-12x^2y+6xy)\times\left(-\frac{1}{6xy}\right)
+\]
+
+**ステップ2：** 分配法則を使って展開する
+
+\[
+\begin{aligned}
+&=18x^3y^2\times\left(-\frac{1}{6xy}\right)-12x^2y\times\left(-\frac{1}{6xy}\right)+6xy\times\left(-\frac{1}{6xy}\right)
+\end{aligned}
+\]
+
+**ステップ3：** 計算する
+
+\[
+\begin{aligned}
+&=\frac{18x^3y^2}{-6xy}+\frac{-12x^2y}{-6xy}+\frac{6xy}{-6xy}\\
+&=-3x^2y+2x-1
+\end{aligned}
+\]

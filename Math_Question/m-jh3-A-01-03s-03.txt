@@ -1,0 +1,36 @@
+■問題  
+次の式を展開しなさい。
+\[
+(3a-5b)(2x-y)
+\]
+
+【解答】  
+\[
+6ax-3ay-10bx+5by
+\]
+
+【解説】  
+**ステップ1：** 分配法則を使って展開する
+
+\[
+\begin{aligned}
+(3a-5b)(2x-y)
+&=3a(2x-y)-5b(2x-y)
+\end{aligned}
+\]
+
+**ステップ2：** 分配法則を使って展開する
+
+\[
+\begin{aligned}
+&=3a\times2x-3a\times y-5b\times2x+5b\times y
+\end{aligned}
+\]
+
+**ステップ3：** 計算する
+
+\[
+\begin{aligned}
+&=6ax-3ay-10bx+5by
+\end{aligned}
+\]
