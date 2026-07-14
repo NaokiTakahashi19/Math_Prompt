@@ -1,5 +1,5 @@
 3-A-03-02
-乗法の公式や因数分解の利用 ― 乗法の公式や因数分解を利用してから式への値の代入
+※乗法の公式や因数分解の利用 ― 乗法の公式や因数分解を利用してから式への値の代入
 □標準問題
 # 教育コンテンツ制作依頼
 
@@ -51,7 +51,6 @@ S=al
 となることを証明しなさい。
 
 【図】  
-\[
 \begin{tikzpicture}[scale=0.7, line cap=round, line join=round]
 \fill[gray!15] (-0.8,-0.8) rectangle (4.8,4.8);
 \fill[white] (0,0) rectangle (4,4);
@@ -65,7 +64,6 @@ S=al
 \node at (2,2) {$p$};
 \node[blue!70!black] at (4.75,4.4) {$l$};
 \end{tikzpicture}
-\]
 
 【解答】  
 証明は【解説】の通りである。
