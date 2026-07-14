@@ -39,17 +39,17 @@
 ■問題1  
 次の式を展開しなさい。
 \[
-(2x + 5)(2x - 5)
+\left(\frac{1}{2}x + 5\right)\left(\frac{1}{2}x - 5\right)
 \]
 
 【解答】  
 \[
-4x^2 - 25
+\frac{1}{4}x^2 - 25
 \]
 
 【解説】  
 **ステップ1：** 乗法の公式が使えないか検討する
-$(\hlblue{2x}\bbox[2px,lightyellow]{+}\hlpink{5})(\hlblue{2x}\bbox[2px,lightyellow]{-}\hlpink{5})$ は、$(\hlblue{a}\bbox[2px,lightyellow]{+}\hlpink{b})(\hlblue{a}\bbox[2px,lightyellow]{-}\hlpink{b})$ の形です。
+$\left(\hlblue{\frac{1}{2}x}\bbox[2px,lightyellow]{+}\hlpink{5}\right)\left(\hlblue{\frac{1}{2}x}\bbox[2px,lightyellow]{-}\hlpink{5}\right)$ は、$(\hlblue{a}\bbox[2px,lightyellow]{+}\hlpink{b})(\hlblue{a}\bbox[2px,lightyellow]{-}\hlpink{b})$ の形です。
 この式では、乗法の公式のうち、次の公式が使えます。
 
 **乗法の公式：**
@@ -60,21 +60,21 @@ $(\hlblue{2x}\bbox[2px,lightyellow]{+}\hlpink{5})(\hlblue{2x}\bbox[2px,lightyell
 **ステップ2：** 乗法の公式にあてはめる
 \[
 \begin{aligned}
-(\hlblue{2x}+\hlpink{5})(\hlblue{2x}-\hlpink{5})
-&= \hlblue{(2x)}^2 - \hlpink{5}^2
+\left(\hlblue{\frac{1}{2}x}+\hlpink{5}\right)\left(\hlblue{\frac{1}{2}x}-\hlpink{5}\right)
+&= \hlblue{\left(\frac{1}{2}x\right)}^2 - \hlpink{5}^2
 \end{aligned}
 \]
 
 **ステップ3：** 計算してまとめる
 \[
 \begin{aligned}
-&= 4x^2 - 25
+&= \frac{1}{4}x^2 - 25
 \end{aligned}
 \]
 
 **ポイント：**  
-$2x$ 全体をひとまとまりとして2乗します。
-$(2x)^2=4x^2$ なので、$2x^2$ としないように注意します。
+$\frac{1}{2}x$ 全体をひとまとまりとして2乗します。
+$\left(\frac{1}{2}x\right)^2=\frac{1}{4}x^2$ なので、$\frac{1}{2}x^2$ としないように注意します。
 
 ■問題2  
  次の式を展開しなさい。

@@ -73,7 +73,6 @@
 $\hlblue{x}=\hlblue{60},\ \hlpink{a}=\hlpink{1}$ と見ると、$(\hlblue{x}+\hlpink{a})(\hlblue{x}-\hlpink{a})=\hlblue{x}^2-\hlpink{a}^2$ が使えます。
 \[
 \begin{aligned}
-59 \times 61
 &=\hlblue{60}^2-\hlpink{1}^2
 \end{aligned}
 \]
@@ -81,7 +80,6 @@ $\hlblue{x}=\hlblue{60},\ \hlpink{a}=\hlpink{1}$ と見ると、$(\hlblue{x}+\hl
 **ステップ3：** 計算する
 \[
 \begin{aligned}
-59 \times 61
 &=3600-1\\
 &=3599
 \end{aligned}
@@ -165,7 +163,6 @@ $\hlblue{x}=\hlblue{100},\ \hlpink{a}=\hlpink{1}$ と見ます。
 **ステップ3：** 計算する
 \[
 \begin{aligned}
-99^2
 &=10000-200+1\\
 &=9801
 \end{aligned}
