@@ -75,7 +75,7 @@ x^2 + \hlblue{4}x + \hlpink{4}
 **ステップ4：** 乗法の公式を適用する
 \[
 \begin{aligned}
-&= (x + 2)^2
+x^2 + \bbox[2px,plum]{2} \times \hlblue{2} \times x + \hlpink{2}^2 &= (x + 2)^2
 \end{aligned}
 \]
 
@@ -117,7 +117,7 @@ x^2 - \hlblue{22}x + \hlpink{121}
 **ステップ4：** 乗法の公式を適用する
 \[
 \begin{aligned}
-&= (x - 11)^2
+x^2 - \bbox[2px,plum]{2} \times \hlblue{11} \times x + \hlpink{11}^2&= (x - 11)^2
 \end{aligned}
 \]
 
