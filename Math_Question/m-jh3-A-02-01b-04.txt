@@ -1,0 +1,35 @@
+■問題  
+次の式を因数分解しなさい。
+\[
+6a^2b - 9ab^2 + 3ab
+\]
+
+【解答】  
+\[
+3ab(2a - 3b + 1)
+\]
+
+【解説】  
+それぞれの項に共通してふくまれている因数を共通因数という。
+共通因数のくくりだしとは、各項に共通する因数をかっこの外に出して、式を積の形に直すことである。
+因数分解では、まず各項に共通する数や文字がないかを確認する。
+
+**ステップ1：** 各項の共通因数を見つける
+\[
+\begin{aligned}
+6a^2b-9ab^2+3ab
+&= (\hlpink{3} \times 2 \times \hlpink{a} \times a \times \hlpink{b})
+ - (\hlpink{3} \times 3 \times \hlpink{a} \times \hlpink{b} \times b)
+ + (\hlpink{3} \times \hlpink{a} \times \hlpink{b})
+\end{aligned}
+\]
+3つの項に共通している因数は $\hlpink{3ab}$ である。
+
+**ステップ2：** 共通因数でくくりだす
+\[
+\begin{aligned}
+6a^2b-9ab^2+3ab
+&= \hlpink{3ab}(2a - 3b + 1)
+\end{aligned}
+\]
+最後の項 $3ab$ は、共通因数 $3ab$ で割ると $1$ になるので、かっこの中に $+1$ を書くことに注意する。

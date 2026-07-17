@@ -40,7 +40,8 @@
    - つまずきやすい箇所には補足解説を加える
    - 解説では、「除法を分母に置いて、全体を1つの分数として整理する」という考え方を冒頭で明示する
    - 各ステップでは、約分できる理由や同じ文字どうしをまとめる根拠を言葉で添える
-   
+   - 解説の流れは、かけ算とわり算をまとめて分数の形にする → 係数と文字をかけ算の形に分ける → 分子と分母で同じものを約分する → 等号でつないで計算する
+
 ## 生成例
 ■問題1
 次の計算をしなさい。
@@ -62,26 +63,23 @@
 
 **ステップ2：** 係数と文字をかけ算の形に分ける
 \[
-=\frac{6\times\hlblue{a}\times a\times2}{3\times\hlblue{a}}
+\begin{aligned}
+&=\frac{6\times\hlblue{a}\times a\times2}{3\times\hlblue{a}}\\
+&=\frac{6\times2\times\hlblue{a}\times a}{3\times\hlblue{a}}
+\end{aligned}
 \]
 
 **ステップ3：** 分子と分母で同じものを約分する
 \[
-=\frac{6\times a\times2}{3}
+=\frac{6\times2\times a}{3}
 \]
 
-**ステップ4：** 等号でつないで計算する
+**ステップ4：** 計算する
 \[
 \begin{aligned}
-6a^2 \div 3a \times 2
-&=\frac{6a^2\times2}{3a}\\
-&=\frac{6\times\hlblue{a}\times a\times2}{3\times\hlblue{a}}\\
-&=\frac{6\times a\times2}{3}\\
 &=4a
 \end{aligned}
 \]
-
-したがって、答えは $4a$ です。
 
 ■問題2
 次の計算をしなさい。
@@ -102,25 +100,22 @@
 
 **ステップ2：** 係数と文字をかけ算の形に分ける
 \[
-=\frac{12\times\hlblue{x}\times y\times2}{3\times\hlblue{x}}
+\begin{aligned}
+&=\frac{12\times\hlblue{x}\times y\times2}{3\times\hlblue{x}}\\
+&=\frac{12\times2\times\hlblue{x}\times y}{3\times\hlblue{x}}
+\end{aligned}
 \]
 
 **ステップ3：** 分子と分母で同じものを約分する
 \[
-=\frac{12\times y\times2}{3}
+=\frac{12\times2\times y}{3}
 \]
 
 **ステップ4：** 等号でつないで計算する
 \[
 \begin{aligned}
-12xy \div 3x \times 2
-&=\frac{12xy\times2}{3x}\\
-&=\frac{12\times\hlblue{x}\times y\times2}{3\times\hlblue{x}}\\
-&=\frac{12\times y\times2}{3}\\
 &=8y
 \end{aligned}
 \]
-
-したがって、答えは $8y$ です。
 
 以上、生成例

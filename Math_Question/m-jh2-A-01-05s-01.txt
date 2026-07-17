@@ -1,0 +1,42 @@
+■問題  
+次の計算をしなさい。
+\[
+(2x^2+3x-5)+(4x^2-x+7)-(x^2+6x-2)
+\]
+
+【解答】  
+\[
+5x^2-4x+4
+\]
+
+【解説】  
+多項式どうしを足したり引いたりする場合は、括弧を外して、すべての項を合わせてから同類項をまとめる。
+多項式を引く場合は、後ろの括弧の中の符号をすべて逆にする。
+特に、$-(x^2+6x-2)$ は $-x^2-6x+2$ となり、最後の $-2$ が $+2$ になる点に注意する。
+
+**ステップ1：** かっこを外す
+\[
+\begin{aligned}
+&(2x^2+3x-5)+(4x^2-x+7)-(x^2+6x-2)\\
+&=\hlblue{2x^2}+\hlpink{3x}+\bbox[2px,lightyellow]{(-5)}
++\hlblue{4x^2}+\hlpink{(-x)}+\bbox[2px,lightyellow]{7}
++\hlblue{(-x^2)}+\hlpink{(-6x)}+\bbox[2px,lightyellow]{2}
+\end{aligned}
+\]
+
+**ステップ2：** 同類項を整理する
+\[
+\begin{aligned}
+&=\hlblue{2x^2}+\hlblue{4x^2}+\hlblue{(-x^2)}
++\hlpink{3x}+\hlpink{(-x)}+\hlpink{(-6x)}
++\bbox[2px,lightyellow]{(-5)}+\bbox[2px,lightyellow]{7}+\bbox[2px,lightyellow]{2}
+\end{aligned}
+\]
+
+**ステップ3：** 同類項をまとめる
+\[
+\begin{aligned}
+&=(2+4-1)x^2+(3-1-6)x+(-5+7+2)\\
+&=5x^2-4x+4
+\end{aligned}
+\]

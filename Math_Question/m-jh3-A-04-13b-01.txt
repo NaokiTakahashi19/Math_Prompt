@@ -1,0 +1,39 @@
+■問題  
+次の計算をしなさい。
+\[
+\sqrt{3}+\frac{6}{\sqrt{3}}
+\]
+
+【解答】  
+\[
+3\sqrt{3}
+\]
+
+【解説】  
+**ステップ1：** 通分する
+
+$\sqrt{3}=\frac{3}{\sqrt{3}}$ なので、分母を $\sqrt{3}$ にそろえる。
+
+\[
+\sqrt{3}+\frac{6}{\sqrt{3}}
+= \frac{3}{\sqrt{3}}+\frac{6}{\sqrt{3}}
+\]
+
+**ステップ2：** 分子の和を計算する
+
+\[
+\begin{aligned}
+&= \frac{3+6}{\sqrt{3}}\\
+&= \frac{9}{\sqrt{3}}
+\end{aligned}
+\]
+
+**ステップ3：** 分母を有理化して整理する
+
+\[
+\begin{aligned}
+&= \frac{9\times\sqrt{3}}{\sqrt{3}\times\sqrt{3}}\\
+&= \frac{9\sqrt{3}}{3}\\
+&= 3\sqrt{3}
+\end{aligned}
+\]

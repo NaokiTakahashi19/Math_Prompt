@@ -32,7 +32,7 @@
    - **乗算記号**： `\times` に統一
 ## 注意点
    - 難易度は「標準レベル（定期テスト中心レベル）」を基準
-   - 基本問題では、係数が割り切れる問題を中心にする
+   - 標準問題では、係数が割り切れる問題を中心にする
    - 答えが分数式になる問題は避ける
    - 負の数、分数、複数文字、指数を同時に多く含めない
    - 乗法と除法が混じった式は、一度まとめて分数の形にしてから約分する流れで説明する
@@ -41,7 +41,8 @@
    - 解説では、「除法を分母に置いて、全体を1つの分数として整理する」という考え方を冒頭で明示する
    - 各ステップでは、約分できる理由や指数法則を使っていることを言葉で添える
    - 必要に応じて、わる単項式を分子に置いてしまう誤りや、符号の処理を忘れる誤りに注意する1文を入れる
-   
+   - 解説の流れは、かけ算とわり算をまとめて分数の形にする → 係数と同じ文字をまとめる → 分子と分母で同じものを約分する → 計算する
+
 ## 生成例  
 ■問題1  
 次の計算をしなさい。
@@ -61,25 +62,20 @@
 = \frac{6a^2b \times 2b}{3a}
 \]
 
-**ステップ2：** 係数と文字をかけ算の形に分ける
+**ステップ2：** 係数と同じ文字をまとめる
+係数を前に集め、同じ文字どうしを並べます。
 \[
-= \frac{6\times \hlblue{a}\times a\times b\times2\times b}{3\times \hlblue{a}}
+= \frac{6\times2\times\hlblue{a}\times a\times b\times b}{3\times\hlblue{a}}
 \]
 
 **ステップ3：** 分子と分母で同じものを約分する
 \[
-= \frac{6\times a\times b\times2\times b}{3}
+= \frac{6\times2\times a\times b\times b}{3}
 \]
 
-**ステップ4：** 等号でつないで計算する
+**ステップ4：** 計算する
 \[
-\begin{aligned}
-6a^2b \div 3a \times 2b
-&=\frac{6a^2b \times 2b}{3a}\\
-&=\frac{6\times \hlblue{a}\times a\times b\times2\times b}{3\times \hlblue{a}}\\
-&=\frac{6\times a\times b\times2\times b}{3}\\
-&=4ab^2
-\end{aligned}
+=4ab^2
 \]
 
 ■問題2  
@@ -100,25 +96,20 @@
 = \frac{12x^2y \times 3}{4x}
 \]
 
-**ステップ2：** 係数と文字をかけ算の形に分ける
+**ステップ2：** 係数と同じ文字をまとめる
+係数を前に集め、同じ文字どうしを並べます。
 \[
-= \frac{12\times x\times x\times y\times3}{4\times x}
+= \frac{12\times3\times x\times x\times y}{4\times x}
 \]
 
 **ステップ3：** 分子と分母で同じものを約分する
 \[
-= \frac{12\times x\times y\times3}{4}
+= \frac{12\times3\times x\times y}{4}
 \]
 
-**ステップ4：** 等号でつないで計算する
+**ステップ4：** 計算する
 \[
-\begin{aligned}
-12x^2y \div 4x \times 3
-&=\frac{12x^2y \times 3}{4x}\\
-&=\frac{12\times x\times x\times y\times3}{4\times x}\\
-&=\frac{12\times x\times y\times3}{4}\\
-&=9xy
-\end{aligned}
+=9xy
 \]
 
 以上、生成例

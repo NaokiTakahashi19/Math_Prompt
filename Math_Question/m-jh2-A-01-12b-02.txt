@@ -1,0 +1,42 @@
+■問題  
+次の計算をしなさい。
+\[
+20mn \div 4m \times 3n
+\]
+
+【解答】  
+\[
+15n^2
+\]
+
+【解説】  
+除法を分母に置いて、全体を1つの分数として整理する。
+
+**ステップ1：** かけ算とわり算をまとめて分数の形にする  
+かける単項式は分子に、わる単項式は分母に置く。
+\[
+20mn \div 4m \times 3n
+=\frac{20mn\times3n}{4m}
+\]
+
+**ステップ2：** 係数と文字をかけ算の形に分ける  
+同じ文字どうしを約分しやすいように、係数と文字を分けて書く。
+\[
+\begin{aligned}
+&=\frac{20\times\hlblue{m}\times n\times3\times n}{4\times\hlblue{m}}\\
+&=\frac{20\times3\times\hlblue{m}\times n\times n}{4\times\hlblue{m}}
+\end{aligned}
+\]
+
+**ステップ3：** 分子と分母で同じものを約分する  
+分子と分母に同じ $\hlblue{m}$ があるので約分できる。
+\[
+=\frac{20\times3\times n\times n}{4}
+\]
+
+**ステップ4：** 等号でつないで計算する  
+\[
+\begin{aligned}
+&=15n^2
+\end{aligned}
+\]

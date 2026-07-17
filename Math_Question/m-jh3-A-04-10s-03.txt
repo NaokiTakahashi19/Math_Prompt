@@ -1,0 +1,48 @@
+■問題  
+次の計算をしなさい。
+\[
+\sqrt{18}\div \sqrt{10}
+\]
+
+【解答】  
+\[
+\frac{3\sqrt{5}}{5}
+\]
+
+【解説】  
+**ステップ1：** 平方根の商の公式を確認する
+
+\[
+\frac{\sqrt{a}}{\sqrt{b}}=\sqrt{\frac{a}{b}}
+\]
+を使う。
+
+**ステップ2：** 平方根の商の公式を適用する
+
+\[
+\begin{aligned}
+\sqrt{18}\div \sqrt{10}
+&= \frac{\sqrt{18}}{\sqrt{10}}\\
+&= \sqrt{\frac{18}{10}}\\
+&= \sqrt{\frac{9}{5}}
+\end{aligned}
+\]
+
+**ステップ3：** 分母に根号がある形に直す
+
+\[
+\sqrt{\frac{9}{5}}
+= \frac{\sqrt{9}}{\sqrt{5}}
+= \frac{3}{\sqrt{5}}
+\]
+
+**ステップ4：** 分母を有理化する
+
+分母に根号があるとき、分母と分子にその根号記号を含む数をかけて、分母の根号をなくす。
+\[
+\begin{aligned}
+\frac{3}{\sqrt{5}}
+&= \frac{3\times \sqrt{5}}{\sqrt{5}\times \sqrt{5}}\\
+&= \frac{3\sqrt{5}}{5}
+\end{aligned}
+\]

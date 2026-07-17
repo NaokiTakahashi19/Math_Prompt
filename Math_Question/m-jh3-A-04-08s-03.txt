@@ -1,0 +1,38 @@
+■問題  
+$\frac{\sqrt{b}}{a}$ の形に変形しなさい。
+\[
+\sqrt{\frac{7}{36}}
+\]
+
+【解答】  
+\[
+\frac{\sqrt{7}}{6}
+\]
+
+【解説】  
+**ステップ1：** 分子と分母に分ける
+
+\[
+\sqrt{\frac{7}{36}}
+= \frac{\sqrt{7}}{\sqrt{\hlblue{36}}}
+\]
+
+**ステップ2：** 分母の根号をはずす
+
+\[
+\hlblue{36} = \bbox[2px,lightyellow]{6^2}
+\]
+なので、
+\[
+\begin{aligned}
+\sqrt{\hlblue{36}} &= \sqrt{\bbox[2px,lightyellow]{6^2}}\\
+&= \bbox[2px,lightyellow]{6}
+\end{aligned}
+\]
+
+**ステップ3：** 式を整理する
+
+\[
+\frac{\sqrt{7}}{\sqrt{36}}
+= \bbox[2px,lightyellow]{\frac{\sqrt{7}}{6}}
+\]

@@ -69,7 +69,7 @@ x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}
 a=1,\quad b=-3,\quad c=1
 \]
 
-**ステップ3：** 公式に代入する
+**ステップ3：** 解の公式に代入する
 
 \[
 x=\frac{-(-3)\pm\sqrt{(-3)^2-4\times 1\times 1}}{2\times 1}
@@ -107,7 +107,7 @@ x=-2\pm\sqrt{3}
 a=1,\quad b=4,\quad c=1
 \]
 
-**ステップ2：** 解の公式に代入する
+**ステップ2：** 解の解の公式に代入する
 
 \[
 x=\frac{-4\pm\sqrt{4^2-4\times 1\times 1}}{2\times 1}

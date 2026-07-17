@@ -1,0 +1,51 @@
+■問題  
+次の計算をしなさい。
+\[
+2\sqrt{45}+\frac{7}{\sqrt{5}}
+\]
+
+【解答】  
+\[
+\frac{37\sqrt{5}}{5}
+\]
+
+【解説】  
+**ステップ1：** 根号を簡単にして通分する
+
+\[
+45 = 9 \times 5,\quad 9 = 3^2
+\]
+なので、
+\[
+\begin{aligned}
+2\sqrt{45} &= 2\sqrt{9 \times 5}\\
+&= 2\sqrt{3^2 \times 5}\\
+&= 2\times 3\sqrt{5}\\
+&= 6\sqrt{5}
+\end{aligned}
+\]
+
+$6\sqrt{5}=\frac{30}{\sqrt{5}}$ なので、分母を $\sqrt{5}$ にそろえる。
+
+\[
+2\sqrt{45}+\frac{7}{\sqrt{5}}
+= \frac{30}{\sqrt{5}}+\frac{7}{\sqrt{5}}
+\]
+
+**ステップ2：** 分子の和を計算する
+
+\[
+\begin{aligned}
+\frac{30}{\sqrt{5}}+\frac{7}{\sqrt{5}} &= \frac{30+7}{\sqrt{5}}\\
+&= \frac{37}{\sqrt{5}}
+\end{aligned}
+\]
+
+**ステップ3：** 分母を有理化して整理する
+
+\[
+\begin{aligned}
+\frac{37}{\sqrt{5}} &= \frac{37\times\sqrt{5}}{\sqrt{5}\times\sqrt{5}}\\
+&= \frac{37\sqrt{5}}{5}
+\end{aligned}
+\]

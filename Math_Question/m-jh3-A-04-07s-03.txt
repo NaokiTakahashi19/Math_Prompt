@@ -1,0 +1,42 @@
+■問題  
+次の計算をしなさい。
+\[
+2\sqrt{15}\times\sqrt{6}
+\]
+
+【解答】  
+\[
+6\sqrt{10}
+\]
+
+【解説】  
+**ポイント** 係数と根号の部分に分けて考える
+
+\[
+2\sqrt{15}\times\sqrt{6}
+=2\times\sqrt{15}\times\sqrt{6}
+\]
+
+**ステップ1：** 平方根の積の公式を適用する
+
+\[
+\begin{aligned}
+2\times\sqrt{15}\times\sqrt{6}
+&= 2\times\sqrt{15\times 6}\\
+&= 2\times\sqrt{90}
+\end{aligned}
+\]
+
+**ステップ2：** 根号を簡単にする
+
+\[
+90=9\times10=3^2\times10
+\]
+なので、
+\[
+\begin{aligned}
+&= 2\times\sqrt{3^2\times10}\\
+&= 2\times3\sqrt{10}\\
+&= 6\sqrt{10}
+\end{aligned}
+\]

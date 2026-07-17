@@ -32,49 +32,44 @@
    - **乗算記号**： `\times` に統一
 ## 注意点
    - 難易度は「標準レベル（定期テスト中心レベル）」を基準
-   - 分配法則を使う解説では、かける数に `\hlblue{}`、かっこの中の各項に `\hlpink{}` を使い、元の式と分配後の式で対応を示す
+   - 分配法則を使う解説では、かける数に `\hlblue{}`、括弧の中の各項に `\hlpink{}` を使い、元の式と分配後の式で対応を示す
    - 負の数や分数を分配するときは、符号と約分に注意することを説明する
    - つまずきやすい箇所には補足解説を加える
-   
+   - 解説の流れは、分配法則を使って展開する → 展開した式を整理する
+
 ## 生成例  
 ■問題1  
 次の計算をしなさい。
 \[
--3(2x - 5y + 4)
+-\frac{1}{3}(2x - 5y + 4)
 \]
 
 【解答】
 \[
--6x + 15y - 12
+-\frac{2}{3}x + \frac{5}{3}y - \frac{4}{3}
 \]
 
 【解説】  
-**ステップ1：** 分配法則を使ってかっこをはずす
-まず、もとの式で、かける数と、かっこの中の項を確認する。
+**ステップ1：** 分配法則を使って展開する
+まず、もとの式で、かける数と、括弧の中の項を確認する。
 \[
-\hlblue{(-3)}(\hlpink{2x}+\hlpink{(-5y)}+\hlpink{4})
+\hlblue{\left(-\frac{1}{3}\right)}(\hlpink{2x}+\hlpink{(-5y)}+\hlpink{4})
 \]
-かっこの中のそれぞれの項に、かける数 $\hlblue{(-3)}$ をかける。
+括弧の中のそれぞれの項に、かける数 $\hlblue{\left(-\frac{1}{3}\right)}$ をかける。
 \[
-= \hlblue{(-3)}\times\hlpink{2x}
-+\hlblue{(-3)}\times\hlpink{(-5y)}
-+\hlblue{(-3)}\times\hlpink{4}
+= \hlblue{\left(-\frac{1}{3}\right)}\times\hlpink{2x}
++\hlblue{\left(-\frac{1}{3}\right)}\times\hlpink{(-5y)}
++\hlblue{\left(-\frac{1}{3}\right)}\times\hlpink{4}
 \]
 
-**ステップ2：** 計算をする
+**ステップ2：** 展開した式を整理する
 \[
-\begin{aligned}
--3(2x-5y+4)
-&=\hlblue{(-3)}\times\hlpink{2x}
-\hlblue{(-3)}\times\hlpink{(-5y)}
-\hlblue{(-3)}\times\hlpink{4}\\
-&=-6x+15y-12
-\end{aligned}
+=-\frac{2}{3}x+\frac{5}{3}y-\frac{4}{3}
 \]
 
 **ポイント：**  
 負の数を分配するときは、符号に注意する。
-$(-3)\times(-5y)=+15y$ のように、負の数どうしの積は正になる。
+$\left(-\frac{1}{3}\right)\times(-5y)=\frac{5}{3}y$ のように、負の数どうしの積は正になる。
 
 ■問題2  
 次の計算をしなさい。
@@ -88,27 +83,21 @@ $(-3)\times(-5y)=+15y$ のように、負の数どうしの積は正になる。
 \]
 
 【解説】  
-**ステップ1：** 分配法則を使ってかっこをはずす
-まず、もとの式で、かける数と、かっこの中の項を確認する。
+**ステップ1：** 分配法則を使って展開する
+まず、もとの式で、かける数と、括弧の中の項を確認する。
 \[
 \hlblue{\frac{3}{4}}(\hlpink{8a}+\hlpink{(-12b)}+\hlpink{16})
 \]
-かっこの中のそれぞれの項に、かける数 $\hlblue{\frac{3}{4}}$ をかける。
+括弧の中のそれぞれの項に、かける数 $\hlblue{\frac{3}{4}}$ をかける。
 \[
 = \hlblue{\frac{3}{4}}\times\hlpink{8a}
 +\hlblue{\frac{3}{4}}\times\hlpink{(-12b)}
 +\hlblue{\frac{3}{4}}\times\hlpink{16}
 \]
 
-**ステップ2：** 約分して計算する
+**ステップ2：** 展開した式を整理する
 \[
-\begin{aligned}
-\frac{3}{4}(8a-12b+16)
-&=\hlblue{\frac{3}{4}}\times\hlpink{8a}
-\hlblue{\frac{3}{4}}\times\hlpink{(-12b)}
-\hlblue{\frac{3}{4}}\times\hlpink{16}\\
-&=6a-9b+12
-\end{aligned}
+=6a-9b+12
 \]
 
 **ポイント：**  

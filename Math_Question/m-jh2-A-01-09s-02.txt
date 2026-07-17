@@ -1,0 +1,31 @@
+■問題  
+ 次の計算をしなさい。
+\[
+\frac{2}{3}(6m - 9n) - \frac{3}{4}(4m - 8n)
+\]
+
+【解答】  
+\[
+m
+\]
+
+【解説】  
+**ステップ1：** 分配法則を使って展開する
+\[
+\begin{aligned}
+\frac{2}{3}(6m - 9n) - \frac{3}{4}(4m - 8n)
+&=\hlblue{\frac{2}{3}} \times 6m - \hlblue{\frac{2}{3}} \times 9n - \left(\hlpink{\frac{3}{4}} \times 4m - \hlpink{\frac{3}{4}} \times 8n\right)
+\end{aligned}
+\]
+
+**ステップ2：** 展開した式を整理する
+\[
+\begin{aligned}
+&=4m-6n-(3m-6n)\\
+&=4m-6n-3m+6n\\
+&=4m-3m-6n+6n\\
+&=m
+\end{aligned}
+\]
+
+後ろのかっこを外すとき、前にある「$-$」によって、かっこの中の符号が変わることに注意する。

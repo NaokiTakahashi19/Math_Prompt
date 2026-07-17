@@ -1,0 +1,29 @@
+■問題  
+次の項の次数を答えなさい。
+\[
+-\frac{5}{2}st^6
+\]
+
+【解答】  
+\[
+7
+\]
+
+【解説】  
+単項式の次数は、かけ合わされている文字の個数で決まる。係数の $-\frac{5}{2}$ は文字ではないので、次数には数えない。
+
+**ステップ1：** かけ算の形にして、文字の数を確認する
+\[
+-\frac{5}{2}st^6=-\frac{5}{2}\times\hlblue{s}\times\hlpink{t}\times\hlpink{t}\times\hlpink{t}\times\hlpink{t}\times\hlpink{t}\times\hlpink{t}
+\]
+指数がない $s$ は、$s^1$ と考えて $1$ 個と数える。
+
+**ステップ2：** かけ合わせている文字の数を数える
+\[
+\hlblue{s},\ \hlpink{t},\ \hlpink{t},\ \hlpink{t},\ \hlpink{t},\ \hlpink{t},\ \hlpink{t}
+\]
+\[
+7\text{個}
+\]
+
+したがって、$-\frac{5}{2}st^6$ の次数は $7$ 次となる。

@@ -1,0 +1,36 @@
+■問題  
+次の式を，同類項をまとめて簡単にしなさい。
+\[
+\frac{3}{5}p^2-\frac{1}{2}p+\frac{2}{3}-\frac{7}{10}p^2+\frac{5}{6}p-\frac{1}{4}
+\]
+
+【解答】  
+\[
+-\frac{1}{10}p^2+\frac{1}{3}p+\frac{5}{12}
+\]
+
+【解説】  
+文字の部分が同じ項を同類項という。
+同類項は、文字の部分はそのままにして、係数を計算してまとめる。
+同類項は、共通因数でくくり出して1つの項にまとめることができる。
+\[
+ax+bx=(a+b)x
+\]
+
+**ステップ1：** 同類項を見つける
+\[
+\hlblue{\frac{3}{5}p^2}-\hlpink{\frac{1}{2}p}+\bbox[2px,lightyellow]{\frac{2}{3}}-\hlblue{\frac{7}{10}p^2}+\hlpink{\frac{5}{6}p}-\bbox[2px,lightyellow]{\frac{1}{4}}
+\]
+
+**ステップ2：** 同類項をまとめる
+\[
+\begin{aligned}
+&=\left(\frac{3}{5}-\frac{7}{10}\right)p^2+\left(-\frac{1}{2}+\frac{5}{6}\right)p+\left(\frac{2}{3}-\frac{1}{4}\right)\\
+&=\left(\frac{6}{10}-\frac{7}{10}\right)p^2+\left(-\frac{3}{6}+\frac{5}{6}\right)p+\left(\frac{8}{12}-\frac{3}{12}\right)\\
+&=-\frac{1}{10}p^2+\frac{1}{3}p+\frac{5}{12}
+\end{aligned}
+\]
+
+**ポイント：**  
+$p^2$ の項と $p$ の項は、次数が違うので同類項ではない。
+分数の係数をまとめるときは、同類項ごとに通分して計算すると間違えにくい。

@@ -32,7 +32,7 @@
    - **乗算記号**： `\times` に統一
 ## 注意点
    - 難易度は「教科書の基本問題レベル」を基準
-   - 解説の流れは、乗法の公式が使えないか検討する　→　乗法の公式にあてはめる　→　整理する
+   - 解説の流れは、乗法の公式が使えるか判断する　→　乗法の公式にあてはめる　→　展開後に整理する
    
 ## 生成例  
 ■問題1  
@@ -47,16 +47,16 @@ x^2 - 4
 \]
 
 【解説】  
-**ステップ1：** 乗法の公式が使えないか検討する
+**ステップ1：** 乗法の公式が使えるか判断する
 $(\hlblue{x}\bbox[2px,lightyellow]{+}\hlpink{2})(\hlblue{x}\bbox[2px,lightyellow]{-}\hlpink{2})$ は、$(\hlblue{a}\bbox[2px,lightyellow]{+}\hlpink{b})(\hlblue{a}\bbox[2px,lightyellow]{-}\hlpink{b})$ の形です。
-この式では、乗法の公式のうち、次の公式が使えます。
+この式では、乗法の公式のうち、次の公式が使えると判断する。
 
 **乗法の公式：**
 \[
 (a+b)(a-b)=a^2-b^2
 \]
 
-**ステップ2：** 乗法の公式にあてはめる
+**ステップ2：** $(a+b)(a-b)$ を展開する
 \[
 \begin{aligned}
 (\hlblue{x}+\hlpink{2})(\hlblue{x}-\hlpink{2})
@@ -64,7 +64,7 @@ $(\hlblue{x}\bbox[2px,lightyellow]{+}\hlpink{2})(\hlblue{x}\bbox[2px,lightyellow
 \end{aligned}
 \]
 
-**ステップ3：** 整理する
+**ステップ3：** 展開後に整理する
 \[
 \begin{aligned}
 &= x^2 - 4
@@ -83,16 +83,16 @@ a^2 - 9
 \]
 
 【解説】  
-**ステップ1：** 乗法の公式が使えないか検討する
+**ステップ1：** 乗法の公式が使えるか判断する
 $(\hlblue{a}\bbox[2px,lightyellow]{+}\hlpink{3})(\hlblue{a}\bbox[2px,lightyellow]{-}\hlpink{3})$ は、$(\hlblue{a}\bbox[2px,lightyellow]{+}\hlpink{b})(\hlblue{a}\bbox[2px,lightyellow]{-}\hlpink{b})$ の形です。
-この式では、乗法の公式のうち、次の公式が使えます。
+この式では、乗法の公式のうち、次の公式が使えると判断する。
 
 **乗法の公式：**
 \[
 (a+b)(a-b)=a^2-b^2
 \]
 
-**ステップ2：** 乗法の公式にあてはめる
+**ステップ2：** $(a+b)(a-b)$ を展開する
 \[
 \begin{aligned}
 (\hlblue{a}+\hlpink{3})(\hlblue{a}-\hlpink{3})
@@ -100,7 +100,7 @@ $(\hlblue{a}\bbox[2px,lightyellow]{+}\hlpink{3})(\hlblue{a}\bbox[2px,lightyellow
 \end{aligned}
 \]
 
-**ステップ3：** 整理する
+**ステップ3：** 展開後に整理する
 \[
 \begin{aligned}
 &= a^2 - 9

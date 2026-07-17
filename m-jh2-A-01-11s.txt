@@ -36,7 +36,8 @@
    - 分数でわるときは、分母と分子を入れかえた数をかけると説明する
    - 係数と同じ文字を約分してからまとめる流れを説明する
    - つまずきやすい箇所には補足解説を加える
-   
+   - 解説の流れは、パターン1：分数にする → 係数と同じ文字をまとめる → 共通因数を約分する → 等号でつないでまとめる ／ パターン2：除法を乗法にかえる → 係数と同じ文字をまとめる → 共通因数を約分する → 等号でつないでまとめる
+
 ## 生成例  
 ■問題1  
 次の計算をしなさい。
@@ -58,26 +59,22 @@
 = \frac{-18a^3b^2}{6ab}
 \]
 
-**ステップ2：** 分子分母それぞれを、係数と文字のかけ算にする
+**ステップ2：** 係数と同じ文字をまとめる
+係数を前に集め、同じ文字どうしを並べます。
 \[
 = \frac{-18\times \hlblue{a}\times a\times a\times \hlpink{b}\times b}{6\times \hlblue{a}\times \hlpink{b}}
 \]
 
-**ステップ3：** 分子と分母の同じ文字を消す
+**ステップ3：** 共通因数を約分する
+分子と分母の同じ文字を消す。
 分子と分母に同じ $\hlblue{a}$ と $\hlpink{b}$ があるので、これを消す。
 \[
 = \frac{-18\times a\times a\times b}{6}
 \]
 
-**ステップ4：** 等号でつないでまとめる
+**ステップ4：** まとめる
 \[
-\begin{aligned}
--18a^3b^2 \div 6ab
-&=\frac{-18a^3b^2}{6ab}\\
-&=\frac{-18\times \hlblue{a}\times a\times a\times \hlpink{b}\times b}{6\times \hlblue{a}\times \hlpink{b}}\\
-&=\frac{-18\times a\times a\times b}{6}\\
-&=-3a^2b
-\end{aligned}
+=-3a^2b
 \]
 
 ■問題2  
@@ -92,7 +89,7 @@
 \]
 
 【解説】  
-**ステップ1：** 除法（÷）を乗法（×）にかえる
+**ステップ1：** 除法を乗法にかえる
 除法を乗法にかえる場面では、わる数の逆数をかける。
 分数でわるときは、分母と分子を入れかえた数をかける。
 $-\frac{2}{3}ab$ でわるので、逆数にして $-\frac{3}{2ab}$ をかける。
@@ -100,26 +97,22 @@ $-\frac{2}{3}ab$ でわるので、逆数にして $-\frac{3}{2ab}$ をかける
 = 8a^2b^3 \times \left(-\frac{3}{2ab}\right)
 \]
 
-**ステップ2：** 大きな分数にして、係数と文字をかけ算で表す
+**ステップ2：** 係数と同じ文字をまとめる
+大きな分数にし、係数を前に集め、同じ文字どうしを並べます。
 \[
-= \frac{8\times a\times \hlblue{a}\times b\times b\times \hlpink{b}\times(-3)}{2\times \hlblue{a}\times \hlpink{b}}
+= \frac{8\times(-3)\times a\times \hlblue{a}\times b\times b\times \hlpink{b}}{2\times \hlblue{a}\times \hlpink{b}}
 \]
 
-**ステップ3：** 分子と分母の同じ文字を消す
+**ステップ3：** 共通因数を約分する
+分子と分母の同じ文字を消す。
 分子と分母に同じ $\hlblue{a}$ と $\hlpink{b}$ があるので、これを消す。
 \[
-= \frac{8\times a\times b\times b\times(-3)}{2}
+= \frac{8\times(-3)\times a\times b\times b}{2}
 \]
 
-**ステップ4：** 等号でつないでまとめる
+**ステップ4：** まとめる
 \[
-\begin{aligned}
-8a^2b^3 \div \left(-\frac{2}{3}ab\right)
-&=8a^2b^3 \times \left(-\frac{3}{2ab}\right)\\
-&=\frac{8\times a\times \hlblue{a}\times b\times b\times \hlpink{b}\times(-3)}{2\times \hlblue{a}\times \hlpink{b}}\\
-&=\frac{8\times a\times b\times b\times(-3)}{2}\\
-&=-12ab^2
-\end{aligned}
+=-12ab^2
 \]
 
 **ポイント：**  

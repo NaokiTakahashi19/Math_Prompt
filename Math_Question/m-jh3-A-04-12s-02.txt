@@ -1,0 +1,57 @@
+■問題  
+次の計算をしなさい。
+\[
+\sqrt{98}-\sqrt{18}
+\]
+
+【解答】  
+\[
+4\sqrt{2}
+\]
+
+【解説】  
+**ステップ1：** 根号の中の平方数を確認する
+
+\[
+98 = 49 \times 2,\quad 49 = 7^2
+\]
+また、
+\[
+18 = 9 \times 2,\quad 9 = 3^2
+\]
+
+**ステップ2：** 根号を簡単にする
+
+\[
+\begin{aligned}
+\sqrt{98} &= \sqrt{49 \times 2}\\
+&= \sqrt{7^2 \times 2}\\
+&= 7\sqrt{2}
+\end{aligned}
+\]
+また、
+\[
+\begin{aligned}
+\sqrt{18} &= \sqrt{9 \times 2}\\
+&= \sqrt{3^2 \times 2}\\
+&= 3\sqrt{2}
+\end{aligned}
+\]
+
+**ステップ3：** もとの式に戻す
+
+\[
+\sqrt{98}-\sqrt{18}
+= \hlblue{7}\sqrt{2}-\hlblue{3}\sqrt{2}
+\]
+
+**ステップ4：** 計算する
+
+\[
+\begin{aligned}
+\hlblue{7}\hlpink{\sqrt{2}}-\hlblue{3}\hlpink{\sqrt{2}} &= (\hlblue{7}-\hlblue{3})\hlpink{\sqrt{2}}\\
+&= 4\hlpink{\sqrt{2}}
+\end{aligned}
+\]
+
+根号の中が同じ $\sqrt{2}$ になったら、根号の部分はそのままにして、係数だけを計算する。

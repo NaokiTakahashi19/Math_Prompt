@@ -1,0 +1,42 @@
+■問題  
+次の計算をしなさい。
+\[
+\frac{\sqrt{18}}{\sqrt{2}}
+\]
+
+【解答】  
+\[
+3
+\]
+
+【解説】  
+**ポイント** 平方根の商の公式を確認する
+
+\[
+\frac{\sqrt{\hlpink{a}}}{\sqrt{\hlblue{b}}} = \sqrt{\frac{\hlpink{a}}{\hlblue{b}}}
+\]
+を使う。
+
+**ステップ1：** 平方根の商の公式を適用する
+
+\[
+\begin{aligned}
+\frac{\sqrt{\hlpink{18}}}{\sqrt{\hlblue{2}}}
+&= \sqrt{\frac{\hlpink{18}}{\hlblue{2}}}\\
+&= \sqrt{9}
+\end{aligned}
+\]
+
+**ステップ2：** 整理する
+
+\[
+9 = 3^2
+\]
+なので、
+\[
+\begin{aligned}
+\sqrt{9}
+&= \sqrt{3^2}\\
+&= 3
+\end{aligned}
+\]

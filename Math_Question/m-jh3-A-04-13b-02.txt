@@ -1,0 +1,37 @@
+■問題  
+次の計算をしなさい。
+\[
+\frac{6}{\sqrt{5}}-\frac{1}{\sqrt{5}}
+\]
+
+【解答】  
+\[
+\sqrt{5}
+\]
+
+【解説】  
+**ステップ1：** 通分する
+
+\[
+\frac{6}{\sqrt{5}}-\frac{1}{\sqrt{5}}
+\]
+は分母がどちらも $\sqrt{5}$ なので、すでに通分されている。
+
+**ステップ2：** 分子の差を計算する
+
+\[
+\begin{aligned}
+\frac{6}{\sqrt{5}}-\frac{1}{\sqrt{5}} &= \frac{6-1}{\sqrt{5}}\\
+&= \frac{5}{\sqrt{5}}
+\end{aligned}
+\]
+
+**ステップ3：** 分母を有理化して整理する
+
+\[
+\begin{aligned}
+\frac{5}{\sqrt{5}} &= \frac{5\times \sqrt{5}}{\sqrt{5}\times \sqrt{5}}\\
+&= \frac{5\sqrt{5}}{5}\\
+&= \sqrt{5}
+\end{aligned}
+\]

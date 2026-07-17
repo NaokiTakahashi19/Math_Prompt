@@ -1,0 +1,59 @@
+■問題  
+次の計算をしなさい。
+\[
+\left(\sqrt{3}+2\right)\left(\sqrt{12}-1\right)
+\]
+
+【解答】  
+\[
+4+3\sqrt{3}
+\]
+
+【解説】  
+**ポイント** 分配法則を確認する
+
+二項式どうしの積では、左のかっこの各項を、右のかっこの各項にかける。
+
+**ステップ1：** 分配法則を使う
+
+\[
+\left(\hlblue{\sqrt{3}}+\hlblue{2}\right)\left(\hlpink{\sqrt{12}}\hlpink{-}\hlpink{1}\right)
+= \hlblue{\sqrt{3}}\times\hlpink{\sqrt{12}}\hlpink{-}\hlblue{\sqrt{3}}\times \hlpink{1}
+  +\hlblue{2}\times\hlpink{\sqrt{12}}\hlpink{-}\hlblue{2}\times \hlpink{1}
+\]
+
+**ステップ2：** それぞれの項を計算する
+
+\[
+\begin{aligned}
+\sqrt{3}\times\sqrt{12}
+&= \sqrt{3\times 12}\\
+&= \sqrt{36}\\
+&= 6
+\end{aligned}
+\]
+
+$36=6^2$ なので、$\sqrt{36}=6$ と根号をはずすことができる。
+
+\[
+\begin{aligned}
+\sqrt{3}\times 1&=\sqrt{3}\\
+2\times\sqrt{12}&=2\times\sqrt{4\times 3}\\
+&=2\times 2\sqrt{3}\\
+&=4\sqrt{3}\\
+2\times 1&=2
+\end{aligned}
+\]
+
+$\sqrt{12}$ は、根号の中を $12=4\times 3$ として、$\sqrt{4}=2$ を根号の外に出す。
+
+**ステップ3：** もとの式に戻して整理する
+
+\[
+\begin{aligned}
+\sqrt{3}\times\sqrt{12}-\sqrt{3}\times 1
+  +2\times\sqrt{12}-2\times 1
+&=6-\sqrt{3}+4\sqrt{3}-2\\
+&=4+3\sqrt{3}
+\end{aligned}
+\]

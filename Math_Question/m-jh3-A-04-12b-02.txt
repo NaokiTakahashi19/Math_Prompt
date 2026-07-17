@@ -1,0 +1,49 @@
+■問題  
+次の計算をしなさい。
+\[
+2\sqrt{6}+\sqrt{24}
+\]
+
+【解答】  
+\[
+4\sqrt{6}
+\]
+
+【解説】  
+**ステップ1：** 根号の中がそろっているか確認する
+
+\[
+2\sqrt{6}+\sqrt{24}
+\]
+では、根号の中の数が $6$ と $24$ でそろっていない。
+そこで、$\sqrt{24}$ を簡単にする。
+
+**ステップ2：** $\sqrt{24}$ を簡単にする
+
+\[
+24=4\times 6,\quad 4=2^2
+\]
+なので、
+\[
+\begin{aligned}
+\sqrt{24} &= \sqrt{4\times 6}\\
+&= \sqrt{2^2\times 6}\\
+&= 2\sqrt{6}
+\end{aligned}
+\]
+となる。
+
+**ステップ3：** もとの式に戻す
+
+もとの式の $\sqrt{24}$ を $2\sqrt{6}$ に置きかえる。
+
+**ステップ4：** 係数だけを計算する
+
+\[
+\begin{aligned}
+2\sqrt{6}+\sqrt{24}
+&= \hlblue{2}\hlpink{\sqrt{6}}+\hlblue{2}\hlpink{\sqrt{6}}\\
+&= (\hlblue{2}+\hlblue{2})\hlpink{\sqrt{6}}\\
+&= 4\hlpink{\sqrt{6}}
+\end{aligned}
+\]

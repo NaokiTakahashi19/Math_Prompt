@@ -1,0 +1,47 @@
+■問題  
+次の計算をしなさい。
+\[
+\sqrt{8} \times \sqrt{6}
+\]
+
+【解答】  
+\[
+4\sqrt{3}
+\]
+
+【解説】  
+**ポイント** 平方根の積の公式を確認する
+
+\[
+\sqrt{\hlpink{a}} \times \sqrt{\hlblue{b}} = \sqrt{\hlpink{a}\hlblue{b}}
+\]
+を使う。
+
+**ステップ1：** 平方根の積の公式を適用する
+
+\[
+\begin{aligned}
+\sqrt{\hlpink{8}} \times \sqrt{\hlblue{6}}
+&= \sqrt{\hlpink{8} \times \hlblue{6}}\\
+&= \sqrt{48}
+\end{aligned}
+\]
+
+**ステップ2：** 整理する
+
+$48$ は平方数 $16$ を因数にもつので、
+\[
+48 = 16 \times 3
+\]
+と分けられる。
+
+\[
+\begin{aligned}
+\sqrt{48}
+&= \sqrt{16 \times 3}\\
+&= \sqrt{16} \times \sqrt{3}\\
+&= 4\sqrt{3}
+\end{aligned}
+\]
+
+したがって、答えは $4\sqrt{3}$ である。

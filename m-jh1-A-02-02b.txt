@@ -28,30 +28,33 @@
    - **ディスプレイ数式**：`\[ ... \]`
    - **インライン数式**：`$...$`
    - **分数**：`\frac` を使用（`\tfrac`は使わない）
-   - **縦並び**：`=` の位置をそろえる（桁揃えで読みやすく）
+   - **書き換え**：文字式の表し方を直す過程は `=` ではなく `\rightarrow` で示す
    - **乗算記号**： `\times` に統一
 ## 注意点
    - 難易度は「教科書の基本問題レベル」を基準
    - つまずきやすい箇所には補足解説を加える
+   - 生成例の冒頭に、文字式のきまり6つを一覧で示す
+   - 文字式の表し方を順に直す場面では `=` を使わず、`\rightarrow` で書き換えを示す
+   - 解説の流れは、パターン1：文字式のきまりに従って表す → 文字式のきまりに従って表す → 文字式のきまりに従って表す ／ パターン2：文字式のきまりに従って表す → 文字式のきまりに従って表す ／ パターン3：最初の割り算を分数で表す → さらに $b$ で割る → 文字式のきまりに従って表す → 文字式のきまりに従って表す ／ パターン4：文字式のきまりに従って表す → 文字式のきまりに従って表す → 文字式のきまりに従って表す → 文字式のきまりに従って表す ／ パターン5：前半のかけ算を整える → 後半のかけ算を整える → 文字式のきまりに従って表す → 文字式のきまりに従って表す
+
 ## 生成例  
-文字式では、次のルールにしたがって表します。
+文字式の表し方は、次の「文字式のきまり」にしたがいます。
 1. かけ算記号「$\times$」は省略する。
-2. 数字は文字の前に書く。
-3. 係数の $1$ は省略する。
-4. 同じ文字の積は累乗で表す。
-5. 割り算は分数で表す。
-6. 文字はアルファベット順に並べる。
-7. 数字と文字が混ざるときは、数字を前、文字を後に書く。
-8. たし算・ひき算の記号は省略しない。
+2. 数字と文字の積では、数字を文字の前に書く。
+3. 係数が $1$ のときは $1$ を省略し、係数が $-1$ のときは負の符号だけを書く。
+4. 文字は、アルファベット順に並べる。
+5. 同じ文字の積は、累乗を使って表す。
+6. 文字式では、除法は $\div$ を使わず、分数の形で書く。
+
+文字式の表し方を順に直すときは、等号ではなく矢印「$\rightarrow$」で書き換えを示します。
 
 見直しでは、次の点を確認します。
 - $\times$ や $\div$ が残っていないか。
 - 数字が文字の前に来ているか。
-- 係数の $1$ を省略しているか。
+- 係数が $1$ のときは $1$ を省略し、係数が $-1$ のときは負の符号だけを書いているか。
 - 同じ文字の積を累乗で表しているか。
 - 割り算を分数で表しているか。
 - 文字がアルファベット順に並んでいるか。
-- たし算・ひき算の記号を勝手に省略していないか。
 - 文字の並べ替え、同じ文字の積、分数にするまとまりが分かるように、必要に応じて `\hlblue{}`、`\hlpink{}`、`\bbox[2px,lightyellow]{}` を使ってハイライトする。
 
 ■問題1  
@@ -66,19 +69,19 @@ ab
 \]
 
 【解説】  
-**ステップ1：** かけ算記号を省略する
+**ステップ1：** 文字式のきまりに従って表す
 文字式では、かけ算記号「$\times$」は省略する。
 \[
-\hlpink{b} \times \hlblue{a} = \hlpink{b}\hlblue{a}
+\hlpink{b} \times \hlblue{a} \rightarrow \hlpink{b}\hlblue{a}
 \]
 
-**ステップ2：** 文字をアルファベット順に並べる
+**ステップ2：** 文字式のきまりに従って表す
 文字だけの積では、アルファベット順に並べる。
 \[
-\hlpink{b}\hlblue{a} = \hlblue{a}\hlpink{b}
+\hlpink{b}\hlblue{a} \rightarrow \hlblue{a}\hlpink{b}
 \]
 
-**ステップ3：** 見直しをする
+**ステップ3：** 文字式のきまりに従って表す
 $\times$ や $\div$ が残っていないか、文字がアルファベット順になっているかを確認する。
 
 ■問題2  
@@ -93,19 +96,19 @@ a \times a \times (-3)
 \]
 
 【解説】  
-**ステップ1：** 同じ文字の積を累乗で表す
+**ステップ1：** 文字式のきまりに従って表す
 $a$ が2回かけられているので、$a \times a$ は $a^2$ と表す。
 \[
-\hlblue{a} \times \hlblue{a} \times \hlpink{(-3)} = \hlblue{a^2} \times\hlpink{(-3)}
+\hlblue{a} \times \hlblue{a} \times \hlpink{(-3)} \rightarrow \hlblue{a^2} \times\hlpink{(-3)}
 \]
 
-**ステップ2：** 数字を前に書き、かけ算記号を省略する
+**ステップ2：** 文字式のきまりに従って表す
 文字式では、数字を文字の前に書く。
 \[
-\hlblue{a^2} \times\hlpink{(-3)} = \hlpink{-3}\hlblue{a^2}
+\hlblue{a^2} \times\hlpink{(-3)} \rightarrow \hlpink{-3}\hlblue{a^2}
 \]
 
-**ステップ3：** 見直しをする
+**ステップ3：** 文字式のきまりに従って表す
 $\times$ や $\div$ が残っていないか、数字 $-3$ が文字の前に来ているか、$a \times a$ が $a^2$ になっているかを確認する。
 
 ■問題3  
@@ -120,18 +123,18 @@ a^3b^2
 \]
 
 【解説】  
-**ステップ1：** 同じ文字が何回あるか数える
+**ステップ1：** 文字式のきまりに従って表す
 \[
 \hlblue{a} \text{ が3回},\quad \hlpink{b} \text{ が2回}
 \]
 
-**ステップ2：** 累乗で表し、アルファベット順に並べる
+**ステップ2：** 文字式のきまりに従って表す
 $a$ が3回なので $a^3$、$b$ が2回なので $b^2$ と表す。
 \[
 \hlblue{a^3}\hlpink{b^2}
 \]
 
-**ステップ3：** 見直しをする
+**ステップ3：** 文字式のきまりに従って表す
 $\times$ や $\div$ が残っていないか、同じ文字の積を累乗で表しているか、文字がアルファベット順になっているかを確認する。
 
 ■問題4  
@@ -146,19 +149,19 @@ a \times (-2) \times b \times a
 \]
 
 【解説】  
-**ステップ1：** 同じ文字を累乗で表す
+**ステップ1：** 文字式のきまりに従って表す
 $a$ が2回あるので、$a \times a$ は $a^2$ と表す。
 \[
 \hlblue{a} \times \bbox[2px,lightyellow]{(-2)} \times \hlpink{b} \times \hlblue{a}
-= \bbox[2px,lightyellow]{(-2)}\times \hlblue{a}\times \hlblue{a}\times \hlpink{b}
+ \rightarrow \bbox[2px,lightyellow]{(-2)}\times \hlblue{a}\times \hlblue{a}\times \hlpink{b}
 \]
 
-**ステップ2：** 数字を前に書き、かけ算記号を省略する
+**ステップ2：** 文字式のきまりに従って表す
 \[
 \bbox[2px,lightyellow]{-2}\hlblue{a^2}\hlpink{b}
 \]
 
-**ステップ3：** 見直しをする
+**ステップ3：** 文字式のきまりに従って表す
 $\times$ や $\div$ が残っていないか、数字 $-2$ が前に来ているか、$a \times a$ が $a^2$ になっているか、文字が $a,b$ の順に並んでいるかを確認する。
 
 ■問題5  
@@ -173,13 +176,13 @@ a \div 6
 \]
 
 【解説】  
-**ステップ1：** 割り算を分数で表す
+**ステップ1：** 文字式のきまりに従って表す
 文字式では、割り算は分数の形で表す。
 \[
-\hlblue{a} \div \hlpink{6} = \frac{\hlblue{a}}{\hlpink{6}}
+\hlblue{a} \div \hlpink{6} \rightarrow \frac{\hlblue{a}}{\hlpink{6}}
 \]
 
-**ステップ2：** 見直しをする
+**ステップ2：** 文字式のきまりに従って表す
 $\div$ が残っていないか、分数で表せているかを確認する。
 
 ■問題6  
@@ -194,18 +197,18 @@ b \div (-2)
 \]
 
 【解説】  
-**ステップ1：** 割り算を分数で表す
+**ステップ1：** 文字式のきまりに従って表す
 \[
-\hlblue{b} \div \hlpink{(-2)} = \frac{\hlblue{b}}{\hlpink{-2}}
+\hlblue{b} \div \hlpink{(-2)} \rightarrow \frac{\hlblue{b}}{\hlpink{-2}}
 \]
 
-**ステップ2：** 負の符号を分数の前に出す
+**ステップ2：** 文字式のきまりに従って表す
 分母に負の符号を残さず、分数全体の前に出して書く。
 \[
-\frac{\hlblue{b}}{\hlpink{-2}}=-\frac{\hlblue{b}}{\hlpink{2}}
+\frac{\hlblue{b}}{\hlpink{-2}} \rightarrow -\frac{\hlblue{b}}{\hlpink{2}}
 \]
 
-**ステップ3：** 見直しをする
+**ステップ3：** 文字式のきまりに従って表す
 $\times$ や $\div$ が残っていないか、負の符号を分数の前に出しているかを確認する。
 
 ■問題7   
@@ -220,13 +223,13 @@ $\times$ や $\div$ が残っていないか、負の符号を分数の前に出
 \]
 
 【解説】  
-**ステップ1：** 割り算を分数で表す
+**ステップ1：** 文字式のきまりに従って表す
 式全体 $(a-b)$ を $8$ で割っているので、$(a-b)$ 全体を分子にする。
 \[
-\bbox[2px,lightyellow]{(a-b)}\div\hlpink{8}=\frac{\bbox[2px,lightyellow]{a-b}}{\hlpink{8}}
+\bbox[2px,lightyellow]{(a-b)}\div\hlpink{8} \rightarrow \frac{\bbox[2px,lightyellow]{a-b}}{\hlpink{8}}
 \]
 
-**ステップ2：** 見直しをする
+**ステップ2：** 文字式のきまりに従って表す
 $\div$ が残っていないか、$a-b$ 全体が分子に入っているかを確認する。
 
 ■問題8  
@@ -241,17 +244,17 @@ b \times a \div 3
 \]
 
 【解説】  
-**ステップ1：** かけ算記号を省略し、文字をアルファベット順に並べる
+**ステップ1：** 文字式のきまりに従って表す
 \[
-\hlpink{b} \times \hlblue{a} = \hlpink{b}\hlblue{a} = \hlblue{a}\hlpink{b}
+\hlpink{b} \times \hlblue{a} \rightarrow \hlpink{b}\hlblue{a} \rightarrow \hlblue{a}\hlpink{b}
 \]
 
-**ステップ2：** 割り算を分数で表す
+**ステップ2：** 文字式のきまりに従って表す
 \[
-\hlblue{ab}\div \hlpink{3} = \frac{\hlblue{ab}}{\hlpink{3}}
+\hlblue{ab}\div \hlpink{3} \rightarrow \frac{\hlblue{ab}}{\hlpink{3}}
 \]
 
-**ステップ3：** 見直しをする
+**ステップ3：** 文字式のきまりに従って表す
 $\times$ や $\div$ が残っていないか、文字が $a,b$ の順に並んでいるか、分数で表せているかを確認する。
 
 ■問題9  
@@ -266,17 +269,17 @@ $\times$ や $\div$ が残っていないか、文字が $a,b$ の順に並ん�
 \]
 
 【解説】  
-**ステップ1：** 割り算を分数で表す
+**ステップ1：** 文字式のきまりに従って表す
 \[
-\hlblue{7} \div \hlpink{y} = \frac{\hlblue{7}}{\hlpink{y}}
+\hlblue{7} \div \hlpink{y} \rightarrow \frac{\hlblue{7}}{\hlpink{y}}
 \]
 
-**ステップ2：** かけ算記号を省略し、数字を前に書く
+**ステップ2：** 文字式のきまりに従って表す
 \[
-\frac{\hlblue{7}}{\hlpink{y}} \times \bbox[2px,lightyellow]{x} = \frac{\hlblue{7}\bbox[2px,lightyellow]{x}}{\hlpink{y}}
+\frac{\hlblue{7}}{\hlpink{y}} \times \bbox[2px,lightyellow]{x} \rightarrow \frac{\hlblue{7}\bbox[2px,lightyellow]{x}}{\hlpink{y}}
 \]
 
-**ステップ3：** 見直しをする
+**ステップ3：** 文字式のきまりに従って表す
 $\times$ や $\div$ が残っていないか、数字 $7$ が文字の前にあるか、割り算を分数で表しているかを確認する。
 
 ■問題10  
@@ -293,21 +296,21 @@ $\times$ や $\div$ が残っていないか、数字 $7$ が文字の前にあ�
 【解説】  
 **ステップ1：** 最初の割り算を分数で表す
 \[
-\hlblue{3}\div \hlpink{a}=\frac{\hlblue{3}}{\hlpink{a}}
+\hlblue{3}\div \hlpink{a} \rightarrow \frac{\hlblue{3}}{\hlpink{a}}
 \]
 
 **ステップ2：** さらに $b$ で割る
 $b$ で割ることは、分母に $b$ をかけることと同じである。
 \[
-\frac{\hlblue{3}}{\hlpink{a}}\div \bbox[2px,lightyellow]{b}=\frac{\hlblue{3}}{\hlpink{a}\times \bbox[2px,lightyellow]{b}}
+\frac{\hlblue{3}}{\hlpink{a}}\div \bbox[2px,lightyellow]{b} \rightarrow \frac{\hlblue{3}}{\hlpink{a}\times \bbox[2px,lightyellow]{b}}
 \]
 
-**ステップ3：** かけ算記号を省略する
+**ステップ3：** 文字式のきまりに従って表す
 \[
 \frac{\hlblue{3}}{\hlpink{a}\bbox[2px,lightyellow]{b}}
 \]
 
-**ステップ4：** 見直しをする
+**ステップ4：** 文字式のきまりに従って表す
 $\div$ が残っていないか、分母の $a\times b$ を $ab$ と表しているかを確認する。
 
 ■問題11  
@@ -322,24 +325,24 @@ $\div$ が残っていないか、分母の $a\times b$ を $ab$ と表してい
 \]
 
 【解説】  
-**ステップ1：** かけ算記号を省略する
+**ステップ1：** 文字式のきまりに従って表す
 $5\times x$ は、数字を前にして $5x$ と表す。
 \[
-\hlblue{5}\times \hlpink{x}=\hlblue{5}\hlpink{x}
+\hlblue{5}\times \hlpink{x} \rightarrow \hlblue{5}\hlpink{x}
 \]
 
-**ステップ2：** 同じ文字の積を累乗で表す
+**ステップ2：** 文字式のきまりに従って表す
 \[
-\hlblue{y}\times \hlblue{y}=\hlblue{y^2}
+\hlblue{y}\times \hlblue{y} \rightarrow \hlblue{y^2}
 \]
 
-**ステップ3：** たし算の記号は省略しない
-たし算・ひき算の記号は省略しないので、
+**ステップ3：** 文字式のきまりに従って表す
+たし算・文字式のきまりに従って表すので、
 \[
 5x + y^2
 \]
 
-**ステップ4：** 見直しをする
+**ステップ4：** 文字式のきまりに従って表す
 $\times$ が残っていないか、$y\times y$ が $y^2$ になっているか、たし算の記号 $+$ を残しているかを確認する。
 
 ■問題12  
@@ -354,19 +357,19 @@ x + \frac{y - z}{3}
 \]
 
 【解説】  
-**ステップ1：** 割り算部分を分数にする
+**ステップ1：** 文字式のきまりに従って表す
 $(y-z)$ 全体を $3$ で割っているので、$(y-z)$ を分子にする。
 \[
-\bbox[2px,lightyellow]{(y - z)} \div \hlpink{3} = \frac{\bbox[2px,lightyellow]{y - z}}{\hlpink{3}}
+\bbox[2px,lightyellow]{(y - z)} \div \hlpink{3} \rightarrow \frac{\bbox[2px,lightyellow]{y - z}}{\hlpink{3}}
 \]
 
-**ステップ2：** たし算の記号は省略しない
+**ステップ2：** 文字式のきまりに従って表す
 $x$ に $\frac{y-z}{3}$ をたしているので、$+$ は残して書く。
 \[
 x + \frac{y - z}{3}
 \]
 
-**ステップ3：** 見直しをする
+**ステップ3：** 文字式のきまりに従って表す
 $\times$ や $\div$ が残っていないか、$y-z$ 全体が分子に入っているか、たし算の記号 $+$ を残しているかを確認する。
 
 ■問題13  
@@ -384,21 +387,21 @@ a \times b \times (-1) - 2 \times c
 **ステップ1：** 前半のかけ算を整える
 $a\times b$ は $ab$ と表す。さらに $(-1)$ をかけるので、係数の $1$ は省略して、符号だけを残す。
 \[
-\hlblue{a} \times \hlpink{b} \times \bbox[2px,lightyellow]{(-1)} = \bbox[2px,lightyellow]{-1}\hlblue{a}\hlpink{b} = -\hlblue{a}\hlpink{b}
+\hlblue{a} \times \hlpink{b} \times \bbox[2px,lightyellow]{(-1)} \rightarrow \bbox[2px,lightyellow]{-1}\hlblue{a}\hlpink{b} \rightarrow -\hlblue{a}\hlpink{b}
 \]
 
 **ステップ2：** 後半のかけ算を整える
 数字を文字の前に書き、かけ算記号は省略する。
 \[
-\hlblue{-2} \times \hlpink{c} = \hlblue{-2}\hlpink{c}
+\hlblue{-2} \times \hlpink{c} \rightarrow \hlblue{-2}\hlpink{c}
 \]
 
-**ステップ3：** ひき算の記号は省略しない
+**ステップ3：** 文字式のきまりに従って表す
 \[
 -ab - 2c
 \]
 
-**ステップ4：** 見直しをする
+**ステップ4：** 文字式のきまりに従って表す
 $\times$ が残っていないか、係数の $1$ を省略しているか、数字が文字の前にあるか、ひき算の記号 $-$ を残しているかを確認する。
 
 以上、生成例

@@ -1,0 +1,38 @@
+■問題  
+次の計算をしなさい。
+\[
+\left(\frac{1}{2}x - 3y + 4\right)-\left(-\frac{3}{2}x + 2y - 5\right)+\left(2x - y - 7\right)
+\]
+
+【解答】  
+\[
+4x - 6y + 2
+\]
+
+【解説】  
+多項式どうしを足したり引いたりする場合は、括弧を外して、すべての項を合わせてから同類項をまとめる。
+多項式を引く場合は、後ろの括弧の中の符号をすべて逆にする。特に、$-\left(-\frac{3}{2}x+2y-5\right)$ では、$\frac{3}{2}x$、$-2y$、$+5$ となる点に注意する。
+
+**ステップ1：** かっこを外す
+\[
+= \hlblue{\frac{1}{2}x}+\hlpink{(-3y)}+\bbox[2px,lightyellow]{4}
++\hlblue{\frac{3}{2}x}+\hlpink{(-2y)}+\bbox[2px,lightyellow]{5}
++\hlblue{2x}+\hlpink{(-y)}+\bbox[2px,lightyellow]{(-7)}
+\]
+
+**ステップ2：** 同類項を整理する
+\[
+\begin{aligned}
+&=\hlblue{\frac{1}{2}x}+\hlblue{\frac{3}{2}x}+\hlblue{2x}
++\hlpink{(-3y)}+\hlpink{(-2y)}+\hlpink{(-y)}
++\bbox[2px,lightyellow]{4}+\bbox[2px,lightyellow]{5}+\bbox[2px,lightyellow]{(-7)}
+\end{aligned}
+\]
+
+**ステップ3：** 同類項をまとめる
+\[
+\begin{aligned}
+&=\left(\frac{1}{2}+\frac{3}{2}+2\right)x+(-3-2-1)y+(4+5-7)\\
+&=4x-6y+2
+\end{aligned}
+\]

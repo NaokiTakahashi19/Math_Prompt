@@ -1,0 +1,57 @@
+■問題  
+次の計算をしなさい。
+\[
+\sqrt{80}+\sqrt{45}
+\]
+
+【解答】  
+\[
+7\sqrt{5}
+\]
+
+【解説】  
+**ステップ1：** 根号の中の平方数を確認する
+
+\[
+80 = 16 \times 5,\quad 16 = 4^2
+\]
+また、
+\[
+45 = 9 \times 5,\quad 9 = 3^2
+\]
+
+**ステップ2：** 根号を簡単にする
+
+\[
+\begin{aligned}
+\sqrt{80} &= \sqrt{16 \times 5}\\
+&= \sqrt{4^2 \times 5}\\
+&= 4\sqrt{5}
+\end{aligned}
+\]
+また、
+\[
+\begin{aligned}
+\sqrt{45} &= \sqrt{9 \times 5}\\
+&= \sqrt{3^2 \times 5}\\
+&= 3\sqrt{5}
+\end{aligned}
+\]
+
+**ステップ4：** もとの式に戻す
+
+\[
+\sqrt{80}+\sqrt{45}
+= \hlblue{4}\sqrt{5}+\hlblue{3}\sqrt{5}
+\]
+
+**ステップ5：** 計算する
+
+\[
+\begin{aligned}
+\hlblue{4}\hlpink{\sqrt{5}}+\hlblue{3}\hlpink{\sqrt{5}} &= (\hlblue{4}+\hlblue{3})\hlpink{\sqrt{5}}\\
+&= 7\hlpink{\sqrt{5}}
+\end{aligned}
+\]
+
+根号の中の数が同じ $\sqrt{5}$ になったので、係数だけを計算する。

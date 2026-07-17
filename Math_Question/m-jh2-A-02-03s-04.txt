@@ -1,0 +1,36 @@
+■問題  
+次の等式を[　]内の文字について解きなさい。
+\[
+\frac{x+y}{3}=2x-z \quad [y]
+\]
+
+【解答】  
+\[
+y=5x-3z
+\]
+
+【解説】  
+指定された文字について解くときは、$\hlblue{指定された文字}$ だけが左辺に残るように等式を変形する。
+
+**ステップ1：** 両辺に同じ数をかける
+両辺に $3$ をかけて分数をなくす。
+
+\[
+\begin{aligned}
+3\times\frac{x+\hlblue{y}}{3}&=3\times(2x-z)\\
+\hlpink{x}+\hlblue{y}&=6x-3z
+\end{aligned}
+\]
+
+**ステップ2：** 移項する
+$\hlblue{y}$ だけを左辺に残す。
+
+$\hlpink{x}$ を右辺に移項する。右辺では $6x-x$ を計算して、同類項をまとめる。
+
+\[
+\begin{aligned}
+\hlpink{x}+\hlblue{y}&=6x-3z\\
+\hlblue{y}&=6x-3z-\hlpink{x}\\
+&=\bbox[2px,lightyellow]{5x-3z}
+\end{aligned}
+\]

@@ -1,0 +1,40 @@
+■問題  
+$\sqrt{a}$ の形に変形しなさい。
+\[
+\frac{3}{2}\sqrt{8}
+\]
+
+【解答】  
+\[
+\sqrt{18}
+\]
+
+【解説】  
+**ステップ1：** 根号の中に入れる数を2乗する
+
+$\frac{3}{2}$ を根号の中に入れるときは、$\frac{3}{2}$ を2乗して入れる。
+\[
+\left(\hlblue{\frac{3}{2}}\right)^2 = \bbox[2px,lightyellow]{\frac{9}{4}}
+\]
+なので、
+\[
+\hlblue{\frac{3}{2}} = \sqrt{\bbox[2px,lightyellow]{\frac{9}{4}}}
+\]
+
+**ステップ2：** 根号の中に入れる
+
+\[
+\frac{\hlblue{3}}{\hlblue{2}}\sqrt{8}
+= \sqrt{\bbox[2px,lightyellow]{\frac{9}{4} \times 8}}
+\]
+
+**ステップ3：** 根号の中を計算する
+
+\[
+\begin{aligned}
+\frac{3}{2}\sqrt{8}
+&= \sqrt{\bbox[2px,lightyellow]{\frac{9}{4} \times 8}}\\
+&= \sqrt{\frac{72}{4}}\\
+&= \bbox[2px,lightyellow]{\sqrt{18}}
+\end{aligned}
+\]

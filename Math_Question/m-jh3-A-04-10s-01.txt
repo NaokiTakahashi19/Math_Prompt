@@ -1,0 +1,53 @@
+■問題  
+次の計算をしなさい。
+\[
+4\sqrt{5}\times 2\sqrt{10}
+\]
+
+【解答】  
+\[
+40\sqrt{2}
+\]
+
+【解説】  
+**ステップ1：** 係数と根号の部分に分けて考える
+
+\[
+4\sqrt{5}\times 2\sqrt{10}
+= 4\times 2\times \sqrt{5}\times \sqrt{10}
+\]
+
+**ステップ2：** 係数どうしをかける
+
+\[
+4\times 2=8
+\]
+なので、
+\[
+4\times 2\times \sqrt{5}\times \sqrt{10}
+= 8\sqrt{5}\times \sqrt{10}
+\]
+
+**ステップ3：** 根号どうしをかける
+
+\[
+\begin{aligned}
+8\sqrt{5}\times \sqrt{10} &= 8\sqrt{5\times 10}\\
+&= 8\sqrt{50}
+\end{aligned}
+\]
+
+**ステップ4：** 根号の中の平方数を確認する
+
+\[
+50 = 25\times 2,\quad 25=5^2
+\]
+なので、
+\[
+\begin{aligned}
+8\sqrt{50} &= 8\sqrt{25\times 2}\\
+&= 8\sqrt{5^2\times 2}\\
+&= 8\times 5\sqrt{2}\\
+&= 40\sqrt{2}
+\end{aligned}
+\]

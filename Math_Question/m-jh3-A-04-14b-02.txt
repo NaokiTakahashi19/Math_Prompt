@@ -1,0 +1,66 @@
+■問題  
+次の計算をしなさい。
+\[
+\sqrt{7}\left(\sqrt{7}-2\right)
+\]
+
+【解答】  
+\[
+7-2\sqrt{7}
+\]
+
+【解説】  
+ポイント整理
+
+\[
+a(b-c)=ab-ac
+\]
+分配法則を使うと、かっこの外の数を、かっこの中の各項にかけることができる。
+
+また、
+\[
+\sqrt{a}\times\sqrt{b}=\sqrt{ab}
+\]
+である。根号どうしの乗法では、根号の中をかける。
+
+**ステップ1：** 分配法則を確認する
+
+\[
+a(b-c)=ab-ac
+\]
+かっこの外の $\sqrt{7}$ を、かっこの中の $\sqrt{7}$ と $2$ の両方にかける。ひき算なので、符号に注意する。
+
+**ステップ2：** 分配法則を使って展開する
+
+\[
+\begin{aligned}
+\hlblue{\sqrt{7}}\left(\hlpink{\sqrt{7}}-\hlpink{2}\right)
+&= \hlblue{\sqrt{7}}\times\hlpink{\sqrt{7}}-\hlblue{\sqrt{7}}\times\hlpink{2}
+\end{aligned}
+\]
+
+**ステップ3：** それぞれの項を計算する
+
+\[
+\begin{aligned}
+\sqrt{7}\times\sqrt{7}
+&= \sqrt{7\times 7}\\
+&= \sqrt{49}\\
+&= 7
+\end{aligned}
+\]
+$49=7^2$ なので、根号をはずして $7$ となる。
+
+また、
+\[
+\sqrt{7}\times 2=2\sqrt{7}
+\]
+
+**ステップ4：** もとの式に戻して整理する
+
+\[
+\begin{aligned}
+\sqrt{7}\times\sqrt{7}-\sqrt{7}\times 2
+&= 7-2\sqrt{7}
+\end{aligned}
+\]
