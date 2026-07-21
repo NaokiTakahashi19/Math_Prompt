@@ -1,0 +1,56 @@
+■問題  
+$150\mathrm{cm}$ を基準にして、身長 $142\mathrm{cm}$ を正負の符号を使って表しなさい。
+
+【解答】  
+\[
+-8\mathrm{cm}
+\]
+
+【解説】  
+**ステップ1：** 何を基準にするか確認する  
+→ 今回は「$150\mathrm{cm}$」が基準である。
+
+**ステップ2：** 身長と基準との差の確認
+
+\[
+\hlblue{142} - \hlpink{150} = \hlpink{-8}
+\]
+
+基準の $150\mathrm{cm}$ を $0$ の位置と見ると、身長 $142\mathrm{cm}$ は下向きに $8\mathrm{cm}$ 進んだ位置である。
+
+\begin{tikzpicture}[x=1cm,y=0.45cm,>=stealth]
+\draw[->,thick] (0,-8.8)--(0,1.5);
+\foreach \y/\label in {-8/{142\mathrm{cm}},0/{150\mathrm{cm}}} {
+  \draw (-0.12,\y)--(0.12,\y);
+  \node[left] at (-0.12,\y) {$\label$};
+}
+\fill[pink] (0,-8) circle (2.5pt);
+\fill[cyan] (0,0) circle (2.5pt);
+\draw[<->,thick,pink] (0.7,-8)--(0.7,0) node[midway,right] {$-8\mathrm{cm}$};
+\end{tikzpicture}
+
+**ステップ3：** 基準より低い → 「−」をつける
+
+よって、答えは
+
+\[
+\hlpink{-8}\mathrm{cm}
+\]
+
+**ポイント整理：** 基準との差を正負の符号で表す
+
+\[
+\begin{array}{|c|c|}
+\hline
+\text{確認すること} & \text{この問題での見方} \\
+\hline
+\text{基準} & 150\mathrm{cm} \\
+\hline
+\text{正の向き} & \text{基準より高いときは }\hlblue{+} \\
+\hline
+\text{負の向き} & \text{基準より低いときは }\hlpink{-} \\
+\hline
+\end{array}
+\]
+
+今回は身長 $142\mathrm{cm}$ が基準より $8\mathrm{cm}$ 低いので、符号は「$-$」になる。

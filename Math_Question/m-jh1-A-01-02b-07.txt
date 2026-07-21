@@ -1,0 +1,56 @@
+■問題  
+$20^\circ\mathrm{C}$ を基準にして、ある日の気温 $17^\circ\mathrm{C}$ を正負の符号を使って表しなさい。
+
+【解答】  
+\[
+-3^\circ\mathrm{C}
+\]
+
+【解説】  
+**ステップ1：** 何を基準にするか確認する  
+→ 今回は「$20^\circ\mathrm{C}$」が基準である。
+
+**ステップ2：** ある日の気温と基準との差の確認
+
+\[
+\hlblue{17} - \hlpink{20} = \hlpink{-3}
+\]
+
+基準の $20^\circ\mathrm{C}$ を $0$ の位置と見ると、ある日の気温は下向きに $3^\circ\mathrm{C}$ 進んだ位置である。
+
+\begin{tikzpicture}[x=1cm,y=0.8cm,>=stealth]
+\draw[->,thick] (-4,0)--(2,0);
+\foreach \x/\label in {-3/{17^\circ\mathrm{C}},0/{20^\circ\mathrm{C}}} {
+  \draw (\x,0.12)--(\x,-0.12);
+  \node[below] at (\x,-0.12) {$\label$};
+}
+\fill[pink] (-3,0) circle (2.5pt);
+\fill[cyan] (0,0) circle (2.5pt);
+\draw[<->,thick,pink] (-3,0.55)--(0,0.55) node[midway,above] {$-3^\circ\mathrm{C}$};
+\end{tikzpicture}
+
+**ステップ3：** 基準より低い → 「−」をつける
+
+よって、答えは
+
+\[
+\hlpink{-3}^\circ\mathrm{C}
+\]
+
+**ポイント整理：** 基準との差を正負の符号で表す
+
+\[
+\begin{array}{|c|c|}
+\hline
+\text{確認すること} & \text{この問題での見方} \\
+\hline
+\text{基準} & 20^\circ\mathrm{C} \\
+\hline
+\text{正の向き} & \text{基準より高いときは }\hlblue{+} \\
+\hline
+\text{負の向き} & \text{基準より低いときは }\hlpink{-} \\
+\hline
+\end{array}
+\]
+
+今回はある日の気温が基準より $3^\circ\mathrm{C}$ 低いので、符号は「$-$」となる。
