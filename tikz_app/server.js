@@ -15,7 +15,7 @@ const mathPromptDir = process.env.MATH_PROMPT_DIR
 const mathQuestionDir = path.join(mathPromptDir, 'Math_Question');
 const appAddedGenerationPromptPath = path.join(mathPromptDir, 'app_added_generation_prompt_instructions.txt');
 const questionFileSeparator = '-';
-const defaultOpenAIModel = 'gpt-5.5';
+const defaultOpenAIModel = 'gpt-5.6';
 const generationJobs = new Map();
 
 function buildPromptFileLabel(fileName, content) {
