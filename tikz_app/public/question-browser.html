@@ -257,6 +257,30 @@
       line-height: 1.8;
     }
 
+    #output table {
+      border-collapse: collapse;
+      display: block;
+      width: fit-content;
+      max-width: 100%;
+      margin: 0.75em 0 1em;
+      overflow-x: auto;
+      font-size: 0.95em;
+    }
+
+    #output th,
+    #output td {
+      min-width: 2.2em;
+      padding: 4px 10px;
+      border: 1px solid #999;
+      text-align: right;
+      white-space: nowrap;
+    }
+
+    #output th {
+      background: #f7f7f7;
+      text-align: center;
+    }
+
     body.large-output #output {
       font-size: 16.8px;
       line-height: 1.9;
