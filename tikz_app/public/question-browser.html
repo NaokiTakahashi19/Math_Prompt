@@ -755,7 +755,31 @@
         marked.setOptions({ gfm: true, breaks: true });
       }
 
+      function normalizeMarkdownTables(text) {
+        const lines = String(text || '').split('\n');
+        const normalized = [];
+        const tableRow = /^\s*\|.*\|\s*$/;
+        const tableDivider = /^\s*\|(?:\s*:?-{3,}:?\s*\|)+\s*$/;
+
+        for (let index = 0; index < lines.length; index += 1) {
+          const line = lines[index];
+          const nextLine = lines[index + 1] || '';
+          if (
+            tableRow.test(line) &&
+            tableDivider.test(nextLine) &&
+            normalized.length &&
+            normalized[normalized.length - 1].trim()
+          ) {
+            normalized.push('');
+          }
+          normalized.push(line);
+        }
+
+        return normalized.join('\n');
+      }
+
       function renderMarkdownWithMath(raw) {
+        raw = normalizeMarkdownTables(raw);
         if (!window.marked || typeof marked.parse !== 'function') {
           return escapeForHtml(raw).replace(/\n/g, '<br>');
         }
@@ -883,10 +907,10 @@
       populateSelect(areaFilter, 'すべての領域', uniqueOptions(gradeScoped, 'areaCode', 'areaLabel'), area);
 
       const areaScoped = areaFilter.value ? gradeScoped.filter(file => file.areaCode === areaFilter.value) : gradeScoped;
-      populateSelect(unitFilter, 'すべての単元', uniqueOptions(areaScoped, 'unit', 'unit', 'unitCode'), unit);
+      populateSelect(unitFilter, 'すべての単元', uniqueOptions(areaScoped, 'unit', 'unit', 'code'), unit);
 
       const unitScoped = unitFilter.value ? areaScoped.filter(file => file.unit === unitFilter.value) : areaScoped;
-      populateSelect(itemFilter, 'すべての項目', uniqueOptions(unitScoped, 'item', 'item', 'itemCode'), item);
+      populateSelect(itemFilter, 'すべての項目', uniqueOptions(unitScoped, 'item', 'item', 'code'), item);
     }
 
     function applyFilters() {
@@ -1077,6 +1101,7 @@
             promptStem,
             grade,
             gradeLabel: grade ? `中${grade}` : '学年未設定',
+            code: promptMeta.code || '',
             areaCode: promptMeta.areaCode || '',
             areaLabel: promptMeta.areaLabel || '',
             unitCode: promptMeta.unitCode || '',
