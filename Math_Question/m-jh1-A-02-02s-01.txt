@@ -1,0 +1,65 @@
+■問題  
+次の式を、文字式の表し方にしたがって書きなさい。
+\[
+(-1)\times c\times a\times c\div 6
+\]
+
+【解答】  
+\[
+-\frac{ac^2}{6}
+\]
+
+【解説】  
+**ポイント：** 文字式のきまりに従って表す
+1. 数字と文字の積では、数字を文字の前に書く。  
+2. 文字は、アルファベット順に並べる。  
+3. 同じ文字の積は、累乗を使って表す。  
+4. 係数が \(1\) のときは \(1\) を省略し、係数が \(-1\) のときは負の符号だけを書く。  
+5. かけ算記号「\(\times\)」は省略する。  
+6. 文字式では、除法は \(\div\) を使わず、分数の形で書く。
+
+**ステップ1：** 文字式のきまりに従って表す
+数字 $-1$ が文字の前にあることを確認する。
+\[
+\hlblue{(-1)}\times \hlpink{c}\times a\times c\div6
+\]
+
+**ステップ2：** 文字式のきまりに従って表す
+文字をアルファベット順に並べる。
+\[
+\hlblue{(-1)}\times \hlpink{c}\times a\times c\div6
+\rightarrow
+\hlblue{(-1)}\times a\times \hlpink{c}\times c\div6
+\]
+
+**ステップ3：** 文字式のきまりに従って表す
+$c$ が2回かけられているので、$c\times c$ を $c^2$ と表す。
+\[
+\hlblue{(-1)}\times a\times \hlpink{c}\times c\div6
+\rightarrow
+\hlblue{(-1)}\times a\times \hlpink{c^2}\div6
+\]
+
+**ステップ4：** 文字式のきまりに従って表す
+係数が $-1$ のときは、負の符号だけを書く。
+\[
+\hlblue{(-1)}\times a\times \hlpink{c^2}\div6
+\rightarrow
+-a\times \hlpink{c^2}\div6
+\]
+
+**ステップ5：** 文字式のきまりに従って表す
+かけ算記号「$\times$」を省略する。
+\[
+-a\times \hlpink{c^2}\div6
+\rightarrow
+-ac^2\div6
+\]
+
+**ステップ6：** 文字式のきまりに従って表す
+割り算を分数の形で表す。このとき、$ac^2$ 全体が分子に入る。
+\[
+-ac^2\div6
+\rightarrow
+-\frac{ac^2}{6}
+\]

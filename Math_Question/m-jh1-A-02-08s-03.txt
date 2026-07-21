@@ -1,0 +1,41 @@
+■問題  
+次の計算をしなさい。
+\[
+(14x + 21) \div \left(-\frac{7}{2}\right)
+\]
+
+【解答】  
+\[
+-4x - 6
+\]
+
+【解説】  
+**ステップ1：** 除法を乗法に直す
+分数で割るときは、逆数をかける。
+$-\frac{7}{2}$ で割ることは、$-\frac{2}{7}$ をかけることと同じである。
+\[
+\begin{aligned}
+(14x + 21)\div\hlblue{\left(-\frac{7}{2}\right)}
+&=(14x + 21)\times\hlblue{\left(-\frac{2}{7}\right)}
+\end{aligned}
+\]
+
+**ステップ2：** 分配法則を使う
+$-\frac{2}{7}$ を、かっこの中の $14x$ と $21$ の両方にかける。
+\[
+\begin{aligned}
+&=\hlpink{14x}\times\hlblue{\left(-\frac{2}{7}\right)}
++\hlpink{21}\times\hlblue{\left(-\frac{2}{7}\right)}
+\end{aligned}
+\]
+
+**ステップ3：** 計算する
+\[
+\begin{aligned}
+&=-4x-6
+\end{aligned}
+\]
+
+**ポイント：**  
+分数で割るときは、分母と分子を入れかえた数をかける。
+負の分数で割るときは、符号にも注意する。

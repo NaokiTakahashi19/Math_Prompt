@@ -1,0 +1,50 @@
+■問題  
+次の式を、文字式の表し方にしたがって書きなさい。
+\[
+c \times (-4) \times a \times c
+\]
+
+【解答】  
+\[
+-4ac^2
+\]
+
+【解説】  
+**ポイント：** 文字式のきまりに従って表す
+1. 数字と文字の積では、数字を文字の前に書く。  
+2. 文字は、アルファベット順に並べる。  
+3. 同じ文字の積は、累乗を使って表す。  
+4. 係数が \(1\) のときは \(1\) を省略し、係数が \(-1\) のときは負の符号だけを書く。  
+5. かけ算記号「\(\times\)」は省略する。  
+6. 文字式では、除法は \(\div\) を使わず、分数の形で書く。
+
+**ステップ1：** 文字式のきまりに従って表す
+数字を文字の前に書く。
+\[
+\hlblue{c} \times \bbox[2px,lightyellow]{(-4)} \times \hlpink{a} \times \hlblue{c}
+\rightarrow \bbox[2px,lightyellow]{(-4)} \times \hlblue{c} \times \hlpink{a} \times \hlblue{c}
+\]
+
+**ステップ2：** 文字式のきまりに従って表す
+文字をアルファベット順に並べる。
+\[
+\bbox[2px,lightyellow]{(-4)} \times \hlblue{c} \times \hlpink{a} \times \hlblue{c}
+\rightarrow \bbox[2px,lightyellow]{(-4)} \times \hlpink{a} \times \hlblue{c} \times \hlblue{c}
+\]
+
+**ステップ3：** 文字式のきまりに従って表す
+$c$ が2回かけられているので、$c \times c$ を $c^2$ と表す。
+\[
+\bbox[2px,lightyellow]{(-4)} \times \hlpink{a} \times \hlblue{c} \times \hlblue{c}
+\rightarrow \bbox[2px,lightyellow]{(-4)} \times \hlpink{a} \times \hlblue{c^2}
+\]
+
+**ステップ4：** 文字式のきまりに従って表す
+かけ算記号「$\times$」を省略する。
+\[
+\bbox[2px,lightyellow]{(-4)} \times \hlpink{a} \times \hlblue{c^2}
+\rightarrow \bbox[2px,lightyellow]{-4}\hlpink{a}\hlblue{c^2}
+\]
+
+**ステップ5：** 文字式のきまりに従って表す
+$\times$ や $\div$ が残っていないか、数字 $-4$ が前に来ているか、$c \times c$ が $c^2$ になっているか、文字が $a,c$ の順に並んでいるかを確認する。
