@@ -1,0 +1,37 @@
+■問題  
+次の計算をしなさい。
+\[
+\left(-\frac{4}{9}\right)\times\left(+\frac{27}{10}\right)\times\left(-\frac{5}{6}\right)
+\]
+
+【解答】  
+\[
+1
+\]
+
+【解説】  
+**ステップ1：** 符号の規則を適用する  
+負の数が2個なので、積の符号は正になる。
+
+**ステップ2：** 乗法を行う  
+分数では、約分しやすい組を先に見ることがポイントである。交換法則・結合法則により、$27$ と $9$、$5$ と $10$、$4$ と $6$ を約分しやすい形で考える。
+
+\[
+\begin{aligned}
+\left(-\frac{4}{9}\right)\times\left(+\frac{27}{10}\right)\times\left(-\frac{5}{6}\right)
+&=+\left(\frac{4}{9}\times\frac{27}{10}\times\frac{5}{6}\right)\\
+&=\frac{4\times27\times5}{9\times10\times6}\\
+&=\frac{4\times3\times5}{10\times6}\\
+&=\frac{4\times3}{2\times6}\\
+&=\frac{2\times3}{6}\\
+&=1
+\end{aligned}
+\]
+
+符号を先に決めてから約分すると、負号のつけ忘れを防ぐことができる。
+
+したがって、答えは
+\[
+1
+\]
+である。

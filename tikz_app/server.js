@@ -208,8 +208,44 @@ async function readAppAddedGenerationInstructions() {
   return instructions;
 }
 
-async function createQuestionWithOpenAI({ apiKey, prompt, questionNumber, totalCount }) {
+function extractGeneratedQuestion(content) {
+  const questionStart = content.indexOf('■問題');
+  const contentStart = questionStart >= 0 ? questionStart : 0;
+  const answerStart = content.indexOf('【解答】', contentStart);
+  const contentEnd = answerStart >= 0 ? answerStart : content.length;
+  return content.slice(contentStart, contentEnd).trim();
+}
+
+function normalizeGeneratedQuestion(content) {
+  return extractGeneratedQuestion(content).normalize('NFKC').replace(/\s+/g, '');
+}
+
+async function createQuestionWithOpenAI({
+  apiKey,
+  prompt,
+  questionNumber,
+  totalCount,
+  previousQuestions = [],
+  retryingDuplicate = false
+}) {
   const appInstructions = await readAppAddedGenerationInstructions();
+  const batchInstructions = [
+    `これは同じ作問ジョブで生成する全${totalCount}問中の第${questionNumber}問です。`,
+    '問題形式・難易度・解説構成は作問用プロンプトに従いながら、数値、符号、条件の組み合わせを変えてください。',
+    '同じ作問ジョブですでに生成した問題と、問題文や問題式を重複させないでください。'
+  ];
+
+  if (previousQuestions.length > 0) {
+    batchInstructions.push(
+      '次の問題はすでに生成済みです。これらとは異なる問題を作成してください。',
+      previousQuestions.map((question, index) => `既出${index + 1}:\n${question}`).join('\n\n')
+    );
+  }
+
+  if (retryingDuplicate) {
+    batchInstructions.push('直前の応答が既出問題と重複したため、数値や符号を必ず変更して再生成してください。');
+  }
+
   const response = await fetch('https://api.openai.com/v1/responses', {
     method: 'POST',
     headers: {
@@ -220,8 +256,9 @@ async function createQuestionWithOpenAI({ apiKey, prompt, questionNumber, totalC
       model: defaultOpenAIModel,
       instructions: appInstructions,
       input: [
-        prompt
-      ].join('\n')
+        prompt,
+        batchInstructions.join('\n')
+      ].join('\n\n')
     })
   });
 
@@ -271,12 +308,29 @@ async function runGenerationJob(job) {
         message: `第${i + 1}問を生成中です`
       });
 
-      const content = await createQuestionWithOpenAI({
-        apiKey: job.apiKey,
-        prompt: job.prompt,
-        questionNumber: i + 1,
-        totalCount: job.total
-      });
+      const previousQuestions = job.files.map((file) => extractGeneratedQuestion(file.content));
+      const previousQuestionKeys = new Set(
+        job.files.map((file) => normalizeGeneratedQuestion(file.content))
+      );
+      let content = '';
+
+      for (let attempt = 0; attempt < 3; attempt++) {
+        content = await createQuestionWithOpenAI({
+          apiKey: job.apiKey,
+          prompt: job.prompt,
+          questionNumber: i + 1,
+          totalCount: job.total,
+          previousQuestions,
+          retryingDuplicate: attempt > 0
+        });
+
+        if (!previousQuestionKeys.has(normalizeGeneratedQuestion(content))) break;
+        content = '';
+      }
+
+      if (!content) {
+        throw new Error('同じ問題が繰り返し生成されたため、作問を中止しました。');
+      }
       const outputName = await writeUniqueQuestionFile(job.sourceFile, content);
       job.files.push({ name: outputName, content });
 

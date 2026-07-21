@@ -26,23 +26,24 @@
    - 乗算記号は `\times` に統一する
 ## 注意点
    - 難易度は「教科書の基本問題レベル」を基準
+   - 問題は4つの項からなる整数の乗法とし、小数・分数は扱わない
    - つまずきやすい箇所には補足解説を加える
    - 解説では、乗法の交換法則・結合法則を使って、計算しやすい数どうしを先にまとめる考え方を冒頭で明示する
    - 各ステップでは、「交換法則で順序を入れかえる」「結合法則で先にまとめる」「負の数の個数から符号の規則を適用する」など、使った判断を言葉で説明する
-   - 解説の流れは、パターン1：符号の規則を適用する → 乗法を行う ／ パターン2：符号の規則を適用する → 分数を約分してから計算する
+   - 解説の流れは、符号の規則を適用する → 乗法を行う
 
 ## 生成例  
 ■問題1  
  次の計算をしなさい。
 
 \[
-4 \times (-3) \times 8
+4 \times (-3) \times 5 \times 2
 \]
 
 【解答】  
 
 \[
--96
+-120
 \]
 
 【解説】  
@@ -61,7 +62,7 @@
 
 **ステップ1：** 符号の規則を適用する
 \[
-\hlblue{4}\times\hlpink{(-3)}\times\hlblue{8}
+\hlblue{4}\times\hlpink{(-3)}\times\hlblue{5}\times\hlblue{2}
 \]
 正の数は水色、負の数はピンクで確認します。
 負の数は $\hlpink{(-3)}$ の１つなので、全体の積の符号は $\hlpink{(-)}$ になります。
@@ -69,12 +70,12 @@
 **ステップ2：** 乗法を行う
 \[
 \begin{aligned}
-4\times(-3)\times8
-&=\hlblue{4}\times\hlblue{8}\times\hlpink{(-3)}
+4\times(-3)\times5\times2
+&=\hlblue{4}\times\hlblue{5}\times\hlblue{2}\times\hlpink{(-3)}
 &&\cdots\text{乗法の交換法則}\\
-&=32\times\hlpink{(-3)}
+&=20\times\hlpink{(-6)}
 &&\cdots\text{乗法の結合法則}\\
-&=-96
+&=-120
 \end{aligned}
 \]
 
@@ -82,13 +83,13 @@
  次の計算をしなさい。
 
 \[
-(-2)\times7\times(-9)
+(-2)\times7\times(-5)\times3
 \]
 
 【解答】  
 
 \[
-126
+210
 \]
 
 【解説】  
@@ -107,20 +108,20 @@
 
 **ステップ1：** 符号の規則を適用する
 \[
-\hlpink{(-2)}\times\hlblue{7}\times\hlpink{(-9)}
+\hlpink{(-2)}\times\hlblue{7}\times\hlpink{(-5)}\times\hlblue{3}
 \]
 正の数は水色、負の数はピンクで確認します。
-負の数は $\hlpink{(-2)}$ と $\hlpink{(-9)}$ の２つあるので、全体の積の符号は $\hlblue{(+)}$ になります。
+負の数は $\hlpink{(-2)}$ と $\hlpink{(-5)}$ の２つあるので、全体の積の符号は $\hlblue{(+)}$ になります。
 
 **ステップ2：** 乗法を行う
 \[
 \begin{aligned}
-(-2)\times7\times(-9)
-&=\hlblue{7}\times\hlpink{(-2)}\times\hlpink{(-9)}
+(-2)\times7\times(-5)\times3
+&=\hlpink{(-2)}\times\hlpink{(-5)}\times\hlblue{7}\times\hlblue{3}
 &&\cdots\text{乗法の交換法則}\\
-&=\hlblue{7}\times18
+&=10\times21
 &&\cdots\text{乗法の結合法則}\\
-&=126
+&=210
 \end{aligned}
 \]
 
@@ -128,13 +129,13 @@
  次の計算をしなさい。
 
 \[
-2\times(-6)\times5\times(-4)\times(-2)
+2\times(-6)\times(-5)\times(-4)
 \]
 
 【解答】  
 
 \[
--480
+-240
 \]
 
 【解説】  
@@ -153,158 +154,20 @@
 
 **ステップ1：** 符号の規則を適用する
 \[
-\hlblue{2}\times\hlpink{(-6)}\times\hlblue{5}\times\hlpink{(-4)}\times\hlpink{(-2)}
+\hlblue{2}\times\hlpink{(-6)}\times\hlpink{(-5)}\times\hlpink{(-4)}
 \]
 正の数は水色、負の数はピンクで確認します。
-負の数は $\hlpink{(-6)},\hlpink{(-4)},\hlpink{(-2)}$ の３つなので、全体の積の符号は $\hlpink{(-)}$ になります。
+負の数は $\hlpink{(-6)},\hlpink{(-5)},\hlpink{(-4)}$ の３つなので、全体の積の符号は $\hlpink{(-)}$ になります。
 
 **ステップ2：** 乗法を行う
 \[
 \begin{aligned}
-2\times(-6)\times5\times(-4)\times(-2)
-&=(\hlblue{2}\times\hlblue{5})\times\{\hlpink{(-6)}\times\hlpink{(-4)}\times\hlpink{(-2)}\}
+2\times(-6)\times(-5)\times(-4)
+&=(\hlblue{2}\times\hlpink{(-5)})\times\{\hlpink{(-6)}\times\hlpink{(-4)}\}
 &&\cdots\text{乗法の交換法則}\\
-&=10\times\hlpink{(-48)}
+&=\hlpink{(-10)}\times24
 &&\cdots\text{乗法の結合法則}\\
-&=-480
-\end{aligned}
-\]
-
-■問題4  
- 次の計算をしなさい。
-
-\[
-(-1.3)\times(-1.25)\times8
-\]
-
-【解答】  
-
-\[
-13
-\]
-
-【解説】  
-**乗法の符号ルール：** まず、かける数の符号から、積の符号を決めます。
-\[
-\begin{aligned}
-\hlblue{(+)} \times \hlblue{(+)} &\rightarrow \hlblue{(+)}\\
-\hlpink{(-)} \times \hlpink{(-)} &\rightarrow \hlblue{(+)}\\
-\hlblue{(+)} \times \hlpink{(-)} &\rightarrow \hlpink{(-)}\\
-\hlpink{(-)} \times \hlblue{(+)} &\rightarrow \hlpink{(-)}
-\end{aligned}
-\]
-同じ符号どうしの積は正、異なる符号どうしの積は負になります。
-2つ以上の数をかけるときは、負の数が奇数個なら積は負、負の数が偶数個なら積は正になります。
-積の絶対値は、それぞれの数の絶対値の積になります。
-
-**ステップ1：** 符号の規則を適用する
-\[
-\hlpink{(-1.3)}\times\hlpink{(-1.25)}\times\hlblue{8}
-\]
-正の数は水色、負の数はピンクで確認します。
-負の数は $\hlpink{(-1.3)}$ と $\hlpink{(-1.25)}$ の２つなので、全体の積の符号は $\hlblue{(+)}$ になります。
-
-**ステップ2：** 乗法を行う
-\[
-\begin{aligned}
-(-1.3)\times(-1.25)\times8
-&=\hlpink{(-1.3)}\times\{\hlpink{(-1.25)}\times\hlblue{8}\}
-&&\cdots\text{乗法の結合法則}\\
-&=\hlpink{(-1.3)}\times\hlpink{(-10)}
-&&\cdots\text{かっこの中を計算}\\
-&=13
-\end{aligned}
-\]
-
-■問題5  
- 次の計算をしなさい。
-
-\[
-\bigl(-\frac{2}{3}\bigr)\times(-8)\times\bigl(-\frac{3}{4}\bigr)
-\]
-
-【解答】  
-
-\[
--4
-\]
-
-【解説】  
-**乗法の符号ルール：** まず、かける数の符号から、積の符号を決めます。
-\[
-\begin{aligned}
-\hlblue{(+)} \times \hlblue{(+)} &\rightarrow \hlblue{(+)}\\
-\hlpink{(-)} \times \hlpink{(-)} &\rightarrow \hlblue{(+)}\\
-\hlblue{(+)} \times \hlpink{(-)} &\rightarrow \hlpink{(-)}\\
-\hlpink{(-)} \times \hlblue{(+)} &\rightarrow \hlpink{(-)}
-\end{aligned}
-\]
-同じ符号どうしの積は正、異なる符号どうしの積は負になります。
-2つ以上の数をかけるときは、負の数が奇数個なら積は負、負の数が偶数個なら積は正になります。
-積の絶対値は、それぞれの数の絶対値の積になります。
-
-**ステップ1：** 符号の規則を適用する
-\[
-\hlpink{\left(-\frac{2}{3}\right)}\times\hlpink{(-8)}\times\hlpink{\left(-\frac{3}{4}\right)}
-\]
-正の数は水色、負の数はピンクで確認します。
-負の数は３つあるので、全体の積の符号は $\hlpink{(-)}$ になります。
-
-**ステップ2：** 分数を約分してから計算する
-\[
-\begin{aligned}
-\left(-\frac{2}{3}\right)\times(-8)\times\left(-\frac{3}{4}\right)
-&=\left\{\hlpink{\left(-\frac{2}{3}\right)}\times\hlpink{\left(-\frac{3}{4}\right)}\right\}\times\hlpink{(-8)}
-&&\cdots\text{乗法の交換法則}\\
-&=\frac{1}{2}\times\hlpink{(-8)}
-&&\cdots\text{乗法の結合法則}\\
-&=-4
-\end{aligned}
-\]
-
-■問題6  
- 次の計算をしなさい。
-
-\[
-\bigl(\frac{5}{14}\bigr)\times(-9)\times\bigl(-\frac{7}{15}\bigr)
-\]
-
-【解答】  
-
-\[
-\frac{3}{2}
-\]
-
-【解説】  
-**乗法の符号ルール：** まず、かける数の符号から、積の符号を決めます。
-\[
-\begin{aligned}
-\hlblue{(+)} \times \hlblue{(+)} &\rightarrow \hlblue{(+)}\\
-\hlpink{(-)} \times \hlpink{(-)} &\rightarrow \hlblue{(+)}\\
-\hlblue{(+)} \times \hlpink{(-)} &\rightarrow \hlpink{(-)}\\
-\hlpink{(-)} \times \hlblue{(+)} &\rightarrow \hlpink{(-)}
-\end{aligned}
-\]
-同じ符号どうしの積は正、異なる符号どうしの積は負になります。
-2つ以上の数をかけるときは、負の数が奇数個なら積は負、負の数が偶数個なら積は正になります。
-積の絶対値は、それぞれの数の絶対値の積になります。
-
-**ステップ1：** 符号の規則を適用する
-\[
-\hlblue{\frac{5}{14}}\times\hlpink{(-9)}\times\hlpink{\left(-\frac{7}{15}\right)}
-\]
-正の数は水色、負の数はピンクで確認します。
-負の数は $\hlpink{(-9)}$ と $\hlpink{\left(-\frac{7}{15}\right)}$ の２つなので、全体の積の符号は $\hlblue{(+)}$ になります。
-
-**ステップ2：** 分数を約分してから計算する
-\[
-\begin{aligned}
-\frac{5}{14}\times(-9)\times\left(-\frac{7}{15}\right)
-&=\left(\hlblue{\frac{5}{14}}\times\hlblue{\frac{7}{15}}\right)\times\hlblue{9}
-&&\cdots\text{乗法の交換法則}\\
-&=\frac{1}{6}\times9
-&&\cdots\text{乗法の結合法則}\\
-&=\frac{3}{2}
+&=-240
 \end{aligned}
 \]
 

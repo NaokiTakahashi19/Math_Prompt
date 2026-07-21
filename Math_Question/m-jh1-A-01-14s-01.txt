@@ -1,0 +1,43 @@
+■問題  
+除法を乗法に直して次の計算をしなさい。
+\[
+\left(-\frac{7}{8}\right)\div\frac{14}{15}\div\left(-\frac{5}{6}\right)
+\]
+
+【解答】  
+\[
+\frac{9}{8}
+\]
+
+【解説】  
+逆数とは、かけると積が $1$ になる数のことである。
+除法は、わる数の逆数をかける乗法に直して計算する。
+除法が2つあるときは、左から順にどちらも逆数をかける形に直す。
+
+**ステップ1：** 除法を乗法になおす
+\[
+\left(-\frac{7}{8}\right)\div\frac{14}{15}\div\left(-\frac{5}{6}\right)
+=\left(-\frac{7}{8}\right)\times\frac{15}{14}\times\left(-\frac{6}{5}\right)
+\]
+
+**ステップ2：** 符号の規則を適用する
+負の数が2個あるので、答えの符号は正になる。
+\[
+=+\left(\frac{7}{8}\times\frac{15}{14}\times\frac{6}{5}\right)
+\]
+
+**ステップ3：** 分数を約分してから計算する
+\[
+\begin{aligned}
+&=\frac{7\times15\times6}{8\times14\times5}\\
+&=\frac{1\times3\times3}{4\times2\times1}\\
+&=\frac{9}{8}
+\end{aligned}
+\]
+
+わる数の逆数をかけるとき、わられる数はそのままにする点に注意する。
+
+したがって、答えは
+\[
+\frac{9}{8}
+\]

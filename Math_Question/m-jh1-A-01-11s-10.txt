@@ -1,0 +1,27 @@
+■問題  
+次の計算をしなさい。
+\[
+\left(-\frac{2}{5}\right)^3
+\]
+
+【解答】  
+\[
+-\frac{8}{125}
+\]
+
+【解説】  
+**ステップ1：** 指数の意味を確認する  
+$\left(-\frac{2}{5}\right)^3$ の指数は $3$ である。これは、$-\frac{2}{5}$ を3回かけることを表す。負の分数全体を3乗するので、かっこをつける。
+\[
+\left(-\frac{2}{5}\right)^3
+=\left(-\frac{2}{5}\right)\times\left(-\frac{2}{5}\right)\times\left(-\frac{2}{5}\right)
+\]
+
+**ステップ2：** 計算する  
+負の数を3回かけるので、答えの符号は負となる。
+\[
+\begin{aligned}
+&=-\frac{2\times2\times2}{5\times5\times5}\\
+&=-\frac{8}{125}
+\end{aligned}
+\]

@@ -1,0 +1,29 @@
+■問題  
+次の計算をしなさい。
+\[
+\left(\frac{7}{3}\right)^3
+\]
+
+【解答】  
+\[
+\frac{343}{27}
+\]
+
+【解説】  
+**ステップ1：** 指数の意味を確認する  
+$\left(\frac{7}{3}\right)^3$ の指数は $3$ である。これは、$\frac{7}{3}$ を3回かけることを表す。
+\[
+\begin{aligned}
+\left(\frac{7}{3}\right)^3
+&=\frac{7}{3}\times\frac{7}{3}\times\frac{7}{3}
+\end{aligned}
+\]
+
+**ステップ2：** 計算する  
+分子どうし、分母どうしをそれぞれかける。
+\[
+\begin{aligned}
+&=\frac{7\times7\times7}{3\times3\times3}\\
+&=\frac{343}{27}
+\end{aligned}
+\]

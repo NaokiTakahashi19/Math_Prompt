@@ -1,0 +1,34 @@
+■問題  
+次の計算をしなさい。
+\[
+\left(+\frac{5}{12}\right)+\left(-\frac{7}{8}\right)+\left(+\frac{7}{12}\right)
+\]
+
+【解答】  
+\[
+\frac{1}{8}
+\]
+
+【解説】  
+**ステップ1：** 式の見方を確認する
+正の項どうしをまとめると、分母が同じなので計算しやすくなる。  
+この式では、$\left(+\frac{5}{12}\right)$ と $\left(+\frac{7}{12}\right)$ を先にまとめることがポイントである。
+
+**ステップ2：** 加法を行う
+交換法則・結合法則を使って、正の項どうしを先にまとめる。
+\[
+\begin{aligned}
+\left(+\frac{5}{12}\right)+\left(-\frac{7}{8}\right)+\left(+\frac{7}{12}\right)
+&=\left\{\left(+\frac{5}{12}\right)+\left(+\frac{7}{12}\right)\right\}+\left(-\frac{7}{8}\right)\\
+&=1-\frac{7}{8}\\
+&=\frac{1}{8}
+\end{aligned}
+\]
+
+負の項を途中で落とさないように、$\left(-\frac{7}{8}\right)$ は最後まで符号をつけて考える。
+
+したがって、答えは
+\[
+\frac{1}{8}
+\]
+である。

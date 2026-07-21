@@ -1,0 +1,37 @@
+■問題  
+除法を乗法に直して次の計算をしなさい。
+\[
+\frac{3}{8} \div \bigl(-\frac{9}{4}\bigr)
+\]
+
+【解答】  
+\[
+-\frac{1}{6}
+\]
+
+【解説】  
+逆数とは、かけると積が $1$ になる数のことである。
+除法は、わる数の逆数をかける乗法に直して計算する。
+負の数の逆数は、符号も含めて逆数にすることに注意する。
+\[
+\begin{aligned}
+\hlblue{(+)} \times \hlblue{(+)} &\rightarrow 1\\
+\hlpink{(-)} \times \hlpink{(-)} &\rightarrow 1
+\end{aligned}
+\]
+
+**ステップ1：** 除法を乗法になおす
+\[
+\frac{3}{8} \div \hlpink{\bigl(-\frac{9}{4}\bigr)}
+= \frac{3}{8} \times \hlpink{\bigl(-\frac{4}{9}\bigr)}
+\]
+
+**ステップ2：** 符号を外に出して、絶対値の積を考える
+\[
+= -\bigl(\hlblue{\frac{3}{8}} \times \hlpink{\frac{4}{9}}\bigr)
+\]
+
+**ステップ3：** 乗法を行う
+\[
+= -\frac{1}{6}
+\]

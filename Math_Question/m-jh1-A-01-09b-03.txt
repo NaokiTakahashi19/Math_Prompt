@@ -1,0 +1,38 @@
+■問題  
+次の計算をしなさい。
+
+\[
+(-9)\times(-4)
+\]
+
+【解答】  
+\[
+36
+\]
+
+【解説】  
+**乗法の符号ルール：** まず、かける2つの数の符号から、積の符号を決める。
+\[
+\begin{array}{ccl}
+\hlblue{(+)} \times \hlblue{(+)} &\rightarrow& \hlblue{(+)}\\
+\hlpink{(-)} \times \hlpink{(-)} &\rightarrow& \hlblue{(+)}\\
+\hlblue{(+)} \times \hlpink{(-)} &\rightarrow& \hlpink{(-)}\\
+\hlpink{(-)} \times \hlblue{(+)} &\rightarrow& \hlpink{(-)}
+\end{array}
+\]
+同じ符号どうしの積は正、異なる符号どうしの積は負になる。
+
+**ステップ1：** 符号の規則を適用する
+$\hlpink{(-9)}$ と $\hlpink{(-4)}$ はどちらも $\hlpink{(-)}$ で、符号が同じである。
+符号が同じ2つの数の積では、答えの符号は $\hlblue{(+)}$ になる。
+
+**ステップ2：** 乗法を行う
+先に符号を正と決めたので、次に絶対値どうしをかける。
+\[
+9\times4=36
+\]
+
+**ステップ3：** $\hlblue{(+)}$ は省略して答える
+\[
+36
+\]

@@ -26,6 +26,7 @@
    - 乗算記号は `\times` に統一する
 ## 注意点
    - 難易度は「教科書の基本問題レベル」を基準
+   - 問題は2つの項からなる除法とする
    - つまずきやすい箇所には補足解説を加える
    - 解説の流れは、除法を乗法になおす → 符号を外に出して、絶対値の積を考える → 乗法を行う
 
@@ -71,12 +72,12 @@
 ■問題2
 除法を乗法に直して次の計算をしなさい。
 \[
-\bigl(-\frac{2}{3}\bigr) \div \bigl(-\frac{2}{9}\bigr) \times \frac{3}{2}
+\bigl(-\frac{2}{3}\bigr) \div \bigl(-\frac{2}{9}\bigr)
 \]
 
 【解答】
 \[
-\frac{9}{2}
+3
 \]
 
 【解説】
@@ -92,18 +93,18 @@
 
 **ステップ1：** 除法を乗法になおす
 \[
-\hlpink{\bigl(-\frac{2}{3}\bigr)} \div \hlpink{\bigl(-\frac{2}{9}\bigr)} \times \hlblue{\frac{3}{2}}
-= \hlpink{\bigl(-\frac{2}{3}\bigr)} \times \hlpink{\bigl(-\frac{9}{2}\bigr)} \times \hlblue{\frac{3}{2}}
+\hlpink{\bigl(-\frac{2}{3}\bigr)} \div \hlpink{\bigl(-\frac{2}{9}\bigr)}
+= \hlpink{\bigl(-\frac{2}{3}\bigr)} \times \hlpink{\bigl(-\frac{9}{2}\bigr)}
 \]
 
 **ステップ2：** 符号を外に出して、絶対値の積を考える
 \[
-=+\bigl(\hlpink{\frac{2}{3}}\times\hlpink{\frac{9}{2}}\times\hlblue{\frac{3}{2}}\bigr)
+=+\bigl(\hlpink{\frac{2}{3}}\times\hlpink{\frac{9}{2}}\bigr)
 \]
 
 **ステップ3：** 乗法を行う
 \[
-= \frac{9}{2}
+=3
 \]
 
 以上、生成例

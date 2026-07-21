@@ -1,0 +1,47 @@
+■問題  
+ 次の計算をしなさい。
+
+\[
+(-8)\times3\times(-5)\times2
+\]
+
+【解答】  
+
+\[
+240
+\]
+
+【解説】  
+乗法の交換法則・結合法則を使うと、計算しやすい数どうしを先にまとめることができる。ここでは、まず負の数の個数から符号を決め、そのあとに計算しやすい組を作って乗法を行う。
+
+**乗法の符号ルール：** まず、かける数の符号から、積の符号を決める。
+\[
+\begin{aligned}
+\hlblue{(+)} \times \hlblue{(+)} &\rightarrow \hlblue{(+)}\\
+\hlpink{(-)} \times \hlpink{(-)} &\rightarrow \hlblue{(+)}\\
+\hlblue{(+)} \times \hlpink{(-)} &\rightarrow \hlpink{(-)}\\
+\hlpink{(-)} \times \hlblue{(+)} &\rightarrow \hlpink{(-)}
+\end{aligned}
+\]
+同じ符号どうしの積は正、異なる符号どうしの積は負になる。
+2つ以上の数をかけるときは、負の数が奇数個なら積は負、負の数が偶数個なら積は正になる。
+積の絶対値は、それぞれの数の絶対値の積になる。
+
+**ステップ1：** 符号の規則を適用する
+\[
+\hlpink{(-8)}\times\hlblue{3}\times\hlpink{(-5)}\times\hlblue{2}
+\]
+正の数は水色、負の数はピンクで確認する。
+負の数は $\hlpink{(-8)}$ と $\hlpink{(-5)}$ の2つあるので、全体の積の符号は $\hlblue{(+)}$ になる。
+
+**ステップ2：** 乗法を行う
+\[
+\begin{aligned}
+(-8)\times3\times(-5)\times2
+&=\hlpink{(-8)}\times\hlpink{(-5)}\times\hlblue{3}\times\hlblue{2}
+&&\cdots\text{乗法の交換法則で順序を入れかえる}\\
+&=40\times6
+&&\cdots\text{乗法の結合法則で先にまとめる}\\
+&=240
+\end{aligned}
+\]

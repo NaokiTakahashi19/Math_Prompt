@@ -1,0 +1,42 @@
+■問題  
+次の計算をしなさい。
+\[
+\left(+\frac{5}{6}\right)-\left(-\frac{1}{4}\right)+\left(-\frac{7}{12}\right)-\left(+\frac{3}{8}\right)
+\]
+
+【解答】  
+\[
+\frac{1}{8}
+\]
+
+【解説】  
+**ステップ1：** 減法を加法になおす  
+分数の混合計算では、まず引き算をすべて足し算になおすことがポイントである。
+
+\[
+\begin{aligned}
+&\left(+\frac{5}{6}\right)-\left(-\frac{1}{4}\right)+\left(-\frac{7}{12}\right)-\left(+\frac{3}{8}\right)\\
+&=\left(+\frac{5}{6}\right)+\left(+\frac{1}{4}\right)+\left(-\frac{7}{12}\right)+\left(-\frac{3}{8}\right)
+\end{aligned}
+\]
+
+特に、$-\left(-\frac{1}{4}\right)$ は $+\left(+\frac{1}{4}\right)$ になることに注意する。
+
+**ステップ2：** 加法を行う  
+分母を $24$ にそろえて計算する。
+
+\[
+\begin{aligned}
+&\left(+\frac{5}{6}\right)+\left(+\frac{1}{4}\right)+\left(-\frac{7}{12}\right)+\left(-\frac{3}{8}\right)\\
+&=\frac{20}{24}+\frac{6}{24}-\frac{14}{24}-\frac{9}{24}\\
+&=\frac{20+6-14-9}{24}\\
+&=\frac{3}{24}\\
+&=\frac{1}{8}
+\end{aligned}
+\]
+
+したがって、答えは
+\[
+\frac{1}{8}
+\]
+である。

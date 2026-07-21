@@ -1,0 +1,38 @@
+■問題  
+次の計算をしなさい。
+
+\[
+(-7)\times(+6)
+\]
+
+【解答】  
+\[
+-42
+\]
+
+【解説】  
+**乗法の符号ルール：** まず、かける2つの数の符号から、積の符号を決める。
+\[
+\begin{array}{ccl}
+\hlblue{(+)} \times \hlblue{(+)} &\rightarrow& \hlblue{(+)}\\
+\hlpink{(-)} \times \hlpink{(-)} &\rightarrow& \hlblue{(+)}\\
+\hlblue{(+)} \times \hlpink{(-)} &\rightarrow& \hlpink{(-)}\\
+\hlpink{(-)} \times \hlblue{(+)} &\rightarrow& \hlpink{(-)}
+\end{array}
+\]
+同じ符号どうしの積は正、異なる符号どうしの積は負である。
+
+**ステップ1：** 符号の規則を適用する
+$\hlpink{(-7)}$ と $\hlblue{(+6)}$ は符号が異なる。
+符号が異なる2つの数の積では、答えの符号は $\hlpink{(-)}$ である。
+
+**ステップ2：** 乗法を行う
+積の絶対値は、それぞれの数の絶対値の積である。
+\[
+7\times6=42
+\]
+
+**ステップ3：** 符号をつけて答える
+\[
+-42
+\]
