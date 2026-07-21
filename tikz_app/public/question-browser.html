@@ -253,7 +253,13 @@
       overflow: auto;
       padding: 18px;
       background: #fff;
+      font-size: 14px;
       line-height: 1.8;
+    }
+
+    body.large-output #output {
+      font-size: 16.8px;
+      line-height: 1.9;
     }
 
     #raw-editor {
@@ -375,6 +381,7 @@
           <div id="status"></div>
         </div>
         <div class="viewer-actions">
+          <button id="font-size-toggle" type="button" aria-pressed="false">文字大</button>
           <button id="edit-file-btn" type="button" disabled>編集</button>
           <button id="save-edit-btn" class="primary" type="button" hidden>保存</button>
           <button id="cancel-edit-btn" type="button" hidden>キャンセル</button>
@@ -412,11 +419,29 @@
     const copyNameBtn = document.getElementById('copy-name-btn');
     const renameFileBtn = document.getElementById('rename-file-btn');
     const deleteFileBtn = document.getElementById('delete-file-btn');
+    const fontSizeToggleBtn = document.getElementById('font-size-toggle');
     const exportVisibleWordBtn = document.getElementById('export-visible-word-btn');
     const headerExportStatusEl = document.getElementById('header-export-status');
+    const largeOutputStorageKey = 'questionBrowserLargeOutput';
     let keyboardNavigationToken = 0;
     let wordExportFramePromise = null;
     let wordExportRunning = false;
+
+    function setLargeOutput(enabled) {
+      document.body.classList.toggle('large-output', enabled);
+      localStorage.setItem(largeOutputStorageKey, enabled ? '1' : '0');
+      if (!fontSizeToggleBtn) return;
+      fontSizeToggleBtn.setAttribute('aria-pressed', enabled ? 'true' : 'false');
+      fontSizeToggleBtn.textContent = enabled ? '文字大 ON' : '文字大';
+    }
+
+    function initLargeOutputToggle() {
+      setLargeOutput(localStorage.getItem(largeOutputStorageKey) === '1');
+      if (!fontSizeToggleBtn) return;
+      fontSizeToggleBtn.addEventListener('click', () => {
+        setLargeOutput(!document.body.classList.contains('large-output'));
+      });
+    }
 
     function escapeForHtml(value) {
       return String(value ?? '')
@@ -1286,7 +1311,10 @@
     deleteFileBtn.addEventListener('click', deleteSelectedQuestion);
     document.addEventListener('keydown', handleKeyboardNavigation);
 
-    window.addEventListener('DOMContentLoaded', loadFiles);
+    window.addEventListener('DOMContentLoaded', () => {
+      initLargeOutputToggle();
+      loadFiles();
+    });
   </script>
 </body>
 </html>

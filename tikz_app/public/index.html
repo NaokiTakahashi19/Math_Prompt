@@ -78,6 +78,15 @@
       padding: 15px;
       overflow: auto;
       white-space: normal;
+      font-size: 14px;
+      line-height: 1.65;
+    }
+    body.large-text textarea,
+    body.large-text #output {
+      font-size: 16.8px;
+    }
+    body.large-text #output {
+      line-height: 1.75;
     }
     .actions {
       padding: 10px;
@@ -269,6 +278,7 @@
     <div class="header-actions">
       <a href="/question-browser">作問結果ブラウザ</a>
       <a href="/questions">問題生成</a>
+      <button id="font-size-toggle" type="button" aria-pressed="false">文字大</button>
       <input id="api-key-input" type="password" placeholder="OpenAI APIキー" autocomplete="off" />
       <button id="api-key-btn" type="button">APIキー保存</button>
     </div>
@@ -1075,6 +1085,25 @@ for (const seg of segments) {
     let promptHasUnsavedChanges = false;
     const activeGenerationJobs = new Map();
     const apiKeyStorageKey = 'tikzAppOpenAIApiKey';
+    const largeTextStorageKey = 'tikzAppLargeText';
+
+    function setLargeText(enabled) {
+      document.body.classList.toggle('large-text', enabled);
+      localStorage.setItem(largeTextStorageKey, enabled ? '1' : '0');
+      const btn = document.getElementById('font-size-toggle');
+      if (!btn) return;
+      btn.setAttribute('aria-pressed', enabled ? 'true' : 'false');
+      btn.textContent = enabled ? '文字大 ON' : '文字大';
+    }
+
+    function initLargeTextToggle() {
+      setLargeText(localStorage.getItem(largeTextStorageKey) === '1');
+      const btn = document.getElementById('font-size-toggle');
+      if (!btn) return;
+      btn.addEventListener('click', () => {
+        setLargeText(!document.body.classList.contains('large-text'));
+      });
+    }
 
     function setPromptSaveState({ fileName = loadedPromptFileName, dirty = promptHasUnsavedChanges } = {}) {
       loadedPromptFileName = fileName;
@@ -1482,6 +1511,7 @@ for (const seg of segments) {
     });
     document.getElementById('render-btn').addEventListener('click', renderContent);
     window.addEventListener('DOMContentLoaded', () => {
+      initLargeTextToggle();
       const apiKeyInput = document.getElementById('api-key-input');
       if (apiKeyInput) apiKeyInput.value = localStorage.getItem(apiKeyStorageKey) || '';
       updateApiKeyButtonState();
