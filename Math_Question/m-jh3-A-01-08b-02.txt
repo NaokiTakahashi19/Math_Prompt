@@ -11,8 +11,8 @@ y^2 - 25
 
 【解説】  
 **ステップ1：** 乗法の公式が使えないか検討する  
-$(\hlblue{y}\bbox[2px,lightyellow]{+}\hlpink{5})(\hlblue{y}\bbox[2px,lightyellow]{-}\hlpink{5})$ は、$(\hlblue{a}\bbox[2px,lightyellow]{+}\hlpink{b})(\hlblue{a}\bbox[2px,lightyellow]{-}\hlpink{b})$ の形である。  
-この式では、乗法の公式のうち、次の公式が使える。
+$(\hlblue{y}\bbox[2px,lightyellow]{+}\hlpink{5})(\hlblue{y}\bbox[2px,lightyellow]{-}\hlpink{5})$ は、$(\hlblue{a}\bbox[2px,lightyellow]{+}\hlpink{b})(\hlblue{a}\bbox[2px,lightyellow]{-}\hlpink{b})$ の形であることを確認しなさい。  
+この式では、乗法の公式のうち、次の公式が使えることを確認しなさい。
 
 **乗法の公式：**
 \[

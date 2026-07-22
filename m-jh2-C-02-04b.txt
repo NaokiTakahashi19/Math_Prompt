@@ -78,14 +78,12 @@ $\triangle ABC$ は正三角形なので、
 \[
 \angle A=\angle B=\angle C=60^\circ
 \]
-です。
 
 **ステップ2：** $x$ を答える
 $x$ は $\angle A$ の大きさなので、
 \[
 x=60^\circ
 \]
-です。
 
 ■問題2
 下の図で、$\triangle ABC$ は正三角形です。辺 $BC$ 上に点 $D$、辺 $CA$ 上に点 $E$ をとり、$BD=CE$ とします。
@@ -129,14 +127,12 @@ AB=BC
 \[
 \angle ABD=\angle BCE=60^\circ
 \]
-です。
 
 **ステップ2：** 仮定を使う
 仮定より、
 \[
 BD=CE
 \]
-です。
 
 **ステップ3：** 合同条件を確認する
 \[
@@ -147,6 +143,5 @@ AB=BC,\quad BD=CE,\quad \angle ABD=\angle BCE
 \[
 \triangle ABD\equiv\triangle BCE
 \]
-です。
 
 以上、生成例

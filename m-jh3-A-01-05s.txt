@@ -50,7 +50,7 @@ x^2 -2x -35
 【解説】  
 **ステップ1：** 乗法の公式が使えるか判断する
 $(\bbox[2px,lightgreen]{x} + \hlblue{5})(\bbox[2px,lightgreen]{x} + \hlpink{(-7)})$ は、$(\bbox[2px,lightgreen]{x} + \hlblue{a})(\bbox[2px,lightgreen]{x} + \hlpink{b})$ の形です。
-この式では、乗法の公式のうち、次の公式が使えると判断する。
+この式では、乗法の公式のうち、次の公式が使えると判断します。
 
 **乗法の公式：**
 \[
@@ -90,7 +90,7 @@ x^2 -13x + 36
 【解説】  
 **ステップ1：** 乗法の公式が使えるか判断する
 $(\bbox[2px,lightgreen]{x} + \hlblue{(-4)})(\bbox[2px,lightgreen]{x} + \hlpink{(-9)})$ は、$(\bbox[2px,lightgreen]{x} + \hlblue{a})(\bbox[2px,lightgreen]{x} + \hlpink{b})$ の形です。
-この式では、乗法の公式のうち、次の公式が使えると判断する。
+この式では、乗法の公式のうち、次の公式が使えると判断します。
 
 **乗法の公式：**
 \[

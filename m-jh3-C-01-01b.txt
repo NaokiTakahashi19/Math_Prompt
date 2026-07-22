@@ -99,19 +99,17 @@ $\triangle ABC$ を2倍に拡大した図形が $\triangle DEF$ です。
 \[
 A\leftrightarrow D,\quad B\leftrightarrow E,\quad C\leftrightarrow F
 \]
-です。
 
 **ステップ2：** 対応する辺を確認する
 対応する辺は、
 \[
 AB\leftrightarrow DE,\quad BC\leftrightarrow EF,\quad CA\leftrightarrow FD
 \]
-です。
+
 2倍に拡大しているので、対応する辺の長さの比は、
 \[
 AB:DE=BC:EF=CA:FD=1:2
 \]
-です。
 
 **ステップ3：** 対応する角を確認する
 拡大しても、角の大きさは変わりません。
@@ -119,13 +117,12 @@ AB:DE=BC:EF=CA:FD=1:2
 \[
 \angle A=\angle D,\quad \angle B=\angle E,\quad \angle C=\angle F
 \]
-です。
 
 **間違えやすいポイント：**
 辺の長さは2倍になりますが、角の大きさは2倍にはなりません。相似な図形では、対応する角の大きさは等しいままです。
 
 ■問題2
-下の図で、$\triangle DEF$ は $\triangle ABC$ を2倍に拡大した図形です。$\triangle DEF$ で辺 $EF$ を底辺とするときの高さは、$\triangle ABC$ で辺 $BC$ を底辺とするときの高さの何倍ですか。
+下の図で、$\triangle DEF$ は $\triangle ABC$ を2倍に拡大した図形です。$\triangle DEF$ で辺 $EF$ を底辺とするときの高さが、$\triangle ABC$ で辺 $BC$ を底辺とするときの高さの何倍か求めなさい。
 
 【図】
 \begin{tikzpicture}[scale=0.55, line cap=round, line join=round]
@@ -175,13 +172,11 @@ $BC$ を底辺とするときの高さと、$EF$ を底辺とするときの高�
 \[
 1:2
 \]
-です。
 
 よって、$\triangle DEF$ の高さは、$\triangle ABC$ の高さの
 \[
 2\text{ 倍}
 \]
-です。
 
 ■問題3
 四角形 $ABCD$ と四角形 $EFGH$ は相似で、対応する頂点は
@@ -214,7 +209,6 @@ FG=15\text{ cm}
 \[
 AB\leftrightarrow EF,\quad BC\leftrightarrow FG
 \]
-です。
 
 **ステップ2：** 相似比を求める
 \[
@@ -224,14 +218,13 @@ AB:EF=3:9=1:3
 \[
 1:3
 \]
-です。
 
 **ステップ3：** $FG$ の長さを求める
 $BC$ と $FG$ は対応する辺なので、
 \[
 BC:FG=1:3
 \]
-です。
+
 $BC=5\text{ cm}$ だから、
 \[
 FG=5\times3=15
@@ -240,6 +233,5 @@ FG=5\times3=15
 \[
 FG=15\text{ cm}
 \]
-です。
 
 以上、生成例

@@ -88,12 +88,12 @@ $36^\circ$
 
 【解説】
 **ポイント整理：** 円の接線
-円の接線は、接点を通る半径に垂直である。
+円の接線は、接点を通る半径に垂直です。
 2本の接線 $PA$、$PB$ の接点が $A$、$B$ のとき、
 \[
 OA\perp PA,\quad OB\perp PB
 \]
-である。
+です。
 したがって、四角形 $PAOB$ では、
 \[
 \angle PAO=\angle PBO=90^\circ
@@ -102,7 +102,7 @@ OA\perp PA,\quad OB\perp PB
 \[
 \angle APB+\angle AOB=180^\circ
 \]
-である。
+です。
 
 **ステップ1：** 円周角から中心角を求める
 $\angle ACB=72^\circ$ は、弧 $\overset{\frown}{AB}$ に対する円周角です。
@@ -110,7 +110,6 @@ $\angle ACB=72^\circ$ は、弧 $\overset{\frown}{AB}$ に対する円周角で�
 \[
 \angle AOB=72^\circ\times 2=144^\circ
 \]
-です。
 
 **ステップ2：** 接線のなす角を求める
 四角形 $PAOB$ では、
@@ -157,12 +156,12 @@ $140^\circ$
 
 【解説】
 **ポイント整理：** 円の接線
-円の接線は、接点を通る半径に垂直である。
+円の接線は、接点を通る半径に垂直です。
 2本の接線 $PA$、$PB$ の接点が $A$、$B$ のとき、
 \[
 OA\perp PA,\quad OB\perp PB
 \]
-である。
+です。
 したがって、四角形 $PAOB$ では、
 \[
 \angle PAO=\angle PBO=90^\circ
@@ -171,19 +170,18 @@ OA\perp PA,\quad OB\perp PB
 \[
 \angle APB+\angle AOB=180^\circ
 \]
-である。
+です。
 
 **ステップ1：** 四角形 $PAOB$ に注目する
 図より、
 \[
 \angle APB=40^\circ
 \]
-です。
+
 また、$PA$、$PB$ は接線なので、
 \[
 \angle PAO=90^\circ,\quad \angle PBO=90^\circ
 \]
-です。
 
 **ステップ2：** 中心角 $x$ を求める
 \[
@@ -229,12 +227,12 @@ $56^\circ$
 
 【解説】
 **ポイント整理：** 円の接線
-円の接線は、接点を通る半径に垂直である。
+円の接線は、接点を通る半径に垂直です。
 2本の接線 $PA$、$PB$ の接点が $A$、$B$ のとき、
 \[
 OA\perp PA,\quad OB\perp PB
 \]
-である。
+です。
 したがって、四角形 $PAOB$ では、
 \[
 \angle PAO=\angle PBO=90^\circ
@@ -243,14 +241,13 @@ OA\perp PA,\quad OB\perp PB
 \[
 \angle APB+\angle AOB=180^\circ
 \]
-である。
+です。
 
 **ステップ1：** 中心角を確認する
 図より、
 \[
 \angle AOB=124^\circ
 \]
-です。
 
 **ステップ2：** 接線のなす角 $x$ を求める
 \[

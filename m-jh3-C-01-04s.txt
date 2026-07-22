@@ -108,32 +108,28 @@ AB:AD=12:8=3:2
 \[
 AC:AE=9:6=3:2
 \]
-であるから、
+なので、
 \[
 AB:AD=AC:AE
 \]
-です。
 
 **ステップ3：** その間の角を確認する
 $\angle BAC$ と $\angle DAE$ は共通な角なので、
 \[
 \angle BAC=\angle DAE
 \]
-です。
 
 **ステップ4：** 相似条件を使う
 2組の辺の比とその間の角がそれぞれ等しいので、
 \[
 \triangle ABC \sim \triangle ADE
 \]
-です。
 
 **対応順の確認**
 対応する頂点は
 \[
 A \leftrightarrow A,\quad B \leftrightarrow D,\quad C \leftrightarrow E
 \]
-です。
 
 ■問題2
 次の図において、相似な三角形を見つけ、記号 $\sim$ を使って表しなさい。また、相似であることを証明しなさい。
@@ -191,7 +187,6 @@ QO:SO=4:6=2:3
 \[
 PO:RO=QO:SO
 \]
-です。
 
 **ステップ3：** その間の角を確認する
 $\angle POQ$ と $\angle ROS$ は対頂角なので等しいです。
@@ -209,7 +204,6 @@ P \leftrightarrow R,\quad O \leftrightarrow O,\quad Q \leftrightarrow S
 \[
 \triangle POQ \sim \triangle ROS
 \]
-です。
 
 使う相似条件は「2組の辺の比とその間の角がそれぞれ等しい」です。
 
@@ -260,27 +254,23 @@ P \leftrightarrow R,\quad O \leftrightarrow O,\quad Q \leftrightarrow S
 \[
 \angle ADE=\angle ACB=55^\circ
 \]
-です。
 
 また、$\angle DAE$ と $\angle CAB$ は共通な角なので、
 \[
 \angle DAE=\angle CAB
 \]
-です。
 
 **ステップ3：** 相似条件を使う
 2組の角がそれぞれ等しいので、
 \[
 \triangle ADE \sim \triangle ACB
 \]
-です。
 
 **対応順の確認**
 対応する頂点は
 \[
 A \leftrightarrow A,\quad D \leftrightarrow C,\quad E \leftrightarrow B
 \]
-です。
 
 ■問題4
 次の図において、相似な三角形を見つけ、記号 $\sim$ を使って表しなさい。また、相似であることを証明しなさい。
@@ -340,14 +330,12 @@ BC:EF=6:9=2:3
 \[
 AB:DE=AC:DF=BC:EF
 \]
-です。
 
 **ステップ2：** 相似条件を使う
 3組の辺の比がすべて等しいので、
 \[
 \triangle ABC \sim \triangle DEF
 \]
-です。
 
 使う相似条件は「3組の辺の比がすべて等しい」です。
 

@@ -109,21 +109,18 @@ an=bm
 \[
 A\leftrightarrow D,\quad B\leftrightarrow E,\quad C\leftrightarrow F
 \]
-です。
 
 **ステップ2：** 対応する辺を確認する
 対応する辺は、
 \[
 AB\leftrightarrow DE,\quad AC\leftrightarrow DF
 \]
-です。
 
 **ステップ3：** 比例式を立てる
 $DF=x\text{ cm}$ とすると、
 \[
 8:4=6:x
 \]
-です。
 
 **ステップ4：** 比例式を解く
 \[
@@ -139,7 +136,6 @@ x=3
 \[
 DF=3\text{ cm}
 \]
-です。
 
 ■問題2
 右の図で、$\triangle ABC \sim \triangle DEF$ であるとき、辺 $BC$ の長さを求めなさい。
@@ -183,14 +179,12 @@ BC=7\text{ cm}
 \[
 AB\leftrightarrow DE,\quad BC\leftrightarrow EF
 \]
-です。
 
 **ステップ2：** 比例式を立てる
 $BC=x\text{ cm}$ とすると、
 \[
 10:5=x:3.5
 \]
-です。
 
 **ステップ3：** 比例式を解く
 \[
@@ -206,7 +200,6 @@ x=7
 \[
 BC=7\text{ cm}
 \]
-です。
 
 ■問題3
 右の図で、四角形 $ABCD \sim$ 四角形 $EFGH$ であるとき、辺 $AB$、$EH$ の長さをそれぞれ求めなさい。
@@ -256,7 +249,6 @@ ABCD \sim EFGH
 \[
 AB\leftrightarrow EF,\quad AD\leftrightarrow EH,\quad CD\leftrightarrow GH
 \]
-です。
 
 **ステップ2：** 相似比を確認する
 対応する辺 $CD$ と $GH$ に注目します。
@@ -268,7 +260,6 @@ CD=15\text{ cm},\quad GH=10\text{ cm}
 \[
 15:10=3:2
 \]
-です。
 
 **ステップ3：** $AB$ を求める
 $AB\leftrightarrow EF$ で、$EF=8\text{ cm}$ とすると、
@@ -283,7 +274,6 @@ AB:8=3:2
 \[
 AB=12
 \]
-です。
 
 **ステップ4：** $EH$ を求める
 $CD\leftrightarrow GH$ で、$CD=15\text{ cm}$、$GH=10\text{ cm}$ です。
@@ -291,7 +281,7 @@ $CD\leftrightarrow GH$ で、$CD=15\text{ cm}$、$GH=10\text{ cm}$ です。
 \[
 18:EH=15:10
 \]
-です。
+
 \[
 15EH=180
 \]
@@ -303,6 +293,5 @@ EH=12
 \[
 AB=12\text{ cm},\quad EH=12\text{ cm}
 \]
-です。
 
 以上、生成例

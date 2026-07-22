@@ -55,7 +55,7 @@ $3$ を根号の中に入れるときは、$3$ を2乗して入れる。
 \[
 \hlblue{3}^2 = \bbox[2px,lightyellow]{9}
 \]
-であるから、
+なので、
 \[
 \hlblue{3} = \sqrt{\bbox[2px,lightyellow]{9}}
 \]
@@ -76,7 +76,6 @@ $3$ を根号の中に入れるときは、$3$ を2乗して入れる。
 = \bbox[2px,lightyellow]{\sqrt{27}}
 \]
 
-
 ■問題2  
 $a\sqrt{b}$ の形に変形しなさい。
 \[
@@ -95,7 +94,6 @@ $a\sqrt{b}$ の形に変形しなさい。
 \[
 45 = \hlblue{3 \times 3} \times 5 = \hlblue{3^2} \times 5
 \]
-です。
 
 **ステップ2：** 根号の中を置き換える
 
@@ -135,7 +133,7 @@ $\frac{\sqrt{b}}{a}$ の形に変形しなさい。
 \[
 \hlblue{16} = \bbox[2px,lightyellow]{4^2}
 \]
-であるから、
+なので、
 \[
 \sqrt{\hlblue{16}}
 = \sqrt{\bbox[2px,lightyellow]{4^2}}

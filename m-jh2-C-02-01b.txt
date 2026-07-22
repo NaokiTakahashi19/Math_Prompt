@@ -79,7 +79,6 @@ $AB=AC$ なので、底角は $\angle B$ と $\angle C$ です。
 \[
 \angle B=\angle C
 \]
-です。
 
 **ステップ2：** $\angle C$ を求める
 \[
@@ -89,7 +88,6 @@ $AB=AC$ なので、底角は $\angle B$ と $\angle C$ です。
 \[
 \angle C=42^\circ
 \]
-です。
 
 **ステップ3：** 三角形の内角の和を使う
 三角形の内角の和は $180^\circ$ なので、
@@ -104,7 +102,6 @@ $AB=AC$ なので、底角は $\angle B$ と $\angle C$ です。
 \[
 \angle C=42^\circ,\quad \angle A=96^\circ
 \]
-です。
 
 ■問題2
 下の図で、$\triangle ABC$ は $AB=AC$ の二等辺三角形です。点 $M$ は辺 $BC$ の中点です。
@@ -154,26 +151,24 @@ BM=CM
 \[
 AM=AM
 \]
-です。
 
 **ステップ3：** 合同を示す
 3組の辺がそれぞれ等しいので、
 \[
 \triangle ABM\equiv\triangle ACM
 \]
-です。
 
 **ステップ4：** 直角になることを確認する
 合同な図形の対応する角は等しいので、
 \[
 \angle AMB=\angle AMC
 \]
-です。
+
 また、$B,M,C$ は一直線上にあるので、
 \[
 \angle AMB+\angle AMC=180^\circ
 \]
-です。
+
 したがって、
 \[
 \angle AMB=\angle AMC=90^\circ
@@ -184,6 +179,5 @@ AM=AM
 \[
 AM\perp BC
 \]
-です。
 
 以上、生成例

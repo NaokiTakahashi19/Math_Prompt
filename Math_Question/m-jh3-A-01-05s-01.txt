@@ -11,8 +11,8 @@ x^2 -2x -48
 
 【解説】  
 **ステップ1：** 乗法の公式が使えないか検討する  
-$(\bbox[2px,lightgreen]{x} + \hlblue{6})(\bbox[2px,lightgreen]{x} + \hlpink{(-8)})$ は、$(\bbox[2px,lightgreen]{x} + \hlblue{a})(\bbox[2px,lightgreen]{x} + \hlpink{b})$ の形である。  
-この式では、乗法の公式のうち、次の公式が使える。
+$(\bbox[2px,lightgreen]{x} + \hlblue{6})(\bbox[2px,lightgreen]{x} + \hlpink{(-8)})$ は、$(\bbox[2px,lightgreen]{x} + \hlblue{a})(\bbox[2px,lightgreen]{x} + \hlpink{b})$ の形であることを確認しなさい。  
+この式では、乗法の公式のうち、次の公式が使えることを確認しなさい。
 
 **乗法の公式：**
 \[
@@ -35,5 +35,5 @@ $(\bbox[2px,lightgreen]{x} + \hlblue{6})(\bbox[2px,lightgreen]{x} + \hlpink{(-8)
 \]
 
 **ポイント：**  
-$(x+a)(x+b)$ では、$x$ の係数は $a+b$、定数項は $ab$ となる。  
-符号が異なるときは、$6+(-8)=-2$、$6 \times (-8)=-48$ のように、$a+b$ と $ab$ の符号に注意する。
+$(x+a)(x+b)$ では、$x$ の係数は $a+b$、定数項は $ab$ となることを確認しなさい。  
+符号が異なるときは、$6+(-8)=-2$、$6 \times (-8)=-48$ のように、$a+b$ と $ab$ の符号に注意しなさい。

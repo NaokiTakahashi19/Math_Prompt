@@ -109,7 +109,6 @@ $\triangle ABC$ と $\triangle DBA$ を比べます。
 \[
 A \leftrightarrow D,\quad B \leftrightarrow B,\quad C \leftrightarrow A
 \]
-です。
 
 **ステップ2：直角どうしを見つける**
 
@@ -117,19 +116,16 @@ $\angle A=90^\circ$ なので、
 \[
 \angle BAC=90^\circ
 \]
-です。
 
 また、$AD \perp BC$ なので、
 \[
 \angle BDA=90^\circ
 \]
-です。
 
 したがって、
 \[
 \angle BAC=\angle BDA
 \]
-です。
 
 **ステップ3：共通な角を見つける**
 
@@ -139,7 +135,6 @@ $\angle ABC$ と $\angle DBA$ は、どちらも点 $B$ の同じ角です。
 \[
 \angle ABC=\angle DBA
 \]
-です。
 
 **ステップ4：相似条件を使う**
 
@@ -147,7 +142,6 @@ $\angle ABC$ と $\angle DBA$ は、どちらも点 $B$ の同じ角です。
 \[
 \triangle ABC \sim \triangle DBA
 \]
-です。
 
 **コツ**
 
@@ -208,13 +202,11 @@ $AD \perp BC$ なので、
 \[
 \angle BDA=90^\circ,\quad \angle ADC=90^\circ
 \]
-です。
 
 したがって、
 \[
 \angle BDA=\angle ADC
 \]
-です。
 
 **ステップ2：もう1組の等しい角を見つける**
 
@@ -224,19 +216,16 @@ $\triangle ABC$ は $\angle A=90^\circ$ の直角三角形なので、
 \[
 \angle DBA+\angle ACB=90^\circ
 \]
-です。
 
 また、$\triangle ADC$ は $\angle D=90^\circ$ の直角三角形なので、
 \[
 \angle DAC+\angle ACB=90^\circ
 \]
-です。
 
 どちらも $\angle ACB$ を足すと $90^\circ$ になるので、
 \[
 \angle DBA=\angle DAC
 \]
-です。
 
 **ステップ3：相似条件を使う**
 
@@ -244,7 +233,6 @@ $\triangle ABC$ は $\angle A=90^\circ$ の直角三角形なので、
 \[
 \triangle DBA \sim \triangle DAC
 \]
-です。
 
 **間違えやすいポイント**
 
@@ -300,19 +288,16 @@ $AD \perp BC$ なので、
 \[
 \angle BDF=90^\circ
 \]
-です。
 
 $BE \perp AC$ なので、
 \[
 \angle AEF=90^\circ
 \]
-です。
 
 したがって、
 \[
 \angle BDF=\angle AEF
 \]
-です。
 
 **ステップ2：対頂角を確認する**
 
@@ -320,7 +305,6 @@ $BE \perp AC$ なので、
 \[
 \angle BFD=\angle AFE
 \]
-です。
 
 **ステップ3：相似条件を使う**
 
@@ -328,7 +312,6 @@ $BE \perp AC$ なので、
 \[
 \triangle BDF \sim \triangle AEF
 \]
-です。
 
 **ポイント**
 

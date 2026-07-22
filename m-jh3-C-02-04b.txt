@@ -53,7 +53,7 @@
 
 ## 生成例
 ■問題1
-右の図の四角形 $ABCD$ で、4点 $A$、$B$、$C$、$D$ は同じ円周上にありますか。
+右の図の四角形 $ABCD$ で、4点 $A$、$B$、$C$、$D$ が同じ円周上にあるか判断しなさい。
 また、角 $x$、角 $y$ の大きさを求めなさい。
 
 【図】
@@ -102,7 +102,7 @@ x=54^\circ,\quad y=48^\circ
 \[
 \angle ADB=33^\circ,\quad \angle ACB=33^\circ
 \]
-です。
+
 この2つの角は、どちらも線分 $AB$ を見込む角です。
 
 また、点 $C$、$D$ は直線 $AB$ の同じ側にあります。
@@ -116,7 +116,6 @@ $\angle BAC$ と $\angle BDC$ は、どちらも弧 $\overset{\frown}{BC}$ に�
 \[
 x=\angle BDC=\angle BAC=54^\circ
 \]
-です。
 
 **ステップ3：** 角 $y$ を求める
 $\angle ACD$ と $\angle ABD$ は、どちらも弧 $\overset{\frown}{AD}$ に対する円周角です。
@@ -124,12 +123,10 @@ $\angle ACD$ と $\angle ABD$ は、どちらも弧 $\overset{\frown}{AD}$ に�
 \[
 y=\angle ABD=\angle ACD=48^\circ
 \]
-です。
 
 したがって、答えは
 \[
 x=54^\circ,\quad y=48^\circ
 \]
-です。
 
 以上、生成例

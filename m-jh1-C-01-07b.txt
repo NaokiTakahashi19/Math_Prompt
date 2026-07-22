@@ -157,7 +157,6 @@ $\triangle ABC$ を点対称移動して $\triangle DEF$ ができているの�
 \[
 A\leftrightarrow D,\quad B\leftrightarrow E,\quad C\leftrightarrow F
 \]
-です。
 
 したがって、点 $A$ に対応する点は $D$ です。
 

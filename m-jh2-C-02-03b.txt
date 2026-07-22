@@ -46,7 +46,7 @@
 
 ## 生成例
 ■問題1
-下の図の $\triangle ABC$ で、$\angle B=50^\circ$、$\angle C=50^\circ$ です。$\triangle ABC$ は二等辺三角形ですか。二等辺三角形なら、等しい辺を答えなさい。
+下の図の $\triangle ABC$ で、$\angle B=50^\circ$、$\angle C=50^\circ$ です。$\triangle ABC$ が二等辺三角形かどうかを判断し、二等辺三角形なら等しい辺を答えなさい。
 
 【図】
 \begin{tikzpicture}[scale=0.9, line cap=round, line join=round]
@@ -86,12 +86,11 @@ $\angle B$ に向かい合う辺は $AC$、$\angle C$ に向かい合う辺は $
 \[
 AB=AC
 \]
-です。
 
 よって、$\triangle ABC$ は二等辺三角形です。
 
 ■問題2
-下の図の $\triangle ABC$ で、$\angle A=70^\circ$、$\angle B=55^\circ$ です。$\triangle ABC$ は二等辺三角形ですか。二等辺三角形なら、等しい辺を答えなさい。
+下の図の $\triangle ABC$ で、$\angle A=70^\circ$、$\angle B=55^\circ$ です。$\triangle ABC$ が二等辺三角形かどうかを判断し、二等辺三角形なら等しい辺を答えなさい。
 
 【図】
 \begin{tikzpicture}[scale=0.9, line cap=round, line join=round]
@@ -135,7 +134,6 @@ $\angle B$ と $\angle C$ に向かい合う辺が等しいので、
 \[
 AB=AC
 \]
-です。
 
 したがって、$\triangle ABC$ は二等辺三角形です。
 

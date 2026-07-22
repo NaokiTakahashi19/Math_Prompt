@@ -25,7 +25,7 @@
 \end{aligned}
 \]
 
-$4\sqrt{7}=\frac{28}{\sqrt{7}}$ なので、分母を $\sqrt{7}$ にそろえる。
+$4\sqrt{7}=\frac{28}{\sqrt{7}}$ なので、分母を $\sqrt{7}$ にそろえなさい。
 
 \[
 2\sqrt{28}-\frac{9}{\sqrt{7}}

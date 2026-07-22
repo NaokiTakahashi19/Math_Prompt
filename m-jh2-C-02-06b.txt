@@ -91,21 +91,18 @@ $AD=CD$ であることを根拠に、$\triangle ABD\equiv\triangle CBD$ を証�
 \[
 BD=BD
 \]
-です。
 
 **ステップ3：** 他の1辺を確認する
 仮定より、
 \[
 AB=CB
 \]
-です。
 
 **ステップ4：** 合同を示す
 直角三角形の斜辺と他の1辺がそれぞれ等しいので、
 \[
 \triangle ABD\equiv\triangle CBD
 \]
-です。
 
 ■問題2
 下の図で、点 $P$ は $\angle AOB$ の二等分線上にあります。点 $P$ から辺 $OA,OB$ に垂線 $PD,PE$ をひきます。
@@ -150,34 +147,29 @@ $PD\perp OA$、$PE\perp OB$ なので、
 \[
 \angle ODP=\angle OEP=90^\circ
 \]
-です。
 
 **ステップ2：** 斜辺を確認する
 $\triangle OPD$ と $\triangle OPE$ の斜辺は、どちらも $OP$ です。
 \[
 OP=OP
 \]
-です。
 
 **ステップ3：** 鋭角を確認する
 $P$ は $\angle AOB$ の二等分線上にあるので、
 \[
 \angle DOP=\angle POE
 \]
-です。
 
 **ステップ4：** 合同を示す
 直角三角形の斜辺と1つの鋭角がそれぞれ等しいので、
 \[
 \triangle OPD\equiv\triangle OPE
 \]
-です。
 
 **ステップ5：** 対応する辺を答える
 合同な図形の対応する辺は等しいので、
 \[
 OD=OE
 \]
-です。
 
 以上、生成例

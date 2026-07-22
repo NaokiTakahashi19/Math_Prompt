@@ -128,7 +128,6 @@ A\to D,\quad B\to E,\quad C\to F
 \[
 A\to D,\quad B\to E,\quad C\to F
 \]
-です。
 
 **ステップ3：新しい三角形をかく**
 
@@ -140,8 +139,6 @@ A\to D,\quad B\to E,\quad C\to F
 \[
 OA=OD,\quad OB=OE,\quad OC=OF
 \]
-です。
-
 
 ■問題2
 次の図の $\triangle ABC$ を、点 $O$ を中心として、矢印の向きに $180^\circ$ 回転移動させてできる $\triangle DEF$ をかきなさい。
@@ -279,7 +276,6 @@ $\triangle ABC$ が回転移動して $\triangle DEF$ になっているので�
 \[
 A\leftrightarrow D,\quad B\leftrightarrow E,\quad C\leftrightarrow F
 \]
-です。
 
 **ステップ2：中心からの距離を確認する**
 
@@ -289,7 +285,6 @@ A\leftrightarrow D,\quad B\leftrightarrow E,\quad C\leftrightarrow F
 \[
 OA=OD,\quad OB=OE,\quad OC=OF
 \]
-です。
 
 **ステップ3：回転角を確認する**
 
@@ -299,7 +294,6 @@ OA=OD,\quad OB=OE,\quad OC=OF
 \[
 \angle AOD=\angle BOE=\angle COF
 \]
-です。
 
 **間違えやすいポイント**
 

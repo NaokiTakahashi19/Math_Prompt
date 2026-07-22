@@ -81,32 +81,28 @@
 \[
 AB // DC,\quad AD // BC
 \]
-です。
 
 **ステップ2：** 錯角が等しいことを使う
 $AB // DC$ より、
 \[
 \angle BAC=\angle DCA \quad\text{･･･①}
 \]
-です。
+
 また、$AD // BC$ より、
 \[
 \angle BCA=\angle DAC \quad\text{･･･②}
 \]
-です。
 
 **ステップ3：** 共通な辺を確認する
 \[
 AC=CA \quad\text{･･･③}
 \]
-です。
 
 **ステップ4：** 合同を示す
 ①、②、③より、1組の辺とその両端の角がそれぞれ等しいので、
 \[
 \triangle ABC\equiv\triangle CDA
 \]
-です。
 
 ■問題2
 下の図の四角形 $ABCD$ は平行四辺形で、対角線 $AC$ と $BD$ の交点を $O$ とします。
@@ -148,32 +144,28 @@ $AB // DC$ より、
 \[
 \angle ABO=\angle CDO \quad\text{･･･①}
 \]
-です。
+
 また、$AB // DC$ より、
 \[
 \angle BAO=\angle DCO \quad\text{･･･②}
 \]
-です。
 
 **ステップ2：** 向かい合う辺が等しいことを使う
 平行四辺形の性質より、
 \[
 AB=CD \quad\text{･･･③}
 \]
-です。
 
 **ステップ3：** 合同を示す
 ①、②、③より、1組の辺とその両端の角がそれぞれ等しいので、
 \[
 \triangle AOB\equiv\triangle COD
 \]
-です。
 
 **ステップ4：** 対応する辺を答える
 合同な図形の対応する辺は等しいので、
 \[
 AO=CO,\quad BO=DO
 \]
-です。
 
 以上、生成例

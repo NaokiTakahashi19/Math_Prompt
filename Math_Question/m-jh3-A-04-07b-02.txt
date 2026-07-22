@@ -15,7 +15,7 @@
 \[
 \frac{\sqrt{\hlpink{a}}}{\sqrt{\hlblue{b}}} = \sqrt{\frac{\hlpink{a}}{\hlblue{b}}}
 \]
-を使う。
+を使いなさい。
 
 **ステップ1：** 平方根の商の公式を適用する
 

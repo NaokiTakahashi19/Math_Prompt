@@ -207,7 +207,6 @@ A\to D,\quad B\to E,\quad C\to F
 \[
 A\to D,\quad B\to E,\quad C\to F
 \]
-です。
 
 **ステップ3：新しい三角形をかく**
 
@@ -261,7 +260,6 @@ AD\parallel BE\parallel CF
 \[
 AD=BE=CF
 \]
-です。
 
 【解説】
 **ステップ1：対応する点を確認する**
@@ -272,7 +270,6 @@ AD=BE=CF
 \[
 A\leftrightarrow D,\quad B\leftrightarrow E,\quad C\leftrightarrow F
 \]
-です。
 
 **ステップ2：対応する点を結んだ線分を見る**
 
@@ -284,11 +281,10 @@ A\leftrightarrow D,\quad B\leftrightarrow E,\quad C\leftrightarrow F
 \[
 AD\parallel BE\parallel CF
 \]
-であり、
+で、
 \[
 AD=BE=CF
 \]
-です。
 
 **ポイント**
 

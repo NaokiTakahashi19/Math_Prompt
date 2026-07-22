@@ -11,8 +11,8 @@
 
 【解説】  
 **ステップ1：** 乗法の公式が使えないか検討する  
-$\left(\hlblue{4y}\bbox[2px,lightyellow]{+}\hlpink{\frac{3}{5}}\right)\left(\hlblue{4y}\bbox[2px,lightyellow]{-}\hlpink{\frac{3}{5}}\right)$ は、$(\hlblue{a}\bbox[2px,lightyellow]{+}\hlpink{b})(\hlblue{a}\bbox[2px,lightyellow]{-}\hlpink{b})$ の形である。  
-この式では、乗法の公式のうち、次の公式が使える。
+$\left(\hlblue{4y}\bbox[2px,lightyellow]{+}\hlpink{\frac{3}{5}}\right)\left(\hlblue{4y}\bbox[2px,lightyellow]{-}\hlpink{\frac{3}{5}}\right)$ は、$(\hlblue{a}\bbox[2px,lightyellow]{+}\hlpink{b})(\hlblue{a}\bbox[2px,lightyellow]{-}\hlpink{b})$ の形であることを確認しなさい。  
+この式では、乗法の公式のうち、次の公式が使えることを確認しなさい。
 
 **乗法の公式：**
 \[
@@ -35,5 +35,5 @@ $\left(\hlblue{4y}\bbox[2px,lightyellow]{+}\hlpink{\frac{3}{5}}\right)\left(\hlb
 \]
 
 **ポイント：**  
-$4y$ 全体をひとまとまりとして2乗する。  
-$(4y)^2=16y^2$ であり、$\left(\frac{3}{5}\right)^2=\frac{9}{25}$ となる。
+$4y$ 全体をひとまとまりとして2乗しなさい。  
+$(4y)^2=16y^2$ であり、$\left(\frac{3}{5}\right)^2=\frac{9}{25}$ となることを確認しなさい。

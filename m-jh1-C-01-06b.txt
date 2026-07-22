@@ -122,7 +122,6 @@ A\to D,\quad B\to E,\quad C\to F
 \[
 A\to D,\quad B\to E,\quad C\to F
 \]
-です。
 
 **ステップ4：移動後の点を結ぶ**
 
@@ -231,7 +230,7 @@ $\triangle ABC$ を直線 $\ell$ を対称の軸として対称移動し、$\tri
 
 (2) 線分 $AD$、$BE$、$CF$ と直線 $\ell$ の関係を答えなさい。
 
-(3) 直線 $\ell$ は、線分 $AD$、$BE$、$CF$ をどのように分けていますか。
+(3) 直線 $\ell$ が線分 $AD$、$BE$、$CF$ をどのように分けているか答えなさい。
 
 【解答】
 (1)
@@ -253,7 +252,6 @@ $\triangle ABC$ が対称移動して $\triangle DEF$ になっているので�
 \[
 A\leftrightarrow D,\quad B\leftrightarrow E,\quad C\leftrightarrow F
 \]
-です。
 
 **ステップ2：対応する点を結んだ線分を見る**
 
@@ -265,7 +263,6 @@ A\leftrightarrow D,\quad B\leftrightarrow E,\quad C\leftrightarrow F
 \[
 AD\perp \ell,\quad BE\perp \ell,\quad CF\perp \ell
 \]
-です。
 
 **ステップ3：対称の軸が線分をどう分けるかを見る**
 

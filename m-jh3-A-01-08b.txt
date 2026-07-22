@@ -49,7 +49,7 @@ x^2 - 4
 【解説】  
 **ステップ1：** 乗法の公式が使えるか判断する
 $(\hlblue{x}\bbox[2px,lightyellow]{+}\hlpink{2})(\hlblue{x}\bbox[2px,lightyellow]{-}\hlpink{2})$ は、$(\hlblue{a}\bbox[2px,lightyellow]{+}\hlpink{b})(\hlblue{a}\bbox[2px,lightyellow]{-}\hlpink{b})$ の形です。
-この式では、乗法の公式のうち、次の公式が使えると判断する。
+この式では、乗法の公式のうち、次の公式が使えると判断します。
 
 **乗法の公式：**
 \[
@@ -85,7 +85,7 @@ a^2 - 9
 【解説】  
 **ステップ1：** 乗法の公式が使えるか判断する
 $(\hlblue{a}\bbox[2px,lightyellow]{+}\hlpink{3})(\hlblue{a}\bbox[2px,lightyellow]{-}\hlpink{3})$ は、$(\hlblue{a}\bbox[2px,lightyellow]{+}\hlpink{b})(\hlblue{a}\bbox[2px,lightyellow]{-}\hlpink{b})$ の形です。
-この式では、乗法の公式のうち、次の公式が使えると判断する。
+この式では、乗法の公式のうち、次の公式が使えると判断します。
 
 **乗法の公式：**
 \[

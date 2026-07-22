@@ -91,20 +91,19 @@ $2:1$
 
 【解説】
 **ポイント整理：** 相似比
-相似な図形では、対応する辺の長さの比はすべて等しい。
+相似な図形では、対応する辺の長さの比はすべて等しいです。
 $\triangle ABC\sim\triangle DEF$ と書かれているとき、対応は
 \[
 A\leftrightarrow D,\quad B\leftrightarrow E,\quad C\leftrightarrow F
 \]
-である。
-相似比は、問題で聞かれている順に辺の比をとる。
+です。
+相似比は、問題で聞かれている順に辺の比をとります。
 
 **ステップ1：** 対応する辺を確認する
 $\triangle ABC\sim\triangle DEF$ なので、
 \[
 BC\leftrightarrow EF
 \]
-です。
 
 **ステップ2：** 対応する辺の長さの比をとる
 図より、
@@ -115,7 +114,6 @@ BC=8\,\mathrm{cm},\quad EF=4\,\mathrm{cm}
 \[
 BC:EF=8:4=2:1
 \]
-です。
 
 したがって、答えは $2:1$ です。
 
@@ -151,32 +149,30 @@ $2:3$
 
 【解説】
 **ポイント整理：** 相似比
-相似な図形では、対応する辺の長さの比はすべて等しい。
+相似な図形では、対応する辺の長さの比はすべて等しいです。
 $\triangle ABC\sim\triangle DEF$ と書かれているとき、対応は
 \[
 A\leftrightarrow D,\quad B\leftrightarrow E,\quad C\leftrightarrow F
 \]
-である。
-相似比は、問題で聞かれている順に辺の比をとる。
+です。
+相似比は、問題で聞かれている順に辺の比をとります。
 
 **ステップ1：** 対応する辺を確認する
 $\triangle ABC\sim\triangle DEF$ なので、
 \[
 AB\leftrightarrow DE,\quad BC\leftrightarrow EF,\quad AC\leftrightarrow DF
 \]
-です。
 
 **ステップ2：** 対応する辺の比をとる
 例えば、
 \[
 AB:DE=8:12
 \]
-です。
+
 これを簡単にすると、
 \[
 8:12=2:3
 \]
-です。
 
 他の対応する辺でも、
 \[
@@ -216,13 +212,13 @@ $3:2$
 
 【解説】
 **ポイント整理：** 相似比
-相似な図形では、対応する辺の長さの比はすべて等しい。
+相似な図形では、対応する辺の長さの比はすべて等しいです。
 $\triangle ABC\sim\triangle DEF$ と書かれているとき、対応は
 \[
 A\leftrightarrow D,\quad B\leftrightarrow E,\quad C\leftrightarrow F
 \]
-である。
-相似比は、問題で聞かれている順に辺の比をとる。
+です。
+相似比は、問題で聞かれている順に辺の比をとります。
 
 **ステップ1：** 何と何の相似比を求めるかを確認する
 この問題では、$\triangle DEF$ と $\triangle ABC$ の相似比を求めます。
@@ -237,12 +233,11 @@ $BC\leftrightarrow EF$ なので、
 \[
 EF:BC=12:8
 \]
-です。
+
 これを簡単にすると、
 \[
 12:8=3:2
 \]
-です。
 
 したがって、答えは $3:2$ です。
 
