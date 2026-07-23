@@ -1,0 +1,13 @@
+{
+  "scannedAt": "2026-07-23",
+  "framework": "vanilla-html",
+  "fontStack": "system-ui",
+  "palette": "existing Math_Prompt light UI tokens",
+  "motion": "motion-cut",
+  "spacing": "4px-based",
+  "preserve": [
+    "font stack",
+    "light neutral palette",
+    "compact internal-tool layout"
+  ]
+}

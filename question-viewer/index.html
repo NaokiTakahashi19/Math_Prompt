@@ -1,0 +1,664 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>生成問題ビューア</title>
+
+  <style>
+    /* Hallmark · genre: editorial · macrostructure: Workbench · theme: existing-system
+     * enrichment: none · motion: cut · mobile: 320/375/414/768
+     * pre-emit critique: P5 H5 E5 S5 R5 V4
+     */
+    :root {
+      color-scheme: light;
+      --color-page: #f7f9fc;
+      --color-surface: #fcfdff;
+      --color-text: #1d2733;
+      --color-muted: #5f6d7d;
+      --color-line: #d8e0ea;
+      --color-line-strong: #98a5b5;
+      --color-accent: #0969da;
+      --color-accent-hover: #0759ba;
+      --color-focus: #55a0ff;
+      --color-error: #b3261e;
+      --color-success: #287a45;
+      --color-table-head: #f1f4f8;
+      --font-body: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      --font-code: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+      --space-1: 4px;
+      --space-2: 8px;
+      --space-3: 12px;
+      --space-4: 16px;
+      --space-5: 20px;
+      --space-6: 24px;
+      --space-8: 32px;
+      --radius: 6px;
+      --content-width: 1120px;
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      min-height: 100%;
+      overflow-x: clip;
+    }
+
+    body {
+      margin: 0;
+      background: var(--color-page);
+      color: var(--color-text);
+      font-family: var(--font-body);
+      font-size: 16px;
+      line-height: 1.7;
+    }
+
+    button,
+    input {
+      font: inherit;
+    }
+
+    .app-header {
+      border-bottom: 1px solid var(--color-line);
+      background: var(--color-surface);
+    }
+
+    .app-header__inner,
+    .workspace {
+      width: min(100%, var(--content-width));
+      margin-inline: auto;
+      padding-inline: var(--space-4);
+    }
+
+    .app-header__inner {
+      padding-block: var(--space-4);
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 1.25rem;
+      font-style: normal;
+      line-height: 1.3;
+      letter-spacing: 0;
+      overflow-wrap: anywhere;
+    }
+
+    .load-form {
+      display: grid;
+      gap: var(--space-2);
+      margin-top: var(--space-3);
+    }
+
+    .url-input,
+    .load-button {
+      min-height: 44px;
+      border: 1px solid var(--color-line-strong);
+      border-radius: var(--radius);
+    }
+
+    .url-input {
+      width: 100%;
+      min-width: 0;
+      padding-inline: var(--space-3);
+      background: var(--color-surface);
+      color: var(--color-text);
+      font-family: var(--font-code);
+      font-size: 0.875rem;
+    }
+
+    .url-input:focus-visible,
+    .load-button:focus-visible,
+    .source-link:focus-visible {
+      outline: 2px solid var(--color-focus);
+      outline-offset: 2px;
+    }
+
+    .url-input:disabled {
+      cursor: not-allowed;
+      opacity: 0.65;
+    }
+
+    .load-button {
+      padding-inline: var(--space-5);
+      background: var(--color-accent);
+      color: var(--color-surface);
+      border-color: var(--color-accent);
+      font-weight: 700;
+      white-space: nowrap;
+      cursor: pointer;
+    }
+
+    .load-button:hover:not(:disabled) {
+      background: var(--color-accent-hover);
+      border-color: var(--color-accent-hover);
+    }
+
+    .load-button:active:not(:disabled) {
+      background: var(--color-text);
+      border-color: var(--color-text);
+    }
+
+    .load-button:disabled {
+      cursor: wait;
+      opacity: 0.65;
+    }
+
+    .status {
+      min-height: 1.5em;
+      margin: var(--space-2) 0 0;
+      color: var(--color-muted);
+      font-size: 0.875rem;
+    }
+
+    .status[data-state="error"] {
+      color: var(--color-error);
+    }
+
+    .status[data-state="success"] {
+      color: var(--color-success);
+    }
+
+    .workspace {
+      padding-block: var(--space-5) var(--space-8);
+    }
+
+    .source-meta {
+      display: flex;
+      min-width: 0;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: var(--space-3);
+      padding-bottom: var(--space-3);
+      border-bottom: 1px solid var(--color-line);
+    }
+
+    .source-name {
+      min-width: 0;
+      margin: 0;
+      font-size: 0.9375rem;
+      font-weight: 700;
+      overflow-wrap: anywhere;
+    }
+
+    .source-link {
+      flex: 0 0 auto;
+      color: var(--color-accent);
+      font-size: 0.875rem;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+      white-space: nowrap;
+    }
+
+    .rendered {
+      min-height: 240px;
+      padding-block: var(--space-5);
+      background: var(--color-surface);
+    }
+
+    .rendered:empty::before {
+      color: var(--color-muted);
+      content: "問題ファイルのURLを入力してください。";
+    }
+
+    .rendered h1,
+    .rendered h2,
+    .rendered h3 {
+      margin: var(--space-6) 0 var(--space-3);
+      font-style: normal;
+      line-height: 1.4;
+      letter-spacing: 0;
+      overflow-wrap: anywhere;
+    }
+
+    .rendered h1 {
+      font-size: 1.375rem;
+    }
+
+    .rendered h2 {
+      font-size: 1.1875rem;
+    }
+
+    .rendered h3 {
+      font-size: 1.0625rem;
+    }
+
+    .rendered p {
+      margin: 0 0 var(--space-4);
+      max-width: 75ch;
+    }
+
+    .rendered .segment {
+      margin-bottom: var(--space-5);
+    }
+
+    .rendered table {
+      display: block;
+      width: fit-content;
+      max-width: 100%;
+      margin: var(--space-3) 0 var(--space-5);
+      border-collapse: collapse;
+      overflow-x: auto;
+      font-size: 0.95em;
+    }
+
+    .rendered th,
+    .rendered td {
+      min-width: 2.5em;
+      padding: var(--space-1) var(--space-3);
+      border: 1px solid var(--color-line-strong);
+      text-align: right;
+      white-space: nowrap;
+    }
+
+    .rendered th {
+      background: var(--color-table-head);
+      text-align: center;
+    }
+
+    .rendered pre {
+      max-width: 100%;
+      padding: var(--space-3);
+      overflow-x: auto;
+      border: 1px solid var(--color-line);
+      background: var(--color-page);
+      font-family: var(--font-code);
+      font-size: 0.875rem;
+      white-space: pre-wrap;
+    }
+
+    .rendered mjx-container[jax="SVG"][display="true"] {
+      display: block;
+      margin: var(--space-5) 0;
+      overflow-x: auto;
+      text-align: center;
+    }
+
+    .rendered mjx-container[jax="SVG"]:not([display="true"]) {
+      display: inline-block;
+      margin-inline: 0.1em;
+      vertical-align: -0.2em;
+    }
+
+    .tikz-output {
+      min-height: 40px;
+      margin-block: var(--space-5);
+      overflow-x: auto;
+      text-align: center;
+    }
+
+    .tikz-output > svg {
+      display: block;
+      width: auto;
+      max-width: 100%;
+      height: auto;
+      margin-inline: auto;
+    }
+
+    .tikz-render-frame {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      border: 0;
+      visibility: hidden;
+    }
+
+    @media (min-width: 40rem) {
+      .app-header__inner,
+      .workspace {
+        padding-inline: var(--space-6);
+      }
+
+      .load-form {
+        grid-template-columns: minmax(0, 1fr) auto;
+      }
+    }
+
+    @media print {
+      .app-header,
+      .source-meta {
+        display: none;
+      }
+
+      body,
+      .rendered {
+        background: var(--color-surface);
+      }
+
+      .workspace {
+        width: 100%;
+        padding: 0;
+      }
+    }
+  </style>
+
+  <script>
+    window.MathJax = {
+      loader: { load: ['[tex]/bbox'] },
+      tex: {
+        packages: { '[+]': ['bbox'] },
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['\\[', '\\]'], ['$$', '$$']],
+        processEscapes: true,
+        processEnvironments: true,
+        macros: {
+          hlblue: ['\\bbox[2px,lightskyblue]{#1}', 1],
+          hlpink: ['\\bbox[2px,lightpink]{#1}', 1],
+          hlgreen: ['\\bbox[2px,lightgreen]{#1}', 1]
+        }
+      },
+      svg: { fontCache: 'global' },
+      options: { skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre'] }
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" async></script>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/dompurify/dist/purify.min.js" defer></script>
+  <link rel="stylesheet" href="https://tikzjax.com/v1/fonts.css">
+</head>
+<body>
+  <header class="app-header">
+    <div class="app-header__inner">
+      <h1>生成問題ビューア</h1>
+      <form id="load-form" class="load-form">
+        <input
+          id="url-input"
+          class="url-input"
+          type="url"
+          inputmode="url"
+          autocomplete="url"
+          aria-label="問題ファイルのURL"
+          placeholder="https://naokitakahashi19.github.io/Math_Prompt/Math_Question/m-jh1-A-01-01b-01.txt"
+          required
+        >
+        <button id="load-button" class="load-button" type="submit">表示</button>
+      </form>
+      <p id="status" class="status" role="status" aria-live="polite"></p>
+    </div>
+  </header>
+
+  <main class="workspace">
+    <div id="source-meta" class="source-meta" hidden>
+      <p id="source-name" class="source-name"></p>
+      <a id="source-link" class="source-link" href="#" target="_blank" rel="noopener">元ファイル</a>
+    </div>
+    <article id="rendered" class="rendered"></article>
+  </main>
+
+  <script>
+    const form = document.getElementById('load-form');
+    const urlInput = document.getElementById('url-input');
+    const loadButton = document.getElementById('load-button');
+    const statusElement = document.getElementById('status');
+    const sourceMeta = document.getElementById('source-meta');
+    const sourceName = document.getElementById('source-name');
+    const sourceLink = document.getElementById('source-link');
+    const rendered = document.getElementById('rendered');
+
+    function escapeHtml(value) {
+      return String(value || '')
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#039;');
+    }
+
+    function setStatus(message, state = '') {
+      statusElement.textContent = message;
+      statusElement.dataset.state = state;
+    }
+
+    function setLoading(loading) {
+      urlInput.disabled = loading;
+      loadButton.disabled = loading;
+      loadButton.textContent = loading ? '読み込み中' : '表示';
+    }
+
+    function parseSourceUrl(value) {
+      const sourceUrl = new URL(value, window.location.href);
+      if (!['http:', 'https:'].includes(sourceUrl.protocol)) {
+        throw new Error('http または https のURLを入力してください。');
+      }
+      return sourceUrl;
+    }
+
+    function fileNameFromUrl(sourceUrl) {
+      const pathParts = sourceUrl.pathname.split('/').filter(Boolean);
+      return decodeURIComponent(pathParts[pathParts.length - 1] || '問題ファイル');
+    }
+
+    function splitIntoSegments(text) {
+      const environments = [
+        { begin: '\\begin{tikzpicture}', end: '\\end{tikzpicture}' },
+        { begin: '\\begin{tikzcd}', end: '\\end{tikzcd}' }
+      ];
+      const segments = [];
+      let position = 0;
+
+      while (position < text.length) {
+        const candidates = environments
+          .map(environment => ({ ...environment, index: text.indexOf(environment.begin, position) }))
+          .filter(candidate => candidate.index !== -1)
+          .sort((a, b) => a.index - b.index);
+
+        if (!candidates.length) break;
+        const next = candidates[0];
+        if (next.index > position) {
+          segments.push({ type: 'text', content: text.slice(position, next.index) });
+        }
+
+        const endIndex = text.indexOf(next.end, next.index);
+        if (endIndex === -1) {
+          segments.push({ type: 'text', content: text.slice(next.index) });
+          position = text.length;
+          break;
+        }
+
+        const segmentEnd = endIndex + next.end.length;
+        segments.push({ type: 'tikz', code: text.slice(next.index, segmentEnd) });
+        position = segmentEnd;
+      }
+
+      if (position < text.length) {
+        segments.push({ type: 'text', content: text.slice(position) });
+      }
+      return segments;
+    }
+
+    function normalizeMarkdownTables(text) {
+      const lines = String(text || '').split('\n');
+      const normalized = [];
+      const tableRow = /^\s*\|.*\|\s*$/;
+      const tableDivider = /^\s*\|(?:\s*:?-{3,}:?\s*\|)+\s*$/;
+
+      for (let index = 0; index < lines.length; index += 1) {
+        const line = lines[index];
+        const nextLine = lines[index + 1] || '';
+        if (
+          tableRow.test(line) &&
+          tableDivider.test(nextLine) &&
+          normalized.length &&
+          normalized[normalized.length - 1].trim()
+        ) {
+          normalized.push('');
+        }
+        normalized.push(line);
+      }
+      return normalized.join('\n');
+    }
+
+    function parseMarkdownPreservingMath(text) {
+      const inlineMath = [];
+      const tokenized = normalizeMarkdownTables(text).replace(/\\\([\s\S]*?\\\)/g, match => {
+        const token = `MATHINLINEPLACEHOLDER${inlineMath.length}X`;
+        inlineMath.push({ token, math: match });
+        return token;
+      });
+
+      let html = window.marked.parse(tokenized);
+      html = window.DOMPurify.sanitize(html);
+      for (const item of inlineMath) {
+        html = html.replaceAll(item.token, `<span>${escapeHtml(item.math)}</span>`);
+      }
+      return html;
+    }
+
+    function renderMarkdownWithMath(text) {
+      const displayMath = /\\\[[\s\S]*?\\\]|\$\$[\s\S]*?\$\$/g;
+      let html = '';
+      let previousIndex = 0;
+      let match;
+
+      while ((match = displayMath.exec(text)) !== null) {
+        const beforeMath = text.slice(previousIndex, match.index);
+        if (beforeMath) html += parseMarkdownPreservingMath(beforeMath);
+        html += `<div>${escapeHtml(match[0])}</div>`;
+        previousIndex = displayMath.lastIndex;
+      }
+
+      const remainder = text.slice(previousIndex);
+      if (remainder) html += parseMarkdownPreservingMath(remainder);
+      return html;
+    }
+
+    function buildRenderedContent(content) {
+      const tikzBlocks = [];
+      let html = '';
+
+      for (const segment of splitIntoSegments(content)) {
+        if (segment.type === 'tikz') {
+          const index = tikzBlocks.push(segment.code) - 1;
+          html += `<div class="tikz-output" data-tikz-index="${index}"></div>`;
+        } else {
+          html += `<div class="segment">${renderMarkdownWithMath(segment.content || '')}</div>`;
+        }
+      }
+      return { html, tikzBlocks };
+    }
+
+    function tikzFrameDocument(code) {
+      const safeCode = String(code || '').replace(/<\/script/gi, '<\\/script');
+      return `<!doctype html><html><body>
+        <script type="text/tikz">${safeCode}<\/script>
+        <script src="https://tikzjax.com/v1/tikzjax.js"><\/script>
+      </body></html>`;
+    }
+
+    async function renderTikzBlock(placeholder, code, timeoutMs = 30000) {
+      const frame = document.createElement('iframe');
+      frame.className = 'tikz-render-frame';
+      frame.setAttribute('aria-hidden', 'true');
+      frame.srcdoc = tikzFrameDocument(code);
+      placeholder.appendChild(frame);
+
+      const startedAt = Date.now();
+      while (Date.now() - startedAt < timeoutMs) {
+        const svg = frame.contentDocument?.querySelector('svg');
+        if (svg) {
+          placeholder.replaceChildren(svg.cloneNode(true));
+          return;
+        }
+        await new Promise(resolve => window.setTimeout(resolve, 100));
+      }
+
+      frame.remove();
+      throw new Error('図のレンダリングがタイムアウトしました。');
+    }
+
+    async function insertTikzBlocks(tikzBlocks) {
+      const placeholders = rendered.querySelectorAll('[data-tikz-index]');
+      const tasks = Array.from(placeholders, placeholder => {
+        const index = Number(placeholder.dataset.tikzIndex);
+        return renderTikzBlock(placeholder, tikzBlocks[index]);
+      });
+      await Promise.all(tasks);
+    }
+
+    async function waitForRenderers(timeoutMs = 8000) {
+      const startedAt = Date.now();
+      while (
+        (!window.marked || !window.DOMPurify || !window.MathJax?.typesetPromise) &&
+        Date.now() - startedAt < timeoutMs
+      ) {
+        await new Promise(resolve => window.setTimeout(resolve, 100));
+      }
+
+      if (!window.marked || !window.DOMPurify || !window.MathJax?.typesetPromise) {
+        throw new Error('レンダリングライブラリを読み込めませんでした。');
+      }
+    }
+
+    async function renderQuestion(content) {
+      await waitForRenderers();
+      window.marked.setOptions({ gfm: true, breaks: true });
+      window.MathJax.typesetClear?.([rendered]);
+
+      const result = buildRenderedContent(content);
+      rendered.innerHTML = result.html;
+      await window.MathJax.typesetPromise([rendered]);
+      await insertTikzBlocks(result.tikzBlocks);
+    }
+
+    function updatePageUrl(sourceUrl) {
+      const pageUrl = new URL(window.location.href);
+      pageUrl.searchParams.set('url', sourceUrl.href);
+      window.history.replaceState(null, '', pageUrl);
+    }
+
+    async function loadQuestion(sourceValue) {
+      let sourceUrl;
+      try {
+        sourceUrl = parseSourceUrl(sourceValue);
+      } catch (error) {
+        setStatus(error.message, 'error');
+        return;
+      }
+
+      setLoading(true);
+      setStatus('問題ファイルを読み込んでいます。');
+      sourceMeta.hidden = true;
+
+      try {
+        const response = await fetch(sourceUrl, { cache: 'no-store' });
+        if (!response.ok) {
+          throw new Error(`ファイルを取得できませんでした（${response.status}）。`);
+        }
+
+        const content = await response.text();
+        await renderQuestion(content);
+
+        const fileName = fileNameFromUrl(sourceUrl);
+        sourceName.textContent = fileName;
+        sourceLink.href = sourceUrl.href;
+        sourceMeta.hidden = false;
+        document.title = `${fileName} | 生成問題ビューア`;
+        updatePageUrl(sourceUrl);
+        setStatus('表示しました。', 'success');
+      } catch (error) {
+        console.error(error);
+        rendered.innerHTML = '';
+        setStatus(error.message || '読み込みに失敗しました。', 'error');
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    form.addEventListener('submit', event => {
+      event.preventDefault();
+      loadQuestion(urlInput.value.trim());
+    });
+
+    window.addEventListener('DOMContentLoaded', () => {
+      const sourceUrl = new URLSearchParams(window.location.search).get('url');
+      if (!sourceUrl) return;
+      urlInput.value = sourceUrl;
+      loadQuestion(sourceUrl);
+    });
+  </script>
+</body>
+</html>
