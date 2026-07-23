@@ -81,7 +81,7 @@
 
 【解答】  
 \[
-\left(3\pm\sqrt{3}\right)\mathrm{cm}
+\left(3\pm\sqrt{3}\right)
 \]
 
 【解説】  
@@ -221,7 +221,7 @@ $AC=5\mathrm{cm}$、$AB=10\mathrm{cm}$、$\angle CAB=90^\circ$ の直角三角�
 
 【解答】  
 \[
-1\text{秒後},\ 4\text{秒後}
+1,4
 \]
 
 【解説】  
