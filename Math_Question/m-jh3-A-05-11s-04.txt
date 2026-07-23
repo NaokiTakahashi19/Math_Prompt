@@ -1,0 +1,177 @@
+■問題  
+縦 $8\mathrm{cm}$、横 $10\mathrm{cm}$ の長方形ABCDがある。点Pは頂点Bから頂点Aまで毎秒 $2\mathrm{cm}$ の速さで動き、点Qは点Pと同時に頂点Dから頂点Aまで毎秒 $1\mathrm{cm}$ の速さで動く。両方の点が動いている間に、$\triangle APQ$ の面積が $10\mathrm{cm}^2$ になるのは、動き始めてから何秒後か求めなさい。
+
+【図】
+\begin{tikzpicture}[scale=0.62, line cap=round, line join=round]
+\coordinate (A) at (0,8);
+\coordinate (B) at (10,8);
+\coordinate (C) at (10,0);
+\coordinate (D) at (0,0);
+\coordinate (P0) at (8.3,8);
+\coordinate (Q0) at (0,1.4);
+\draw[thick] (A)--(B)--(C)--(D)--cycle;
+\draw[->] (8.8,8.45)--(6.7,8.45);
+\draw[->] (-0.45,0.8)--(-0.45,2.7);
+\fill (A) circle (1.5pt);
+\fill (B) circle (1.5pt);
+\fill (C) circle (1.5pt);
+\fill (D) circle (1.5pt);
+\fill (P0) circle (1.5pt);
+\fill (Q0) circle (1.5pt);
+\node[above left] at (A) {$A$};
+\node[above right] at (B) {$B$};
+\node[below right] at (C) {$C$};
+\node[below left] at (D) {$D$};
+\node[above] at (P0) {$P$};
+\node[above right] at (Q0) {$Q$};
+\node[above] at (5,8.05) {$10\mathrm{cm}$};
+\node[left] at (-0.05,4) {$8\mathrm{cm}$};
+\end{tikzpicture}
+
+【解答】  
+\[
+3\text{秒後}
+\]
+
+【解説】  
+【図】
+\begin{tikzpicture}[scale=0.62, line cap=round, line join=round]
+\coordinate (A) at (0,8);
+\coordinate (B) at (10,8);
+\coordinate (C) at (10,0);
+\coordinate (D) at (0,0);
+\coordinate (P) at (4,8);
+\coordinate (Q) at (0,3);
+\draw[thick] (A)--(B)--(C)--(D)--cycle;
+\draw[thick] (A)--(P)--(Q)--cycle;
+\fill (A) circle (1.5pt);
+\fill (B) circle (1.5pt);
+\fill (C) circle (1.5pt);
+\fill (D) circle (1.5pt);
+\fill (P) circle (1.5pt);
+\fill (Q) circle (1.5pt);
+\node[above left] at (A) {$A$};
+\node[above right] at (B) {$B$};
+\node[below right] at (C) {$C$};
+\node[below left] at (D) {$D$};
+\node[below] at (P) {$P$};
+\node[above right] at (Q) {$Q$};
+\draw[dashed] (A)--(0,8.65);
+\draw[dashed] (P)--(4,8.65);
+\draw[dashed] (B)--(10,8.65);
+\draw[<->] (0,8.85)--(4,8.85);
+\draw[<->] (4,8.85)--(10,8.85);
+\node[above] at (2,8.85) {$10-2x$};
+\node[above] at (7,8.85) {$2x$};
+\draw[dashed] (D)--(-0.65,0);
+\draw[dashed] (Q)--(-0.65,3);
+\draw[dashed] (A)--(-0.65,8);
+\draw[<->] (-0.85,0)--(-0.85,3);
+\draw[<->] (-0.85,3)--(-0.85,8);
+\node[left] at (-0.85,1.5) {$x$};
+\node[left] at (-0.85,5.5) {$8-x$};
+\draw (A)--++(0.4,0)--++(0,-0.4)--++(-0.4,0);
+\end{tikzpicture}
+
+**ステップ1：** 求める数量を文字で表す
+
+動き始めてから $x$ 秒後とする。
+
+点Pは頂点Bから頂点Aへ毎秒 $2\mathrm{cm}$ の速さで動くので、
+\[
+BP=2x
+\]
+
+$AB=10\mathrm{cm}$ だから、
+\[
+AP=10-2x
+\]
+
+点Qは頂点Dから頂点Aへ毎秒 $1\mathrm{cm}$ の速さで動くので、
+\[
+DQ=x
+\]
+
+$AD=8\mathrm{cm}$ だから、
+\[
+AQ=8-x
+\]
+
+**ステップ2：** 数量の関係を式にする
+
+$AP$ と $AQ$ は垂直なので、$\triangle APQ$ の面積は
+\[
+\frac{1}{2}\times AP\times AQ
+\]
+で求められる。
+
+面積が $10\mathrm{cm}^2$ なので、
+\[
+\frac{1}{2}\times(10-2x)\times(8-x)=10
+\]
+
+**ステップ3：** 2次方程式の形に整理する
+
+左辺から右辺を引いて整理すると、
+\[
+\begin{aligned}
+\frac{1}{2}\times(10-2x)\times(8-x)-10
+&=(5-x)(8-x)-10\\
+&=40-13x+x^2-10\\
+&=x^2-13x+30
+\end{aligned}
+\]
+
+したがって、
+\[
+x^2-13x+30=0
+\]
+
+**ステップ4：** 方程式を解く
+
+\[
+x^2-13x+30=0
+\]
+を因数分解すると、
+\[
+(x-3)(x-10)=0
+\]
+
+よって、
+\[
+x=3,\ 10
+\]
+
+**ステップ5：** 条件に合う解を選ぶ
+
+点PがBからAまで動く時間は、
+\[
+10\div2=5
+\]
+より、$5$ 秒間である。
+
+点QがDからAまで動く時間は $8$ 秒間なので、両方の点が動いている時間の範囲は
+\[
+0\leqq x\leqq5
+\]
+となる。
+
+$x=3$ はこの範囲に入るが、$x=10$ は点Pが頂点Aに着いた後なので条件に合わない。
+
+また、$x=3$ のとき、
+\[
+\frac{1}{2}\times(10-2\times3)\times(8-3)
+=\frac{1}{2}\times4\times5
+=10
+\]
+となり、面積の条件を満たす。
+
+したがって、求める時間は
+\[
+x=3
+\]
+である。
+
+よって、$\triangle APQ$ の面積が $10\mathrm{cm}^2$ になるのは $3$ 秒後である。
+
+**ポイント：** 点PはBからAへ向かうため、$AP$ は点Pが動いた距離 $2x$ ではなく、残りの長さ $10-2x$ となる。また、方程式の解が得られても、両方の点が辺上を動いている時間の範囲を確認する必要がある。

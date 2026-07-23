@@ -1,0 +1,134 @@
+■問題  
+下の図のように、$AB=8\mathrm{cm}$、$AD=6\mathrm{cm}$、$\angle DAB=90^\circ$ とする。点PはAからBへ毎秒 $2\mathrm{cm}$、点QはAからDへ毎秒 $1\mathrm{cm}$ の速さで動く。$t$ 秒後に $\triangle APQ$ の面積が $16\mathrm{cm}^2$ になるのは何秒後か求めなさい。
+
+【図】
+\begin{tikzpicture}[scale=0.75, line cap=round, line join=round]
+\coordinate (A) at (0,0);
+\coordinate (B) at (8,0);
+\coordinate (D) at (0,6);
+\coordinate (P0) at (1.2,0);
+\coordinate (Q0) at (0,0.8);
+\draw[thick] (A)--(B);
+\draw[thick] (A)--(D);
+\draw[->] (1.1,-0.4)--(2.8,-0.4);
+\draw[->] (-0.4,0.7)--(-0.4,2.2);
+\fill (A) circle (1.5pt);
+\fill (B) circle (1.5pt);
+\fill (D) circle (1.5pt);
+\fill (P0) circle (1.5pt);
+\fill (Q0) circle (1.5pt);
+\node[below left] at (A) {$A$};
+\node[below] at (B) {$B$};
+\node[left] at (D) {$D$};
+\node[below] at (P0) {$P$};
+\node[right=2pt] at (Q0) {$Q$};
+\node[below] at (4,-0.05) {$8\mathrm{cm}$};
+\node[left] at (-0.05,3) {$6\mathrm{cm}$};
+\draw (A)--++(0.35,0)--++(0,0.35)--++(-0.35,0);
+\end{tikzpicture}
+
+【解答】  
+\[
+4\text{秒後}
+\]
+
+【解説】  
+**ポイント整理：三角形の面積**
+
+底辺と高さが垂直である三角形の面積は、
+\[
+\frac{1}{2}\times\text{底辺}\times\text{高さ}
+\]
+で求める。$\angle DAB=90^\circ$ であるため、$AP$ と $AQ$ を底辺と高さとして使うことができる。
+
+【図】
+\begin{tikzpicture}[scale=0.75, line cap=round, line join=round]
+\coordinate (A) at (0,0);
+\coordinate (B) at (8,0);
+\coordinate (D) at (0,6);
+\coordinate (P) at (5.2,0);
+\coordinate (Q) at (0,2.6);
+\draw[thick] (A)--(B);
+\draw[thick] (A)--(D);
+\draw[thick] (P)--(Q);
+\fill (A) circle (1.5pt);
+\fill (B) circle (1.5pt);
+\fill (D) circle (1.5pt);
+\fill (P) circle (1.5pt);
+\fill (Q) circle (1.5pt);
+\node[below left] at (A) {$A$};
+\node[below] at (B) {$B$};
+\node[left] at (D) {$D$};
+\node[below] at (P) {$P$};
+\node[right=2pt] at (Q) {$Q$};
+\node[below] at ($(A)!0.5!(P)$) {$2t$};
+\node[left] at ($(A)!0.5!(Q)$) {$t$};
+\draw (A)--++(0.35,0)--++(0,0.35)--++(-0.35,0);
+\end{tikzpicture}
+
+**ステップ1：** 求める数量を文字で表す
+
+点Pは毎秒 $2\mathrm{cm}$ で動くので、$t$ 秒後に動いた距離は、
+\[
+AP=2t
+\]
+となる。
+
+点Qは毎秒 $1\mathrm{cm}$ で動くので、
+\[
+AQ=t
+\]
+となる。
+
+**ステップ2：** 数量の関係を式にする
+
+$\angle DAB=90^\circ$ なので、$AP$ と $AQ$ は垂直である。したがって、$\triangle APQ$ の面積は、
+\[
+\frac{1}{2}\times AP\times AQ
+\]
+で求められる。
+
+面積が $16\mathrm{cm}^2$ であることから、
+\[
+\frac{1}{2}\times 2t\times t=16
+\]
+となる。
+
+**ステップ3：** 方程式を解く
+
+左辺を整理すると、
+\[
+t^2=16
+\]
+
+したがって、
+\[
+t=\pm4
+\]
+となる。
+
+**ステップ4：** 条件に合う解を選ぶ
+
+点PがAからBまで動くのにかかる時間は、
+\[
+8\div2=4
+\]
+秒である。
+
+点QがAからDまで動くのにかかる時間は、
+\[
+6\div1=6
+\]
+秒である。両方の点が辺上にある時間の範囲は、
+\[
+0\leqq t\leqq4
+\]
+となる。
+
+$t=-4$ はこの範囲に入らないため、条件に合わない。$t=4$ のときは、
+\[
+\frac{1}{2}\times(2\times4)\times4=16
+\]
+となり、面積の条件にも合う。
+
+したがって、面積が $16\mathrm{cm}^2$ になるのは $4$ 秒後である。

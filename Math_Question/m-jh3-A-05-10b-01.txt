@@ -1,0 +1,70 @@
+■問題  
+縦が $x\mathrm{cm}$、横が $(x+4)\mathrm{cm}$ の長方形がある。面積が $60\mathrm{cm}^2$ のとき、縦の長さを求めなさい。
+
+【図】
+\begin{tikzpicture}[scale=0.75, line cap=round, line join=round]
+\draw[thick] (0,0) rectangle (5.0,3.0);
+\node[below] at (2.5,0) {$(x+4)\mathrm{cm}$};
+\node[left] at (0,1.5) {$x\mathrm{cm}$};
+\node at (2.5,1.5) {$60\mathrm{cm}^2$};
+\end{tikzpicture}
+
+【解答】  
+\[
+6\mathrm{cm}
+\]
+
+【解説】  
+【図】
+\begin{tikzpicture}[scale=0.75, line cap=round, line join=round]
+\draw[thick] (0,0) rectangle (5.0,3.0);
+\node[below] at (2.5,0) {$(x+4)\mathrm{cm}$};
+\node[left] at (0,1.5) {$x\mathrm{cm}$};
+\node at (2.5,1.5) {$60\mathrm{cm}^2$};
+\end{tikzpicture}
+
+**ステップ1：** 数量の関係を式にする
+
+長方形の縦は $x\mathrm{cm}$、横は $(x+4)\mathrm{cm}$ である。
+
+長方形の面積は、
+\[
+\text{縦}\times\text{横}
+\]
+で求める。したがって、
+\[
+x(x+4)=60
+\]
+
+**ステップ2：** 2次方程式の形に整理する
+
+\[
+x^2+4x-60=0
+\]
+
+**ステップ3：** 方程式を解く
+
+左辺を因数分解すると、方程式は
+\[
+(x+10)(x-6)=0
+\]
+となる。
+
+積が $0$ になる条件から、
+\[
+x+10=0\quad\text{または}\quad x-6=0
+\]
+
+したがって、
+\[
+x=-10,\ 6
+\]
+
+**ステップ4：** 条件に合う解を選ぶ
+
+長さは正の数なので、$x=-10$ は適さない。したがって、
+\[
+x=6
+\]
+
+よって、縦の長さは $6\mathrm{cm}$ である。

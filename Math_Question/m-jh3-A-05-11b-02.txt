@@ -1,0 +1,129 @@
+■問題  
+下の図のように、$AB=12\mathrm{cm}$、$AD=10\mathrm{cm}$、$\angle DAB=90^\circ$ とする。点PはAからBへ毎秒 $3\mathrm{cm}$、点QはAからDへ毎秒 $1\mathrm{cm}$ の速さで動く。$t$ 秒後に $\triangle APQ$ の面積が $24\mathrm{cm}^2$ になるのは何秒後か求めなさい。
+
+【図】
+\begin{tikzpicture}[scale=0.55, line cap=round, line join=round]
+\coordinate (A) at (0,0);
+\coordinate (B) at (12,0);
+\coordinate (D) at (0,10);
+\coordinate (P0) at (1.6,0);
+\coordinate (Q0) at (0,1.1);
+\draw[thick] (A)--(B);
+\draw[thick] (A)--(D);
+\draw[->] (1.4,-0.5)--(4.0,-0.5);
+\draw[->] (-0.5,1.0)--(-0.5,3.2);
+\fill (A) circle (1.5pt);
+\fill (B) circle (1.5pt);
+\fill (D) circle (1.5pt);
+\fill (P0) circle (1.5pt);
+\fill (Q0) circle (1.5pt);
+\node[below left] at (A) {$A$};
+\node[below] at (B) {$B$};
+\node[left] at (D) {$D$};
+\node[below] at (P0) {$P$};
+\node[right=2pt] at (Q0) {$Q$};
+\node[below] at (6,-0.05) {$12\mathrm{cm}$};
+\node[left] at (-0.05,5) {$10\mathrm{cm}$};
+\draw (A)--++(0.45,0)--++(0,0.45)--++(-0.45,0);
+\end{tikzpicture}
+
+【解答】  
+\[
+4\text{秒後}
+\]
+
+【解説】  
+【ポイント整理】
+
+直角三角形の面積は、
+\[
+\frac{1}{2}\times\text{底辺}\times\text{高さ}
+\]
+で求める。$AP$ と $AQ$ は垂直なので、一方を底辺、もう一方を高さとして面積の式を立てることができる。
+
+【図】
+\begin{tikzpicture}[scale=0.55, line cap=round, line join=round]
+\coordinate (A) at (0,0);
+\coordinate (B) at (12,0);
+\coordinate (D) at (0,10);
+\coordinate (P) at (7.5,0);
+\coordinate (Q) at (0,2.5);
+\draw[thick] (A)--(B);
+\draw[thick] (A)--(D);
+\draw[thick] (P)--(Q);
+\fill (A) circle (1.5pt);
+\fill (B) circle (1.5pt);
+\fill (D) circle (1.5pt);
+\fill (P) circle (1.5pt);
+\fill (Q) circle (1.5pt);
+\node[below left] at (A) {$A$};
+\node[below] at (B) {$B$};
+\node[left] at (D) {$D$};
+\node[below] at (P) {$P$};
+\node[right=2pt] at (Q) {$Q$};
+\node[below] at ($(A)!0.5!(P)$) {$3t$};
+\node[left] at ($(A)!0.5!(Q)$) {$t$};
+\draw (A)--++(0.45,0)--++(0,0.45)--++(-0.45,0);
+\end{tikzpicture}
+
+**ステップ1：** 求める数量を文字で表す
+
+点Pは毎秒 $3\mathrm{cm}$ で動くので、
+\[
+AP=3t
+\]
+
+点Qは毎秒 $1\mathrm{cm}$ で動くので、
+\[
+AQ=t
+\]
+
+**ステップ2：** 数量の関係を式にする
+
+$\angle DAB=90^\circ$ なので、$AP$ と $AQ$ は垂直である。したがって、$\triangle APQ$ の面積は、
+\[
+\frac{1}{2}\times AP\times AQ
+\]
+で求められる。
+
+面積が $24\mathrm{cm}^2$ なので、
+\[
+\frac{1}{2}\times 3t\times t=24
+\]
+
+**ステップ3：** 方程式を解く
+
+両辺を $2$ 倍し、さらに $3$ で割ると、
+\[
+\begin{aligned}
+3t^2&=48\\
+t^2&=16\\
+t&=\pm4
+\end{aligned}
+\]
+
+**ステップ4：** 条件に合う解を選ぶ
+
+点Pが長さ $12\mathrm{cm}$ の辺AB上にあるためには、
+\[
+0\leqq3t\leqq12
+\]
+であるから、
+\[
+0\leqq t\leqq4
+\]
+となる。
+
+また、点Qが長さ $10\mathrm{cm}$ の辺AD上にあるためには、$0\leqq t\leqq10$ である。よって、両方の点が辺上にある範囲は、
+\[
+0\leqq t\leqq4
+\]
+となる。
+
+$t=-4$ はこの範囲に入らないので除く。$t=4$ を元の面積の式に代入すると、
+\[
+\frac{1}{2}\times(3\times4)\times4=24
+\]
+となり、問題文の条件に合う。
+
+したがって、面積が $24\mathrm{cm}^2$ になるのは $4$ 秒後である。

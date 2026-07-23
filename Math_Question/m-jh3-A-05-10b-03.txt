@@ -1,0 +1,61 @@
+■問題  
+1辺が $x\mathrm{cm}$ の正方形がある。面積が $81\mathrm{cm}^2$ のとき、1辺の長さを求めなさい。
+
+【図】
+\begin{tikzpicture}[scale=0.75, line cap=round, line join=round]
+\draw[thick] (0,0) rectangle (3.2,3.2);
+\node[below] at (1.6,0) {$x\mathrm{cm}$};
+\node[left] at (0,1.6) {$x\mathrm{cm}$};
+\node at (1.6,1.6) {$81\mathrm{cm}^2$};
+\end{tikzpicture}
+
+【解答】  
+\[
+9\mathrm{cm}
+\]
+
+【解説】  
+【図】
+\begin{tikzpicture}[scale=0.75, line cap=round, line join=round]
+\draw[thick] (0,0) rectangle (3.2,3.2);
+\node[below] at (1.6,0) {$x\mathrm{cm}$};
+\node[left] at (0,1.6) {$x\mathrm{cm}$};
+\node at (1.6,1.6) {$81\mathrm{cm}^2$};
+\end{tikzpicture}
+
+**ステップ1：** 数量の関係を式にする
+
+正方形の面積は、
+\[
+\text{1辺}\times\text{1辺}
+\]
+で求める。
+
+1辺が $x\mathrm{cm}$ なので、
+\[
+x\times x=81
+\]
+すなわち、
+\[
+x^2=81
+\]
+
+**ステップ2：** 方程式を解く
+
+\[
+x=\pm\sqrt{81}
+\]
+したがって、
+\[
+x=\pm9
+\]
+
+**ステップ3：** 条件に合う解を選ぶ
+
+長さは正の数なので、$x=-9$ は適さない。
+したがって、
+\[
+x=9
+\]
+
+よって、1辺の長さは $9\mathrm{cm}$ となる。

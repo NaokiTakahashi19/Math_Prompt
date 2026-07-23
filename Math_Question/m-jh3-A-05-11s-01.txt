@@ -1,0 +1,161 @@
+■問題  
+縦 $6\mathrm{cm}$、横 $8\mathrm{cm}$ の長方形ABCDがある。点Pは頂点Aから頂点Bまで毎秒 $2\mathrm{cm}$ の速さで動き、点Qは点Pと同時に頂点Dから頂点Aまで毎秒 $1\mathrm{cm}$ の速さで動く。両方の点が動いている間に、$\triangle APQ$ の面積が $5\mathrm{cm}^2$ になるのは、動き始めてから何秒後か求めなさい。
+
+【図】
+\begin{tikzpicture}[scale=0.72, line cap=round, line join=round]
+\coordinate (A) at (0,6);
+\coordinate (B) at (8,6);
+\coordinate (C) at (8,0);
+\coordinate (D) at (0,0);
+\coordinate (P0) at (2.8,6);
+\coordinate (Q0) at (0,1.4);
+\draw[thick] (A)--(B)--(C)--(D)--cycle;
+\draw[->] (1.0,6.4)--(3.0,6.4);
+\draw[->] (-0.4,0.8)--(-0.4,2.5);
+\fill (A) circle (1.5pt);
+\fill (B) circle (1.5pt);
+\fill (C) circle (1.5pt);
+\fill (D) circle (1.5pt);
+\fill (P0) circle (1.5pt);
+\fill (Q0) circle (1.5pt);
+\node[above left] at (A) {$A$};
+\node[above right] at (B) {$B$};
+\node[below right] at (C) {$C$};
+\node[below left] at (D) {$D$};
+\node[above] at (P0) {$P$};
+\node[above right] at (Q0) {$Q$};
+\node[above] at (4,6.05) {$8\mathrm{cm}$};
+\node[left] at (-0.05,3) {$6\mathrm{cm}$};
+\end{tikzpicture}
+
+【解答】  
+\[
+1\text{秒後}
+\]
+
+【解説】  
+【図】
+\begin{tikzpicture}[scale=0.72, line cap=round, line join=round]
+\coordinate (A) at (0,6);
+\coordinate (B) at (8,6);
+\coordinate (C) at (8,0);
+\coordinate (D) at (0,0);
+\coordinate (P) at (4.4,6);
+\coordinate (Q) at (0,2.2);
+\draw[thick] (A)--(B)--(C)--(D)--cycle;
+\draw[thick] (A)--(P)--(Q)--cycle;
+\fill (A) circle (1.5pt);
+\fill (B) circle (1.5pt);
+\fill (C) circle (1.5pt);
+\fill (D) circle (1.5pt);
+\fill (P) circle (1.5pt);
+\fill (Q) circle (1.5pt);
+\node[above left] at (A) {$A$};
+\node[above right] at (B) {$B$};
+\node[below right] at (C) {$C$};
+\node[below left] at (D) {$D$};
+\node[above] at (P) {$P$};
+\node[above right] at (Q) {$Q$};
+\node[above] at ($(A)!0.5!(P)$) {$2x$};
+\draw[dashed] (D)--(-0.6,0);
+\draw[dashed] (Q)--(-0.6,2.2);
+\draw[dashed] (A)--(-0.6,6);
+\draw[<->] (-0.8,0)--(-0.8,2.2);
+\draw[<->] (-0.8,2.2)--(-0.8,6);
+\node[left] at (-0.8,1.1) {$x$};
+\node[left] at (-0.8,4.1) {$6-x$};
+\draw (A)--++(0.35,0)--++(0,-0.35)--++(-0.35,0);
+\end{tikzpicture}
+
+**ステップ1：** 求める数量を文字で表す
+
+動き始めてから $x$ 秒後とする。
+
+点Pは毎秒 $2\mathrm{cm}$ の速さで動くので、
+\[
+AP=2x
+\]
+
+点Qは毎秒 $1\mathrm{cm}$ の速さで頂点Dから頂点Aへ動くので、
+\[
+DQ=x
+\]
+
+$AD=6\mathrm{cm}$ だから、
+\[
+AQ=6-x
+\]
+
+**ステップ2：** 数量の関係を式にする
+
+$AP$ と $AQ$ は垂直なので、$\triangle APQ$ の底辺を $AP$、高さを $AQ$ とすると、その面積は
+\[
+\frac{1}{2}\times AP\times AQ
+\]
+で求められる。
+
+$AP=2x$、$AQ=6-x$ を代入し、面積が $5\mathrm{cm}^2$ になるという条件から方程式を立てる。
+
+**ステップ3：** 2次方程式の形に整理する
+
+\[
+\begin{aligned}
+\frac{1}{2}\times 2x\times(6-x)&=5\\
+x(6-x)&=5\\
+6x-x^2&=5\\
+x^2-6x+5&=0
+\end{aligned}
+\]
+
+**ステップ4：** 方程式を解く
+
+因数分解すると、
+\[
+(x-1)(x-5)=0
+\]
+
+よって、
+\[
+x-1=0\quad\text{または}\quad x-5=0
+\]
+
+したがって、
+\[
+x=1,\ 5
+\]
+
+**ステップ5：** 条件に合う解を選ぶ
+
+点Pが頂点Aから頂点Bまで動くのにかかる時間は、
+\[
+8\div2=4
+\]
+より $4$ 秒である。
+
+点Qが頂点Dから頂点Aまで動くのにかかる時間は、
+\[
+6\div1=6
+\]
+より $6$ 秒である。
+
+したがって、両方の点が動いている時間の範囲は、
+\[
+0\leqq x\leqq4
+\]
+となる。
+
+$x=1$ はこの範囲に入る。また、元の面積の式に代入すると、
+\[
+\frac{1}{2}\times2\times(6-1)=5
+\]
+となり、面積の条件にも合う。
+
+一方、$x=5$ のときは点Pがすでに頂点Bに到着しているため、問題の条件に合わない。
+
+よって、求めるのは
+\[
+1\text{秒後}
+\]
+である。
+
+**ポイント：** 点Qが動いた距離は $DQ=x$ であるが、三角形の高さに使う長さは残りの部分である $AQ=6-x$ となる。また、方程式の解が点の動いている時間の範囲に入るかを必ず確認する。
