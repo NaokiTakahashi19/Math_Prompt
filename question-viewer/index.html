@@ -560,7 +560,9 @@
       while (Date.now() - startedAt < timeoutMs) {
         const svg = frame.contentDocument?.querySelector('svg');
         if (svg) {
-          placeholder.replaceChildren(svg.cloneNode(true));
+          const renderedSvg = svg.cloneNode(true);
+          renderedSvg.removeAttribute('style');
+          placeholder.replaceChildren(renderedSvg);
           return;
         }
         await new Promise(resolve => window.setTimeout(resolve, 100));
