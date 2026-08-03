@@ -1339,6 +1339,12 @@
           return { components: [new MathRun(group.content)], end: group.end };
         }
 
+        if (command === 'hlblue' || command === 'hlpink' || command === 'hlgreen') {
+          while (/\s/.test(tex[pos])) pos++;
+          const group = parseTeXGroup(tex, pos);
+          return { components: parseTeXToMathChildren(group.content), end: group.end };
+        }
+
         if (command === 'overline' || command === 'bar') {
           while (/\s/.test(tex[pos])) pos++;
           const group = parseTeXGroup(tex, pos);
