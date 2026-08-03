@@ -598,7 +598,7 @@
 
       wordExportFramePromise = new Promise((resolve, reject) => {
         const iframe = document.createElement('iframe');
-        iframe.src = '/questions';
+        iframe.src = `/questions?word-export=${Date.now()}`;
         iframe.hidden = true;
         iframe.style.display = 'none';
         iframe.onload = async () => {

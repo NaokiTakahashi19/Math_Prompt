@@ -1289,6 +1289,8 @@
         MathRun,
         MathFraction,
         MathRadical,
+        MathLimitLower,
+        MathLimitUpper,
         MathRoundBrackets,
         MathSquareBrackets,
         MathCurlyBrackets
@@ -1343,6 +1345,34 @@
           while (/\s/.test(tex[pos])) pos++;
           const group = parseTeXGroup(tex, pos);
           return { components: parseTeXToMathChildren(group.content), end: group.end };
+        }
+
+        if (command === 'overbrace' || command === 'underbrace') {
+          while (/\s/.test(tex[pos])) pos++;
+          const base = parseTeXGroup(tex, pos);
+          pos = base.end;
+          while (/\s/.test(tex[pos])) pos++;
+
+          const scriptMarker = command === 'overbrace' ? '^' : '_';
+          let limit = [];
+          if (tex[pos] === scriptMarker) {
+            const script = parseTeXScript(tex, pos + 1);
+            limit = script.components;
+            pos = script.end;
+          }
+
+          const LimitClass = command === 'overbrace' ? MathLimitUpper : MathLimitLower;
+          return {
+            components: [new LimitClass({
+              children: parseTeXToMathChildren(base.content),
+              limit
+            })],
+            end: pos
+          };
+        }
+
+        if (['displaystyle', 'textstyle', 'scriptstyle', 'scriptscriptstyle', 'Large', 'large', 'LARGE', 'small', 'tiny'].includes(command)) {
+          return { components: [], end: pos };
         }
 
         if (command === 'overline' || command === 'bar') {
