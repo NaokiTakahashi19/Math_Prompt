@@ -140,7 +140,7 @@
   <header>
     <div class="wrap">
       <h1>Math Question</h1>
-      <p>公開されている問題テキストの一覧です。ファイル名で検索できます。</p>
+      <p>公開されている問題の一覧です。ファイル名で検索し、クリックするとビューアで表示できます。</p>
       <div class="toolbar">
         <input id="search" type="search" autocomplete="off" placeholder="例: m-jh1-A-01-01b">
         <div id="count" class="count">読み込み中...</div>
@@ -168,7 +168,10 @@
       for (const file of visibleFiles) {
         const item = document.createElement("a");
         item.className = "item";
-        item.href = `./${encodeURIComponent(file.name)}`;
+        const questionUrl = new URL(`./${encodeURIComponent(file.name)}`, window.location.href);
+        const viewerUrl = new URL('../question-viewer/', window.location.href);
+        viewerUrl.searchParams.set('url', questionUrl.href);
+        item.href = viewerUrl.href;
         item.target = "_blank";
         item.rel = "noopener";
 
