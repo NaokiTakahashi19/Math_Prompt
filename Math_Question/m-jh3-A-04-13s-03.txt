@@ -25,7 +25,7 @@
 \end{aligned}
 \]
 
-$6\sqrt{5}=\frac{30}{\sqrt{5}}$ なので、分母を $\sqrt{5}$ にそろえなさい。
+$6\sqrt{5}=\frac{30}{\sqrt{5}}$ なので、分母を $\sqrt{5}$ にそろえる。
 
 \[
 2\sqrt{45}+\frac{7}{\sqrt{5}}

@@ -8,7 +8,7 @@ $50\mathrm{kg}$ を基準にして、$47\mathrm{kg}$ を正負の符号を使っ
 
 【解説】  
 **ステップ1：** 何を基準にするか確認する  
-→ 今回は「$50\mathrm{kg}$」が基準であることを確認しなさい。
+→ 今回は「$50\mathrm{kg}$」が基準である。
 
 **ステップ2：** $47\mathrm{kg}$ と基準との差の確認
 
@@ -16,7 +16,7 @@ $50\mathrm{kg}$ を基準にして、$47\mathrm{kg}$ を正負の符号を使っ
 \hlblue{47} - \hlpink{50} = \hlpink{-3}
 \]
 
-基準の $50\mathrm{kg}$ を $0$ の位置と見ると、$47\mathrm{kg}$ は軽い方向に $3\mathrm{kg}$ 進んだ位置であることを確認しなさい。
+基準の $50\mathrm{kg}$ を $0$ の位置と見ると、$47\mathrm{kg}$ は軽い方向に $3\mathrm{kg}$ 進んだ位置である。
 
 \begin{tikzpicture}[x=1.2cm,y=1.15cm,>=stealth]
 \draw[->,thick] (-3.8,0)--(1.2,0);
@@ -53,4 +53,4 @@ $50\mathrm{kg}$ を基準にして、$47\mathrm{kg}$ を正負の符号を使っ
 \end{array}
 \]
 
-今回は $47\mathrm{kg}$ が基準より $3\mathrm{kg}$ 軽いので、符号は「$-$」となることを確認しなさい。
+今回は $47\mathrm{kg}$ が基準より $3\mathrm{kg}$ 軽いので、符号は「$-$」となる。

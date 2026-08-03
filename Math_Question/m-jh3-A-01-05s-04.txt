@@ -11,8 +11,8 @@ x^2 + 5x - 66
 
 【解説】  
 **ステップ1：** 乗法の公式が使えないか検討する  
-$(\bbox[2px,lightgreen]{x} + \hlblue{(-6)})(\bbox[2px,lightgreen]{x} + \hlpink{11})$ は、$(\bbox[2px,lightgreen]{x} + \hlblue{a})(\bbox[2px,lightgreen]{x} + \hlpink{b})$ の形であることを確認しなさい。  
-この式では、乗法の公式のうち、次の公式が使えることを確認しなさい。
+$(\bbox[2px,lightgreen]{x} + \hlblue{(-6)})(\bbox[2px,lightgreen]{x} + \hlpink{11})$ は、$(\bbox[2px,lightgreen]{x} + \hlblue{a})(\bbox[2px,lightgreen]{x} + \hlpink{b})$ の形である。  
+この式では、乗法の公式のうち、次の公式が使える。
 
 **乗法の公式：**
 \[
@@ -35,5 +35,5 @@ $(\bbox[2px,lightgreen]{x} + \hlblue{(-6)})(\bbox[2px,lightgreen]{x} + \hlpink{1
 \]
 
 **ポイント：**  
-$(x+a)(x+b)$ では、$x$ の係数は $a+b$、定数項は $ab$ になることを確認しなさい。  
-符号が異なるときは、$(-6)+11=5$ なので $x$ の係数は $+5$、$(-6)\times 11=-66$ なので定数項は $-66$ になることを確認しなさい。
+$(x+a)(x+b)$ では、$x$ の係数は $a+b$、定数項は $ab$ になる。  
+符号が異なるときは、$(-6)+11=5$ なので $x$ の係数は $+5$、$(-6)\times 11=-66$ なので定数項は $-66$ になる。

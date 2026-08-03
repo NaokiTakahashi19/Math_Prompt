@@ -11,8 +11,8 @@ x^2 +10x + 24
 
 【解説】  
 **ステップ1：** 乗法の公式が使えないか検討する
-$(\bbox[2px,lightgreen]{x} + \hlblue{4})(\bbox[2px,lightgreen]{x} + \hlpink{6})$ は、$(\bbox[2px,lightgreen]{x} + \hlblue{a})(\bbox[2px,lightgreen]{x} + \hlpink{b})$ の形であることを確認しなさい。
-この式では、乗法の公式のうち、次の公式が使えることを確認しなさい。
+$(\bbox[2px,lightgreen]{x} + \hlblue{4})(\bbox[2px,lightgreen]{x} + \hlpink{6})$ は、$(\bbox[2px,lightgreen]{x} + \hlblue{a})(\bbox[2px,lightgreen]{x} + \hlpink{b})$ の形である。
+この式では、乗法の公式のうち、次の公式が使える。
 
 **乗法の公式：**
 \[

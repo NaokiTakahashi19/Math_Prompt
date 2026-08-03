@@ -15,8 +15,8 @@
 \[
 \left(\hlblue{x}+\hlpink{a}\right)^2=\hlblue{x}^2+2\hlpink{a}\hlblue{x}+\hlpink{a}^2
 \]
-を使いなさい。
-この問題では、$\hlblue{x}=\hlblue{\sqrt{11}}$、$\hlpink{a}=\hlpink{2}$ と見なさい。
+を使う。
+この問題では、$\hlblue{x}=\hlblue{\sqrt{11}}$、$\hlpink{a}=\hlpink{2}$ と見る。
 
 **ステップ2：** 乗法の公式を適用する
 
@@ -35,7 +35,7 @@
 \end{aligned}
 \]
 
-根号どうしの乗法では、根号の中をかけるため、$\left(\sqrt{11}\right)^2=\sqrt{11}\times\sqrt{11}=\sqrt{121}=11$ となることを確認しなさい。
+根号どうしの乗法では、根号の中をかけるため、$\left(\sqrt{11}\right)^2=\sqrt{11}\times\sqrt{11}=\sqrt{121}=11$ となる。
 
 **ステップ4：** もとの式に戻して整理する
 
