@@ -14,6 +14,7 @@
 【解説】  
 
 **ステップ1：** 除法を乗法になおす
+<!-- ACCORDION_START: 除法を乗法になおす-->
 わり算は、わる数の逆数をかける形に直すことができる。
 $4$ は $\frac{4}{1}$ と考えるので、逆数は $\frac{1}{4}$ である。
 \[
@@ -23,18 +24,22 @@ $4$ は $\frac{4}{1}$ と考えるので、逆数は $\frac{1}{4}$ である。
 \end{aligned}
 \]
 
+<!-- ACCORDION_END -->
 **ステップ2：** 分配法則を使って展開する
+<!-- ACCORDION_START: 分配法則を使って展開する-->
 \[
 \begin{aligned}
 &= \hlblue{8y^2} \times \hlpink{\frac{1}{4}} + \hlblue{(-12y)} \times \hlpink{\frac{1}{4}}
 \end{aligned}
 \]
 
+<!-- ACCORDION_END -->
 **ステップ3：** 計算をする
-
+<!-- ACCORDION_START: 計算をする-->
 \[
 \begin{aligned}
 &= \frac{8y^2}{4}+\frac{-12y}{4}\\
 &= 2y^2-3y
 \end{aligned}
 \]
+<!-- ACCORDION_END -->

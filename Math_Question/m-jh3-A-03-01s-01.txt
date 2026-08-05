@@ -21,9 +21,12 @@
 \]
 
 **ステップ1：** 乗法の公式が使えるか判断する  
+<!-- ACCORDION_START: 乗法の公式が使えるか判断する-->
 今回は、2つの平方の差なので、[4] の公式 $x^2-a^2=(x+a)(x-a)$ を逆に使えそうである。
 
+<!-- ACCORDION_END -->
 **ステップ2：** 乗法の公式を適用する  
+<!-- ACCORDION_START: 乗法の公式を適用する-->
 $\hlblue{x}=\hlblue{63},\ \hlpink{a}=\hlpink{37}$ と見る。
 \[
 \begin{aligned}
@@ -33,10 +36,13 @@ $\hlblue{x}=\hlblue{63},\ \hlpink{a}=\hlpink{37}$ と見る。
 \]
 平方の差では、「和」と「差」の積に直すことがポイントである。$63-37$ の符号や計算を間違えないように注意する。
 
+<!-- ACCORDION_END -->
 **ステップ3：** 計算する  
+<!-- ACCORDION_START: 計算する-->
 \[
 \begin{aligned}
 &=100\times26\\
 &=2600
 \end{aligned}
 \]
+<!-- ACCORDION_END -->

@@ -18,7 +18,7 @@
 \]
 
 **ステップ1：** 平方根の積の公式を適用する
-
+<!-- ACCORDION_START: 平方根の積の公式を適用する-->
 \[
 \begin{aligned}
 2\times\sqrt{15}\times\sqrt{6}
@@ -27,8 +27,9 @@
 \end{aligned}
 \]
 
+<!-- ACCORDION_END -->
 **ステップ2：** 根号を簡単にする
-
+<!-- ACCORDION_START: 根号を簡単にする-->
 \[
 90=9\times10=3^2\times10
 \]
@@ -40,3 +41,4 @@
 &= 6\sqrt{10}
 \end{aligned}
 \]
+<!-- ACCORDION_END -->

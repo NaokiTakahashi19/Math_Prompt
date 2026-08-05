@@ -11,14 +11,15 @@ $\frac{\sqrt{b}}{a}$ の形に変形しなさい。
 
 【解説】  
 **ステップ1：** 分子と分母に分ける
-
+<!-- ACCORDION_START: 分子と分母に分ける-->
 \[
 \sqrt{\frac{7}{36}}
 = \frac{\sqrt{7}}{\sqrt{\hlblue{36}}}
 \]
 
+<!-- ACCORDION_END -->
 **ステップ2：** 分母の根号をはずす
-
+<!-- ACCORDION_START: 分母の根号をはずす-->
 \[
 \hlblue{36} = \bbox[2px,lightyellow]{6^2}
 \]
@@ -30,9 +31,11 @@ $\frac{\sqrt{b}}{a}$ の形に変形しなさい。
 \end{aligned}
 \]
 
+<!-- ACCORDION_END -->
 **ステップ3：** 式を整理する
-
+<!-- ACCORDION_START: 式を整理する-->
 \[
 \frac{\sqrt{7}}{\sqrt{36}}
 = \bbox[2px,lightyellow]{\frac{\sqrt{7}}{6}}
 \]
+<!-- ACCORDION_END -->

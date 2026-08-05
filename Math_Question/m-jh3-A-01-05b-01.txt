@@ -11,6 +11,7 @@ x^2 +10x + 24
 
 【解説】  
 **ステップ1：** 乗法の公式が使えないか検討する
+<!-- ACCORDION_START: 乗法の公式が使えないか検討する-->
 $(\bbox[2px,lightgreen]{x} + \hlblue{4})(\bbox[2px,lightgreen]{x} + \hlpink{6})$ は、$(\bbox[2px,lightgreen]{x} + \hlblue{a})(\bbox[2px,lightgreen]{x} + \hlpink{b})$ の形である。
 この式では、乗法の公式のうち、次の公式が使える。
 
@@ -19,7 +20,9 @@ $(\bbox[2px,lightgreen]{x} + \hlblue{4})(\bbox[2px,lightgreen]{x} + \hlpink{6})$
 (x+a)(x+b)=x^2+(a+b)x+ab
 \]
 
+<!-- ACCORDION_END -->
 **ステップ2：** 乗法の公式にあてはめる
+<!-- ACCORDION_START: 乗法の公式にあてはめる-->
 \[
 \begin{aligned}
 (x+\hlblue{4})(x+\hlpink{6})
@@ -27,9 +30,12 @@ $(\bbox[2px,lightgreen]{x} + \hlblue{4})(\bbox[2px,lightgreen]{x} + \hlpink{6})$
 \end{aligned}
 \]
 
+<!-- ACCORDION_END -->
 **ステップ3：** 整理する
+<!-- ACCORDION_START: 整理する-->
 \[
 \begin{aligned}
 &= x^2 +10x + 24
 \end{aligned}
 \]
+<!-- ACCORDION_END -->

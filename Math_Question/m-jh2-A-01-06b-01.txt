@@ -11,6 +11,7 @@
 
 【解説】  
 **ステップ1：** 分配法則を使って展開する
+<!-- ACCORDION_START: 分配法則を使って展開する-->
 まず、もとの式で、かける数と、括弧の中の項を確認する。
 \[
 \hlblue{4}(\hlpink{2x}+\hlpink{(-3y)}+\hlpink{1})
@@ -20,8 +21,11 @@
 = \hlblue{4}\times\hlpink{2x}+\hlblue{4}\times\hlpink{(-3y)}+\hlblue{4}\times\hlpink{1}
 \]
 
+<!-- ACCORDION_END -->
 **ステップ2：** 展開した式を整理する
+<!-- ACCORDION_START: 展開した式を整理する-->
 \[
 = 8x - 12y + 4
 \]
 特に、$-3y$ にも $4$ をかけることに注意する。
+<!-- ACCORDION_END -->

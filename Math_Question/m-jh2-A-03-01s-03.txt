@@ -22,6 +22,7 @@ x=5,\quad y=2
 表を使うと、同じ $x$ のときに、2つの式から求めた $y$ が同じになるところを探せばよい。
 
 **ステップ1：** 一方の文字について解く
+<!-- ACCORDION_START: 一方の文字について解く-->
 それぞれの式を $y$ について解く。
 \[
 \begin{aligned}
@@ -37,7 +38,9 @@ y&=x-3
 \end{aligned}
 \]
 
+<!-- ACCORDION_END -->
 **ステップ2：** 表に値を入れる
+<!-- ACCORDION_START: 表に値を入れる-->
 \[
 \begin{array}{|c|c|c|c|c|c|c|c|}
 \hline
@@ -50,9 +53,12 @@ x-y=3\text{ の }y & -3 & -2 & -1 & 0 & 1 & \hlblue{2} & 3 \\
 \end{array}
 \]
 
+<!-- ACCORDION_END -->
 **ステップ3：** 条件を確認する
+<!-- ACCORDION_START: 条件を確認する-->
 表を見ると、$x=5$ のとき、どちらの式でも $y=2$ になる。
 したがって、2つの方程式をどちらも成り立たせる値の組は
 \[
 x=5,\quad y=2
 \]
+<!-- ACCORDION_END -->

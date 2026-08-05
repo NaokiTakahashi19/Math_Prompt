@@ -15,20 +15,26 @@ x=3
 つまり、$a\times d=b\times c$ である。
 
 **ステップ1：** 比例式の性質により
+<!-- ACCORDION_START: 比例式の性質により-->
 $x:5=6:10$ では、外側は $x$ と $10$、内側は $5$ と $6$ である。
 \[
 x\times10=5\times6
 \]
 
+<!-- ACCORDION_END -->
 **ステップ2：** 整理する
+<!-- ACCORDION_START: 整理する-->
 \[
 10x=30
 \]
 
+<!-- ACCORDION_END -->
 **ステップ3：** 両辺を同じ数で割る
+<!-- ACCORDION_START: 両辺を同じ数で割る-->
 \[
 \begin{aligned}
 x&=\frac{30}{10}\\
 &=3
 \end{aligned}
 \]
+<!-- ACCORDION_END -->

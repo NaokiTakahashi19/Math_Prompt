@@ -11,13 +11,16 @@
 
 【解説】  
 **ステップ1：** 指数の意味を確認する  
+<!-- ACCORDION_START: 指数の意味を確認する-->
 $\left(-\frac{2}{3}\right)^3$ の指数は $3$ である。これは、$-\frac{2}{3}$ を3回かけることを表す。負の分数全体を3乗するので、かっこをつける。
 \[
 \left(-\frac{2}{3}\right)^3
 =\left(-\frac{2}{3}\right)\times\left(-\frac{2}{3}\right)\times\left(-\frac{2}{3}\right)
 \]
 
+<!-- ACCORDION_END -->
 **ステップ2：** 計算する  
+<!-- ACCORDION_START: 計算する-->
 負の数を3回かけるので、答えの符号は負となる。
 \[
 \begin{aligned}
@@ -25,3 +28,4 @@ $\left(-\frac{2}{3}\right)^3$ の指数は $3$ である。これは、$-\frac{2
 &=-\frac{8}{27}
 \end{aligned}
 \]
+<!-- ACCORDION_END -->

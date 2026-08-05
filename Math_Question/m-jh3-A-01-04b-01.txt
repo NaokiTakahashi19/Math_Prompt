@@ -11,6 +11,7 @@ a^2 + 2ab - 2a + 6b - 15
 
 【解説】  
 **ステップ1：** 分配法則を使って、1つ目の括弧を展開する
+<!-- ACCORDION_START: 分配法則を使って、1つ目の括弧を展開する-->
 \[
 \begin{aligned}
 (a+3)(a+2b-5)
@@ -18,16 +19,21 @@ a^2 + 2ab - 2a + 6b - 15
 \end{aligned}
 \]
 
+<!-- ACCORDION_END -->
 **ステップ2：** 分配法則を使って、残りの括弧を展開する
+<!-- ACCORDION_START: 分配法則を使って、残りの括弧を展開する-->
 \[
 \begin{aligned}
 &= a^2 + 2ab - 5a + 3a + 6b - 15
 \end{aligned}
 \]
 
+<!-- ACCORDION_END -->
 **ステップ3：** 同類項をまとめる
+<!-- ACCORDION_START: 同類項をまとめる-->
 \[
 \begin{aligned}
 &= a^2 + 2ab - 2a + 6b - 15
 \end{aligned}
 \]
+<!-- ACCORDION_END -->

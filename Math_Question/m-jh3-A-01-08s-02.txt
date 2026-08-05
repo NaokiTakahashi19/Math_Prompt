@@ -11,6 +11,7 @@
 
 【解説】  
 **ステップ1：** 乗法の公式が使えないか検討する
+<!-- ACCORDION_START: 乗法の公式が使えないか検討する-->
 $\left(\hlblue{5x}\bbox[2px,lightyellow]{+}\hlpink{\frac{2}{3}}\right)\left(\hlblue{5x}\bbox[2px,lightyellow]{-}\hlpink{\frac{2}{3}}\right)$ は、$(\hlblue{a}\bbox[2px,lightyellow]{+}\hlpink{b})(\hlblue{a}\bbox[2px,lightyellow]{-}\hlpink{b})$ の形である。
 この式では、乗法の公式のうち、次の公式が使える。
 
@@ -19,7 +20,9 @@ $\left(\hlblue{5x}\bbox[2px,lightyellow]{+}\hlpink{\frac{2}{3}}\right)\left(\hlb
 (a+b)(a-b)=a^2-b^2
 \]
 
+<!-- ACCORDION_END -->
 **ステップ2：** 乗法の公式にあてはめる
+<!-- ACCORDION_START: 乗法の公式にあてはめる-->
 \[
 \begin{aligned}
 \left(\hlblue{5x}+\hlpink{\frac{2}{3}}\right)\left(\hlblue{5x}-\hlpink{\frac{2}{3}}\right)
@@ -27,7 +30,9 @@ $\left(\hlblue{5x}\bbox[2px,lightyellow]{+}\hlpink{\frac{2}{3}}\right)\left(\hlb
 \end{aligned}
 \]
 
+<!-- ACCORDION_END -->
 **ステップ3：** 整理する
+<!-- ACCORDION_START: 整理する-->
 \[
 \begin{aligned}
 &= 25x^2-\frac{4}{9}
@@ -37,3 +42,4 @@ $\left(\hlblue{5x}\bbox[2px,lightyellow]{+}\hlpink{\frac{2}{3}}\right)\left(\hlb
 **ポイント：**  
 $5x$ 全体をひとまとまりとして2乗する。
 $(5x)^2=25x^2$ であり、また $\left(\frac{2}{3}\right)^2=\frac{4}{9}$ である。
+<!-- ACCORDION_END -->

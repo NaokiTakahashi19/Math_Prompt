@@ -11,6 +11,7 @@
 
 【解説】  
 **ステップ1：** 指数の意味を確認する  
+<!-- ACCORDION_START: 指数の意味を確認する-->
 $\left(\frac{7}{3}\right)^3$ の指数は $3$ である。これは、$\frac{7}{3}$ を3回かけることを表す。
 \[
 \begin{aligned}
@@ -19,7 +20,9 @@ $\left(\frac{7}{3}\right)^3$ の指数は $3$ である。これは、$\frac{7}{
 \end{aligned}
 \]
 
+<!-- ACCORDION_END -->
 **ステップ2：** 計算する  
+<!-- ACCORDION_START: 計算する-->
 分子どうし、分母どうしをそれぞれかける。
 \[
 \begin{aligned}
@@ -27,3 +30,4 @@ $\left(\frac{7}{3}\right)^3$ の指数は $3$ である。これは、$\frac{7}{
 &=\frac{343}{27}
 \end{aligned}
 \]
+<!-- ACCORDION_END -->

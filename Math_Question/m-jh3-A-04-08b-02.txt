@@ -13,6 +13,7 @@ $a\sqrt{b}$ の形に変形しなさい。
 根号の中に平方数が含まれているときは、その部分を根号の外に出せる。
 
 **ステップ1：** 根号の中の平方数を確認する
+<!-- ACCORDION_START: 根号の中の平方数を確認する-->
 \[
 \begin{aligned}
 45 &= 9\times5\\
@@ -20,12 +21,17 @@ $a\sqrt{b}$ の形に変形しなさい。
 \end{aligned}
 \]
 
+<!-- ACCORDION_END -->
 **ステップ2：** 根号の中を平方の形に直す
+<!-- ACCORDION_START: 根号の中を平方の形に直す-->
 \[
 \sqrt{45}=\sqrt{3^2\times5}
 \]
 
+<!-- ACCORDION_END -->
 **ステップ3：** 平方数の部分を根号の外に出す
+<!-- ACCORDION_START: 平方数の部分を根号の外に出す-->
 \[
 =3\sqrt{5}
 \]
+<!-- ACCORDION_END -->

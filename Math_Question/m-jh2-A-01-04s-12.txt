@@ -18,11 +18,14 @@ ax+bx=(a+b)x
 \]
 
 **ステップ1：** 同類項を見つける
+<!-- ACCORDION_START: 同類項を見つける-->
 \[
 \hlblue{\frac{3}{5}p^2}-\hlpink{\frac{1}{2}p}+\bbox[2px,lightyellow]{\frac{2}{3}}-\hlblue{\frac{7}{10}p^2}+\hlpink{\frac{5}{6}p}-\bbox[2px,lightyellow]{\frac{1}{4}}
 \]
 
+<!-- ACCORDION_END -->
 **ステップ2：** 同類項をまとめる
+<!-- ACCORDION_START: 同類項をまとめる-->
 \[
 \begin{aligned}
 &=\left(\frac{3}{5}-\frac{7}{10}\right)p^2+\left(-\frac{1}{2}+\frac{5}{6}\right)p+\left(\frac{2}{3}-\frac{1}{4}\right)\\
@@ -34,3 +37,4 @@ ax+bx=(a+b)x
 **ポイント：**  
 $p^2$ の項と $p$ の項は、次数が違うので同類項ではない。
 分数の係数をまとめるときは、同類項ごとに通分して計算すると間違えにくい。
+<!-- ACCORDION_END -->

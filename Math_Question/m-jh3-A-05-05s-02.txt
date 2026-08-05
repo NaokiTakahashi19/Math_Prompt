@@ -44,7 +44,7 @@ x^2+2ax=b
 このように、左辺を平方の形にする変形を平方完成という。
 
 **ステップ1：** $x^2+2ax=b$ の形にする
-
+<!-- ACCORDION_START: $x^2+2ax=b$ の形にする-->
 平方完成しやすいように、まず定数項を右辺に移す。
 
 \[
@@ -54,8 +54,9 @@ x^2-5x&=1
 \end{aligned}
 \]
 
+<!-- ACCORDION_END -->
 **ステップ2：** 両辺に加える数を考える
-
+<!-- ACCORDION_START: 両辺に加える数を考える-->
 $x^2-5x$ は、
 \[
 x^2+2\times\left(-\frac{5}{2}\right)\times x
@@ -68,8 +69,9 @@ x^2+2\times\left(-\frac{5}{2}\right)\times x
 \]
 を加える。
 
+<!-- ACCORDION_END -->
 **ステップ3：** 両辺に同じ数を加えて平方完成する
-
+<!-- ACCORDION_START: 両辺に同じ数を加えて平方完成する-->
 方程式では、一方の辺だけでなく、両辺に同じ数を加える必要がある。
 
 \[
@@ -83,8 +85,9 @@ x^2+2\times\left(-\frac{5}{2}\right)\times x
 \end{aligned}
 \]
 
+<!-- ACCORDION_END -->
 **ステップ4：** 両辺の平方根をとる
-
+<!-- ACCORDION_START: 両辺の平方根をとる-->
 \[
 \left(x-\frac{5}{2}\right)^2=\frac{29}{4}
 \]
@@ -103,8 +106,9 @@ x-\frac{5}{2}=\pm\frac{\sqrt{29}}{2}
 \]
 となる。
 
+<!-- ACCORDION_END -->
 **ステップ5：** $x$ の値を求める
-
+<!-- ACCORDION_START: $x$ の値を求める-->
 \[
 \begin{aligned}
 x&=\frac{5}{2}\pm\frac{\sqrt{29}}{2}\\
@@ -127,3 +131,4 @@ x^2-5x-1
 したがって、どちらの値も元の方程式を満たす。
 
 **ポイント：** $x$ の係数 $-5$ の半分は $-\frac{5}{2}$ である。平方すると正になるため、両辺に加える数は $\frac{25}{4}$ となる。
+<!-- ACCORDION_END -->

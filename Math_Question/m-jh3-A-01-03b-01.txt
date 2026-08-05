@@ -14,29 +14,37 @@ ab - 5a + 4b - 20
 【解説】  
 
 **ステップ1：** 多項式の1つを文字に置き換える
+<!-- ACCORDION_START: 多項式の1つを文字に置き換える-->
 \[
 \begin{aligned}
 \hlpink{(a + 4)}\hlblue{(b - 5)} &= \hlpink{(a + 4)}\hlblue{M}
 \end{aligned}
 \]
 
+<!-- ACCORDION_END -->
 **ステップ2：** 分配法則を使って展開する
+<!-- ACCORDION_START: 分配法則を使って展開する-->
 \[
 \begin{aligned}
 &= \hlpink{a}\hlblue{M} + \hlpink{4}\hlblue{M}
 \end{aligned}
 \]
 
+<!-- ACCORDION_END -->
 **ステップ3：** 置き換えた文字を戻す
+<!-- ACCORDION_START: 置き換えた文字を戻す-->
 \[
 \begin{aligned}
 &= \hlpink{a}\hlblue{(b - 5)} + \hlpink{4}\hlblue{(b - 5)}
 \end{aligned}
 \]
 
+<!-- ACCORDION_END -->
 **ステップ4：** 分配法則を使って展開する
+<!-- ACCORDION_START: 分配法則を使って展開する-->
 \[
 \begin{aligned}
 &= ab - 5a + 4b - 20
 \end{aligned}
 \]
+<!-- ACCORDION_END -->

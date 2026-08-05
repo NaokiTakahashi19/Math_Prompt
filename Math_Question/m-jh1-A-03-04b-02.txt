@@ -16,6 +16,7 @@ x = 9
 移項すると符号が反対になることに注意する。
 
 **ステップ1：** 移項する  
+<!-- ACCORDION_START: 移項する-->
 移項すると符号が反対になるので、$\hlblue{+6}$ は右辺で $\hlblue{-6}$ になる。
 
 \[
@@ -25,8 +26,10 @@ x&=15\hlblue{-6}
 \end{aligned}
 \]
 
+<!-- ACCORDION_END -->
 **ステップ2：** 計算する  
-
+<!-- ACCORDION_START: 計算する-->
 \[
 x = 9
 \]
+<!-- ACCORDION_END -->

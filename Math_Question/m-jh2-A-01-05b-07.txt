@@ -15,6 +15,7 @@
 これを共通因数でくくり出すことという。
 
 **ステップ1：** 分配法則を使って展開する
+<!-- ACCORDION_START: 分配法則を使って展開する-->
 マイナスがついた括弧を外すときは、括弧の中の符号を逆にすることを忘れないようにする。
 \[
 -(p+2q-7)=-p-2q+7
@@ -26,18 +27,24 @@
 \end{aligned}
 \]
 
+<!-- ACCORDION_END -->
 **ステップ2：** 同類項を見つける
+<!-- ACCORDION_START: 同類項を見つける-->
 $p$の項、$q$の項、定数項をそれぞれまとめる。
 \[
 = \hlblue{4p}-\hlpink{3q}+\hlgreen{5}-\hlblue{p}-\hlpink{2q}+\hlgreen{7}
 \]
 
+<!-- ACCORDION_END -->
 **ステップ3：** 符号に注意して整理する
+<!-- ACCORDION_START: 符号に注意して整理する-->
 \[
 = \hlblue{4p}-\hlblue{p}-\hlpink{3q}-\hlpink{2q}+\hlgreen{5}+\hlgreen{7}
 \]
 
+<!-- ACCORDION_END -->
 **ステップ4：** 共通因数でくくる
+<!-- ACCORDION_START: 共通因数でくくる-->
 共通因数でくくり出す。定数項どうしも同類項として計算できる。
 \[
 \begin{aligned}
@@ -45,3 +52,4 @@ $p$の項、$q$の項、定数項をそれぞれまとめる。
 &=3p-5q+12
 \end{aligned}
 \]
+<!-- ACCORDION_END -->

@@ -19,12 +19,15 @@
 6. 文字式では、除法は \(\div\) を使わず、分数の形で書く。
 
 **ステップ1：** 文字式のきまりに従って表す
+<!-- ACCORDION_START: 文字式のきまりに従って表す-->
 数字 $-1$ が文字の前にある。
 \[
 \hlblue{(-1)}\times \hlpink{c}\times a\times c\div6
 \]
 
+<!-- ACCORDION_END -->
 **ステップ2：** 文字式のきまりに従って表す
+<!-- ACCORDION_START: 文字式のきまりに従って表す-->
 文字をアルファベット順に並べる。
 \[
 \hlblue{(-1)}\times \hlpink{c}\times a\times c\div6
@@ -32,7 +35,9 @@
 \hlblue{(-1)}\times a\times \hlpink{c}\times c\div6
 \]
 
+<!-- ACCORDION_END -->
 **ステップ3：** 文字式のきまりに従って表す
+<!-- ACCORDION_START: 文字式のきまりに従って表す-->
 $c$ が2回かけられているので、$c\times c$ を $c^2$ と表す。
 \[
 \hlblue{(-1)}\times a\times \hlpink{c}\times c\div6
@@ -40,7 +45,9 @@ $c$ が2回かけられているので、$c\times c$ を $c^2$ と表す。
 \hlblue{(-1)}\times a\times \hlpink{c^2}\div6
 \]
 
+<!-- ACCORDION_END -->
 **ステップ4：** 文字式のきまりに従って表す
+<!-- ACCORDION_START: 文字式のきまりに従って表す-->
 係数が $-1$ のときは、負の符号だけを書く。
 \[
 \hlblue{(-1)}\times a\times \hlpink{c^2}\div6
@@ -48,7 +55,9 @@ $c$ が2回かけられているので、$c\times c$ を $c^2$ と表す。
 -a\times \hlpink{c^2}\div6
 \]
 
+<!-- ACCORDION_END -->
 **ステップ5：** 文字式のきまりに従って表す
+<!-- ACCORDION_START: 文字式のきまりに従って表す-->
 かけ算記号「$\times$」を省略する。
 \[
 -a\times \hlpink{c^2}\div6
@@ -56,10 +65,13 @@ $c$ が2回かけられているので、$c\times c$ を $c^2$ と表す。
 -ac^2\div6
 \]
 
+<!-- ACCORDION_END -->
 **ステップ6：** 文字式のきまりに従って表す
+<!-- ACCORDION_START: 文字式のきまりに従って表す-->
 割り算を分数の形で表す。このとき、$ac^2$ 全体が分子に入る。
 \[
 -ac^2\div6
 \rightarrow
 -\frac{ac^2}{6}
 \]
+<!-- ACCORDION_END -->

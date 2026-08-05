@@ -21,17 +21,23 @@
 \]
 
 **ステップ1：** 除法を乗法になおす
+<!-- ACCORDION_START: 除法を乗法になおす-->
 \[
 \frac{3}{8} \div \hlpink{\bigl(-\frac{9}{4}\bigr)}
 = \frac{3}{8} \times \hlpink{\bigl(-\frac{4}{9}\bigr)}
 \]
 
+<!-- ACCORDION_END -->
 **ステップ2：** 符号を外に出して、絶対値の積を考える
+<!-- ACCORDION_START: 符号を外に出して、絶対値の積を考える-->
 \[
 = -\bigl(\hlblue{\frac{3}{8}} \times \hlpink{\frac{4}{9}}\bigr)
 \]
 
+<!-- ACCORDION_END -->
 **ステップ3：** 乗法を行う
+<!-- ACCORDION_START: 乗法を行う-->
 \[
 = -\frac{1}{6}
 \]
+<!-- ACCORDION_END -->

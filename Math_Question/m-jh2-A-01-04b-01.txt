@@ -18,22 +18,30 @@ ax+bx=(a+b)x
 \]
 
 **ステップ1：** 同類項を見つける
+<!-- ACCORDION_START: 同類項を見つける-->
 \[
 \hlblue{7m}-\hlpink{2n}-\hlblue{4m}+\hlpink{5n}
 \]
 
+<!-- ACCORDION_END -->
 **ステップ2：** 符号に注意して整理する
+<!-- ACCORDION_START: 符号に注意して整理する-->
 \[
 = \hlblue{7m}-\hlblue{4m}-\hlpink{2n}+\hlpink{5n}
 \]
 
+<!-- ACCORDION_END -->
 **ステップ3：** 共通因数でくくる
+<!-- ACCORDION_START: 共通因数でくくる-->
 共通因数でくくり出す。
 \[
 = (7-4)m+(-2+5)n
 \]
 
+<!-- ACCORDION_END -->
 **ステップ4：** 整理する
+<!-- ACCORDION_START: 整理する-->
 \[
 = 3m + 3n
 \]
+<!-- ACCORDION_END -->

@@ -11,6 +11,7 @@ x=\frac{2\pm\sqrt{19}}{5}
 
 【解説】  
 **ステップ1：** 解の公式を確認する  
+<!-- ACCORDION_START: 解の公式を確認する-->
 2次方程式
 \[
 ax^2+bx+c=0
@@ -21,7 +22,9 @@ x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}
 \]
 で求められる。
 
+<!-- ACCORDION_END -->
 **ステップ2：** $a,\ b,\ c$ の値を確認する  
+<!-- ACCORDION_START: $a,\ b,\ c$ の値を確認する-->
 まず、すべての項を左辺に移項する。
 \[
 5x^2-4x-3=0
@@ -31,12 +34,16 @@ x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}
 a=5,\quad b=-4,\quad c=-3
 \]
 
+<!-- ACCORDION_END -->
 **ステップ3：** 解の公式に代入する  
+<!-- ACCORDION_START: 解の公式に代入する-->
 \[
 x=\frac{-(-4)\pm\sqrt{(-4)^2-4\times5\times(-3)}}{2\times5}
 \]
 
+<!-- ACCORDION_END -->
 **ステップ4：** 根号の中を計算する  
+<!-- ACCORDION_START: 根号の中を計算する-->
 \[
 \begin{aligned}
 (-4)^2-4\times5\times(-3)
@@ -45,7 +52,9 @@ x=\frac{-(-4)\pm\sqrt{(-4)^2-4\times5\times(-3)}}{2\times5}
 \end{aligned}
 \]
 
+<!-- ACCORDION_END -->
 **ステップ5：** 根号や分数を簡単にする  
+<!-- ACCORDION_START: 根号や分数を簡単にする-->
 \[
 \sqrt{76}=\sqrt{4\times19}=2\sqrt{19}
 \]
@@ -58,3 +67,4 @@ x&=\frac{4\pm2\sqrt{19}}{10}\\
 \]
 
 **ポイント：** 解の公式を使う前に、右辺を $0$ にして $ax^2+bx+c=0$ の形にそろえる。また、$c=-3$ なので、$-4ac=-4\times5\times(-3)$ は正の数となる。
+<!-- ACCORDION_END -->

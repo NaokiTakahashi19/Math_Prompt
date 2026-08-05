@@ -11,22 +11,24 @@
 
 【解説】  
 **ステップ1：** 乗法の公式が使えるか判断する
-
+<!-- ACCORDION_START: 乗法の公式が使えるか判断する-->
 乗法の公式のうち、次の形を使う。
 \[
 (x+a)^2=x^2+2ax+a^2
 \]
 この問題では、$x=\sqrt{6}$、$a=3$ と見る。
 
+<!-- ACCORDION_END -->
 **ステップ2：** 乗法の公式を適用する
-
+<!-- ACCORDION_START: 乗法の公式を適用する-->
 \[
 \left(\sqrt{6}+3\right)^2
 = \left(\sqrt{6}\right)^2+2\times 3\times\sqrt{6}+3^2
 \]
 
+<!-- ACCORDION_END -->
 **ステップ3：** それぞれの項を計算する
-
+<!-- ACCORDION_START: それぞれの項を計算する-->
 \[
 \begin{aligned}
 \left(\sqrt{6}\right)^2 &= 6\\
@@ -36,9 +38,11 @@
 \]
 $\left(\sqrt{6}\right)^2$ は、根号の中の $6$ がそのまま出て $6$ となる。
 
+<!-- ACCORDION_END -->
 **ステップ4：** もとの式に戻して整理する
-
+<!-- ACCORDION_START: もとの式に戻して整理する-->
 \[
 6+6\sqrt{6}+9
 = 15+6\sqrt{6}
 \]
+<!-- ACCORDION_END -->

@@ -11,25 +11,33 @@
 
 【解説】  
 **ステップ1：** 括弧を外す  
+<!-- ACCORDION_START: 括弧を外す-->
 前に $-$ があるかっこは、中の符号をすべて反対にする。
 \[
 (6a - 4b + 3) - (-2a + 5b - 7)
 = 6a - 4b + 3 + 2a - 5b + 7
 \]
 
+<!-- ACCORDION_END -->
 **ステップ2：** 同類項を見つける  
+<!-- ACCORDION_START: 同類項を見つける-->
 たし算では交換法則・結合法則が成り立つので、同類項を近くに集められる。
 \[
 = \hlblue{6a}+\hlblue{2a}-\hlpink{4b}-\hlpink{5b}+\bbox[2px,lightyellow]{3}+\bbox[2px,lightyellow]{7}
 \]
 
+<!-- ACCORDION_END -->
 **ステップ3：** 同類項をまとめる  
+<!-- ACCORDION_START: 同類項をまとめる-->
 $6a$ と $2a$、$-4b$ と $-5b$ は、それぞれ同じ文字との積なので、係数だけを加減する。
 \[
 = \hlblue{(6+2)a}+\hlpink{(-4-5)b}+\bbox[2px,lightyellow]{(3+7)}
 \]
 
+<!-- ACCORDION_END -->
 **ステップ4：** 式を簡単にする  
+<!-- ACCORDION_START: 式を簡単にする-->
 \[
 = 8a - 9b + 10
 \]
+<!-- ACCORDION_END -->

@@ -11,7 +11,7 @@ x^2-3x-7
 
 【解説】  
 **ステップ1：** 文字式の積の部分を取り出し、分配法則を使って展開する
-
+<!-- ACCORDION_START: 文字式の積の部分を取り出し、分配法則を使って展開する-->
 \[
 \begin{aligned}
 (x-3)(2x+5)
@@ -30,8 +30,9 @@ x^2-3x-7
 \end{aligned}
 \]
 
+<!-- ACCORDION_END -->
 **ステップ2：** もとの式に戻す
-
+<!-- ACCORDION_START: もとの式に戻す-->
 \[
 \begin{aligned}
 (x-3)(2x+5)-(x+4)(x-2)
@@ -39,18 +40,21 @@ x^2-3x-7
 \end{aligned}
 \]
 
+<!-- ACCORDION_END -->
 **ステップ3：** かっこを外す
-
+<!-- ACCORDION_START: かっこを外す-->
 \[
 \begin{aligned}
 &=2x^2-x-15-x^2-2x+8
 \end{aligned}
 \]
 
+<!-- ACCORDION_END -->
 **ステップ4：** 同類項をまとめる
-
+<!-- ACCORDION_START: 同類項をまとめる-->
 \[
 \begin{aligned}
 &=x^2-3x-7
 \end{aligned}
 \]
+<!-- ACCORDION_END -->

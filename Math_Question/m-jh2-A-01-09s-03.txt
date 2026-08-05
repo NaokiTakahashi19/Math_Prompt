@@ -11,13 +11,16 @@
 
 【解説】  
 **ステップ1：** 分配法則を使って展開する
+<!-- ACCORDION_START: 分配法則を使って展開する-->
 \[
 \begin{aligned}
 \frac{3}{4}(8p + 4q) - \frac{1}{2}(6p + 10q)
 &=\hlblue{\frac{3}{4}} \times 8p + \hlblue{\frac{3}{4}} \times 4q - \left(\hlpink{\frac{1}{2}} \times 6p + \hlpink{\frac{1}{2}} \times 10q\right)
 \end{aligned}
 \]
+<!-- ACCORDION_END -->
 **ステップ2：** 展開した式を整理する
+<!-- ACCORDION_START: 展開した式を整理する-->
 \[
 \begin{aligned}
 &=6p+3q-(3p+5q)\\
@@ -27,3 +30,4 @@
 \end{aligned}
 \]
 引く式全体にマイナスがかかるため、かっこの中の $+5q$ は、かっこを外すと $-5q$ になる。
+<!-- ACCORDION_END -->

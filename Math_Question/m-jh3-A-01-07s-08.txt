@@ -11,7 +11,7 @@
 
 【解説】  
 **ステップ1：** 乗法の公式が使えないか検討する
-
+<!-- ACCORDION_START: 乗法の公式が使えないか検討する-->
 \[
 \left(\hlblue{\frac{3}{2}x}-\hlpink{4}\right)^2
 \]
@@ -24,13 +24,17 @@
 \]
 ここでは、$M=\hlblue{\frac{3}{2}x},\ N=\hlpink{4}$ と見る。
 
+<!-- ACCORDION_END -->
 **ステップ2：** 乗法の公式にあてはめる
+<!-- ACCORDION_START: 乗法の公式にあてはめる-->
 \[
 \left(\hlblue{\frac{3}{2}x}-\hlpink{4}\right)^2
 =(\hlblue{\frac{3}{2}x})^2-2\times\hlblue{\frac{3}{2}x}\times\hlpink{4}+(\hlpink{4})^2
 \]
 
+<!-- ACCORDION_END -->
 **ステップ3：** 整理する
+<!-- ACCORDION_START: 整理する-->
 \[
 \begin{aligned}
 &= \frac{9}{4}x^2-12x+16
@@ -38,3 +42,4 @@
 \]
 
 中項は $-2MN$ なので、$-2\times\frac{3}{2}x\times4=-12x$ となる。また、最後の項は $N^2$ なので、$(-4)^2$ ではなく $4^2$ と考え、正の $16$ になる。
+<!-- ACCORDION_END -->

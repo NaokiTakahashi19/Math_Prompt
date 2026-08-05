@@ -11,6 +11,7 @@
 
 【解説】  
 **ステップ1：** 減法を加法になおす  
+<!-- ACCORDION_START: 減法を加法になおす-->
 ひく数の符号を反対にして、すべて加法の式に直すことがポイントである。  
 \[
 \left(-\frac{5}{8}\right)-\left(-\frac{3}{4}\right)+\left(+\frac{7}{12}\right)-\left(+\frac{1}{6}\right)+\left(-\frac{1}{3}\right)
@@ -18,7 +19,9 @@
 \left(-\frac{5}{8}\right)+\left(+\frac{3}{4}\right)+\left(+\frac{7}{12}\right)+\left(-\frac{1}{6}\right)+\left(-\frac{1}{3}\right)
 \]
 
+<!-- ACCORDION_END -->
 **ステップ2：** 加法を行う  
+<!-- ACCORDION_START: 加法を行う-->
 分母を $24$ にそろえて、正の項と負の項を整理する。  
 \[
 \begin{aligned}
@@ -33,3 +36,4 @@
 \[
 \frac{5}{24}
 \]  
+<!-- ACCORDION_END -->

@@ -11,7 +11,7 @@
 
 【解説】  
 **ステップ1：** 分配法則を使って展開する
-
+<!-- ACCORDION_START: 分配法則を使って展開する-->
 \[
 \begin{aligned}
 (3x+5)(2y-7)
@@ -19,18 +19,21 @@
 \end{aligned}
 \]
 
+<!-- ACCORDION_END -->
 **ステップ2：** 分配法則を使って展開する
-
+<!-- ACCORDION_START: 分配法則を使って展開する-->
 \[
 \begin{aligned}
 &=3x\times2y-3x\times7+5\times2y-5\times7
 \end{aligned}
 \]
 
+<!-- ACCORDION_END -->
 **ステップ3：** 計算する
-
+<!-- ACCORDION_START: 計算する-->
 \[
 \begin{aligned}
 &=6xy-21x+10y-35
 \end{aligned}
 \]
+<!-- ACCORDION_END -->

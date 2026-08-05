@@ -11,15 +11,16 @@
 
 【解説】  
 **ステップ1：** 小数を分数に直す
-
+<!-- ACCORDION_START: 小数を分数に直す-->
 \[
 \begin{aligned}
 0.81 &= \frac{81}{100}
 \end{aligned}
 \]
 
+<!-- ACCORDION_END -->
 **ステップ2：** 根号の中が平方の形で表せることを確認する
-
+<!-- ACCORDION_START: 根号の中が平方の形で表せることを確認する-->
 \[
 \begin{aligned}
 \frac{81}{100} &= \left(\frac{9}{10}\right)^2\\
@@ -27,17 +28,20 @@
 \end{aligned}
 \]
 
+<!-- ACCORDION_END -->
 **ステップ3：** 根号の中を置きかえる
-
+<!-- ACCORDION_START: 根号の中を置きかえる-->
 \[
 -\sqrt{0.81}
 = -\sqrt{0.9^2}
 \]
 
+<!-- ACCORDION_END -->
 **ステップ4：** 根号をはずす
-
+<!-- ACCORDION_START: 根号をはずす-->
 \[
 -\sqrt{0.9^2}=-0.9
 \]
 
 $\sqrt{\phantom{0}}$ は正の平方根を表すので、$\sqrt{0.9^2}=0.9$ である。前についているマイナスはそのまま残すため、答えは $-0.9$ となる。
+<!-- ACCORDION_END -->

@@ -13,13 +13,16 @@
 除法を分母に置いて、全体を1つの分数として整理する。
 
 **ステップ1：** かけ算とわり算をまとめて分数の形にする  
+<!-- ACCORDION_START: かけ算とわり算をまとめて分数の形にする-->
 かける単項式は分子に、わる単項式は分母に置く。
 \[
 20mn \div 4m \times 3n
 =\frac{20mn\times3n}{4m}
 \]
 
+<!-- ACCORDION_END -->
 **ステップ2：** 係数と文字をかけ算の形に分ける  
+<!-- ACCORDION_START: 係数と文字をかけ算の形に分ける-->
 同じ文字どうしを約分しやすいように、係数と文字を分けて書く。
 \[
 \begin{aligned}
@@ -28,15 +31,20 @@
 \end{aligned}
 \]
 
+<!-- ACCORDION_END -->
 **ステップ3：** 分子と分母で同じものを約分する  
+<!-- ACCORDION_START: 分子と分母で同じものを約分する-->
 分子と分母に同じ $\hlblue{m}$ があるので約分できる。
 \[
 =\frac{20\times3\times n\times n}{4}
 \]
 
+<!-- ACCORDION_END -->
 **ステップ4：** 等号でつないで計算する  
+<!-- ACCORDION_START: 等号でつないで計算する-->
 \[
 \begin{aligned}
 &=15n^2
 \end{aligned}
 \]
+<!-- ACCORDION_END -->

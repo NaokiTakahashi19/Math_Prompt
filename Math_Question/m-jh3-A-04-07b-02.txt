@@ -18,7 +18,7 @@
 を使う。
 
 **ステップ1：** 平方根の商の公式を適用する
-
+<!-- ACCORDION_START: 平方根の商の公式を適用する-->
 \[
 \begin{aligned}
 \frac{\sqrt{\hlpink{18}}}{\sqrt{\hlblue{2}}}
@@ -27,8 +27,9 @@
 \end{aligned}
 \]
 
+<!-- ACCORDION_END -->
 **ステップ2：** 整理する
-
+<!-- ACCORDION_START: 整理する-->
 \[
 9 = 3^2
 \]
@@ -40,3 +41,4 @@
 &= 3
 \end{aligned}
 \]
+<!-- ACCORDION_END -->

@@ -14,6 +14,7 @@ x = -7
 つまり、$A = B$ ならば、$A \div C = B \div C$ である。ただし、$C$ は $0$ ではない数である。
 
 **ステップ1：** 両辺を同じ数で割る
+<!-- ACCORDION_START: 両辺を同じ数で割る-->
 左辺を $x$ だけにするために、両辺を $\hlblue{-4\text{でわる}}$。
 
 \[
@@ -23,8 +24,10 @@ x = -7
 \end{aligned}
 \]
 
+<!-- ACCORDION_END -->
 **ステップ2：** 計算する
-
+<!-- ACCORDION_START: 計算する-->
 \[
 x = -7
 \]
+<!-- ACCORDION_END -->

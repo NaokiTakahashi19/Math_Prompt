@@ -19,12 +19,15 @@
 6. 文字式では、除法は \(\div\) を使わず、分数の形で書く。
 
 **ステップ1：** 文字式のきまりに従って表す
+<!-- ACCORDION_START: 文字式のきまりに従って表す-->
 数字 $-1$ が文字の前にある。
 \[
 \hlblue{(-1)}\times \hlpink{b}\times a\times b\div5
 \]
 
+<!-- ACCORDION_END -->
 **ステップ2：** 文字式のきまりに従って表す
+<!-- ACCORDION_START: 文字式のきまりに従って表す-->
 文字をアルファベット順に並べる。
 \[
 \hlblue{(-1)}\times \hlpink{b}\times a\times b\div5
@@ -32,7 +35,9 @@
 \hlblue{(-1)}\times a\times \hlpink{b}\times b\div5
 \]
 
+<!-- ACCORDION_END -->
 **ステップ3：** 文字式のきまりに従って表す
+<!-- ACCORDION_START: 文字式のきまりに従って表す-->
 $b$ が2回かけられているので、$b\times b$ を $b^2$ と表す。
 \[
 \hlblue{(-1)}\times a\times \hlpink{b}\times b\div5
@@ -40,7 +45,9 @@ $b$ が2回かけられているので、$b\times b$ を $b^2$ と表す。
 \hlblue{(-1)}\times a\times \hlpink{b^2}\div5
 \]
 
+<!-- ACCORDION_END -->
 **ステップ4：** 文字式のきまりに従って表す
+<!-- ACCORDION_START: 文字式のきまりに従って表す-->
 係数が $-1$ のときは、負の符号だけを書く。
 \[
 \hlblue{(-1)}\times a\times \hlpink{b^2}\div5
@@ -48,7 +55,9 @@ $b$ が2回かけられているので、$b\times b$ を $b^2$ と表す。
 -a\times \hlpink{b^2}\div5
 \]
 
+<!-- ACCORDION_END -->
 **ステップ5：** 文字式のきまりに従って表す
+<!-- ACCORDION_START: 文字式のきまりに従って表す-->
 かけ算記号「$\times$」を省略する。
 \[
 -a\times \hlpink{b^2}\div5
@@ -56,7 +65,9 @@ $b$ が2回かけられているので、$b\times b$ を $b^2$ と表す。
 -ab^2\div5
 \]
 
+<!-- ACCORDION_END -->
 **ステップ6：** 文字式のきまりに従って表す
+<!-- ACCORDION_START: 文字式のきまりに従って表す-->
 割り算を分数の形で表す。ここでは $ab^2$ 全体を $5$ で割っているので、$ab^2$ 全体が分子に入る。
 \[
 -ab^2\div5
@@ -64,5 +75,8 @@ $b$ が2回かけられているので、$b\times b$ を $b^2$ と表す。
 -\frac{ab^2}{5}
 \]
 
+<!-- ACCORDION_END -->
 **ステップ7：** 文字式のきまりに従って表す
+<!-- ACCORDION_START: 文字式のきまりに従って表す-->
 $\times$ や $\div$ が残っていないか、文字が $a,b$ の順になっているか、係数の $1$ を省略しているかを確認する。
+<!-- ACCORDION_END -->

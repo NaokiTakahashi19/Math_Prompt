@@ -8,11 +8,15 @@
 
 【解説】  
 **ステップ1：数量の関係を確認する**
+<!-- ACCORDION_START: 数量の関係を確認する-->
 おつりは、出した金額からノートの代金をひいて求める。
 ノート1冊の値段を $\hlblue{a}$、冊数を $\hlpink{4}$、出した金額を $\bbox[2px,lightyellow]{500}$ とする。
 
+<!-- ACCORDION_END -->
 **ステップ2：文字式で表す**
+<!-- ACCORDION_START: 文字式で表す-->
 ノートの代金は、1冊の値段 $\times$ 冊数で求める。
 \[
 \bbox[2px,lightyellow]{500}-\hlblue{a}\times\hlpink{4}=500-4a
 \]
+<!-- ACCORDION_END -->

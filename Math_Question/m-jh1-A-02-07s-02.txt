@@ -11,6 +11,7 @@
 
 【解説】  
 **ステップ1：** 分配法則を使う
+<!-- ACCORDION_START: 分配法則を使う-->
 $-\frac{2}{3}$ を、かっこの中の $6x$ と $-9$ の両方にかける。
 \[
 \hlblue{\left(-\frac{2}{3}\right)}(\hlpink{6x}+\hlpink{(-9)})
@@ -19,7 +20,9 @@ $-\frac{2}{3}$ を、かっこの中の $6x$ と $-9$ の両方にかける。
 =\hlblue{\left(-\frac{2}{3}\right)}\times\hlpink{6x}+\hlblue{\left(-\frac{2}{3}\right)}\times\hlpink{(-9)}
 \]
 
+<!-- ACCORDION_END -->
 **ステップ2：** それぞれ約分して計算する
+<!-- ACCORDION_START: それぞれ約分して計算する-->
 \[
 \begin{aligned}
 \left(-\frac{2}{3}\right)\times6x&=-4x\\
@@ -27,10 +30,13 @@ $-\frac{2}{3}$ を、かっこの中の $6x$ と $-9$ の両方にかける。
 \end{aligned}
 \]
 
+<!-- ACCORDION_END -->
 **ステップ3：** 答えを書く
+<!-- ACCORDION_START: 答えを書く-->
 \[
 -4x+6
 \]
 
 **ポイント：**  
 かっこの前の負の分数は、かっこの中の各項すべてにかける。特に、$-9$ にも $-\frac{2}{3}$ をかけることを忘れないようにする。
+<!-- ACCORDION_END -->

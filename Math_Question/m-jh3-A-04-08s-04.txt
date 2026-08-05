@@ -11,7 +11,7 @@ $\sqrt{a}$ の形に変形しなさい。
 
 【解説】  
 **ステップ1：** 根号の中に入れる数を2乗する
-
+<!-- ACCORDION_START: 根号の中に入れる数を2乗する-->
 $\frac{3}{2}$ を根号の中に入れるときは、$\frac{3}{2}$ を2乗して入れる。
 \[
 \left(\hlblue{\frac{3}{2}}\right)^2 = \bbox[2px,lightyellow]{\frac{9}{4}}
@@ -21,15 +21,17 @@ $\frac{3}{2}$ を根号の中に入れるときは、$\frac{3}{2}$ を2乗して
 \hlblue{\frac{3}{2}} = \sqrt{\bbox[2px,lightyellow]{\frac{9}{4}}}
 \]
 
+<!-- ACCORDION_END -->
 **ステップ2：** 根号の中に入れる
-
+<!-- ACCORDION_START: 根号の中に入れる-->
 \[
 \frac{\hlblue{3}}{\hlblue{2}}\sqrt{8}
 = \sqrt{\bbox[2px,lightyellow]{\frac{9}{4} \times 8}}
 \]
 
+<!-- ACCORDION_END -->
 **ステップ3：** 根号の中を計算する
-
+<!-- ACCORDION_START: 根号の中を計算する-->
 \[
 \begin{aligned}
 \frac{3}{2}\sqrt{8}
@@ -38,3 +40,4 @@ $\frac{3}{2}$ を根号の中に入れるときは、$\frac{3}{2}$ を2乗して
 &= \bbox[2px,lightyellow]{\sqrt{18}}
 \end{aligned}
 \]
+<!-- ACCORDION_END -->

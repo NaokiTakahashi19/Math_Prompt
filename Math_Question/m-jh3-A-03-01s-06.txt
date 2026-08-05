@@ -21,9 +21,12 @@
 \]
 
 **ステップ1：** 乗法の公式が使えるか判断する
+<!-- ACCORDION_START: 乗法の公式が使えるか判断する-->
 今回は、$102$ を $\hlblue{100}+\hlpink{2}$ と見るので、[2] の公式に当てはまりそうである。
 
+<!-- ACCORDION_END -->
 **ステップ2：** 乗法の公式を適用する
+<!-- ACCORDION_START: 乗法の公式を適用する-->
 $\hlblue{x}=\hlblue{100},\ \hlpink{a}=\hlpink{2}$ と見る。
 \[
 \begin{aligned}
@@ -33,7 +36,9 @@ $\hlblue{x}=\hlblue{100},\ \hlpink{a}=\hlpink{2}$ と見る。
 \end{aligned}
 \]
 
+<!-- ACCORDION_END -->
 **ステップ3：** 計算する
+<!-- ACCORDION_START: 計算する-->
 \[
 \begin{aligned}
 &=10000+400+4\\
@@ -42,3 +47,4 @@ $\hlblue{x}=\hlblue{100},\ \hlpink{a}=\hlpink{2}$ と見る。
 \]
 
 $(x+a)^2$ の公式では、真ん中の項が $2ax$ になることに注意する。$100^2+2^2$ だけにしてしまうと、$2\times100\times2$ を落としてしまう。
+<!-- ACCORDION_END -->

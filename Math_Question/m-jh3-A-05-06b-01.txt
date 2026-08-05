@@ -11,6 +11,7 @@ x=1\pm\sqrt{2}
 
 【解説】  
 **ステップ1：** 解の公式を確認する
+<!-- ACCORDION_START: 解の公式を確認する-->
 \[
 ax^2+bx+c=0
 \]
@@ -20,19 +21,25 @@ x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}
 \]
 で求められる。
 
+<!-- ACCORDION_END -->
 **ステップ2：** $a,\ b,\ c$ の値を確認する
+<!-- ACCORDION_START: $a,\ b,\ c$ の値を確認する-->
 \[
 a=1,\quad b=-2,\quad c=-1
 \]
 
 定数項の符号に注意すると、$c=-1$である。
 
+<!-- ACCORDION_END -->
 **ステップ3：** 解の公式に代入する
+<!-- ACCORDION_START: 解の公式に代入する-->
 \[
 x=\frac{-(-2)\pm\sqrt{(-2)^2-4\times1\times(-1)}}{2\times1}
 \]
 
+<!-- ACCORDION_END -->
 **ステップ4：** 根号の中を計算する
+<!-- ACCORDION_START: 根号の中を計算する-->
 \[
 \begin{aligned}
 (-2)^2-4\times1\times(-1)
@@ -43,7 +50,9 @@ x=\frac{-(-2)\pm\sqrt{(-2)^2-4\times1\times(-1)}}{2\times1}
 
 $-4\times1\times(-1)$は、負の数どうしの積を含むため正の数となる。
 
+<!-- ACCORDION_END -->
 **ステップ5：** 根号や分数を簡単にする
+<!-- ACCORDION_START: 根号や分数を簡単にする-->
 \[
 \begin{aligned}
 x&=\frac{2\pm\sqrt{8}}{2}\\
@@ -56,3 +65,4 @@ x&=\frac{2\pm\sqrt{8}}{2}\\
 \[
 x=1\pm\sqrt{2}
 \]
+<!-- ACCORDION_END -->

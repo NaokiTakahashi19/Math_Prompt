@@ -14,6 +14,7 @@
 $2a-b$ が共通するまとまりなので、1つの文字に置き換えると、$(x+m)(x+n)$ の形として考えられる。
 
 ステップ1：多項式の1つを文字に置き換える  
+<!-- ACCORDION_START: 多項式の1つを文字に置き換える-->
 $2a-b$ が共通するまとまりなので、
 \[
 M=2a-b
@@ -27,7 +28,9 @@ M=2a-b
 \end{aligned}
 \]
 
+<!-- ACCORDION_END -->
 ステップ2：乗法の公式にあてはめる  
+<!-- ACCORDION_START: 乗法の公式にあてはめる-->
 \[
 \begin{aligned}
 &=M^2-5M+3M-15\\
@@ -35,14 +38,18 @@ M=2a-b
 \end{aligned}
 \]
 
+<!-- ACCORDION_END -->
 ステップ3：置き換えた文字を戻す  
+<!-- ACCORDION_START: 置き換えた文字を戻す-->
 \[
 \begin{aligned}
 &=(2a-b)^2-2(2a-b)-15
 \end{aligned}
 \]
 
+<!-- ACCORDION_END -->
 ステップ4：展開して整理する  
+<!-- ACCORDION_START: 展開して整理する-->
 \[
 \begin{aligned}
 &=(2a)^2-2\times 2a\times b+b^2-4a+2b-15\\
@@ -54,3 +61,4 @@ M=2a-b
 \[
 4a^2-4ab+b^2-4a+2b-15
 \]
+<!-- ACCORDION_END -->

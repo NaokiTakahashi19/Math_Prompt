@@ -15,20 +15,26 @@ x=12
 つまり、$a\times d=b\times c$ である。
 
 **ステップ1：** 比例式の性質により
+<!-- ACCORDION_START: 比例式の性質により-->
 $3:x=2:8$ では、外側は $3$ と $8$、内側は $x$ と $2$ である。
 \[
 3\times8=x\times2
 \]
 
+<!-- ACCORDION_END -->
 **ステップ2：** 整理する
+<!-- ACCORDION_START: 整理する-->
 \[
 24=2x
 \]
 
+<!-- ACCORDION_END -->
 **ステップ3：** 両辺を同じ数で割る
+<!-- ACCORDION_START: 両辺を同じ数で割る-->
 \[
 \begin{aligned}
 x&=\frac{24}{2}\\
 &=12
 \end{aligned}
 \]
+<!-- ACCORDION_END -->

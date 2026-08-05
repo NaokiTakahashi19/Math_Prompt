@@ -11,18 +11,24 @@
 
 【解説】  
 **ステップ1：** 文字の項と数だけの項に分ける
+<!-- ACCORDION_START: 文字の項と数だけの項に分ける-->
 \[
 \hlblue{5x}+\bbox[2px,lightyellow]{(-8)}+\hlblue{2x}+\bbox[2px,lightyellow]{3}
 =\hlblue{5x}+\hlblue{2x}+\bbox[2px,lightyellow]{(-8)}+\bbox[2px,lightyellow]{3}
 \]
 
+<!-- ACCORDION_END -->
 **ステップ2：** 同類項をまとめる
+<!-- ACCORDION_START: 同類項をまとめる-->
 $5x$ と $2x$ はどちらも $x$ との積である。文字の部分が同じなので、係数だけを計算する。
 \[
 = (5+2)x+(-8+3)
 \]
 
+<!-- ACCORDION_END -->
 **ステップ3：** 式を簡単にする
+<!-- ACCORDION_START: 式を簡単にする-->
 \[
 = 7x-5
 \]
+<!-- ACCORDION_END -->

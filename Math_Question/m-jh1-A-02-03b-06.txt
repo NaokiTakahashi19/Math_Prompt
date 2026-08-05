@@ -8,10 +8,13 @@
 
 【解説】  
 **ステップ1：数量の関係を確認する**  
+<!-- ACCORDION_START: 数量の関係を確認する-->
 合計金額は、往復のバス代に飲み物代をたして求める。  
 バス代1回分を $\hlblue{x}$、往復で乗る回数を $\hlpink{2}$、飲み物代を $\bbox[2px,lightyellow]{120}$ とする。
 
+<!-- ACCORDION_END -->
 **ステップ2：文字式で表す**  
+<!-- ACCORDION_START: 文字式で表す-->
 往復のバス代は、1回分のバス代 $\times$ 回数で求める。  
 \[
 \hlblue{x}\times\hlpink{2}=2x
@@ -20,3 +23,4 @@
 \[
 2x+\bbox[2px,lightyellow]{120}
 \]
+<!-- ACCORDION_END -->

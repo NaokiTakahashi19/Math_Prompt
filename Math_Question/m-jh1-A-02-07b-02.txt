@@ -11,11 +11,15 @@
 
 【解説】  
 **ステップ1：** 負の数どうしの積は正になる
+<!-- ACCORDION_START: 負の数どうしの積は正になる-->
 \[
 \hlblue{(-4)} \times \hlpink{\left(-\frac{3}{8}a\right)}=+\frac{12}{8}a
 \]
 
+<!-- ACCORDION_END -->
 **ステップ2：** 数の部分を約分する
+<!-- ACCORDION_START: 数の部分を約分する-->
 \[
 = \hlblue{\frac{3}{2}a}
 \]
+<!-- ACCORDION_END -->

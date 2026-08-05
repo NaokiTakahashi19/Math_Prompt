@@ -28,13 +28,16 @@
 積の絶対値は、それぞれの数の絶対値の積になる。
 
 **ステップ1：** 符号の規則を適用する
+<!-- ACCORDION_START: 符号の規則を適用する-->
 \[
 \hlpink{(-8)}\times\hlblue{3}\times\hlpink{(-5)}\times\hlblue{2}
 \]
 正の数を水色、負の数をピンクで表している。
 負の数は $\hlpink{(-8)}$ と $\hlpink{(-5)}$ の2つあるので、全体の積の符号は $\hlblue{(+)}$ になる。
 
+<!-- ACCORDION_END -->
 **ステップ2：** 乗法を行う
+<!-- ACCORDION_START: 乗法を行う-->
 \[
 \begin{aligned}
 (-8)\times3\times(-5)\times2
@@ -45,3 +48,4 @@
 &=240
 \end{aligned}
 \]
+<!-- ACCORDION_END -->

@@ -15,15 +15,16 @@
 二項式どうしの積では、左のかっこの各項を、右のかっこの各項にかける。
 
 **ステップ1：** 分配法則を使う
-
+<!-- ACCORDION_START: 分配法則を使う-->
 \[
 \left(\hlblue{\sqrt{7}}+\hlblue{2}\right)\left(\hlpink{\sqrt{28}}\hlpink{-}\hlpink{\sqrt{3}}\right)
 = \hlblue{\sqrt{7}}\times\hlpink{\sqrt{28}}\hlpink{-}\hlblue{\sqrt{7}}\times \hlpink{\sqrt{3}}
   +\hlblue{2}\times\hlpink{\sqrt{28}}\hlpink{-}\hlblue{2}\times \hlpink{\sqrt{3}}
 \]
 
+<!-- ACCORDION_END -->
 **ステップ2：** それぞれの項を計算する
-
+<!-- ACCORDION_START: それぞれの項を計算する-->
 \[
 \begin{aligned}
 \sqrt{7}\times\sqrt{28}
@@ -61,8 +62,9 @@
 \end{aligned}
 \]
 
+<!-- ACCORDION_END -->
 **ステップ3：** もとの式に戻して整理する
-
+<!-- ACCORDION_START: もとの式に戻して整理する-->
 \[
 \begin{aligned}
 \sqrt{7}\times\sqrt{28}-\sqrt{7}\times\sqrt{3}
@@ -70,3 +72,4 @@
 = 14-\sqrt{21}+4\sqrt{7}-2\sqrt{3}
 \end{aligned}
 \]
+<!-- ACCORDION_END -->

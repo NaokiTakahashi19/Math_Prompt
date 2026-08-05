@@ -15,18 +15,23 @@
 除法が2つあるときは、左から順にどちらも逆数をかける形に直す。
 
 **ステップ1：** 除法を乗法になおす
+<!-- ACCORDION_START: 除法を乗法になおす-->
 \[
 \left(-\frac{9}{10}\right)\div\frac{3}{5}\div\left(-\frac{27}{14}\right)
 =\left(-\frac{9}{10}\right)\times\frac{5}{3}\times\left(-\frac{14}{27}\right)
 \]
 
+<!-- ACCORDION_END -->
 **ステップ2：** 符号の規則を適用する
+<!-- ACCORDION_START: 符号の規則を適用する-->
 負の数が2個あるので、答えの符号は正になる。
 \[
 =+\left(\frac{9}{10}\times\frac{5}{3}\times\frac{14}{27}\right)
 \]
 
+<!-- ACCORDION_END -->
 **ステップ3：** 分数を約分してから計算する
+<!-- ACCORDION_START: 分数を約分してから計算する-->
 \[
 \frac{9}{10}\times\frac{5}{3}\times\frac{14}{27}
 =\frac{9\times5\times14}{10\times3\times27}
@@ -41,3 +46,4 @@
 \[
 \frac{7}{9}
 \]
+<!-- ACCORDION_END -->

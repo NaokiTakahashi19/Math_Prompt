@@ -11,12 +11,16 @@
 
 【解説】  
 **ステップ1：** 負の数どうしの積は正になる
+<!-- ACCORDION_START: 負の数どうしの積は正になる-->
 \[
 \hlblue{(-3)} \times \hlpink{\left(-\frac{5}{6}x\right)}
 = +\frac{15}{6}x
 \]
 
+<!-- ACCORDION_END -->
 **ステップ2：** 数の部分を約分する
+<!-- ACCORDION_START: 数の部分を約分する-->
 \[
 = \hlblue{\frac{5}{2}x}
 \]
+<!-- ACCORDION_END -->

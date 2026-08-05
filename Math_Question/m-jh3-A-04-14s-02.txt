@@ -15,15 +15,16 @@
 二項式どうしの積では、左のかっこの各項を、右のかっこの各項にかける。
 
 **ステップ1：** 分配法則を使う
-
+<!-- ACCORDION_START: 分配法則を使う-->
 \[
 \left(\hlblue{\sqrt{3}}+\hlblue{2}\right)\left(\hlpink{\sqrt{12}}\hlpink{-}\hlpink{1}\right)
 = \hlblue{\sqrt{3}}\times\hlpink{\sqrt{12}}\hlpink{-}\hlblue{\sqrt{3}}\times \hlpink{1}
   +\hlblue{2}\times\hlpink{\sqrt{12}}\hlpink{-}\hlblue{2}\times \hlpink{1}
 \]
 
+<!-- ACCORDION_END -->
 **ステップ2：** それぞれの項を計算する
-
+<!-- ACCORDION_START: それぞれの項を計算する-->
 \[
 \begin{aligned}
 \sqrt{3}\times\sqrt{12}
@@ -47,8 +48,9 @@ $36=6^2$ なので、$\sqrt{36}=6$ と根号をはずすことができる。
 
 $\sqrt{12}$ は、根号の中を $12=4\times 3$ として、$\sqrt{4}=2$ を根号の外に出す。
 
+<!-- ACCORDION_END -->
 **ステップ3：** もとの式に戻して整理する
-
+<!-- ACCORDION_START: もとの式に戻して整理する-->
 \[
 \begin{aligned}
 \sqrt{3}\times\sqrt{12}-\sqrt{3}\times 1
@@ -57,3 +59,4 @@ $\sqrt{12}$ は、根号の中を $12=4\times 3$ として、$\sqrt{4}=2$ を根
 &=4+3\sqrt{3}
 \end{aligned}
 \]
+<!-- ACCORDION_END -->

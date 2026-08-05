@@ -8,10 +8,12 @@ $50\mathrm{kg}$ を基準にして、$47\mathrm{kg}$ を正負の符号を使っ
 
 【解説】  
 **ステップ1：** 何を基準にするか確認する  
+<!-- ACCORDION_START: 何を基準にするか確認する-->
 → 今回は「$50\mathrm{kg}$」が基準である。
 
+<!-- ACCORDION_END -->
 **ステップ2：** $47\mathrm{kg}$ と基準との差の確認
-
+<!-- ACCORDION_START: $47\mathrm{kg}$ と基準との差の確認-->
 \[
 \hlblue{47} - \hlpink{50} = \hlpink{-3}
 \]
@@ -29,8 +31,9 @@ $50\mathrm{kg}$ を基準にして、$47\mathrm{kg}$ を正負の符号を使っ
 \draw[<->,thick,pink] (-3,0.55)--(0,0.55) node[midway,above] {$-3\mathrm{kg}$};
 \end{tikzpicture}
 
+<!-- ACCORDION_END -->
 **ステップ3：** 基準より軽い → 「−」をつける
-
+<!-- ACCORDION_START: 基準より軽い → 「−」をつける-->
 よって、答えは
 
 \[
@@ -54,3 +57,4 @@ $50\mathrm{kg}$ を基準にして、$47\mathrm{kg}$ を正負の符号を使っ
 \]
 
 今回は $47\mathrm{kg}$ が基準より $3\mathrm{kg}$ 軽いので、符号は「$-$」となる。
+<!-- ACCORDION_END -->

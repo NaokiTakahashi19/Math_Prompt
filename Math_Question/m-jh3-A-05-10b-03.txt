@@ -24,7 +24,7 @@
 \end{tikzpicture}
 
 **ステップ1：** 数量の関係を式にする
-
+<!-- ACCORDION_START: 数量の関係を式にする-->
 正方形の面積は、
 \[
 \text{1辺}\times\text{1辺}
@@ -40,8 +40,9 @@ x\times x=81
 x^2=81
 \]
 
+<!-- ACCORDION_END -->
 **ステップ2：** 方程式を解く
-
+<!-- ACCORDION_START: 方程式を解く-->
 \[
 x=\pm\sqrt{81}
 \]
@@ -50,8 +51,9 @@ x=\pm\sqrt{81}
 x=\pm9
 \]
 
+<!-- ACCORDION_END -->
 **ステップ3：** 条件に合う解を選ぶ
-
+<!-- ACCORDION_START: 条件に合う解を選ぶ-->
 長さは正の数なので、$x=-9$ は適さない。
 したがって、
 \[
@@ -59,3 +61,4 @@ x=9
 \]
 
 よって、1辺の長さは $9\mathrm{cm}$ となる。
+<!-- ACCORDION_END -->

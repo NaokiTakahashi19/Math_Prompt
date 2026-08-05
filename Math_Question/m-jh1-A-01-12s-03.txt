@@ -11,19 +11,24 @@
 
 【解説】  
 **ステップ1：** 除法を乗法になおす
+<!-- ACCORDION_START: 除法を乗法になおす-->
 $-\frac{10}{9}$ で割ることは、その逆数の $-\frac{9}{10}$ をかけることと同じである。
 \[
 \left(+\frac{5}{6}\right)\div\left(-\frac{10}{9}\right)
 =\left(+\frac{5}{6}\right)\times\left(-\frac{9}{10}\right)
 \]
 
+<!-- ACCORDION_END -->
 **ステップ2：** 符号の規則を適用する
+<!-- ACCORDION_START: 符号の規則を適用する-->
 正の数と負の数の積なので、符号は負になる。符号が異なる2つの数の商は負になることに注意する。
 \[
 =-\left(\frac{5}{6}\times\frac{9}{10}\right)
 \]
 
+<!-- ACCORDION_END -->
 **ステップ3：** かっこの中を計算する
+<!-- ACCORDION_START: かっこの中を計算する-->
 \[
 \begin{aligned}
 &=-\left(\frac{5\times 9}{6\times 10}\right)\\
@@ -31,3 +36,4 @@ $-\frac{10}{9}$ で割ることは、その逆数の $-\frac{9}{10}$ をかけ�
 &=-\frac{3}{4}
 \end{aligned}
 \]
+<!-- ACCORDION_END -->

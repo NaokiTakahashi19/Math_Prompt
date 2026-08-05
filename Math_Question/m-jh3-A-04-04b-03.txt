@@ -11,7 +11,7 @@
 
 【解説】  
 **ステップ1：** 根号の中が平方の形で表せることを確認する
-
+<!-- ACCORDION_START: 根号の中が平方の形で表せることを確認する-->
 \[
 \begin{aligned}
 \frac{9}{16} &= \frac{3^2}{4^2}\\
@@ -19,17 +19,20 @@
 \end{aligned}
 \]
 
+<!-- ACCORDION_END -->
 **ステップ2：** 根号の中を置きかえる
-
+<!-- ACCORDION_START: 根号の中を置きかえる-->
 \[
 \sqrt{\frac{9}{16}}
 = \sqrt{\left(\frac{3}{4}\right)^2}
 \]
 
+<!-- ACCORDION_END -->
 **ステップ3：** 根号をはずす
-
+<!-- ACCORDION_START: 根号をはずす-->
 \[
 = \frac{3}{4}
 \]
 
 $\sqrt{\phantom{0}}$ は正の平方根を表すので、答えは $-\frac{3}{4}$ ではなく $\frac{3}{4}$ である。
+<!-- ACCORDION_END -->

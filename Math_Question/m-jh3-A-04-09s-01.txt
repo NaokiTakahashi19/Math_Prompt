@@ -16,20 +16,22 @@
 分母の無理数は $\hlblue{\sqrt{40}}$ なので、分母と分子に $\hlblue{\sqrt{40}}$ をかける。
 
 **ステップ1：** 分母の根号を分母と分子にかける
-
+<!-- ACCORDION_START: 分母の根号を分母と分子にかける-->
 \[
 \frac{5\sqrt{2}}{\sqrt{40}}
 = \frac{5\sqrt{2} \times \hlblue{\sqrt{40}}}{\sqrt{40} \times \hlblue{\sqrt{40}}}
 \]
 
+<!-- ACCORDION_END -->
 **ステップ2：** 分母・分子を計算する
-
+<!-- ACCORDION_START: 分母・分子を計算する-->
 \[
 = \frac{5\sqrt{80}}{40}
 \]
 
+<!-- ACCORDION_END -->
 **ステップ3：** 根号の中を簡単にする
-
+<!-- ACCORDION_START: 根号の中を簡単にする-->
 \[
 80 = 16 \times 5,\quad 16 = 4^2
 \]
@@ -43,8 +45,10 @@
 \end{aligned}
 \]
 
+<!-- ACCORDION_END -->
 **ステップ4：** 約分する
-
+<!-- ACCORDION_START: 約分する-->
 \[
 = \frac{\sqrt{5}}{2}
 \]
+<!-- ACCORDION_END -->

@@ -18,7 +18,7 @@
 を使う。
 
 **ステップ1：** 平方根の商の公式を適用する
-
+<!-- ACCORDION_START: 平方根の商の公式を適用する-->
 \[
 \begin{aligned}
 \sqrt{75}\div\sqrt{3} &= \frac{\sqrt{75}}{\sqrt{3}}\\
@@ -27,8 +27,9 @@
 \end{aligned}
 \]
 
+<!-- ACCORDION_END -->
 **ステップ2：** 根号をはずす
-
+<!-- ACCORDION_START: 根号をはずす-->
 \[
 25=5^2
 \]
@@ -36,3 +37,4 @@
 \[
 \sqrt{25}=5
 \]
+<!-- ACCORDION_END -->

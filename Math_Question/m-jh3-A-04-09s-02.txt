@@ -16,20 +16,22 @@
 分母の無理数は $\hlblue{\sqrt{15}}$ なので、分母と分子に $\hlblue{\sqrt{15}}$ をかける。
 
 **ステップ1：** 分母の根号を分母と分子にかける
-
+<!-- ACCORDION_START: 分母の根号を分母と分子にかける-->
 \[
 \frac{6\sqrt{3}}{\sqrt{15}}
 = \frac{6\sqrt{3} \times \hlblue{\sqrt{15}}}{\sqrt{15} \times \hlblue{\sqrt{15}}}
 \]
 
+<!-- ACCORDION_END -->
 **ステップ2：** 分母・分子を計算する
-
+<!-- ACCORDION_START: 分母・分子を計算する-->
 \[
 = \frac{6\sqrt{45}}{15}
 \]
 
+<!-- ACCORDION_END -->
 **ステップ3：** 根号の中を簡単にする
-
+<!-- ACCORDION_START: 根号の中を簡単にする-->
 \[
 45 = 9 \times 5,\quad 9 = 3^2
 \]
@@ -43,8 +45,10 @@
 \end{aligned}
 \]
 
+<!-- ACCORDION_END -->
 **ステップ4：** 約分する
-
+<!-- ACCORDION_START: 約分する-->
 \[
 = \frac{6\sqrt{5}}{5}
 \]
+<!-- ACCORDION_END -->

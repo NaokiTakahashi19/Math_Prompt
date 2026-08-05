@@ -11,6 +11,7 @@
 
 【解説】  
 **ステップ1：** 分配法則を使って展開する
+<!-- ACCORDION_START: 分配法則を使って展開する-->
 \[
 \begin{aligned}
 (\hlpink{-3x})\times(\hlblue{2x-5y})
@@ -18,9 +19,12 @@
 \end{aligned}
 \]
 
+<!-- ACCORDION_END -->
 **ステップ2：** 計算する
+<!-- ACCORDION_START: 計算する-->
 \[
 \begin{aligned}
 &= -6x^2 + 15xy
 \end{aligned}
 \]
+<!-- ACCORDION_END -->

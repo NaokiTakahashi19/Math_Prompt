@@ -11,7 +11,7 @@
 
 【解説】  
 **ステップ1：** 根号の中が平方の形で表せることを確認する
-
+<!-- ACCORDION_START: 根号の中が平方の形で表せることを確認する-->
 \[
 \begin{aligned}
 0.36 &= \frac{36}{100}\\
@@ -21,17 +21,20 @@
 \end{aligned}
 \]
 
+<!-- ACCORDION_END -->
 **ステップ2：** 根号の中を置きかえる
-
+<!-- ACCORDION_START: 根号の中を置きかえる-->
 \[
 \sqrt{0.36}
 = \sqrt{0.6^2}
 \]
 
+<!-- ACCORDION_END -->
 **ステップ3：** 根号をはずす
-
+<!-- ACCORDION_START: 根号をはずす-->
 \[
 = 0.6
 \]
 
 $\sqrt{\phantom{0}}$ は正の平方根を表すので、答えは $0.6$ となる。
+<!-- ACCORDION_END -->

@@ -11,22 +11,24 @@
 
 【解説】  
 **ステップ1：** 乗法の公式が使えるか判断する
-
+<!-- ACCORDION_START: 乗法の公式が使えるか判断する-->
 \[
 \left(\hlblue{x}+\hlpink{a}\right)^2=\hlblue{x}^2+2\hlpink{a}\hlblue{x}+\hlpink{a}^2
 \]
 を使う。
 この問題では、$\hlblue{x}=\hlblue{\sqrt{11}}$、$\hlpink{a}=\hlpink{2}$ と見る。
 
+<!-- ACCORDION_END -->
 **ステップ2：** 乗法の公式を適用する
-
+<!-- ACCORDION_START: 乗法の公式を適用する-->
 \[
 \left(\hlblue{\sqrt{11}}+\hlpink{2}\right)^2
 = \left(\hlblue{\sqrt{11}}\right)^2+2\times \hlpink{2}\times \hlblue{\sqrt{11}}+\hlpink{2}^2
 \]
 
+<!-- ACCORDION_END -->
 **ステップ3：** それぞれの項を計算する
-
+<!-- ACCORDION_START: それぞれの項を計算する-->
 \[
 \begin{aligned}
 \left(\sqrt{11}\right)^2&=11\\
@@ -37,9 +39,11 @@
 
 根号どうしの乗法では、根号の中をかけるため、$\left(\sqrt{11}\right)^2=\sqrt{11}\times\sqrt{11}=\sqrt{121}=11$ となる。
 
+<!-- ACCORDION_END -->
 **ステップ4：** もとの式に戻して整理する
-
+<!-- ACCORDION_START: もとの式に戻して整理する-->
 \[
 11+4\sqrt{11}+4
 = 15+4\sqrt{11}
 \]
+<!-- ACCORDION_END -->

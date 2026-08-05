@@ -22,6 +22,7 @@ $x=\cdots$ または $y=\cdots$ の形になっている式があるときは、
 係数をそろえるための最小公倍数が小さいときも、加減法が使いやすい。
 
 **ステップ1：** 解き方を選ぶ
+<!-- ACCORDION_START: 解き方を選ぶ-->
 \[
 \left\{
 \begin{aligned}
@@ -35,7 +36,9 @@ $x=\cdots$ または $y=\cdots$ の形になっている式があるときは、
 そのため、①は簡単に $y=\cdots$ の形に直すことができる。
 したがって、この問題は①を変形して②に代入する代入法で解くとよい。
 
+<!-- ACCORDION_END -->
 **ステップ2：** 式を代入する
+<!-- ACCORDION_START: 式を代入する-->
 ①を $y=\cdots$ の形に直す。
 \[
 \begin{aligned}
@@ -53,7 +56,9 @@ y&=4x-9
 \end{aligned}
 \]
 
+<!-- ACCORDION_END -->
 **ステップ3：** 式を整理する
+<!-- ACCORDION_START: 式を整理する-->
 かっこをはらって整理し、$x$ を求める。
 \[
 \begin{aligned}
@@ -65,7 +70,9 @@ x&=2
 \end{aligned}
 \]
 
+<!-- ACCORDION_END -->
 **ステップ4：** もう一方の文字の値を求める
+<!-- ACCORDION_START: もう一方の文字の値を求める-->
 $x=2$ を $y=4x-9$ に代入して、$y$ を求める。
 \[
 \begin{aligned}
@@ -79,3 +86,4 @@ y&=4x-9\\
 \[
 x = 2,\quad y = -1
 \]
+<!-- ACCORDION_END -->

@@ -16,7 +16,7 @@
 符号が変わるところで計算ミスをしやすいので注意する。
 
 **ステップ1：** 各項を因数に分解する
-
+<!-- ACCORDION_START: 各項を因数に分解する-->
 \[
 -6m^2n=(-3)\times 2\times m\times m\times n
 \]
@@ -27,16 +27,19 @@
 -9mn=(-3)\times m\times n\times3
 \]
 
+<!-- ACCORDION_END -->
 **ステップ2：** 各項の共通因数を見つける
-
+<!-- ACCORDION_START: 各項の共通因数を見つける-->
 すべての項に共通している因数は、
 \[
 -3mn
 \]
 
+<!-- ACCORDION_END -->
 **ステップ3：** 共通因数でくくりだす
-
+<!-- ACCORDION_START: 共通因数でくくりだす-->
 \[
 -6m^2n+15mn^2-9mn
 =-3mn(2m-5n+3)
 \]
+<!-- ACCORDION_END -->

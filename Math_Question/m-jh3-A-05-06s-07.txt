@@ -11,6 +11,7 @@ x=\frac{-2\pm\sqrt{10}}{3}
 
 【解説】  
 **ステップ1：** 解の公式を確認する  
+<!-- ACCORDION_START: 解の公式を確認する-->
 2次方程式
 \[
 ax^2+bx+c=0
@@ -21,7 +22,9 @@ x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}
 \]
 で求められる。
 
+<!-- ACCORDION_END -->
 **ステップ2：** $a,\ b,\ c$ の値を確認する  
+<!-- ACCORDION_START: $a,\ b,\ c$ の値を確認する-->
 右辺の $2$ を左辺に移項すると、
 \[
 3x^2+4x-2=0
@@ -31,12 +34,16 @@ x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}
 a=3,\quad b=4,\quad c=-2
 \]
 
+<!-- ACCORDION_END -->
 **ステップ3：** 解の公式に代入する  
+<!-- ACCORDION_START: 解の公式に代入する-->
 \[
 x=\frac{-4\pm\sqrt{4^2-4\times3\times(-2)}}{2\times3}
 \]
 
+<!-- ACCORDION_END -->
 **ステップ4：** 根号の中を計算する  
+<!-- ACCORDION_START: 根号の中を計算する-->
 \[
 \begin{aligned}
 4^2-4\times3\times(-2)
@@ -45,7 +52,9 @@ x=\frac{-4\pm\sqrt{4^2-4\times3\times(-2)}}{2\times3}
 \end{aligned}
 \]
 
+<!-- ACCORDION_END -->
 **ステップ5：** 根号や分数を簡単にする  
+<!-- ACCORDION_START: 根号や分数を簡単にする-->
 \[
 \sqrt{40}=\sqrt{4\times10}=2\sqrt{10}
 \]
@@ -58,3 +67,4 @@ x&=\frac{-4\pm2\sqrt{10}}{6}\\
 \]
 
 **ポイント：** 解の公式を使う前に、右辺を $0$ にして $ax^2+bx+c=0$ の形にそろえる必要がある。また、$c=-2$ なので、$-4ac=-4\times3\times(-2)$ は正の数となる。
+<!-- ACCORDION_END -->

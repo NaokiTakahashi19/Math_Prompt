@@ -10,10 +10,13 @@
 
 【解説】  
 **ステップ1：** 数量を文字で表す
+<!-- ACCORDION_START: 数量を文字で表す-->
 歩いた時間を $x$ 時間、自転車に乗った時間を $y$ 時間とする。
 距離は「速さ $\times$ 時間」で表せる。
 
+<!-- ACCORDION_END -->
 **ステップ2：** 数量の関係を式で表す
+<!-- ACCORDION_START: 数量の関係を式で表す-->
 歩く速さは毎時 $4\ \mathrm{km}$、自転車の速さは毎時 $14\ \mathrm{km}$ で、全体で $32\ \mathrm{km}$ 進んだことから、式
 \[
 \begin{array}{r@{\;}c@{\;}r@{\;}c@{\;}r@{\quad}r}
@@ -24,7 +27,9 @@
 
 速さの単位が「毎時 $\mathrm{km}$」で、時間の単位が「時間」なので、$4x$ や $14y$ が進んだ距離を表す。
 
+<!-- ACCORDION_END -->
 **ステップ3：** 数量の関係を式で表す
+<!-- ACCORDION_START: 数量の関係を式で表す-->
 自転車に乗った時間は歩いた時間より $1$ 時間長いことから、式
 \[
 \begin{array}{r@{\;}c@{\;}r@{\quad}r}
@@ -33,7 +38,9 @@ y & = & x+1 & \text{･･･②}
 \]
 が立てられる。
 
+<!-- ACCORDION_END -->
 **ステップ4：** 連立方程式を解く
+<!-- ACCORDION_START: 連立方程式を解く-->
 この2つの式を連立させると、
 \[
 \left\{
@@ -59,7 +66,9 @@ x&=\bbox[2px,lightyellow]{1}
 \end{aligned}
 \]
 
+<!-- ACCORDION_END -->
 **ステップ5：** もう一方の文字の値を求める
+<!-- ACCORDION_START: もう一方の文字の値を求める-->
 $x=1$ を②に代入して、$y$ を求める。
 \[
 \begin{aligned}
@@ -72,3 +81,4 @@ y&=\bbox[2px,lightyellow]{2}
 \[
 \bbox[2px,lightyellow]{2\ \mathrm{時間}}
 \]
+<!-- ACCORDION_END -->

@@ -18,11 +18,14 @@ ax+bx=(a+b)x
 \]
 
 **ステップ1：** 同類項を見つける
+<!-- ACCORDION_START: 同類項を見つける-->
 \[
 -\hlblue{\frac{2}{3}m^2}+\hlpink{4mn}-\bbox[2px,lightyellow]{\frac{5}{6}m}+\hlblue{\frac{7}{3}m^2}-\hlpink{mn}+\bbox[2px,lightyellow]{\frac{1}{2}m}-\bbox[2px,lightcyan]{3}
 \]
 
+<!-- ACCORDION_END -->
 **ステップ2：** 同類項をまとめる
+<!-- ACCORDION_START: 同類項をまとめる-->
 \[
 \begin{aligned}
 &=\left(-\frac{2}{3}+\frac{7}{3}\right)m^2+(4-1)mn+\left(-\frac{5}{6}+\frac{1}{2}\right)m-3\\
@@ -35,3 +38,4 @@ ax+bx=(a+b)x
 $m^2$ の項と $m$ の項は次数が違うので同類項ではない。
 また、$m^2$ の項と $mn$ の項は文字の部分が違うので同類項ではない。
 符号も係数に含めて計算することに注意する。
+<!-- ACCORDION_END -->

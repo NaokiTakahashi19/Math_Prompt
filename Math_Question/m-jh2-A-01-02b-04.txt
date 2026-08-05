@@ -13,12 +13,15 @@
 単項式の次数は、かけ合わされている文字の個数で決まる。係数の $-\frac{5}{2}$ は文字ではないので、次数には数えない。
 
 **ステップ1：** かけ算の形にして、文字の数を確認する
+<!-- ACCORDION_START: かけ算の形にして、文字の数を確認する-->
 \[
 -\frac{5}{2}st^6=-\frac{5}{2}\times\hlblue{s}\times\hlpink{t}\times\hlpink{t}\times\hlpink{t}\times\hlpink{t}\times\hlpink{t}\times\hlpink{t}
 \]
 指数がない $s$ は、$s^1$ と考えて $1$ 個と数える。
 
+<!-- ACCORDION_END -->
 **ステップ2：** かけ合わせている文字の数を数える
+<!-- ACCORDION_START: かけ合わせている文字の数を数える-->
 \[
 \hlblue{s},\ \hlpink{t},\ \hlpink{t},\ \hlpink{t},\ \hlpink{t},\ \hlpink{t},\ \hlpink{t}
 \]
@@ -27,3 +30,4 @@
 \]
 
 したがって、$-\frac{5}{2}st^6$ の次数は $7$ 次となる。
+<!-- ACCORDION_END -->

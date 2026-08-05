@@ -16,6 +16,7 @@ x=2,\quad y=4
 
 【解説】  
 **ステップ1：** 代入しやすい文字を選ぶ
+<!-- ACCORDION_START: 代入しやすい文字を選ぶ-->
 代入しやすい文字を選ぶ。
 ①の $x$ の係数が $-1$ なので、①を $x=\cdots$ の形にする。
 
@@ -27,7 +28,9 @@ x&=3y-10
 \end{aligned}
 \]
 
+<!-- ACCORDION_END -->
 **ステップ2：** 式を代入する
+<!-- ACCORDION_START: 式を代入する-->
 ②に代入する。
 \[
 4\hlblue{x}+2y=16
@@ -38,7 +41,9 @@ x&=3y-10
 4\hlblue{(3y-10)}+2y=16
 \]
 
+<!-- ACCORDION_END -->
 **ステップ3：** 文字の値を求める
+<!-- ACCORDION_START: 文字の値を求める-->
 $y$ を求める。
 \[
 \begin{aligned}
@@ -50,7 +55,9 @@ y&=4
 \end{aligned}
 \]
 
+<!-- ACCORDION_END -->
 **ステップ4：** もう一方の文字の値を求める
+<!-- ACCORDION_START: もう一方の文字の値を求める-->
 $x$ を求める。
 \[
 \begin{aligned}
@@ -59,3 +66,4 @@ x&=3y-10\\
 &=2
 \end{aligned}
 \]
+<!-- ACCORDION_END -->

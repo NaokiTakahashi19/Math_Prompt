@@ -8,10 +8,13 @@
 
 【解説】  
 **ステップ1：数量の関係を確認する**
+<!-- ACCORDION_START: 数量の関係を確認する-->
 代金の合計は、ノート4冊分の代金に消しゴムの値段をたして求める。
 ノート1冊の値段を $\hlblue{x}$、冊数を $\hlpink{4}$、消しゴムの値段を $\bbox[2px,lightyellow]{120}$ とする。
 
+<!-- ACCORDION_END -->
 **ステップ2：文字式で表す**
+<!-- ACCORDION_START: 文字式で表す-->
 ノート4冊分の代金は、1冊の値段 $\times$ 冊数で求める。
 \[
 \hlblue{x}\times\hlpink{4}=4x
@@ -20,3 +23,4 @@
 \[
 4x+\bbox[2px,lightyellow]{120}
 \]
+<!-- ACCORDION_END -->

@@ -14,29 +14,37 @@ xy - 2x + 5y - 10
 【解説】  
 
 **ステップ1：** 多項式の1つを文字に置き換える
+<!-- ACCORDION_START: 多項式の1つを文字に置き換える-->
 \[
 \begin{aligned}
 \hlpink{(x + 5)}\hlblue{(y - 2)} &= \hlpink{(x + 5)}\hlblue{M}
 \end{aligned}
 \]
 
+<!-- ACCORDION_END -->
 **ステップ2：** 分配法則を使って展開する
+<!-- ACCORDION_START: 分配法則を使って展開する-->
 \[
 \begin{aligned}
 &= \hlpink{x}\hlblue{M} + \hlpink{5}\hlblue{M}
 \end{aligned}
 \]
 
+<!-- ACCORDION_END -->
 **ステップ3：** 置き換えた文字を戻す
+<!-- ACCORDION_START: 置き換えた文字を戻す-->
 \[
 \begin{aligned}
 &= \hlpink{x}\hlblue{(y - 2)} + \hlpink{5}\hlblue{(y - 2)}
 \end{aligned}
 \]
 
+<!-- ACCORDION_END -->
 **ステップ4：** 分配法則を使って展開する
+<!-- ACCORDION_START: 分配法則を使って展開する-->
 \[
 \begin{aligned}
 &= xy - 2x + 5y - 10
 \end{aligned}
 \]
+<!-- ACCORDION_END -->

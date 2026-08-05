@@ -14,6 +14,7 @@ x = -5
 つまり、$A = B$ ならば、$A - C = B - C$ である。
 
 **ステップ1：** 両辺から同じ数をひく
+<!-- ACCORDION_START: 両辺から同じ数をひく-->
 左辺を $x$ だけにするために、両辺から $\hlblue{8\text{をひく}}$。
 
 \[
@@ -23,8 +24,10 @@ x + 8 \hlblue{- 8} &= 3 \hlblue{- 8}
 \end{aligned}
 \]
 
+<!-- ACCORDION_END -->
 **ステップ2：** 計算する
-
+<!-- ACCORDION_START: 計算する-->
 \[
 x = -5
 \]
+<!-- ACCORDION_END -->

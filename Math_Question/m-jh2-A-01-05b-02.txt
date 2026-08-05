@@ -15,6 +15,7 @@
 これを共通因数でくくり出すことという。
 
 **ステップ1：** 分配法則を使って展開する
+<!-- ACCORDION_START: 分配法則を使って展開する-->
 マイナスがついた括弧を外すときは、括弧の中の符号を逆にする。
 特に、$-(-2x)$ は $+2x$ になる点に注意する。
 \[
@@ -24,17 +25,23 @@
 = 6x + y + 2x - 5y
 \]
 
+<!-- ACCORDION_END -->
 **ステップ2：** 同類項を見つける
+<!-- ACCORDION_START: 同類項を見つける-->
 \[
 = \hlblue{6x}+\hlpink{y}+\hlblue{2x}-\hlpink{5y}
 \]
 
+<!-- ACCORDION_END -->
 **ステップ3：** 符号に注意して整理する
+<!-- ACCORDION_START: 符号に注意して整理する-->
 \[
 = \hlblue{6x}+\hlblue{2x}+\hlpink{y}-\hlpink{5y}
 \]
 
+<!-- ACCORDION_END -->
 **ステップ4：** 共通因数でくくる
+<!-- ACCORDION_START: 共通因数でくくる-->
 共通因数でくくり出す。
 \[
 \begin{aligned}
@@ -42,3 +49,4 @@
 &=8x-4y
 \end{aligned}
 \]
+<!-- ACCORDION_END -->

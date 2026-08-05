@@ -11,7 +11,7 @@
 
 【解説】  
 **ステップ1：** 根号を簡単にして通分する
-
+<!-- ACCORDION_START: 根号を簡単にして通分する-->
 \[
 45 = 9 \times 5,\quad 9 = 3^2
 \]
@@ -32,8 +32,9 @@ $6\sqrt{5}=\frac{30}{\sqrt{5}}$ なので、分母を $\sqrt{5}$ にそろえる
 = \frac{30}{\sqrt{5}}+\frac{7}{\sqrt{5}}
 \]
 
+<!-- ACCORDION_END -->
 **ステップ2：** 分子の和を計算する
-
+<!-- ACCORDION_START: 分子の和を計算する-->
 \[
 \begin{aligned}
 \frac{30}{\sqrt{5}}+\frac{7}{\sqrt{5}} &= \frac{30+7}{\sqrt{5}}\\
@@ -41,11 +42,13 @@ $6\sqrt{5}=\frac{30}{\sqrt{5}}$ なので、分母を $\sqrt{5}$ にそろえる
 \end{aligned}
 \]
 
+<!-- ACCORDION_END -->
 **ステップ3：** 分母を有理化して整理する
-
+<!-- ACCORDION_START: 分母を有理化して整理する-->
 \[
 \begin{aligned}
 \frac{37}{\sqrt{5}} &= \frac{37\times\sqrt{5}}{\sqrt{5}\times\sqrt{5}}\\
 &= \frac{37\sqrt{5}}{5}
 \end{aligned}
 \]
+<!-- ACCORDION_END -->

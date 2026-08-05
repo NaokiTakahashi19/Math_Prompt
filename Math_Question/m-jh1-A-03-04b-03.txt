@@ -16,6 +16,7 @@ x = 3
 移項すると符号が反対になることに注意する。
 
 **ステップ1：** 移項する
+<!-- ACCORDION_START: 移項する-->
 移項すると符号が反対になるので、$\hlblue{+4}$ は右辺で $\hlblue{-4}$ になる。
 
 \[
@@ -25,8 +26,9 @@ x = 3
 \end{aligned}
 \]
 
+<!-- ACCORDION_END -->
 **ステップ2：** 計算する
-
+<!-- ACCORDION_START: 計算する-->
 \[
 \begin{aligned}
 5x&= 15\\
@@ -34,3 +36,4 @@ x&=\frac{15}{5}\\
 &=3
 \end{aligned}
 \]
+<!-- ACCORDION_END -->

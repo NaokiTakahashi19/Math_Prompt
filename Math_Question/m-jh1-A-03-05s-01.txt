@@ -16,7 +16,7 @@ x = 11
 移項すると符号が反対になることに注意する。
 
 **ステップ1：** 分配法則を使う
-
+<!-- ACCORDION_START: 分配法則を使う-->
 \[
 \begin{aligned}
 4(x-3)&=2(x+5)\\
@@ -25,7 +25,9 @@ x = 11
 \end{aligned}
 \]
 
+<!-- ACCORDION_END -->
 **ステップ2：** 移項する
+<!-- ACCORDION_START: 移項する-->
 文字の項を左辺、数の項を右辺に集める。
 右辺の $\hlblue{2x}$ を左辺に移項すると $\hlblue{-2x}$ になる。
 左辺の $\hlblue{-12}$ を右辺に移項すると $\hlblue{+12}$ になる。
@@ -34,13 +36,16 @@ x = 11
 4x\hlblue{-2x}=10\hlblue{+12}
 \]
 
+<!-- ACCORDION_END -->
 **ステップ3：** 同類項をまとめる
-
+<!-- ACCORDION_START: 同類項をまとめる-->
 \[
 2x=22
 \]
 
+<!-- ACCORDION_END -->
 **ステップ4：** 両辺を同じ数で割る
+<!-- ACCORDION_START: 両辺を同じ数で割る-->
 両辺を $2$ でわる
 
 \[
@@ -49,3 +54,4 @@ x&=\frac{22}{2}\\
 &=11
 \end{aligned}
 \]
+<!-- ACCORDION_END -->

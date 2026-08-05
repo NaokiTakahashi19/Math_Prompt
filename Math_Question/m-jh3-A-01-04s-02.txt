@@ -11,7 +11,7 @@
 
 【解説】  
 **ステップ1：** 文字式の積の部分を取り出し、分配法則を使って展開する
-
+<!-- ACCORDION_START: 文字式の積の部分を取り出し、分配法則を使って展開する-->
 \[
 \begin{aligned}
 (3a-2b)(a+4b)
@@ -20,8 +20,9 @@
 \end{aligned}
 \]
 
+<!-- ACCORDION_END -->
 **ステップ2：** 展開した値をもとの式に戻す
-
+<!-- ACCORDION_START: 展開した値をもとの式に戻す-->
 \[
 \begin{aligned}
 (3a-2b)(a+4b)-5ab
@@ -29,18 +30,21 @@
 \end{aligned}
 \]
 
+<!-- ACCORDION_END -->
 **ステップ3：** かっこを外す
-
+<!-- ACCORDION_START: かっこを外す-->
 \[
 \begin{aligned}
 &=3a^2+12ab-2ab-8b^2-5ab
 \end{aligned}
 \]
 
+<!-- ACCORDION_END -->
 **ステップ4：** 同類項をまとめる
-
+<!-- ACCORDION_START: 同類項をまとめる-->
 \[
 \begin{aligned}
 &=3a^2+5ab-8b^2
 \end{aligned}
 \]
+<!-- ACCORDION_END -->

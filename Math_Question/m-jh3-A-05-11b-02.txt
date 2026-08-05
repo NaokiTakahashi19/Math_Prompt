@@ -67,7 +67,7 @@
 \end{tikzpicture}
 
 **ステップ1：** 求める数量を文字で表す
-
+<!-- ACCORDION_START: 求める数量を文字で表す-->
 点Pは毎秒 $3\mathrm{cm}$ で動くので、
 \[
 AP=3t
@@ -78,8 +78,9 @@ AP=3t
 AQ=t
 \]
 
+<!-- ACCORDION_END -->
 **ステップ2：** 数量の関係を式にする
-
+<!-- ACCORDION_START: 数量の関係を式にする-->
 $\angle DAB=90^\circ$ なので、$AP$ と $AQ$ は垂直である。したがって、$\triangle APQ$ の面積は、
 \[
 \frac{1}{2}\times AP\times AQ
@@ -91,8 +92,9 @@ $\angle DAB=90^\circ$ なので、$AP$ と $AQ$ は垂直である。したが�
 \frac{1}{2}\times 3t\times t=24
 \]
 
+<!-- ACCORDION_END -->
 **ステップ3：** 方程式を解く
-
+<!-- ACCORDION_START: 方程式を解く-->
 両辺を $2$ 倍し、さらに $3$ で割ると、
 \[
 \begin{aligned}
@@ -102,8 +104,9 @@ t&=\pm4
 \end{aligned}
 \]
 
+<!-- ACCORDION_END -->
 **ステップ4：** 条件に合う解を選ぶ
-
+<!-- ACCORDION_START: 条件に合う解を選ぶ-->
 点Pが長さ $12\mathrm{cm}$ の辺AB上にあるためには、
 \[
 0\leqq3t\leqq12
@@ -127,3 +130,4 @@ $t=-4$ はこの範囲に入らないので除く。$t=4$ を元の面積の式�
 となり、問題文の条件に合う。
 
 したがって、面積が $24\mathrm{cm}^2$ になるのは $4$ 秒後である。
+<!-- ACCORDION_END -->

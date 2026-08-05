@@ -11,7 +11,7 @@ x=-3\pm\sqrt{2}
 
 【解説】  
 **ステップ1：** 解の公式を確認する
-
+<!-- ACCORDION_START: 解の公式を確認する-->
 \[
 ax^2+bx+c=0
 \]
@@ -21,20 +21,23 @@ x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}
 \]
 で求められる。
 
+<!-- ACCORDION_END -->
 **ステップ2：** $a,\ b,\ c$ の値を確認する
-
+<!-- ACCORDION_START: $a,\ b,\ c$ の値を確認する-->
 \[
 a=1,\quad b=6,\quad c=7
 \]
 
+<!-- ACCORDION_END -->
 **ステップ3：** 解の公式に代入する
-
+<!-- ACCORDION_START: 解の公式に代入する-->
 \[
 x=\frac{-6\pm\sqrt{6^2-4\times1\times7}}{2\times1}
 \]
 
+<!-- ACCORDION_END -->
 **ステップ4：** 根号の中を計算する
-
+<!-- ACCORDION_START: 根号の中を計算する-->
 \[
 \begin{aligned}
 6^2-4\times1\times7
@@ -43,8 +46,9 @@ x=\frac{-6\pm\sqrt{6^2-4\times1\times7}}{2\times1}
 \end{aligned}
 \]
 
+<!-- ACCORDION_END -->
 **ステップ5：** 根号や分数を簡単にする
-
+<!-- ACCORDION_START: 根号や分数を簡単にする-->
 \[
 \begin{aligned}
 x&=\frac{-6\pm\sqrt{8}}{2}\\
@@ -59,3 +63,4 @@ $\sqrt{8}=2\sqrt{2}$ と変形し、分子の各項と分母を $2$ で約分す
 \[
 x=-3\pm\sqrt{2}
 \]
+<!-- ACCORDION_END -->

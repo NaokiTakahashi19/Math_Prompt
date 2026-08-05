@@ -11,14 +11,15 @@
 
 【解説】  
 **ステップ1：** 係数と根号の部分に分けて考える
-
+<!-- ACCORDION_START: 係数と根号の部分に分けて考える-->
 \[
 4\sqrt{5}\times 2\sqrt{10}
 = 4\times 2\times \sqrt{5}\times \sqrt{10}
 \]
 
+<!-- ACCORDION_END -->
 **ステップ2：** 係数どうしをかける
-
+<!-- ACCORDION_START: 係数どうしをかける-->
 \[
 4\times 2=8
 \]
@@ -28,8 +29,9 @@
 = 8\sqrt{5}\times \sqrt{10}
 \]
 
+<!-- ACCORDION_END -->
 **ステップ3：** 根号どうしをかける
-
+<!-- ACCORDION_START: 根号どうしをかける-->
 \[
 \begin{aligned}
 8\sqrt{5}\times \sqrt{10} &= 8\sqrt{5\times 10}\\
@@ -37,8 +39,9 @@
 \end{aligned}
 \]
 
+<!-- ACCORDION_END -->
 **ステップ4：** 根号の中の平方数を確認する
-
+<!-- ACCORDION_START: 根号の中の平方数を確認する-->
 \[
 50 = 25\times 2,\quad 25=5^2
 \]
@@ -51,3 +54,4 @@
 &= 40\sqrt{2}
 \end{aligned}
 \]
+<!-- ACCORDION_END -->

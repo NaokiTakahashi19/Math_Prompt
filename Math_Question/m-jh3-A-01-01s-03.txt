@@ -11,7 +11,7 @@
 
 【解説】  
 **ステップ1：** 分配法則を使って展開する
-
+<!-- ACCORDION_START: 分配法則を使って展開する-->
 \[
 \begin{aligned}
 \hlpink{-3ab}(\hlblue{4a^2-5ab+2b^2})
@@ -19,10 +19,12 @@
 \end{aligned}
 \]
 
+<!-- ACCORDION_END -->
 **ステップ2：** 計算する
-
+<!-- ACCORDION_START: 計算する-->
 \[
 \begin{aligned}
 &=-12a^3b+15a^2b^2-6ab^3
 \end{aligned}
 \]
+<!-- ACCORDION_END -->

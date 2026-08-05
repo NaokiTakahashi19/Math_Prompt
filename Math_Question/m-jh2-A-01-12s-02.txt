@@ -11,26 +11,34 @@
 
 【解説】  
 **ステップ1：** かけ算とわり算をまとめて分数の形にする
+<!-- ACCORDION_START: かけ算とわり算をまとめて分数の形にする-->
 除法を分母に置いて、全体を1つの分数として整理する。かける単項式は分子に、わる単項式は分母に置く。
 \[
 = \frac{21x^2y \times 4y}{6x}
 \]
 わる単項式である $6x$ を分子に置かないように注意する。
 
+<!-- ACCORDION_END -->
 **ステップ2：** 係数と同じ文字をまとめる
+<!-- ACCORDION_START: 係数と同じ文字をまとめる-->
 係数を前に集め、同じ文字どうしを並べる。
 \[
 = \frac{21\times4\times\hlblue{x}\times x\times y\times y}{6\times\hlblue{x}}
 \]
 
+<!-- ACCORDION_END -->
 **ステップ3：** 分子と分母で同じものを約分する
+<!-- ACCORDION_START: 分子と分母で同じものを約分する-->
 分子と分母に同じ $x$ が1つずつあるので約分できる。
 \[
 = \frac{21\times4\times x\times y\times y}{6}
 \]
 
+<!-- ACCORDION_END -->
 **ステップ4：** 計算する
+<!-- ACCORDION_START: 計算する-->
 係数は $21\times4\div6=14$ となる。また、$y\times y=y^2$ である。
 \[
 =14xy^2
 \]
+<!-- ACCORDION_END -->

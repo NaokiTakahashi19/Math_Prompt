@@ -13,11 +13,14 @@
 除法を分母に置いて、全体を1つの分数として整理する。かける単項式は分子に、わる単項式は分母に置く。
 
 **ステップ1：** かけ算とわり算をまとめて分数の形にする
+<!-- ACCORDION_START: かけ算とわり算をまとめて分数の形にする-->
 \[
 =\frac{18x^2\times4}{6x}
 \]
 
+<!-- ACCORDION_END -->
 **ステップ2：** 係数と文字をかけ算の形に分ける  
+<!-- ACCORDION_START: 係数と文字をかけ算の形に分ける-->
 $x^2$ は $x\times x$ と表せる。
 \[
 \begin{aligned}
@@ -26,15 +29,20 @@ $x^2$ は $x\times x$ と表せる。
 \end{aligned}
 \]
 
+<!-- ACCORDION_END -->
 **ステップ3：** 分子と分母で同じものを約分する  
+<!-- ACCORDION_START: 分子と分母で同じものを約分する-->
 分子と分母に同じ $\hlblue{x}$ があるので約分できる。
 \[
 =\frac{18\times4\times x}{6}
 \]
 
+<!-- ACCORDION_END -->
 **ステップ4：** 等号でつないで計算する
+<!-- ACCORDION_START: 等号でつないで計算する-->
 \[
 \begin{aligned}
 &=12x
 \end{aligned}
 \]
+<!-- ACCORDION_END -->

@@ -11,7 +11,7 @@
 
 【解説】  
 **ステップ1：** 根号の中の平方数を確認する
-
+<!-- ACCORDION_START: 根号の中の平方数を確認する-->
 \[
 98 = 49 \times 2,\quad 49 = 7^2
 \]
@@ -20,8 +20,9 @@
 18 = 9 \times 2,\quad 9 = 3^2
 \]
 
+<!-- ACCORDION_END -->
 **ステップ2：** 根号を簡単にする
-
+<!-- ACCORDION_START: 根号を簡単にする-->
 \[
 \begin{aligned}
 \sqrt{98} &= \sqrt{49 \times 2}\\
@@ -38,15 +39,17 @@
 \end{aligned}
 \]
 
+<!-- ACCORDION_END -->
 **ステップ3：** もとの式に戻す
-
+<!-- ACCORDION_START: もとの式に戻す-->
 \[
 \sqrt{98}-\sqrt{18}
 = \hlblue{7}\sqrt{2}-\hlblue{3}\sqrt{2}
 \]
 
+<!-- ACCORDION_END -->
 **ステップ4：** 計算する
-
+<!-- ACCORDION_START: 計算する-->
 \[
 \begin{aligned}
 \hlblue{7}\hlpink{\sqrt{2}}-\hlblue{3}\hlpink{\sqrt{2}} &= (\hlblue{7}-\hlblue{3})\hlpink{\sqrt{2}}\\
@@ -55,3 +58,4 @@
 \]
 
 根号の中が同じ $\sqrt{2}$ になったら、根号の部分はそのままにして、係数だけを計算する。
+<!-- ACCORDION_END -->

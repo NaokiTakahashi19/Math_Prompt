@@ -10,17 +10,23 @@
 項は、式を加法の形に見たときの1つ1つのまとまりである。
 
 **ステップ1：** 加法の形に直す
+<!-- ACCORDION_START: 加法の形に直す-->
 ひき算は、負の数をたす形に直して考える。
 \[
 \hlblue{4a}+\hlpink{(-7b)}+\bbox[2px,lightyellow]{\frac{1}{3}}
 \]
 
+<!-- ACCORDION_END -->
 **ステップ2：** 項を区切る
+<!-- ACCORDION_START: 項を区切る-->
 項は、たし算でつながった1つ1つのまとまりである。
 \[
 \hlblue{4a},\quad \hlpink{-7b},\quad \bbox[2px,lightyellow]{\frac{1}{3}}
 \]
 
+<!-- ACCORDION_END -->
 **ステップ3：** 符号も含めて答える
+<!-- ACCORDION_START: 符号も含めて答える-->
 $-7b$ のように、負の符号も項に含めて答える。
 したがって、項は $4a,\ -7b,\ \frac{1}{3}$ である。
+<!-- ACCORDION_END -->

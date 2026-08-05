@@ -11,6 +11,7 @@
 
 【解説】  
 **ステップ1：** 単項式を、係数と文字の積として見る
+<!-- ACCORDION_START: 単項式を、係数と文字の積として見る-->
 単項式は、「係数」と「文字の部分」に分けて考える。
 \[
 \begin{aligned}
@@ -25,12 +26,16 @@
 = \hlblue{(-4)\times x\times x\times y\times y\times y}\times\hlpink{7\times x\times x\times x\times y\times y}
 \]
 
+<!-- ACCORDION_END -->
 **ステップ2：** 係数どうし、同じ文字どうしが並ぶように順番を変える
+<!-- ACCORDION_START: 係数どうし、同じ文字どうしが並ぶように順番を変える-->
 \[
 = (-4)\times7\times x\times x\times x\times x\times x\times y\times y\times y\times y\times y
 \]
 
+<!-- ACCORDION_END -->
 **ステップ3：** 計算する
+<!-- ACCORDION_START: 計算する-->
 \[
 =-28x^5y^5
 \]
@@ -38,3 +43,4 @@
 **ポイント：**  
 係数は $(-4)\times7=-28$ で負になる。
 文字は、$x$ が5個、$y$ が5個あるので、$x^5y^5$ になる。
+<!-- ACCORDION_END -->

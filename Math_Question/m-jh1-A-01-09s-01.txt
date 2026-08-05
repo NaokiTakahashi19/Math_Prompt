@@ -11,9 +11,12 @@
 
 【解説】  
 **ステップ1：** 符号の規則を適用する
+<!-- ACCORDION_START: 符号の規則を適用する-->
 2つの数は同符号なので、積の符号は正である。
 
+<!-- ACCORDION_END -->
 **ステップ2：** 乗法を行う
+<!-- ACCORDION_START: 乗法を行う-->
 \[
 \begin{aligned}
 \frac{3}{10}\times\frac{25}{6}
@@ -28,3 +31,4 @@
 \[
 \frac{5}{4}
 \]
+<!-- ACCORDION_END -->

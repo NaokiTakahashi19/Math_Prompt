@@ -11,6 +11,7 @@ m^2 - 16
 
 【解説】  
 **ステップ1：** 乗法の公式が使えないか検討する
+<!-- ACCORDION_START: 乗法の公式が使えないか検討する-->
 $(\hlblue{m}\bbox[2px,lightyellow]{+}\hlpink{4})(\hlblue{m}\bbox[2px,lightyellow]{-}\hlpink{4})$ は、$(\hlblue{a}\bbox[2px,lightyellow]{+}\hlpink{b})(\hlblue{a}\bbox[2px,lightyellow]{-}\hlpink{b})$ の形である。
 この式では、乗法の公式のうち、次の公式が使える。
 
@@ -19,7 +20,9 @@ $(\hlblue{m}\bbox[2px,lightyellow]{+}\hlpink{4})(\hlblue{m}\bbox[2px,lightyellow
 (a+b)(a-b)=a^2-b^2
 \]
 
+<!-- ACCORDION_END -->
 **ステップ2：** 乗法の公式にあてはめる
+<!-- ACCORDION_START: 乗法の公式にあてはめる-->
 \[
 \begin{aligned}
 (\hlblue{m}+\hlpink{4})(\hlblue{m}-\hlpink{4})
@@ -27,9 +30,12 @@ $(\hlblue{m}\bbox[2px,lightyellow]{+}\hlpink{4})(\hlblue{m}\bbox[2px,lightyellow
 \end{aligned}
 \]
 
+<!-- ACCORDION_END -->
 **ステップ3：** 整理する
+<!-- ACCORDION_START: 整理する-->
 \[
 \begin{aligned}
 &= m^2 - 16
 \end{aligned}
 \]
+<!-- ACCORDION_END -->

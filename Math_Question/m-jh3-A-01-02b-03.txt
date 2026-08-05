@@ -14,6 +14,7 @@
 【解説】  
 
 **ステップ1：** 除法を乗法になおす
+<!-- ACCORDION_START: 除法を乗法になおす-->
 わり算は、わる数の逆数をかける形に直すことができる。
 $3x$ は $\frac{3x}{1}$ と考えるので、逆数は $\frac{1}{3x}$ である。
 \[
@@ -23,18 +24,22 @@ $3x$ は $\frac{3x}{1}$ と考えるので、逆数は $\frac{1}{3x}$ である�
 \end{aligned}
 \]
 
+<!-- ACCORDION_END -->
 **ステップ2：** 分配法則を使って展開する
+<!-- ACCORDION_START: 分配法則を使って展開する-->
 \[
 \begin{aligned}
 &= \hlblue{6x^2} \times \hlpink{\frac{1}{3x}} + \hlblue{(-9x)} \times \hlpink{\frac{1}{3x}}
 \end{aligned}
 \]
 
+<!-- ACCORDION_END -->
 **ステップ3：** 計算をする
-
+<!-- ACCORDION_START: 計算をする-->
 \[
 \begin{aligned}
 &= \frac{6x^2}{3x}+\frac{-9x}{3x}\\
 &= 2x-3
 \end{aligned}
 \]
+<!-- ACCORDION_END -->

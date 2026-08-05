@@ -28,13 +28,16 @@
 積の絶対値は、それぞれの数の絶対値の積になる。
 
 **ステップ1：** 符号の規則を適用する
+<!-- ACCORDION_START: 符号の規則を適用する-->
 \[
 \hlpink{(-4)}\times\hlblue{9}\times\hlblue{5}\times\hlpink{(-2)}
 \]
 正の数を水色、負の数をピンクで表している。
 負の数は $\hlpink{(-4)}$ と $\hlpink{(-2)}$ の2つあるので、全体の積の符号は $\hlblue{(+)}$ になる。
 
+<!-- ACCORDION_END -->
 **ステップ2：** 乗法を行う
+<!-- ACCORDION_START: 乗法を行う-->
 \[
 \begin{aligned}
 (-4)\times9\times5\times(-2)
@@ -46,3 +49,4 @@
 \end{aligned}
 \]
 負の数が2つなので答えは正になる。符号を先に確認しておくと、最後の符号を間違えにくい。
+<!-- ACCORDION_END -->

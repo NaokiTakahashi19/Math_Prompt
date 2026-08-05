@@ -11,6 +11,7 @@ x=\frac{5\pm\sqrt{41}}{2}
 
 【解説】  
 **ステップ1：** かっこを展開する
+<!-- ACCORDION_START: かっこを展開する-->
 \[
 \begin{aligned}
 \frac{(x+3)(x-2)}{2}
@@ -19,8 +20,9 @@ x=\frac{5\pm\sqrt{41}}{2}
 \end{aligned}
 \]
 
+<!-- ACCORDION_END -->
 **ステップ2：** 右辺を0にして整理する
-
+<!-- ACCORDION_START: 右辺を0にして整理する-->
 両辺に $2$ をかけて分母をなくす。
 \[
 \begin{aligned}
@@ -30,7 +32,9 @@ x^2-5x-4&=0
 \end{aligned}
 \]
 
+<!-- ACCORDION_END -->
 **ステップ3：** 解き方を選ぶ
+<!-- ACCORDION_START: 解き方を選ぶ-->
 \[
 x^2-5x-4=0
 \]
@@ -45,7 +49,9 @@ a=1,\quad b=-5,\quad c=-4
 x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}
 \]
 
+<!-- ACCORDION_END -->
 **ステップ4：** 選んだ方法で方程式を解く
+<!-- ACCORDION_START: 選んだ方法で方程式を解く-->
 \[
 \begin{aligned}
 x&=\frac{-(-5)\pm\sqrt{(-5)^2-4\times1\times(-4)}}{2\times1}\\
@@ -63,3 +69,4 @@ x&=\frac{-(-5)\pm\sqrt{(-5)^2-4\times1\times(-4)}}{2\times1}\\
 となり、どちらの解も元の方程式を満たす。
 
 **ポイント：** 分母をなくすときは両辺全体に同じ数をかける。また、解の公式では $c=-4$ と符号を含めて代入することが重要である。
+<!-- ACCORDION_END -->

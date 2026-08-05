@@ -21,19 +21,25 @@
 \]
 
 **ステップ1：** 除法を乗法になおす
+<!-- ACCORDION_START: 除法を乗法になおす-->
 \[
 \bigl(-\frac{7}{8}\bigr) \div \frac{14}{5}
 = \bigl(-\frac{7}{8}\bigr) \times \frac{5}{14}
 \]
 
+<!-- ACCORDION_END -->
 **ステップ2：** 符号を外に出して、絶対値の積を考える
+<!-- ACCORDION_START: 符号を外に出して、絶対値の積を考える-->
 \[
 = - \bigl(\hlpink{\frac{7}{8}} \times \hlblue{\frac{5}{14}}\bigr)
 \]
 
+<!-- ACCORDION_END -->
 **ステップ3：** 乗法を行う
+<!-- ACCORDION_START: 乗法を行う-->
 \[
 = -\frac{5}{16}
 \]
 
 わる数 $\frac{14}{5}$ の逆数は $\frac{5}{14}$ である。分子と分母を入れかえるだけで、符号は正のままであることに注意する。
+<!-- ACCORDION_END -->

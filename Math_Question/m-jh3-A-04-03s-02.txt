@@ -11,12 +11,13 @@
 
 【解説】  
 **ステップ1：** 2乗する部分を確認する
-
+<!-- ACCORDION_START: 2乗する部分を確認する-->
 $-\left(4\sqrt{3}\right)^2$ は、前にマイナスがついている式である。
 まず、かっこの中の $4\sqrt{3}$ を2乗する。
 
+<!-- ACCORDION_END -->
 **ステップ2：** 2乗する部分だけ計算する
-
+<!-- ACCORDION_START: 2乗する部分だけ計算する-->
 \[
 \begin{aligned}
 \left(4\sqrt{3}\right)^2 &= 4^2 \times \left(\sqrt{3}\right)^2\\
@@ -25,11 +26,13 @@ $-\left(4\sqrt{3}\right)^2$ は、前にマイナスがついている式であ�
 \end{aligned}
 \]
 
+<!-- ACCORDION_END -->
 **ステップ3：** 2乗しなかった部分を付け加える
-
+<!-- ACCORDION_START: 2乗しなかった部分を付け加える-->
 もとの式は、$\left(4\sqrt{3}\right)^2$ の前にマイナスがついている。
 したがって、
 \[
 -\left(4\sqrt{3}\right)^2
 = -48
 \]
+<!-- ACCORDION_END -->

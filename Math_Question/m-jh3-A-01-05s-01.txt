@@ -11,6 +11,7 @@ x^2 -2x -48
 
 【解説】  
 **ステップ1：** 乗法の公式が使えないか検討する  
+<!-- ACCORDION_START: 乗法の公式が使えないか検討する-->
 $(\bbox[2px,lightgreen]{x} + \hlblue{6})(\bbox[2px,lightgreen]{x} + \hlpink{(-8)})$ は、$(\bbox[2px,lightgreen]{x} + \hlblue{a})(\bbox[2px,lightgreen]{x} + \hlpink{b})$ の形である。  
 この式では、乗法の公式のうち、次の公式が使える。
 
@@ -19,7 +20,9 @@ $(\bbox[2px,lightgreen]{x} + \hlblue{6})(\bbox[2px,lightgreen]{x} + \hlpink{(-8)
 (x+a)(x+b)=x^2+(a+b)x+ab
 \]
 
+<!-- ACCORDION_END -->
 **ステップ2：** 乗法の公式にあてはめる
+<!-- ACCORDION_START: 乗法の公式にあてはめる-->
 \[
 \begin{aligned}
 (x+\hlblue{6})(x+\hlpink{(-8)})
@@ -27,7 +30,9 @@ $(\bbox[2px,lightgreen]{x} + \hlblue{6})(\bbox[2px,lightgreen]{x} + \hlpink{(-8)
 \end{aligned}
 \]
 
+<!-- ACCORDION_END -->
 **ステップ3：** 整理する
+<!-- ACCORDION_START: 整理する-->
 \[
 \begin{aligned}
 &= x^2 -2x -48
@@ -37,3 +42,4 @@ $(\bbox[2px,lightgreen]{x} + \hlblue{6})(\bbox[2px,lightgreen]{x} + \hlpink{(-8)
 **ポイント：**  
 $(x+a)(x+b)$ では、$x$ の係数は $a+b$、定数項は $ab$ となる。  
 符号が異なるときは、$6+(-8)=-2$、$6 \times (-8)=-48$ のように、$a+b$ と $ab$ の符号に注意する。
+<!-- ACCORDION_END -->

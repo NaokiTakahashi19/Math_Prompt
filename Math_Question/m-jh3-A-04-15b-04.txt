@@ -11,22 +11,24 @@
 
 【解説】  
 **ステップ1：** 乗法の公式が使えるか判断する
-
+<!-- ACCORDION_START: 乗法の公式が使えるか判断する-->
 乗法の公式のうち、次の形を使う。
 \[
 (x+a)(x-a)=x^2-a^2
 \]
 この問題では、$x=\sqrt{13}$、$a=3$ と見る。
 
+<!-- ACCORDION_END -->
 **ステップ2：** 乗法の公式を適用する
-
+<!-- ACCORDION_START: 乗法の公式を適用する-->
 \[
 \left(\sqrt{13}+3\right)\left(\sqrt{13}-3\right)
 = \left(\sqrt{13}\right)^2-3^2
 \]
 
+<!-- ACCORDION_END -->
 **ステップ3：** それぞれの項を計算する
-
+<!-- ACCORDION_START: それぞれの項を計算する-->
 \[
 \begin{aligned}
 \left(\sqrt{13}\right)^2 &= 13\\
@@ -36,8 +38,10 @@
 
 $\left(\sqrt{13}\right)^2$ は、$\sqrt{13}\times\sqrt{13}=\sqrt{169}=13$ となるため、根号がはずれる。
 
+<!-- ACCORDION_END -->
 **ステップ4：** もとの式に戻して整理する
-
+<!-- ACCORDION_START: もとの式に戻して整理する-->
 \[
 13-9=4
 \]
+<!-- ACCORDION_END -->

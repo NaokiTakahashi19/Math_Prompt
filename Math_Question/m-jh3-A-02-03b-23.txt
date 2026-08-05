@@ -19,13 +19,18 @@ x^2-2ax+a^2&=(x-a)^2
 \]
 
 **ステップ1：** 乗法の公式が使えるか判断する  
+<!-- ACCORDION_START: 乗法の公式が使えるか判断する-->
 $x^2 + 14x + 49$ は、第2項の係数が正の偶数である。そこで、$x^2 + 2ax + a^2$ の形かを確認する。
 
+<!-- ACCORDION_END -->
 **ステップ2：** $a$ の値を確認する  
+<!-- ACCORDION_START: $a$ の値を確認する-->
 第2項の係数を$2$でわった数の2乗が、第3項に等しくなるかを確認する。
 このとき、$14 \div 2 = 7$ であり、$7^2=49$ となるので一致する。
 
+<!-- ACCORDION_END -->
 **ステップ3：** 乗法の公式の形に書き直す  
+<!-- ACCORDION_START: 乗法の公式の形に書き直す-->
 \[
 \begin{aligned}
 x^2 + \hlblue{14}x + \hlpink{49}
@@ -33,7 +38,9 @@ x^2 + \hlblue{14}x + \hlpink{49}
 \end{aligned}
 \]
 
+<!-- ACCORDION_END -->
 **ステップ4：** 乗法の公式を適用する  
+<!-- ACCORDION_START: 乗法の公式を適用する-->
 公式 $x^2+2ax+a^2=(x+a)^2$ において、$a=7$ とする。
 \[
 \begin{aligned}
@@ -46,3 +53,4 @@ x^2+2\times 7\times x+7^2&=(x+7)^2
 x^2 + 14x + 49&=(x + 7)^2
 \end{aligned}
 \]
+<!-- ACCORDION_END -->

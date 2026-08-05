@@ -11,7 +11,7 @@
 
 【解説】  
 **ステップ1：** 除法を乗法になおす
-
+<!-- ACCORDION_START: 除法を乗法になおす-->
 わり算は、わる数の逆数をかける形に直すことができる。
 $-7ab^2$ の逆数は $-\frac{1}{7ab^2}$ である。
 
@@ -20,19 +20,22 @@ $-7ab^2$ の逆数は $-\frac{1}{7ab^2}$ である。
 =(21a^2b^3-14a^3b^2+7ab^2)\times\left(-\frac{1}{7ab^2}\right)
 \]
 
+<!-- ACCORDION_END -->
 **ステップ2：** 分配法則を使って展開する
-
+<!-- ACCORDION_START: 分配法則を使って展開する-->
 \[
 \begin{aligned}
 &=21a^2b^3\times\left(-\frac{1}{7ab^2}\right)-14a^3b^2\times\left(-\frac{1}{7ab^2}\right)+7ab^2\times\left(-\frac{1}{7ab^2}\right)
 \end{aligned}
 \]
 
+<!-- ACCORDION_END -->
 **ステップ3：** 計算する
-
+<!-- ACCORDION_START: 計算する-->
 \[
 \begin{aligned}
 &=\frac{21a^2b^3}{-7ab^2}+\frac{-14a^3b^2}{-7ab^2}+\frac{7ab^2}{-7ab^2}\\
 &=-3ab+2a^2-1
 \end{aligned}
 \]
+<!-- ACCORDION_END -->

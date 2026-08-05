@@ -11,6 +11,7 @@ a=7
 この問題では、$x=6$ を代入すると方程式が成り立つ。
 
 **ステップ1：** 値を代入する  
+<!-- ACCORDION_START: 値を代入する-->
 $x=6$ を方程式に代入する。
 \[
 \begin{aligned}
@@ -19,7 +20,9 @@ $x=6$ を方程式に代入する。
 \end{aligned}
 \]
 
+<!-- ACCORDION_END -->
 **ステップ2：** 文字の値を求める  
+<!-- ACCORDION_START: 文字の値を求める-->
 \[
 \begin{aligned}
 -a&=11-18\\
@@ -27,3 +30,4 @@ $x=6$ を方程式に代入する。
 a&=7
 \end{aligned}
 \]
+<!-- ACCORDION_END -->

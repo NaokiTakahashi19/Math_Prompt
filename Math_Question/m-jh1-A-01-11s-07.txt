@@ -11,13 +11,16 @@
 
 【解説】  
 **ステップ1：** 指数の意味を確認する  
+<!-- ACCORDION_START: 指数の意味を確認する-->
 $\left(\frac{3}{2}\right)^3$ の指数は $3$ である。これは、$\frac{3}{2}$ を3回かけることを表す。
 \[
 \left(\frac{3}{2}\right)^3
 =\frac{3}{2}\times\frac{3}{2}\times\frac{3}{2}
 \]
 
+<!-- ACCORDION_END -->
 **ステップ2：** 計算する  
+<!-- ACCORDION_START: 計算する-->
 分子どうし、分母どうしをそれぞれかける。
 \[
 \begin{aligned}
@@ -25,3 +28,4 @@ $\left(\frac{3}{2}\right)^3$ の指数は $3$ である。これは、$\frac{3}{
 &=\frac{27}{8}
 \end{aligned}
 \]
+<!-- ACCORDION_END -->

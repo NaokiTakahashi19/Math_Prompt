@@ -11,6 +11,7 @@
 
 【解説】  
 **ステップ1：** 多項式の一部を文字に置き換える
+<!-- ACCORDION_START: 多項式の一部を文字に置き換える-->
 $x+2y=\hlblue{M}$ とおくと、同じ式 $x+2y$ を $\hlblue{M}$ として考えられる。
 \[
 \begin{aligned}
@@ -19,7 +20,9 @@ $x+2y=\hlblue{M}$ とおくと、同じ式 $x+2y$ を $\hlblue{M}$ として考�
 \end{aligned}
 \]
 
+<!-- ACCORDION_END -->
 **ステップ2：** 因数分解する
+<!-- ACCORDION_START: 因数分解する-->
 和が $-7$、積が $12$ になる2数は $-3$ と $-4$ である。
 \[
 (-3)+(-4)=-7,\quad (-3)\times(-4)=12
@@ -32,9 +35,12 @@ $x+2y=\hlblue{M}$ とおくと、同じ式 $x+2y$ を $\hlblue{M}$ として考�
 \]
 符号を間違えやすいので、積が正で和が負になるときは、2数とも負になることに注意する。
 
+<!-- ACCORDION_END -->
 **ステップ3：** 置き換えた文字を元に戻す
+<!-- ACCORDION_START: 置き換えた文字を元に戻す-->
 \[
 \begin{aligned}
 &=(x+2y-3)(x+2y-4)
 \end{aligned}
 \]
+<!-- ACCORDION_END -->

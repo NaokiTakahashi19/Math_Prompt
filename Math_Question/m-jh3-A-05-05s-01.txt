@@ -31,7 +31,7 @@ x&=-a\pm\sqrt{b+a^2}
 このように、左辺を平方の形にする変形を平方完成という。
 
 **ステップ1：** $x^2+2ax=b$ の形にする
-
+<!-- ACCORDION_START: $x^2+2ax=b$ の形にする-->
 平方完成しやすいように、まず定数項を右辺に移す。
 \[
 \begin{aligned}
@@ -40,8 +40,9 @@ x^2-7x&=-5
 \end{aligned}
 \]
 
+<!-- ACCORDION_END -->
 **ステップ2：** 両辺に加える数を考える
-
+<!-- ACCORDION_START: 両辺に加える数を考える-->
 $x^2-7x$ は、
 \[
 x^2+2\times\left(-\frac{7}{2}\right)\times x
@@ -54,8 +55,9 @@ x^2+2\times\left(-\frac{7}{2}\right)\times x
 \]
 を加える。
 
+<!-- ACCORDION_END -->
 **ステップ3：** 両辺に同じ数を加えて平方完成する
-
+<!-- ACCORDION_START: 両辺に同じ数を加えて平方完成する-->
 方程式の一方の辺だけに数を加えると等式が成り立たなくなるため、両辺に $\frac{49}{4}$ を加える。
 \[
 \begin{aligned}
@@ -68,8 +70,9 @@ x^2+2\times\left(-\frac{7}{2}\right)\times x
 \end{aligned}
 \]
 
+<!-- ACCORDION_END -->
 **ステップ4：** 両辺の平方根をとる
-
+<!-- ACCORDION_START: 両辺の平方根をとる-->
 両辺の平方根をとる。このとき、正と負の両方を考えて $\pm$ を付ける。
 \[
 \begin{aligned}
@@ -79,8 +82,9 @@ x-\frac{7}{2}
 \end{aligned}
 \]
 
+<!-- ACCORDION_END -->
 **ステップ5：** $x$ の値を求める
-
+<!-- ACCORDION_START: $x$ の値を求める-->
 両辺に $\frac{7}{2}$ を加える。
 \[
 \begin{aligned}
@@ -102,3 +106,4 @@ x^2-7x+5
 となるため、どちらの値も元の方程式を満たす。
 
 **ポイント：** $x$ の係数が $-7$ なので、$a=-\frac{7}{2}$ となる。負の数を2乗すると正の数になるため、両辺に加える数は $\frac{49}{4}$ である。
+<!-- ACCORDION_END -->

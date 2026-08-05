@@ -11,6 +11,7 @@
 
 【解説】  
 **ステップ1：** 除法を乗法にかえる
+<!-- ACCORDION_START: 除法を乗法にかえる-->
 除法を乗法にかえる場面では、わる数の逆数をかける。
 分数でわるときは、分母と分子を入れかえた数をかける。
 $-\frac{4}{5}p^2q$ でわるので、逆数にして $-\frac{5}{4p^2q}$ をかける。
@@ -18,20 +19,26 @@ $-\frac{4}{5}p^2q$ でわるので、逆数にして $-\frac{5}{4p^2q}$ をか�
 = -16p^3q^2r \times \left(-\frac{5}{4p^2q}\right)
 \]
 
+<!-- ACCORDION_END -->
 **ステップ2：** 係数と同じ文字をまとめる
+<!-- ACCORDION_START: 係数と同じ文字をまとめる-->
 大きな分数にし、係数を前に集め、同じ文字どうしを並べる。
 \[
 = \frac{(-16)\times(-5)\times p\times \hlblue{p}\times \hlpink{p}\times q\times \hlgreen{q}\times r}{4\times \hlblue{p}\times \hlpink{p}\times \hlgreen{q}}
 \]
 
+<!-- ACCORDION_END -->
 **ステップ3：** 共通因数を約分する
+<!-- ACCORDION_START: 共通因数を約分する-->
 分子と分母の同じ文字を消す。
 分子と分母に同じ $\hlblue{p}$、$\hlpink{p}$、$\hlgreen{q}$ があるので、これを消す。
 \[
 = \frac{(-16)\times(-5)\times p\times q\times r}{4}
 \]
 
+<!-- ACCORDION_END -->
 **ステップ4：** まとめる
+<!-- ACCORDION_START: まとめる-->
 \[
 =20pqr
 \]
@@ -39,3 +46,4 @@ $-\frac{4}{5}p^2q$ でわるので、逆数にして $-\frac{5}{4p^2q}$ をか�
 **ポイント：**  
 負の数でわるときも、わる数の逆数をかける。
 今回は負の数どうしのかけ算になるので、係数の符号は正になる。
+<!-- ACCORDION_END -->

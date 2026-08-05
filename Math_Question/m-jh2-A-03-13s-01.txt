@@ -9,10 +9,13 @@
 
 【解説】  
 **ステップ1：** 数量を文字で表す
+<!-- ACCORDION_START: 数量を文字で表す-->
 歩く速さを毎時 $x\ \mathrm{km}$、バスの速さを毎時 $y\ \mathrm{km}$ とする。
 距離は「速さ $\times$ 時間」で表せる。
 
+<!-- ACCORDION_END -->
 **ステップ2：** 数量の関係を式で表す
+<!-- ACCORDION_START: 数量の関係を式で表す-->
 歩いて3時間、バスで1時間進むと $54\ \mathrm{km}$ 進むということから、式
 \[
 \begin{array}{r@{\;}c@{\;}r@{\;}c@{\;}r@{\quad}r}
@@ -21,7 +24,9 @@
 \]
 が立てられる。
 
+<!-- ACCORDION_END -->
 **ステップ3：** 数量の関係を式で表す
+<!-- ACCORDION_START: 数量の関係を式で表す-->
 歩いて1時間、バスで2時間進むと $78\ \mathrm{km}$ 進むということから、式
 \[
 \begin{array}{r@{\;}c@{\;}r@{\;}c@{\;}r@{\quad}r}
@@ -30,7 +35,9 @@ x & + & 2y & = & 78 & \text{･･･②}
 \]
 が立てられる。
 
+<!-- ACCORDION_END -->
 **ステップ4：** 連立方程式を解く
+<!-- ACCORDION_START: 連立方程式を解く-->
 この2つの式を連立させると、
 \[
 \left\{
@@ -72,7 +79,9 @@ x&=\bbox[2px,lightyellow]{6}
 \end{aligned}
 \]
 
+<!-- ACCORDION_END -->
 **ステップ5：** もう一方の文字の値を求める
+<!-- ACCORDION_START: もう一方の文字の値を求める-->
 $x=6$ を①に代入して、$y$ を求める。
 \[
 \begin{aligned}
@@ -88,3 +97,4 @@ y&=\bbox[2px,lightyellow]{36}
 \]
 
 よって、バスの速さは時速 $36\ \mathrm{km}$ である。
+<!-- ACCORDION_END -->

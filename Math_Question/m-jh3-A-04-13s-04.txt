@@ -11,7 +11,7 @@
 
 【解説】  
 **ステップ1：** 根号を簡単にして通分する
-
+<!-- ACCORDION_START: 根号を簡単にして通分する-->
 \[
 28 = 4 \times 7,\quad 4 = 2^2
 \]
@@ -32,8 +32,9 @@ $4\sqrt{7}=\frac{28}{\sqrt{7}}$ なので、分母を $\sqrt{7}$ にそろえる
 = \frac{28}{\sqrt{7}}-\frac{9}{\sqrt{7}}
 \]
 
+<!-- ACCORDION_END -->
 **ステップ2：** 分子の差を計算する
-
+<!-- ACCORDION_START: 分子の差を計算する-->
 \[
 \begin{aligned}
 \frac{28}{\sqrt{7}}-\frac{9}{\sqrt{7}} &= \frac{28-9}{\sqrt{7}}\\
@@ -41,11 +42,13 @@ $4\sqrt{7}=\frac{28}{\sqrt{7}}$ なので、分母を $\sqrt{7}$ にそろえる
 \end{aligned}
 \]
 
+<!-- ACCORDION_END -->
 **ステップ3：** 分母を有理化して整理する
-
+<!-- ACCORDION_START: 分母を有理化して整理する-->
 \[
 \begin{aligned}
 \frac{19}{\sqrt{7}} &= \frac{19\times\sqrt{7}}{\sqrt{7}\times\sqrt{7}}\\
 &= \frac{19\sqrt{7}}{7}
 \end{aligned}
 \]
+<!-- ACCORDION_END -->

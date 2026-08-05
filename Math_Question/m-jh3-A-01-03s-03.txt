@@ -11,7 +11,7 @@
 
 【解説】  
 **ステップ1：** 分配法則を使って展開する
-
+<!-- ACCORDION_START: 分配法則を使って展開する-->
 \[
 \begin{aligned}
 (3a-5b)(2x-y)
@@ -19,18 +19,21 @@
 \end{aligned}
 \]
 
+<!-- ACCORDION_END -->
 **ステップ2：** 分配法則を使って展開する
-
+<!-- ACCORDION_START: 分配法則を使って展開する-->
 \[
 \begin{aligned}
 &=3a\times2x-3a\times y-5b\times2x+5b\times y
 \end{aligned}
 \]
 
+<!-- ACCORDION_END -->
 **ステップ3：** 計算する
-
+<!-- ACCORDION_START: 計算する-->
 \[
 \begin{aligned}
 &=6ax-3ay-10bx+5by
 \end{aligned}
 \]
+<!-- ACCORDION_END -->

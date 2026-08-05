@@ -11,7 +11,7 @@
 
 【解説】  
 **ステップ1：** 乗法の公式が使えないか検討する
-
+<!-- ACCORDION_START: 乗法の公式が使えないか検討する-->
 \[
 (\hlblue{3x}-\hlpink{8})^2
 \]
@@ -24,13 +24,17 @@
 \]
 ここでは、$M=\hlblue{3x},\ N=\hlpink{8}$ と見る。
 
+<!-- ACCORDION_END -->
 **ステップ2：** 乗法の公式にあてはめる
+<!-- ACCORDION_START: 乗法の公式にあてはめる-->
 \[
 (\hlblue{3x}-\hlpink{8})^2
 =(\hlblue{3x})^2-2\times\hlblue{3x}\times\hlpink{8}+(\hlpink{8})^2
 \]
 
+<!-- ACCORDION_END -->
 **ステップ3：** 整理する
+<!-- ACCORDION_START: 整理する-->
 \[
 \begin{aligned}
 &=9x^2-48x+64
@@ -38,3 +42,4 @@
 \]
 
 中項は $-2MN$ なので、$-48x$ となる。また、最後の $N^2$ は正になるため、$+64$ となる。
+<!-- ACCORDION_END -->

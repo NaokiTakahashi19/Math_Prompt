@@ -8,20 +8,25 @@
 
 【解説】  
 **ステップ1：** 数量の関係を式で表す
+<!-- ACCORDION_START: 数量の関係を式で表す-->
 三角形の面積は、底辺 $\times$ 高さ $\div 2$ で求める。底辺が $\hlblue{3a}$、高さが $\hlblue{2b}$ だから、この三角形の面積は
 \[
 \frac{1}{2}\times \hlblue{3a}\times \hlblue{2b}
 = \bbox[2px,lightyellow]{3ab}
 \]
 
+<!-- ACCORDION_END -->
 **ステップ2：** 数量の関係を式で表す
+<!-- ACCORDION_START: 数量の関係を式で表す-->
 底辺が $\hlpink{4a}$、高さが $\hlpink{b}$ の三角形の面積を文字式で表す。面積の公式より、
 \[
 \frac{1}{2}\times \hlpink{4a}\times \hlpink{b}
 = \bbox[2px,lightyellow]{2ab}
 \]
 
+<!-- ACCORDION_END -->
 **ステップ3：** 比を求める
+<!-- ACCORDION_START: 比を求める-->
 底辺が $3a$、高さが $2b$ の三角形の面積が、底辺が $4a$、高さが $b$ の三角形の面積の何倍かを計算する。
 はじめの三角形の面積は $3ab$、あとの三角形の面積は $2ab$ であるから、
 \[
@@ -29,3 +34,4 @@
 = \bbox[2px,lightyellow]{\frac{3}{2}}
 \]
 よって、底辺が $3a$、高さが $2b$ の三角形の面積は、底辺が $4a$、高さが $b$ の三角形の面積の $\frac{3}{2}$ 倍である。
+<!-- ACCORDION_END -->

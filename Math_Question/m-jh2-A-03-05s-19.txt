@@ -16,6 +16,7 @@ x=3,\quad y=-1
 
 【解説】  
 **ステップ1：** 代入しやすい文字を選ぶ  
+<!-- ACCORDION_START: 代入しやすい文字を選ぶ-->
 代入しやすい文字を選ぶ。  
 1つ目の式の $y$ の係数が $-1$ なので、1つ目の式を $y=\cdots$ の形にする。
 
@@ -27,7 +28,9 @@ y&=5x-16
 \end{aligned}
 \]
 
+<!-- ACCORDION_END -->
 **ステップ2：** 式を代入する  
+<!-- ACCORDION_START: 式を代入する-->
 2つ目の式に代入する。
 \[
 2x+3\hlblue{y}=3
@@ -38,7 +41,9 @@ y&=5x-16
 2x+3\hlblue{(5x-16)}=3
 \]
 
+<!-- ACCORDION_END -->
 **ステップ3：** 文字の値を求める  
+<!-- ACCORDION_START: 文字の値を求める-->
 $x$ を求める。
 \[
 \begin{aligned}
@@ -50,7 +55,9 @@ x&=3
 \end{aligned}
 \]
 
+<!-- ACCORDION_END -->
 **ステップ4：** もう一方の文字の値を求める  
+<!-- ACCORDION_START: もう一方の文字の値を求める-->
 $y$ を求める。
 \[
 \begin{aligned}
@@ -60,3 +67,4 @@ y&=5x-16\\
 &=-1
 \end{aligned}
 \]
+<!-- ACCORDION_END -->

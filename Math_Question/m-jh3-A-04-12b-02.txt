@@ -11,15 +11,16 @@
 
 【解説】  
 **ステップ1：** 根号の中がそろっているか確認する
-
+<!-- ACCORDION_START: 根号の中がそろっているか確認する-->
 \[
 2\sqrt{6}+\sqrt{24}
 \]
 では、根号の中の数が $6$ と $24$ でそろっていない。
 そこで、$\sqrt{24}$ を簡単にする。
 
+<!-- ACCORDION_END -->
 **ステップ2：** $\sqrt{24}$ を簡単にする
-
+<!-- ACCORDION_START: $\sqrt{24}$ を簡単にする-->
 \[
 24=4\times 6,\quad 4=2^2
 \]
@@ -33,12 +34,14 @@
 \]
 となる。
 
+<!-- ACCORDION_END -->
 **ステップ3：** もとの式に戻す
-
+<!-- ACCORDION_START: もとの式に戻す-->
 もとの式の $\sqrt{24}$ を $2\sqrt{6}$ に置きかえる。
 
+<!-- ACCORDION_END -->
 **ステップ4：** 係数だけを計算する
-
+<!-- ACCORDION_START: 係数だけを計算する-->
 \[
 \begin{aligned}
 2\sqrt{6}+\sqrt{24}
@@ -47,3 +50,4 @@
 &= 4\hlpink{\sqrt{6}}
 \end{aligned}
 \]
+<!-- ACCORDION_END -->

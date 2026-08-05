@@ -13,11 +13,14 @@
 負の数を分配するときは、かけ算の符号に注意する。
 
 **ステップ1：** 分配法則を使う
+<!-- ACCORDION_START: 分配法則を使う-->
 \[
 (-4)\times(6-9)=(-4)\times6-(-4)\times9
 \]
 
+<!-- ACCORDION_END -->
 **ステップ2：** 計算する
+<!-- ACCORDION_START: 計算する-->
 \[
 \begin{aligned}
 &=-24-(-36)\\
@@ -25,3 +28,4 @@
 &=12
 \end{aligned}
 \]
+<!-- ACCORDION_END -->
