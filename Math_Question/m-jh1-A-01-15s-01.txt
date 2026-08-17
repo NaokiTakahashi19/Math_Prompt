@@ -13,7 +13,7 @@
 四則が混合した計算では、次の順に進める。
 $\hlblue{\text{①かっこの中を先に計算する}}$
 $\hlpink{\text{②かけ算・わり算を計算する}}$
-$\bbox[2px,lightyellow]{\text{③たし算・引き算を計算する}}$
+③たし算・引き算を計算する
 ※マイナスの記号に注意する。
 
 **ステップ1：** 計算する順序を判断する
@@ -24,7 +24,7 @@ $\bbox[2px,lightyellow]{\text{③たし算・引き算を計算する}}$
 12\div(-3)\times\hlblue{(5-8)}-7
 &= \hlpink{12\div(-3)\times(-3)}-7\\
 &= \hlpink{-4\times(-3)}-7\\
-&= \bbox[2px,lightyellow]{12-7}\\
+&= 12-7\\
 &= 5
 \end{aligned}
 \]

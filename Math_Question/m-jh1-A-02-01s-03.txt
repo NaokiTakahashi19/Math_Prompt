@@ -10,7 +10,7 @@
 **ステップ1：** 数量の関係を式で表す
 <!-- ACCORDION_START: 数量の関係を式で表す-->
 \[
-\text{おつり}=\bbox[2px,lightyellow]{\text{出したお金}}-\left(\hlblue{\text{りんごの代金}}+\hlpink{\text{ジュースの代金}}\right)
+\text{おつり}=\text{出したお金}-\left(\hlblue{\text{りんごの代金}}+\hlpink{\text{ジュースの代金}}\right)
 \]
 と考える。
 
@@ -20,7 +20,7 @@
 
 したがって、おつりは、
 \[
-\bbox[2px,lightyellow]{1000}-(\hlblue{6x}+\hlpink{4y})
+1000-(\hlblue{6x}+\hlpink{4y})
 \]
 となる。
 

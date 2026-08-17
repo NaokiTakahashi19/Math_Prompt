@@ -13,14 +13,14 @@ c-a+b
 
 \[
 \text{はじめの人数}
-=\hlblue{\text{最後の人数}}-\hlpink{\text{乗った人数}}+\bbox[2px,lightyellow]{\text{降りた人数}}
+=\hlblue{\text{最後の人数}}-\hlpink{\text{乗った人数}}+\text{降りた人数}
 \]
 
-問題文より、最後の人数は $\hlblue{c}$ 人、乗った人数は $\hlpink{a}$ 人、降りた人数は $\bbox[2px,lightyellow]{b}$ 人である。
+問題文より、最後の人数は $\hlblue{c}$ 人、乗った人数は $\hlpink{a}$ 人、降りた人数は $b$ 人である。
 
 したがって、はじめにバスに乗っていた人数は、
 \[
-\hlblue{c}-\hlpink{a}+\bbox[2px,lightyellow]{b}
+\hlblue{c}-\hlpink{a}+b
 \]
 
 具体的に、はじめの人数が20人、途中で5人乗り、3人降りたとすると、最後の人数は

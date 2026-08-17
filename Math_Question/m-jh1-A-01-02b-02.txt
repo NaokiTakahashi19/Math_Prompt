@@ -32,8 +32,8 @@ $50\mathrm{kg}$ を基準にして、$47\mathrm{kg}$ を正負の符号を使っ
 \end{tikzpicture}
 
 <!-- ACCORDION_END -->
-**ステップ3：** 基準より軽い → 「−」をつける
-<!-- ACCORDION_START: 基準より軽い → 「−」をつける-->
+**ステップ3：** 基準より軽い → 「－」をつける
+<!-- ACCORDION_START: 基準より軽い → 「－」をつける-->
 よって、答えは
 
 \[

@@ -29,10 +29,6 @@
 
 **ステップ1：** 符号の規則を適用する
 <!-- ACCORDION_START: 符号の規則を適用する-->
-\[
-\hlpink{(-4)}\times\hlblue{9}\times\hlblue{5}\times\hlpink{(-2)}
-\]
-正の数を水色、負の数をピンクで表している。
 負の数は $\hlpink{(-4)}$ と $\hlpink{(-2)}$ の2つあるので、全体の積の符号は $\hlblue{(+)}$ になる。
 
 <!-- ACCORDION_END -->
@@ -42,9 +38,9 @@
 \begin{aligned}
 (-4)\times9\times5\times(-2)
 &=\hlpink{(-4)}\times\hlpink{(-2)}\times\hlblue{9}\times\hlblue{5}
-&&\cdots\text{乗法の交換法則}\\
+&&\text{（乗法の交換法則）}\\
 &=8\times45
-&&\cdots\text{乗法の結合法則}\\
+&&\text{（乗法の結合法則）}\\
 &=360
 \end{aligned}
 \]

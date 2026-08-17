@@ -13,7 +13,7 @@
 <!-- ACCORDION_START: 加法の形に直す-->
 ひき算は、負の数をたす形に直して考える。
 \[
-\hlblue{7a}+\hlpink{(-2b)}+\bbox[2px,lightyellow]{(-5)}
+\hlblue{7a}+\hlpink{(-2b)}+(-5)
 \]
 
 <!-- ACCORDION_END -->
@@ -21,7 +21,7 @@
 <!-- ACCORDION_START: 項を区切る-->
 項は、たし算でつながった1つ1つのまとまりである。
 \[
-\hlblue{7a},\quad \hlpink{-2b},\quad \bbox[2px,lightyellow]{-5}
+\hlblue{7a},\quad \hlpink{-2b},\quad -5
 \]
 
 <!-- ACCORDION_END -->

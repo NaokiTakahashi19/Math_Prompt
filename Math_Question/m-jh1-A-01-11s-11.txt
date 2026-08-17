@@ -27,7 +27,7 @@ $\left(\frac{7}{3}\right)^3$ の指数は $3$ である。これは、$\frac{7}{
 \[
 \begin{aligned}
 &=\frac{7\times7\times7}{3\times3\times3}\\
-&=\frac{343}{27}
+&\frac{343}{27}
 \end{aligned}
 \]
 <!-- ACCORDION_END -->

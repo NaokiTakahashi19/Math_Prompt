@@ -25,7 +25,7 @@ $\left(-\frac{2}{5}\right)^3$ の指数は $3$ である。これは、$-\frac{2
 \[
 \begin{aligned}
 &=-\frac{2\times2\times2}{5\times5\times5}\\
-&=-\frac{8}{125}
+&-\frac{8}{125}
 \end{aligned}
 \]
 <!-- ACCORDION_END -->

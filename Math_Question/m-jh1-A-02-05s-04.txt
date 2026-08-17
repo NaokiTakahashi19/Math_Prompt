@@ -11,7 +11,7 @@
 <!-- ACCORDION_START: 項を整理する-->
 ひき算は、負の数をたす形に直して考える。項を分けるときは、符号も一緒に見ることが大切である。
 \[
-\hlblue{(-p)}+\hlpink{\frac{2}{5}q}+\bbox[2px,lightyellow]{(-3r)}+9
+\hlblue{(-p)}+\hlpink{\frac{2}{5}q}+(-3r)+9
 \]
 
 <!-- ACCORDION_END -->
@@ -21,7 +21,7 @@
 \[
 \hlblue{-p}\rightarrow\hlblue{-1},\quad
 \hlpink{\frac{2}{5}q}\rightarrow\hlpink{\frac{2}{5}},\quad
-\bbox[2px,lightyellow]{-3r}\rightarrow\bbox[2px,lightyellow]{-3}
+-3r\rightarrow-3
 \]
 
 <!-- ACCORDION_END -->

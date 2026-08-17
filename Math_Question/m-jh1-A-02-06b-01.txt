@@ -13,8 +13,8 @@
 **ステップ1：** 文字の項と数だけの項に分ける
 <!-- ACCORDION_START: 文字の項と数だけの項に分ける-->
 \[
-\hlblue{5x}+\bbox[2px,lightyellow]{(-8)}+\hlblue{2x}+\bbox[2px,lightyellow]{3}
-=\hlblue{5x}+\hlblue{2x}+\bbox[2px,lightyellow]{(-8)}+\bbox[2px,lightyellow]{3}
+\hlblue{5x}+(-8)+\hlblue{2x}+3
+=\hlblue{5x}+\hlblue{2x}+(-8)+3
 \]
 
 <!-- ACCORDION_END -->

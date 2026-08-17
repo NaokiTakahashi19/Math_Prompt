@@ -25,7 +25,7 @@ $\left(-\frac{4}{3}\right)^3$ の指数は $3$ である。これは、$-\frac{4
 \[
 \begin{aligned}
 &=-\frac{4\times4\times4}{3\times3\times3}\\
-&=-\frac{64}{27}
+&-\frac{64}{27}
 \end{aligned}
 \]
 <!-- ACCORDION_END -->

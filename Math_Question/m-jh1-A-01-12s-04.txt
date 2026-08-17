@@ -34,7 +34,6 @@ $-\frac{14}{9}$ で割ることは、その逆数の $-\frac{9}{14}$ をかけ�
 \begin{aligned}
 -\left(\frac{7}{12}\times\frac{9}{14}\right)
 &=-\left(\frac{7\times 9}{12\times 14}\right)\\
-&=-\left(\frac{3}{8}\right)\\
 &=-\frac{3}{8}
 \end{aligned}
 \]

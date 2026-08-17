@@ -29,10 +29,6 @@
 
 **ステップ1：** 符号の規則を適用する
 <!-- ACCORDION_START: 符号の規則を適用する-->
-\[
-\hlpink{(-8)}\times\hlblue{3}\times\hlpink{(-5)}\times\hlblue{2}
-\]
-正の数を水色、負の数をピンクで表している。
 負の数は $\hlpink{(-8)}$ と $\hlpink{(-5)}$ の2つあるので、全体の積の符号は $\hlblue{(+)}$ になる。
 
 <!-- ACCORDION_END -->
@@ -42,9 +38,9 @@
 \begin{aligned}
 (-8)\times3\times(-5)\times2
 &=\hlpink{(-8)}\times\hlpink{(-5)}\times\hlblue{3}\times\hlblue{2}
-&&\cdots\text{乗法の交換法則で順序を入れかえる}\\
+&&\text{（順序を入れかえる）}\\
 &=40\times6
-&&\cdots\text{乗法の結合法則で先にまとめる}\\
+&&\text{（先にまとめる）}\\
 &=240
 \end{aligned}
 \]

@@ -32,8 +32,8 @@ $20^\circ\mathrm{C}$ を基準にして、ある日の最高気温 $17^\circ\mat
 \end{tikzpicture}
 
 <!-- ACCORDION_END -->
-**ステップ3：** 基準より低い → 「−」をつける
-<!-- ACCORDION_START: 基準より低い → 「−」をつける-->
+**ステップ3：** 基準より低い → 「－」をつける
+<!-- ACCORDION_START: 基準より低い → 「－」をつける-->
 よって、答えは
 
 \[
