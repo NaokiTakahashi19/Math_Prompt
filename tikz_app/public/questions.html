@@ -1174,8 +1174,12 @@
       return String(text || '').replace(/\s+/g, ' ');
     }
 
+    function stripHtmlComments(text) {
+      return String(text || '').replace(/<!--[\s\S]*?-->/g, '');
+    }
+
     function cleanDocxText(text) {
-      return String(text || '')
+      return stripHtmlComments(text)
         .replace(/`([^`]+)`/g, '$1')
         .replace(/\*\*([^*]+)\*\*/g, '$1')
         .replace(/\*([^*]+)\*/g, '$1')
@@ -1717,7 +1721,7 @@
     async function rawTextToDocxParagraphs(content) {
       const { Paragraph, TextRun, AlignmentType } = window.docx;
       const paragraphs = [];
-      const segments = splitIntoSegments(content || '');
+      const segments = splitIntoSegments(stripHtmlComments(content));
 
       for (const segment of segments) {
         if (segment.type === 'tikz') {
