@@ -1,12 +1,12 @@
 ■問題  
 次の計算をしなさい。
 \[
-\frac{5}{6}(12p - 6q) - \frac{3}{2}(2p + 4q)
+\frac{5}{6}(12a - 6b) - \frac{3}{2}(2a + 4b)
 \]
 
 【解答】  
 \[
-7p - 11q
+7a - 11b
 \]
 
 【解説】  
@@ -14,8 +14,8 @@
 <!-- ACCORDION_START: 分配法則を使って展開する-->
 \[
 \begin{aligned}
-\frac{5}{6}(12p - 6q) - \frac{3}{2}(2p + 4q)
-&=\hlblue{\frac{5}{6}}\times12p+\hlblue{\frac{5}{6}}\times(-6q)+\left(-\hlpink{\frac{3}{2}}\right)\times2p+\left(-\hlpink{\frac{3}{2}}\right)\times4q
+\frac{5}{6}(12a - 6b) - \frac{3}{2}(2a + 4b)
+&=\hlblue{\frac{5}{6}}\times12a+\hlblue{\frac{5}{6}}\times(-6b)+\left(-\hlpink{\frac{3}{2}}\right)\times2a+\left(-\hlpink{\frac{3}{2}}\right)\times4b
 \end{aligned}
 \]
 
@@ -24,11 +24,11 @@
 <!-- ACCORDION_START: 展開した式を整理する-->
 \[
 \begin{aligned}
-&=10p-5q-3p-6q\\
-&=10p-3p-5q-6q\\
-&=7p-11q
+&=10a-5b-3a-6b\\
+&=10a-3a-5b-6b\\
+&=7a-11b
 \end{aligned}
 \]
 
-後ろのかっこの前にあるマイナスは、かっこの中のすべての項にかかる。したがって、$\frac{3}{2}(2p+4q)$ を引くことは、$-\frac{3}{2}$ をそれぞれの項にかけることと同じである。
+後ろのかっこの前にあるマイナスは、かっこの中のすべての項にかかる。したがって、$\frac{3}{2}(2a+4b)$ を引くことは、$-\frac{3}{2}$ をそれぞれの項にかけることと同じである。
 <!-- ACCORDION_END -->

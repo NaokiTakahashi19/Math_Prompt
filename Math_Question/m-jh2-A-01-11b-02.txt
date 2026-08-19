@@ -1,12 +1,12 @@
 ■問題  
 次の計算をしなさい。
 \[
-15pq^2 \div \frac{3q}{4}
+15ab^2 \div \frac{3b}{4}
 \]
 
 【解答】  
 \[
-20pq
+20ab
 \]
 
 【解説】  
@@ -14,9 +14,9 @@
 
 **ステップ1：** 除法を乗法にかえる
 <!-- ACCORDION_START: 除法を乗法にかえる-->
-$\frac{3q}{4}$ でわるので、$\frac{3q}{4}$ の逆数 $\frac{4}{3q}$ をかける。
+$\frac{3b}{4}$ でわるので、$\frac{3b}{4}$ の逆数 $\frac{4}{3b}$ をかける。
 \[
-= 15pq^2 \times \frac{4}{3q}
+= 15ab^2 \times \frac{4}{3b}
 \]
 
 <!-- ACCORDION_END -->
@@ -24,21 +24,21 @@ $\frac{3q}{4}$ でわるので、$\frac{3q}{4}$ の逆数 $\frac{4}{3q}$ をか�
 <!-- ACCORDION_START: 係数と同じ文字をまとめる-->
 大きな分数にし、係数を前に集め、同じ文字どうしを並べる。係数と文字を分けると、どこを約分できるかが見つけやすくなる。
 \[
-= \frac{15\times4\times p\times q\times q}{3\times q}
+= \frac{15\times4\times a\times b\times b}{3\times b}
 \]
 
 <!-- ACCORDION_END -->
 **ステップ3：** 共通因数を約分する
 <!-- ACCORDION_START: 共通因数を約分する-->
-分子と分母の項を比べ、同じ文字を約分する。分子と分母に同じ $q$ があるので、これを約分する。また、係数の $15$ と $3$ も約分できる。
+分子と分母の項を比べ、同じ文字を約分する。分子と分母に同じ $b$ があるので、これを約分する。また、係数の $15$ と $3$ も約分できる。
 \[
-= 5\times4\times p\times q
+= 5\times4\times a\times b
 \]
 
 <!-- ACCORDION_END -->
 **ステップ4：** まとめる
 <!-- ACCORDION_START: まとめる-->
 \[
-= 20pq
+= 20ab
 \]
 <!-- ACCORDION_END -->

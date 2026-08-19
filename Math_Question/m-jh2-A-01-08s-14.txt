@@ -1,12 +1,12 @@
 ■問題  
 次の計算をしなさい。
 \[
-\frac{5}{6}(12p - 6q) - \frac{3}{4}(8p + 4q)
+\frac{5}{6}(12a - 6b) - \frac{3}{4}(8a + 4b)
 \]
 
 【解答】  
 \[
-4p - 8q
+4a - 8b
 \]
 
 【解説】  
@@ -14,8 +14,8 @@
 <!-- ACCORDION_START: 分配法則を使って展開する-->
 \[
 \begin{aligned}
-\frac{5}{6}(12p - 6q) - \frac{3}{4}(8p + 4q)
-&=\hlblue{\frac{5}{6}}\times12p+\hlblue{\frac{5}{6}}\times(-6q)+(-\hlpink{\frac{3}{4}})\times8p+(-\hlpink{\frac{3}{4}})\times4q
+\frac{5}{6}(12a - 6b) - \frac{3}{4}(8a + 4b)
+&=\hlblue{\frac{5}{6}}\times12a+\hlblue{\frac{5}{6}}\times(-6b)+(-\hlpink{\frac{3}{4}})\times8a+(-\hlpink{\frac{3}{4}})\times4b
 \end{aligned}
 \]
 
@@ -26,9 +26,9 @@
 <!-- ACCORDION_START: 展開した式を整理する-->
 \[
 \begin{aligned}
-&=10p-5q-6p-3q\\
-&=10p-6p-5q-3q\\
-&=4p-8q
+&=10a-5b-6a-3b\\
+&=10a-6a-5b-3b\\
+&=4a-8b
 \end{aligned}
 \]
 <!-- ACCORDION_END -->

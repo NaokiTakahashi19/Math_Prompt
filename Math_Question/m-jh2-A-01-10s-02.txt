@@ -1,12 +1,12 @@
 ■問題  
 次の計算をしなさい。
 \[
-\left(-\frac{3}{4}p^3q\right)\times 8pq^2r
+\left(-\frac{3}{4}a^3b\right)\times 8ab^2c
 \]
 
 【解答】  
 \[
--6p^4q^3r
+-6a^4b^3c
 \]
 
 【解説】  
@@ -15,29 +15,29 @@
 単項式は、「係数」と「文字の部分」に分けて考える。
 \[
 \begin{aligned}
--\frac{3}{4}p^3q &= -\frac{3}{4}\times p\times p\times p\times q\\
-8pq^2r &= 8\times p\times q\times q\times r
+-\frac{3}{4}a^3b &= -\frac{3}{4}\times a\times a\times a\times b\\
+8ab^2c &= 8\times a\times b\times b\times c
 \end{aligned}
 \]
 \[
-\hlblue{\left(-\frac{3}{4}p^3q\right)}\times\hlpink{8pq^2r}
+\hlblue{\left(-\frac{3}{4}a^3b\right)}\times\hlpink{8ab^2c}
 \]
 \[
-= \hlblue{-\frac{3}{4}\times p\times p\times p\times q}\times\hlpink{8\times p\times q\times q\times r}
+= \hlblue{-\frac{3}{4}\times a\times a\times a\times b}\times\hlpink{8\times a\times b\times b\times c}
 \]
 
 <!-- ACCORDION_END -->
 **ステップ2：** 係数どうし、同じ文字どうしが並ぶように順番を変える
 <!-- ACCORDION_START: 係数どうし、同じ文字どうしが並ぶように順番を変える-->
 \[
-= -\frac{3}{4}\times 8\times p\times p\times p\times p\times q\times q\times q\times r
+= -\frac{3}{4}\times 8\times a\times a\times a\times a\times b\times b\times b\times c
 \]
 
 <!-- ACCORDION_END -->
 **ステップ3：** 計算する
 <!-- ACCORDION_START: 計算する-->
 \[
-= -6p^4q^3r
+= -6a^4b^3c
 \]
 
 **ポイント：**  
@@ -46,5 +46,5 @@
 -\frac{3}{4}\times 8=-6
 \]
 
-文字は、$p$ が4個、$q$ が3個、$r$ が1個あるので、$p^4q^3r$ になる。
+文字は、$a$ が4個、$b$ が3個、$c$ が1個あるので、$a^4b^3c$ になる。
 <!-- ACCORDION_END -->
